@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>898273018789-5o4bld1ge18roj434kl3pdn655v0nff7.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.898273018789-5o4bld1ge18roj434kl3pdn655v0nff7</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>898273018789-4q1vqsf7meissn5aae3vpj415rrdv3cc.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCtCnLrwLosw_tf0LoqLcQSmtTjTHjoW38</string>
+	<key>GCM_SENDER_ID</key>
+	<string>898273018789</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.gettheskydoctors.merchant</string>
+	<key>PROJECT_ID</key>
+	<string>gettheskydoctor</string>
+	<key>STORAGE_BUCKET</key>
+	<string>gettheskydoctor.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:898273018789:ios:db6b3c0ee444678767de4c</string>
+</dict>
+</plist>
