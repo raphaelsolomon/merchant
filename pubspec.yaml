@@ -52,7 +52,7 @@ dependencies:
   font_awesome_flutter: ^10.1.0
   get: ^4.6.5
   intl:
-  wakelock: ^0.5.6
+  wakelock: ^0.6.2
   flutter_ringtone_player: ^3.0.0
   flutter_keyboard_visibility: ^5.2.0
   fluttericon: ^2.0.0
@@ -120,9 +120,11 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
-  #   - images/a_dot_ham.jpeg
+  assets:
+    - assets/imgs/
+    - assets/fonts/
+    - assets/auth/
+    - assets/estore/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

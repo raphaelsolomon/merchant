@@ -9,11 +9,12 @@ import 'package:get/get.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:merchant/auth/login.dart';
-import 'package:merchant/auth/onboarding.dart';
 import 'package:merchant/constant/strings.dart';
 import 'package:merchant/firebase_options.dart';
 import 'package:merchant/model/person/user.dart';
 import 'package:merchant/notification/helper_notification.dart';
+import 'package:merchant/pages/homepage.dart';
+import 'package:merchant/pages/page_selector.dart';
 import 'package:merchant/providers/page_controller.dart';
 import 'package:merchant/providers/user_provider.dart';
 import 'package:path_provider/path_provider.dart';
@@ -34,7 +35,7 @@ Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   Platform.isIOS ? await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform)
-      : await Firebase.initializeApp(name: 'patient', options: DefaultFirebaseOptions.currentPlatform);
+      : await Firebase.initializeApp(name: 'merchant', options: DefaultFirebaseOptions.currentPlatform);
   final RemoteMessage? remoteMessage = await FirebaseMessaging.instance.getInitialMessage();
   if (remoteMessage != null) {
     print(remoteMessage);
@@ -92,6 +93,7 @@ class _MyAppState extends State<MyApp> {
 
   @override
   void initState() {
+   // context.read<UserProvider>().executeThis();
     super.initState();
   }
 
@@ -140,7 +142,7 @@ class _MyAppState extends State<MyApp> {
           localeListResolutionCallback: (locales, supportedLocales) {
             return locales!.first;
           },
-          title: 'Patient',
+          title: 'Merchant',
           defaultTransition: Transition.zoom,
           debugShowCheckedModeBanner: true,
           builder: (context, child) => ScrollConfiguration(
@@ -152,7 +154,7 @@ class _MyAppState extends State<MyApp> {
               primarySwatch: Colors.blue,
               primaryColor: Colors.black54),
           home: box.get('isFirst') == null
-              ? const OnBoardingScreen()
+              ? const PageSelection()
               : user.get(USERPATH) == null
                   ? const AuthLogin()
                   : Container() //DashBoard(),

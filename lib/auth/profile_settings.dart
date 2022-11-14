@@ -7,8 +7,7 @@ import 'package:merchant/providers/page_controller.dart';
 import 'package:provider/provider.dart';
 
 class ProfileSettings extends StatefulWidget {
-  final GlobalKey<ScaffoldState> scaffold;
-  const ProfileSettings(this.scaffold, {Key? key}) : super(key: key);
+  const ProfileSettings({Key? key}) : super(key: key);
 
   @override
   State<ProfileSettings> createState() => _ProfileSettingsState();

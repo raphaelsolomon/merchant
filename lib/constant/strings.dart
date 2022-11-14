@@ -1479,36 +1479,36 @@ List<String> ServicesList = [
 
 List homeItem1 = [{
   'icon': '',
-  'title': 'Find a Medical Center',
-  'desc': 'Find hospitals, laboratories, pharmacies and clinics'
+  'title': 'My Customers',
+  'desc': 'Manage All your Customers records and billing with just a click.'
 }, {
   'icon': '',
-  'title': 'Speak to a Doctor',
-  'desc': 'Discuss your health issues and book appointments'
+  'title': 'Appointments',
+  'desc': 'See all incoming and past appointments, you can also reschedule and accept or reject appoinments'
 },{
   'icon': '',
-  'title': 'Visit the ePharamcy',
-  'desc': 'Order medications and get it delivered anywhere'
-},{
-  'icon': '',
-  'title': 'Symptoms Checker',
-  'desc': 'Input symptoms and get instant diagnosis advice'
-},];
+  'title': 'Order medicines',
+  'desc': 'Get a low rate of interest for all medications from local and international suppliers'
+}];
 
 List homeItem2 = [{
   'icon': '',
-  'title': 'Book a Test',
-  'desc': 'Diagnostic tests at our partner laboratories'
+  'title': 'Health brands',
+  'desc': 'Sale and Order Health Suppliers from Top Brands around the world with much hassles.'
 }, {
   'icon': '',
-  'title': 'Cementeries & Accessories',
-  'desc': 'Find cementeries and accessories'
+  'title': 'Book On Whatsapp',
+  'desc': 'Speak to our Support Agents to Book and order products and services from whatsapp.'
 },{
   'icon': '',
-  'title': 'Book an Ambulance',
-  'desc': 'Get closes ambulance for emergency'
+  'title': 'Create Invoices',
+  'desc': 'You can manage all your customers and suppliers invoices including in app billings .'
+},  {
+  'icon': '',
+  'title': 'QR Scanner',
+  'desc': 'You can scan QR code to accept payments from your customers aywhere and anytime.'
 },{
   'icon': '',
-  'title': 'Womens\'s Care',
-  'desc': 'Routine and Advanced care for all age'
-},];
+  'title': 'Manage Stocks',
+  'desc': 'You can create, edit and manage your stocks in multiple stores and see your stock movements'
+}];
