@@ -8,10 +8,12 @@ import 'package:merchant/model/nav_drawer.model.dart';
 import 'package:merchant/model/person/user.dart';
 
 const String CALL_COLLECTION = "call";
-const LINKEDIN_CLIENTID= '772wa1uu6cvroc';
+const LINKEDIN_CLIENTID = '772wa1uu6cvroc';
 const LINKEDIN_SECRET = 'aQF6dRF0wmkPm366';
-const LINKEDIN_REDIRECT = 'https://www.linkedin.com/developers/tools/oauth/redirect';
-const LINKEDIN_ACCESS = 'AQUQv9Hzq_OEB82jAgynLLVp8PADGaUcE2bBug-WWAg100hOYKIWBAH1Vt8fXS-y20jB5YSYbr5yLq0Itv7H-s72JHxVfochrVOf-WSneoxOhMiriw16WwGlabu1PwbtvFTaAoyVYYL943stj_Qb7bj76GKqQPTOlTQlGwYfqB8NS1_YLzNdsx9M3rZrnMKAoOH6IiQW-T8YfTUyfYeRj0tLn2MMqDbr1kh2h5yMY8uEm-tmsP451X5L_UBNcrPf_GKkODH-kyZvO6PofJOP3rSKoZ41O1hLjPcYkKV8-lLdDHLgTXylWdQQ_3yIeJb5vVeMYTX7FhtX32EfMXObS3deTYinzw';
+const LINKEDIN_REDIRECT =
+    'https://www.linkedin.com/developers/tools/oauth/redirect';
+const LINKEDIN_ACCESS =
+    'AQUQv9Hzq_OEB82jAgynLLVp8PADGaUcE2bBug-WWAg100hOYKIWBAH1Vt8fXS-y20jB5YSYbr5yLq0Itv7H-s72JHxVfochrVOf-WSneoxOhMiriw16WwGlabu1PwbtvFTaAoyVYYL943stj_Qb7bj76GKqQPTOlTQlGwYfqB8NS1_YLzNdsx9M3rZrnMKAoOH6IiQW-T8YfTUyfYeRj0tLn2MMqDbr1kh2h5yMY8uEm-tmsP451X5L_UBNcrPf_GKkODH-kyZvO6PofJOP3rSKoZ41O1hLjPcYkKV8-lLdDHLgTXylWdQQ_3yIeJb5vVeMYTX7FhtX32EfMXObS3deTYinzw';
 const String APP_ID = "696c822eb6044bdda1120f3a7ae97fc2";
 const String FIREBASE_WEB_TOKEN =
     "AAAAqF03j5w:APA91bFWo0NcDfGQSWBlMOXw5S7_PoxTzn8ysxuB2CVVUEJXYujYJxxxw6Yl_qTI4bUgICzdTtx66o1QhKfJAcCd_wsqqrcEyItKJRXhIo5xAsV8mVGrmq07QiBorF-J4_HEIic7aR8W";
@@ -20,7 +22,6 @@ const String CALL_STATUS_DIALLED = "dialled";
 const String CALL_STATUS_RECEIVED = "received";
 const String CALL_STATUS_MISSED = "missed";
 const USERPATH = 'details';
-
 
 List<User> users = [
   // User(
@@ -228,6 +229,8 @@ List<String> month = [
   'December'
 ];
 
+List<String> constDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+
 List Advert = [
   {'title': 'Upto\n10%', 'desc': '10% cashback\neveryhour'},
   {'title': 'Upto\n15%', 'desc': '15% cashback\neveryhour'}
@@ -257,21 +260,70 @@ getNavdraweritem(BuildContext context) {
   ];
 }
 
-List removeBottom = [1, -10, 3, 8, -14, -8, -5, 9, -9, -6, -19, -7, -12, 6, 8, -2, -13, 7, -17];
-List removeBottom1 = [1, -10, 3, 8, -14, -8, -5, 9, -9, -6, -19, -7, -12, 6, 8, -2, -13, 7 -17];
+List removeBottom = [
+  2
+];
+List removeBottom1 = [
+  2
+];
 
+List shop_by_categgory = [
+  {
+    'title': 'OTC MEDICINES',
+    'color': Colors.blueGrey,
+    'icon': 'assets/estore/estore5.png'
+  },
+  {
+    'title': 'DIABETIC MEDICINES',
+    'color': Colors.lightBlueAccent,
+    'icon': 'assets/estore/estore6.png'
+  },
+  {
+    'title': 'BABY & MOTHER',
+    'color': Colors.orangeAccent,
+    'icon': 'assets/estore/estore7.png'
+  },
+];
 
-List shop_by_categgory = [{'title': 'OTC MEDICINES', 'color': Colors.blueGrey, 'icon': 'assets/estore/estore5.png'}, 
-{'title': 'DIABETIC MEDICINES', 'color': Colors.lightBlueAccent, 'icon': 'assets/estore/estore6.png'},
-{'title': 'BABY & MOTHER', 'color': Colors.orangeAccent, 'icon': 'assets/estore/estore7.png'},];
+List shop_by_offer = [
+  {
+    'title': 'STAY HOME GET DISCOUNT',
+    'color': Colors.purpleAccent,
+    'icon': 'assets/estore/bro.png'
+  },
+  {
+    'title': 'GET 50% OFF ON FIRST ORDER',
+    'color': Colors.amber,
+    'icon': 'assets/estore/bro.png'
+  },
+];
 
-List shop_by_offer = [{'title': 'STAY HOME GET DISCOUNT', 'color': Colors.purpleAccent, 'icon': 'assets/estore/bro.png'}, 
-{'title': 'GET 50% OFF ON FIRST ORDER', 'color': Colors.amber, 'icon': 'assets/estore/bro.png'},];
-
-List allStores = [{'title': 'Wild Life Store', 'desc': 'Willington Bridge', 'color': Colors.lightGreen, 'icon': 'assets/estore/estore4.png'}, 
-{'title': 'Healthyfy', 'desc': 'New Park Maryland', 'color': Colors.lightBlueAccent, 'icon': 'assets/estore/estore2.png'},
-{'title': 'Success Store', 'desc': 'Shoprite Aluasa', 'color': Colors.amber, 'icon': 'assets/estore/estore1.png'},
-{'title': 'Healthy Family', 'desc': 'Manchester New Park', 'color': Colors.lightGreenAccent, 'icon': 'assets/estore/estore3.png'}];
+List allStores = [
+  {
+    'title': 'Wild Life Store',
+    'desc': 'Willington Bridge',
+    'color': Colors.lightGreen,
+    'icon': 'assets/estore/estore4.png'
+  },
+  {
+    'title': 'Healthyfy',
+    'desc': 'New Park Maryland',
+    'color': Colors.lightBlueAccent,
+    'icon': 'assets/estore/estore2.png'
+  },
+  {
+    'title': 'Success Store',
+    'desc': 'Shoprite Aluasa',
+    'color': Colors.amber,
+    'icon': 'assets/estore/estore1.png'
+  },
+  {
+    'title': 'Healthy Family',
+    'desc': 'Manchester New Park',
+    'color': Colors.lightGreenAccent,
+    'icon': 'assets/estore/estore3.png'
+  }
+];
 
 List<NavDrawerItem> getNavdraweritem_(BuildContext context) {
   return [
@@ -286,19 +338,7 @@ List<NavDrawerItem> getNavdraweritem_(BuildContext context) {
         icon: FontAwesome5.dashcube,
         children: [],
         isOpen: false,
-        index: 10),
-    NavDrawerItem(
-        title: 'My Vitals & Target',
-        icon: FontAwesome.heart,
-        children: [],
-        isOpen: false,
         index: 1),
-    NavDrawerItem(
-        title: 'My Medical Records',
-        icon: Icons.folder,
-        children: [],
-        isOpen: false,
-        index: -10),
     NavDrawerItem(
         title: 'E-store',
         icon: FontAwesome5.store,
@@ -306,35 +346,24 @@ List<NavDrawerItem> getNavdraweritem_(BuildContext context) {
         isOpen: false,
         index: 4),
     NavDrawerItem(
-        title: 'Doctor Booking',
-        icon: FontAwesome5.user_nurse,
+        title: 'My Store',
+        icon: FontAwesome.heart,
         children: [],
         isOpen: false,
-        index: 3),
+        index: 2),
+    NavDrawerItem(
+        title: 'My Calender',
+        icon: Icons.folder,
+        children: [],
+        isOpen: false,
+        index: -10),
+
     // NavDrawerItem(
     //     title: 'My Appointment',
     //     icon: FontAwesome5.meetup,
     //     children: [],
     //     isOpen: false,
     //     index: 4),
-    NavDrawerItem(
-        title: 'My Reminder',
-        icon: Icons.alarm,
-        children: [],
-        isOpen: false,
-        index: 8),
-    NavDrawerItem(
-        title: 'My Family',
-        icon: Icons.family_restroom,
-        children: [],
-        isOpen: false,
-        index: 7),
-    NavDrawerItem(
-        title: 'Profile Settings',
-        icon: FontAwesome5.user,
-        children: [],
-        isOpen: false,
-        index: -2),
     NavDrawerItem(
         title: 'Communication',
         icon: FontAwesome5.facebook_messenger,
@@ -344,12 +373,49 @@ List<NavDrawerItem> getNavdraweritem_(BuildContext context) {
         ],
         isOpen: false,
         index: -0),
-    // NavDrawerItem(
-    //     title: 'My Prescription',
-    //     icon: Icons.family_restroom,
-    //     children: [],
-    //     isOpen: false,
-    //     index: -11),
+    NavDrawerItem(
+        title: 'Doctor Booking',
+        icon: FontAwesome5.user_nurse,
+        children: [],
+        isOpen: false,
+        index: 3),
+    NavDrawerItem(
+        title: 'Man./Dist.',
+        icon: Icons.alarm,
+        children: [],
+        isOpen: false,
+        index: 8),
+    NavDrawerItem(
+        title: 'Services',
+        icon: Icons.family_restroom,
+        children: [],
+        isOpen: false,
+        index: 7),
+    NavDrawerItem(
+        title: 'Medicine',
+        icon: Icons.family_restroom,
+        children: [],
+        isOpen: false,
+        index: -11),
+    NavDrawerItem(
+        title: 'Customer Mgt.',
+        icon: FontAwesome5.file_invoice,
+        children: [
+          {'index': -12, 'title': 'All Customera'},
+          {'index': 6, 'title': 'Add Customers'},
+        ],
+        isOpen: false,
+        index: -0),
+    NavDrawerItem(
+        title: 'Vendor Mgt.',
+        icon: FontAwesome5.file_invoice,
+        children: [
+          {'index': -12, 'title': 'All Suppliers'},
+          {'index': 6, 'title': 'Add Suppliers'},
+          {'index': 6, 'title': 'Purchases'},
+        ],
+        isOpen: false,
+        index: -0),
     NavDrawerItem(
         title: 'My Transaction',
         icon: FontAwesome5.file_invoice,
@@ -373,6 +439,12 @@ List<NavDrawerItem> getNavdraweritem_(BuildContext context) {
         ],
         isOpen: false,
         index: -0),
+    NavDrawerItem(
+        title: 'My Profile',
+        icon: FontAwesome5.user,
+        children: [],
+        isOpen: false,
+        index: -2),
     NavDrawerItem(
         title: 'Settings',
         icon: Icons.settings,
@@ -1476,39 +1548,55 @@ List<String> ServicesList = [
   'Orthopedics'
 ];
 
+List homeItem1 = [
+  {
+    'icon': '',
+    'title': 'My Customers',
+    'desc': 'Manage All your Customers records and billing with just a click.'
+  },
+  {
+    'icon': '',
+    'title': 'Appointments',
+    'desc':
+        'See all incoming and past appointments, you can also reschedule and accept or reject appoinments'
+  },
+  {
+    'icon': '',
+    'title': 'Order medicines',
+    'desc':
+        'Get a low rate of interest for all medications from local and international suppliers'
+  }
+];
 
-List homeItem1 = [{
-  'icon': '',
-  'title': 'My Customers',
-  'desc': 'Manage All your Customers records and billing with just a click.'
-}, {
-  'icon': '',
-  'title': 'Appointments',
-  'desc': 'See all incoming and past appointments, you can also reschedule and accept or reject appoinments'
-},{
-  'icon': '',
-  'title': 'Order medicines',
-  'desc': 'Get a low rate of interest for all medications from local and international suppliers'
-}];
-
-List homeItem2 = [{
-  'icon': '',
-  'title': 'Health brands',
-  'desc': 'Sale and Order Health Suppliers from Top Brands around the world with much hassles.'
-}, {
-  'icon': '',
-  'title': 'Book On Whatsapp',
-  'desc': 'Speak to our Support Agents to Book and order products and services from whatsapp.'
-},{
-  'icon': '',
-  'title': 'Create Invoices',
-  'desc': 'You can manage all your customers and suppliers invoices including in app billings .'
-},  {
-  'icon': '',
-  'title': 'QR Scanner',
-  'desc': 'You can scan QR code to accept payments from your customers aywhere and anytime.'
-},{
-  'icon': '',
-  'title': 'Manage Stocks',
-  'desc': 'You can create, edit and manage your stocks in multiple stores and see your stock movements'
-}];
+List homeItem2 = [
+  {
+    'icon': '',
+    'title': 'Health brands',
+    'desc':
+        'Sale and Order Health Suppliers from Top Brands around the world with much hassles.'
+  },
+  {
+    'icon': '',
+    'title': 'Book On Whatsapp',
+    'desc':
+        'Speak to our Support Agents to Book and order products and services from whatsapp.'
+  },
+  {
+    'icon': '',
+    'title': 'Create Invoices',
+    'desc':
+        'You can manage all your customers and suppliers invoices including in app billings .'
+  },
+  {
+    'icon': '',
+    'title': 'QR Scanner',
+    'desc':
+        'You can scan QR code to accept payments from your customers aywhere and anytime.'
+  },
+  {
+    'icon': '',
+    'title': 'Manage Stocks',
+    'desc':
+        'You can create, edit and manage your stocks in multiple stores and see your stock movements'
+  }
+];

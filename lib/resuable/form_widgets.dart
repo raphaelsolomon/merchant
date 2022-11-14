@@ -352,7 +352,7 @@ navDrawer(BuildContext context, scaffold, box) => Container(
                                 child: Text(
                               e.title,
                               style: GoogleFonts.poppins(
-                                  fontSize: 16.0,
+                                  fontSize: 15.0,
                                   fontWeight: FontWeight.w500,
                                   color: Colors.black87.withOpacity(.7)),
                             ))
@@ -374,7 +374,7 @@ navDrawer(BuildContext context, scaffold, box) => Container(
                         title: Text(
                           e.title,
                           style: GoogleFonts.poppins(
-                              fontSize: 16.0,
+                              fontSize: 15.0,
                               fontWeight: FontWeight.w500,
                               color: Colors.black87.withOpacity(.7)),
                         ),
@@ -389,7 +389,7 @@ navDrawer(BuildContext context, scaffold, box) => Container(
                                 width: MediaQuery.of(context).size.width,
                                 child: Text(entries['title'],
                                     style: getCustomFont(
-                                        size: 16.0,
+                                        size: 14.0,
                                         color: Colors.black87.withOpacity(.7))),
                               ),
                             ),

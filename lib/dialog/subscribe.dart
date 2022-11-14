@@ -1291,7 +1291,7 @@ Widget getPayButton(context, callBack, text) => GestureDetector(
             child: Text(
               '$text',
               style: getCustomFont(
-                  size: 18.0, color: Colors.white, weight: FontWeight.normal),
+                  size: 15.0, color: Colors.white, weight: FontWeight.normal),
             ),
           ),
         ),

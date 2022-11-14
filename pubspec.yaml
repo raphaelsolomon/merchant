@@ -51,6 +51,8 @@ dependencies:
   agora_rtm: ^1.1.1
   font_awesome_flutter: ^10.1.0
   get: ^4.6.5
+  qr_flutter: ^4.0.0
+  qr_code_scanner: ^1.0.1
   intl:
   wakelock: ^0.6.2
   flutter_ringtone_player: ^3.0.0
@@ -122,7 +124,7 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/imgs/
-    - assets/fonts/
+    - assets/pay/
     - assets/auth/
     - assets/estore/
 
