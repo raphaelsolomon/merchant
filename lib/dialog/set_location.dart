@@ -1,3 +1,5 @@
+import 'package:dotted_border/dotted_border.dart';
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:intl/intl.dart';
 import 'package:merchant/constant/strings.dart';
@@ -14,6 +16,7 @@ class SetLocation extends StatefulWidget {
 class _SetLocationState extends State<SetLocation> {
   bool addButtonLoading = false;
   var selectedDate = DateTime.now();
+  List<String> path = [];
 
   @override
   void initState() {
@@ -46,7 +49,7 @@ class _SetLocationState extends State<SetLocation> {
                       children: [
                         Flexible(
                           child: Text(
-                            widget.isEdit ? 'Edit Award' : 'Add Award',
+                            widget.isEdit ? 'Edit Location' : 'Add Location',
                             style: getCustomFont(
                                 size: 16.0, color: Colors.black54),
                           ),
@@ -68,22 +71,68 @@ class _SetLocationState extends State<SetLocation> {
                           const SizedBox(
                             height: 25.0,
                           ),
-                          getCardForm('Award Name', 'Enter Award Name',
+                          getCardForm('Store Name', 'Enter Store Name',
                               ctl: null),
                           const SizedBox(
                             height: 15.0,
                           ),
                           getCardRichForm(
-                              'Award Description', 'Enter Award Description',
+                              'Store Address', 'Enter Store Address',
                               ctl: null),
                           const SizedBox(
                             height: 15.0,
                           ),
-                          getDateForm(
-                              'Award Date',
-                              DateFormat('dd EEEE, MMM, yyyy')
-                                  .format(selectedDate),
-                              () {}),
+                          GestureDetector(
+                            onTap: () async {
+                              final result =
+                                  await FilePicker.platform.pickFiles(
+                                allowMultiple: false,
+                                type: FileType.custom,
+                                allowedExtensions: ['jpg, png, jpeg'],
+                              );
+                              if (result != null) {
+                                path = result.files
+                                    .map<String>((e) => e.path!)
+                                    .toList();
+                                setState(() {});
+                              } else {
+                                // User canceled the picker
+                              }
+                            },
+                            child: Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 10.0),
+                              child: DottedBorder(
+                                dashPattern: [8, 4],
+                                strokeWidth: 2,
+                                color: Colors.black45,
+                                padding: EdgeInsets.all(6),
+                                child: Container(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 20.0, vertical: 40.0),
+                                  decoration: BoxDecoration(
+                                      color: Colors.grey.shade100,
+                                      borderRadius: BorderRadius.circular(5.0)),
+                                  child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Icon(
+                                          Icons.file_open_outlined,
+                                          color: BLUECOLOR,
+                                        ),
+                                        const SizedBox(width: 20.0),
+                                        Flexible(
+                                            child: Text(
+                                                'Browse files to upload',
+                                                style: getCustomFont(
+                                                    size: 13.0,
+                                                    color: Colors.black54)))
+                                      ]),
+                                ),
+                              ),
+                            ),
+                          ),
                         ]),
                   ))
                 ],

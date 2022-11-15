@@ -29,6 +29,8 @@ class _AuthRegisterState extends State<AuthRegister> {
   String country = 'Nigeria';
   String country_id = '161';
   bool isLoading = false;
+  String merchantCategory = 'Merchant Category';
+  String merchantType = 'Merchant Type';
   final fullname = TextEditingController();
   final email = TextEditingController();
   final password = TextEditingController();
@@ -73,7 +75,9 @@ class _AuthRegisterState extends State<AuthRegister> {
                       width: MediaQuery.of(context).size.width,
                       child: Center(
                         child: Image.asset('assets/auth/1.jpeg',
-                            repeat: ImageRepeat.noRepeat, fit: BoxFit.contain, height: 250),
+                            repeat: ImageRepeat.noRepeat,
+                            fit: BoxFit.contain,
+                            height: 250),
                       ),
                     ),
                     const SizedBox(
@@ -127,6 +131,26 @@ class _AuthRegisterState extends State<AuthRegister> {
                     ),
                     const SizedBox(
                       height: 10.0,
+                    ),
+                    GestureDetector(
+                      onTap: () => showBottomMerchantTypeSheet(),
+                      child: getNewDropDown(merchantCategory),
+                    ),
+                    const SizedBox(
+                      height: 10.0,
+                    ),
+                    merchantCategory == 'Customer' ||
+                            merchantCategory == 'Vendor'
+                        ? GestureDetector(
+                            onTap: () => showTypeSheet(),
+                            child: getNewDropDown(merchantType),
+                          )
+                        : const SizedBox(),
+                    SizedBox(
+                      height: merchantCategory == 'Customer' ||
+                              merchantCategory == 'Vendor'
+                          ? 10.0
+                          : 0.0,
                     ),
                     getRegisterForm(
                         ctl: password,
@@ -193,7 +217,7 @@ class _AuthRegisterState extends State<AuthRegister> {
                         ),
                         socialAccount(FontAwesome.linkedin, Color(0xFF0078B5),
                             callBack: () {
-                              Get.to(() => LinkedInUserWidget(
+                          Get.to(() => LinkedInUserWidget(
                                 redirectUrl: LINKEDIN_REDIRECT,
                                 clientId: LINKEDIN_CLIENTID,
                                 clientSecret: LINKEDIN_SECRET,
@@ -206,15 +230,16 @@ class _AuthRegisterState extends State<AuthRegister> {
                                   ProjectionParameters.profilePicture,
                                 ],
                                 onGetUserProfile: (user) {
-                                  print('${user.user.token.accessToken} - ${user.user.firstName!.localized!.label} - ${user.user.lastName!.localized!.label} - ${user.user.profilePicture!.displayImageContent!.elements!.first.identifiers!.first.identifier} - ${user.user.userId} - ${user.user.email!.elements!.first.handleDeep!.emailAddress}');
-                                 // Get.offAll(() => DashBoard());
+                                  print(
+                                      '${user.user.token.accessToken} - ${user.user.firstName!.localized!.label} - ${user.user.lastName!.localized!.label} - ${user.user.profilePicture!.displayImageContent!.elements!.first.identifiers!.first.identifier} - ${user.user.userId} - ${user.user.email!.elements!.first.handleDeep!.emailAddress}');
+                                  // Get.offAll(() => DashBoard());
                                 },
                                 onError: (e) {
                                   print('Error: ${e.toString()}');
                                   print('Error: ${e.stackTrace.toString()}');
                                 },
                               ));
-                            }),
+                        }),
                         const SizedBox(
                           width: 20.0,
                         ),
@@ -317,7 +342,8 @@ class _AuthRegisterState extends State<AuthRegister> {
                   'country_id': '$country_id'
                 }
               : {
-                  'phone': '+${phoneController.value!.countryCode}${phoneController.value!.nsn}',
+                  'phone':
+                      '+${phoneController.value!.countryCode}${phoneController.value!.nsn}',
                   'name': fullname.text.trim(),
                   'category_id': '3',
                   'password': password.text.trim(),
@@ -329,10 +355,13 @@ class _AuthRegisterState extends State<AuthRegister> {
             context,
             popupMessage.serviceMessage(context, parsed['message'],
                 status: true, cB: () {
-              Get.to(() => AuthOtp(isEmail
-                  ? email.text.trim()
-                  : '+${phoneController.value!.countryCode}${phoneController.value!.nsn}', false));
-            }), barrierDismiss: false);
+              Get.to(() => AuthOtp(
+                  isEmail
+                      ? email.text.trim()
+                      : '+${phoneController.value!.countryCode}${phoneController.value!.nsn}',
+                  false));
+            }),
+            barrierDismiss: false);
       } else {
         final parsed = jsonDecode(res.body);
         popupMessage.dialogMessage(
@@ -413,6 +442,129 @@ class _AuthRegisterState extends State<AuthRegister> {
     );
   }
 
+  void showBottomMerchantTypeSheet() {
+    showModalBottomSheet(
+      context: context,
+      builder: (context) => Container(
+        child: Column(
+          children: [
+            const SizedBox(
+              height: 12.0,
+            ),
+            Text(
+              'Select Merchant Catergory',
+              style: GoogleFonts.poppins(
+                  fontSize: 20.0,
+                  color: Colors.black87,
+                  fontWeight: FontWeight.w600),
+            ),
+            const SizedBox(
+              height: 30.0,
+            ),
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                child: SingleChildScrollView(
+                  child: Column(
+                      children: List.generate(
+                          ['Customer', 'Vendor'].length,
+                          (index) => Column(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  GestureDetector(
+                                    onTap: () {
+                                      setState(() {
+                                        merchantCategory =
+                                            '${['Customer', 'Vendor'][index]}';
+                                        merchantType = 'Merchant Type';
+                                      });
+                                      Navigator.pop(context);
+                                    },
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(5.0),
+                                      child: Text(
+                                        '${['Customer', 'Vendor'][index]}',
+                                        style: getCustomFont(
+                                            size: 16.0, color: Colors.black),
+                                      ),
+                                    ),
+                                  ),
+                                  Divider(),
+                                ],
+                              ))),
+                ),
+              ),
+            )
+          ],
+        ),
+      ),
+    );
+  }
+
+  void showTypeSheet() {
+    showModalBottomSheet(
+      context: context,
+      builder: (context) => Container(
+        child: Column(
+          children: [
+            const SizedBox(
+              height: 12.0,
+            ),
+            Text(
+              'Select Merchant Type',
+              style: GoogleFonts.poppins(
+                  fontSize: 20.0,
+                  color: Colors.black87,
+                  fontWeight: FontWeight.w600),
+            ),
+            const SizedBox(
+              height: 30.0,
+            ),
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                child: SingleChildScrollView(
+                  child: Column(
+                      children: List.generate(
+                          merchantCategory == 'Customer'
+                              ? MERCHANTTYPE.length
+                              : VENDORTYPE.length,
+                          (index) => Column(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  GestureDetector(
+                                    onTap: () {
+                                      setState(() {
+                                        merchantType =
+                                            merchantCategory == 'Customer'
+                                                ? '${MERCHANTTYPE[index]}'
+                                                : '${VENDORTYPE[index]}';
+                                      });
+                                      Navigator.pop(context);
+                                    },
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(5.0),
+                                      child: Text(
+                                        merchantCategory == 'Customer'
+                                            ? '${MERCHANTTYPE[index]}'
+                                            : '${VENDORTYPE[index]}',
+                                        style: getCustomFont(
+                                            size: 16.0, color: Colors.black),
+                                      ),
+                                    ),
+                                  ),
+                                  Divider(),
+                                ],
+                              ))),
+                ),
+              ),
+            )
+          ],
+        ),
+      ),
+    );
+  }
+
   Widget optionButton(context) => Row(
         children: [
           Flexible(
@@ -462,5 +614,43 @@ class _AuthRegisterState extends State<AuthRegister> {
             ),
           ),
         ],
+      );
+
+  getNewDropDown(text) => Container(
+        height: 54.0,
+        padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(100.0),
+          border: Border.all(color: const Color(0xFFE8E8E8), width: 1.0),
+          color: Colors.white,
+        ),
+        child: Row(
+          children: [
+            Flexible(
+                fit: FlexFit.tight,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                  child: Text(
+                    '$text',
+                    style: getCustomFont(size: 14.0, color: Colors.black45),
+                  ),
+                )),
+            PhysicalModel(
+              elevation: 10.0,
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(100.0),
+              shadowColor: Colors.grey,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(
+                    horizontal: 10.0, vertical: 10.0),
+                child: Icon(
+                  Icons.account_box,
+                  size: 18.0,
+                  color: Color(0xFF838383),
+                ),
+              ),
+            )
+          ],
+        ),
       );
 }

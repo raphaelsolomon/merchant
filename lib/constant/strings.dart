@@ -23,6 +23,21 @@ const String CALL_STATUS_RECEIVED = "received";
 const String CALL_STATUS_MISSED = "missed";
 const USERPATH = 'details';
 
+const MERCHANTTYPE = [
+  'Ambulance Air/Land/Sea',
+  'Commentary/Burial Centers',
+  'Hospital/Clinic',
+  'HMO/Insurance',
+  'Pharmacy Store',
+  'Laboratory/Diagnosis',
+  'Other Health Provider'
+];
+
+
+const VENDORTYPE = [
+  'Manufacturer', 'Distributor', 'Importer', 'Other Health Provider'
+];
+
 List<User> users = [
   // User(
   //     email: 'phoenixk54@gmail.com',
@@ -172,33 +187,39 @@ const ReferralBox = 'refBox';
 List ONBOARDING = [
   {
     'image': 'assets/auth/spl.png',
-    'title': 'Instant Prescription',
+    'title': 'Instant Prescription And Reminder For Your Patient',
     'description':
-        'Get access to Doctors and Pharmacist if you are not sure of your prescription, you can easily chat and book online appointment with any Doctor of your Choice.'
+        'Get access to Millions of Patients from different race, ethnicity and diversity across Africa and Globally, you can easily chat, video or voice call and book online appointment with patients.'
   },
   {
     'image': 'assets/auth/pana.png',
     'title': 'Book Appointments with Doctors Right from your Phone and System!',
     'description':
-        'Get Access to a wide range of Specialist Doctors around the World have never been this easy.'
+        'Get Access to Millions of Patients and Tools to help your Business without Borders, Boundaries and limitations.'
   },
   {
     'image': 'assets/imgs/4.png',
     'title': 'Browse the Largest Database',
     'description':
-        'of Doctors, Nurses, Pharmacist, Pharmacy Stores, Hospital and Clinics, Health Insurance and Other Health Services Providers in Africa and Globally with Just a click Away.'
+        'Join the Largest Database of Doctors, Nurses, Pharmacist, Pharmacy Stores, Hospitals and Clinics, Health Insurance and Other Health Services Providers in Africa and Globally with Just a click Away.'
   },
   {
     'image': 'assets/auth/amico.png',
-    'title': 'Book Diagnostic Test from Experts Diagnostic Centers Globally!',
+    'title': 'A Smarter Ways to Save More on the E-Store!',
     'description':
-        'You can have your Diagnostics Done on Schedule with our Wide network of Reliable Facilities and Centers.'
+        'You Can Order You’re Medications, Health Equipment and Accessories Delivered to Your Home or Office at your Convenience.'
   },
   {
     'image': 'assets/auth/rafiki.png',
     'title': 'Get Your Prescriptions and Orders Delivered at Your Door Step!',
     'description':
         'You Can Order You’re Medications, Health Equipment and Accessories Delivered to Your Home or Office at your Convenience'
+  },
+  {
+    'image': 'A smarter way to pay',
+    'title': 'Get Your Prescriptions and Orders Delivered at Your Door Step!',
+    'description':
+        'We have provided various Tools and options for you to ay and Received Funds seamlessly using wallet, Net Banking, USSD and More!'
   }
 ];
 
@@ -229,7 +250,15 @@ List<String> month = [
   'December'
 ];
 
-List<String> constDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+List<String> constDays = [
+  'Sunday',
+  'Monday',
+  'Tuesday',
+  'Wednesday',
+  'Thursday',
+  'Friday',
+  'Saturday'
+];
 
 List Advert = [
   {'title': 'Upto\n10%', 'desc': '10% cashback\neveryhour'},
@@ -260,12 +289,8 @@ getNavdraweritem(BuildContext context) {
   ];
 }
 
-List removeBottom = [
-  2
-];
-List removeBottom1 = [
-  2
-];
+List removeBottom = [2];
+List removeBottom1 = [2];
 
 List shop_by_categgory = [
   {

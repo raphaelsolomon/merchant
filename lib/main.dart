@@ -9,11 +9,11 @@ import 'package:get/get.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:merchant/auth/login.dart';
+import 'package:merchant/auth/onboarding.dart';
 import 'package:merchant/constant/strings.dart';
 import 'package:merchant/firebase_options.dart';
 import 'package:merchant/model/person/user.dart';
 import 'package:merchant/notification/helper_notification.dart';
-import 'package:merchant/pages/homepage.dart';
 import 'package:merchant/pages/page_selector.dart';
 import 'package:merchant/providers/page_controller.dart';
 import 'package:merchant/providers/user_provider.dart';
@@ -154,10 +154,10 @@ class _MyAppState extends State<MyApp> {
               primarySwatch: Colors.blue,
               primaryColor: Colors.black54),
           home: box.get('isFirst') == null
-              ? const PageSelection()
+              ? const OnBoardingScreen()
               : user.get(USERPATH) == null
                   ? const AuthLogin()
-                  : Container() //DashBoard(),
+                  : PageSelection() //DashBoard(),
         ),
       ),
     );

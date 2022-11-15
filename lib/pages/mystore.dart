@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:merchant/dialog/edit_services.dart';
 import 'package:merchant/dialog/se_timing.dart';
 import 'package:merchant/dialog/set_award.dart';
+import 'package:merchant/dialog/set_location.dart';
 import 'package:merchant/dialog/subscribe.dart';
 import 'package:merchant/providers/page_controller.dart';
 import 'package:provider/provider.dart';
@@ -21,7 +22,13 @@ class MyStore extends StatefulWidget {
 class _MyStoreState extends State<MyStore> {
   int counter = 0;
 
-  List<String> tabs = ['Overviews', 'Locations', 'Reviews', 'Business Hours', 'Services'];
+  List<String> tabs = [
+    'Overviews',
+    'Locations',
+    'Reviews',
+    'Business Hours',
+    'Services'
+  ];
   String selectedTab = 'Overviews';
   int totalFacility = 6;
   Completer<GoogleMapController> _controller = Completer();
@@ -62,7 +69,8 @@ class _MyStoreState extends State<MyStore> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         GestureDetector(
-                            onTap: () => context.read<HomeController>().onBackPress(),
+                            onTap: () =>
+                                context.read<HomeController>().onBackPress(),
                             child: Icon(
                               Icons.arrow_back_ios,
                               size: 19.0,
@@ -160,24 +168,28 @@ class _MyStoreState extends State<MyStore> {
                     ? getOverview()
                     : selectedTab == 'Locations'
                         ? Stack(
-                          children: [
-                            SingleChildScrollView(
-                                child: Column(
-                                    children: [
-                                      ...List.generate(
-                                        3, (index) => locationItem()),
-                                        const SizedBox(height: 70.0,)])
-                              ),
-                              floatingButton('Add Location', callBack: () {})
-                          ],
-                        )
+                            children: [
+                              SingleChildScrollView(
+                                  child: Column(children: [
+                                ...List.generate(3, (index) => locationItem()),
+                                const SizedBox(
+                                  height: 70.0,
+                                )
+                              ])),
+                              floatingButton('Add Location',
+                                  callBack: () => showRequestSheet(
+                                      context, SetLocation(false)))
+                            ],
+                          )
                         : selectedTab == 'Reviews'
                             ? SingleChildScrollView(
                                 child: Column(
                                     children: List.generate(
                                         4, (index) => getReviews())),
                               )
-                            : selectedTab == 'Business Hours'? hours(): getServices()),
+                            : selectedTab == 'Business Hours'
+                                ? hours()
+                                : getServices()),
           ],
         ),
       ),
@@ -185,64 +197,74 @@ class _MyStoreState extends State<MyStore> {
   }
 
   Widget getOverview() => Stack(
-    children: [
-      Container(
-          padding: const EdgeInsets.all(15.0),
-          margin: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 8.0),
-          width: MediaQuery.of(context).size.width,
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(12.0),
-              color: Colors.white,
-              boxShadow: SHADOW),
-          child: SingleChildScrollView(
-            child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-              Text(
-                'About Us',
-                style: getCustomFont(
-                    color: Colors.black, size: 16.0, weight: FontWeight.w500),
-              ),
-              const SizedBox(
-                height: 10.0,
-              ),
-              Text(
-                '$DUMMYTEXT',
-                style: getCustomFont(
-                    color: Colors.black54, size: 13.5, weight: FontWeight.w400),
-              ),
-              const SizedBox(
-                height: 15.0,
-              ),
-              Text(
-                'Awards',
-                style: getCustomFont(
-                    color: Colors.black, size: 16.0, weight: FontWeight.w500),
-              ),
-              const SizedBox(
-                height: 15.0,
-              ),
-              ...List.generate(3, (index) => awardItem()),
-              const SizedBox(height: 40.0),
-            ]),
-          )),
-          floatingButton('Add Award', callBack: () => showRequestSheet(context, SetAwards(false)))
-    ],
-  );
+        children: [
+          Container(
+              padding: const EdgeInsets.all(15.0),
+              margin:
+                  const EdgeInsets.symmetric(vertical: 5.0, horizontal: 8.0),
+              width: MediaQuery.of(context).size.width,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(12.0),
+                  color: Colors.white,
+                  boxShadow: SHADOW),
+              child: SingleChildScrollView(
+                child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'About Us',
+                        style: getCustomFont(
+                            color: Colors.black,
+                            size: 16.0,
+                            weight: FontWeight.w500),
+                      ),
+                      const SizedBox(
+                        height: 10.0,
+                      ),
+                      Text(
+                        '$DUMMYTEXT',
+                        style: getCustomFont(
+                            color: Colors.black54,
+                            size: 13.5,
+                            weight: FontWeight.w400),
+                      ),
+                      const SizedBox(
+                        height: 15.0,
+                      ),
+                      Text(
+                        'Awards',
+                        style: getCustomFont(
+                            color: Colors.black,
+                            size: 16.0,
+                            weight: FontWeight.w500),
+                      ),
+                      const SizedBox(
+                        height: 15.0,
+                      ),
+                      ...List.generate(3, (index) => awardItem()),
+                      const SizedBox(height: 40.0),
+                    ]),
+              )),
+          floatingButton('Add Award',
+              callBack: () => showRequestSheet(context, SetAwards(false)))
+        ],
+      );
 
   Widget floatingButton(text, {callBack}) => Align(
-          alignment: Alignment.bottomRight,
-          child: Padding(
-            padding:  const EdgeInsets.symmetric(horizontal: 20.0, vertical: 15.0),
-            child: FloatingActionButton.extended(
-              label: Text('${text}'),
-              icon: Icon(
-                Icons.add,
-                color: Colors.white,
-              ),
-              onPressed: () => callBack(),
-              backgroundColor: BLUECOLOR,
+        alignment: Alignment.bottomRight,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 15.0),
+          child: FloatingActionButton.extended(
+            label: Text('${text}'),
+            icon: Icon(
+              Icons.add,
+              color: Colors.white,
             ),
+            onPressed: () => callBack(),
+            backgroundColor: BLUECOLOR,
           ),
-        );
+        ),
+      );
 
   Widget awardItem() => IntrinsicHeight(
         child: Row(
@@ -613,17 +635,17 @@ class _MyStoreState extends State<MyStore> {
           const SizedBox(
             height: 7.0,
           ),
-          ],
+        ],
       ));
 
   Widget hours() => Stack(
-    children: [
-      SingleChildScrollView(
-        child: Column(
+        children: [
+          SingleChildScrollView(
+            child: Column(
               children: [
                 Container(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 15.0, vertical: 15.0),
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 15.0, vertical: 15.0),
                   margin: const EdgeInsets.symmetric(horizontal: 10.0),
                   width: MediaQuery.of(context).size.width,
                   decoration: BoxDecoration(
@@ -638,14 +660,16 @@ class _MyStoreState extends State<MyStore> {
                           children: [
                             Text(
                               'Today',
-                              style: getCustomFont(size: 15.0, color: Colors.black),
+                              style: getCustomFont(
+                                  size: 15.0, color: Colors.black),
                             ),
                             const SizedBox(
                               height: 5.0,
                             ),
                             Text(
                               '5 Nov 2019',
-                              style: getCustomFont(size: 13.0, color: Colors.black),
+                              style: getCustomFont(
+                                  size: 13.0, color: Colors.black),
                             ),
                           ],
                         ),
@@ -661,15 +685,16 @@ class _MyStoreState extends State<MyStore> {
                                 ),
                                 child: Text(
                                   'Open Now',
-                                  style:
-                                      getCustomFont(size: 13.0, color: Colors.green),
+                                  style: getCustomFont(
+                                      size: 13.0, color: Colors.green),
                                 )),
                             const SizedBox(
                               height: 5.0,
                             ),
                             Text(
                               '07:00 AM - 09:00 PM',
-                              style: getCustomFont(size: 12.0, color: Colors.black54),
+                              style: getCustomFont(
+                                  size: 12.0, color: Colors.black54),
                             ),
                           ],
                         )
@@ -680,8 +705,8 @@ class _MyStoreState extends State<MyStore> {
                 ),
                 Container(
                   width: MediaQuery.of(context).size.width,
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 15.0, vertical: 15.0),
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 15.0, vertical: 15.0),
                   margin: const EdgeInsets.symmetric(horizontal: 10.0),
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10.0),
@@ -726,14 +751,17 @@ class _MyStoreState extends State<MyStore> {
                               ],
                             ))
                   ]),
-                )
-                ,const SizedBox(height: 80.0,),
+                ),
+                const SizedBox(
+                  height: 80.0,
+                ),
               ],
             ),
-      ),
-          floatingButton('Set Timing', callBack: ()=> showRequestSheet(context, SetTiming()))
-    ],
-  );
+          ),
+          floatingButton('Set Timing',
+              callBack: () => showRequestSheet(context, SetTiming()))
+        ],
+      );
 
   Widget dotIndicator(total, i) {
     return Row(
@@ -750,26 +778,38 @@ class _MyStoreState extends State<MyStore> {
     );
   }
 
-Widget getServices() => Stack(
-    children: [
-      Container(
-          padding: const EdgeInsets.all(15.0),
-          margin: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 8.0),
-          width: MediaQuery.of(context).size.width,
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(12.0),
-              color: Colors.white,
-              boxShadow: SHADOW),
-          child: SingleChildScrollView(
-            child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-             
-              const SizedBox(height: 40.0),
-            ]),
-          )),
-            floatingButton('Add Services', callBack: () => showRequestSheet(context, AddEditServices(false)))
-    ],
-  );
+  Widget getServices() => Stack(
+        children: [
+          Container(
+              padding: const EdgeInsets.all(15.0),
+              margin:
+                  const EdgeInsets.symmetric(vertical: 5.0, horizontal: 8.0),
+              width: MediaQuery.of(context).size.width,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(12.0),
+                  color: Colors.white,
+                  boxShadow: SHADOW),
+              child: SingleChildScrollView(
+                child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Services',
+                        style: getCustomFont(
+                            color: Colors.black,
+                            size: 16.0,
+                            weight: FontWeight.w500),
+                      ),
+                      const SizedBox(
+                        height: 10.0,
+                      ),
+                      const SizedBox(height: 40.0),
+                    ]),
+              )),
+          floatingButton('Add Services',
+              callBack: () => showRequestSheet(context, AddEditServices(false)))
+        ],
+      );
 //=====================================================================================
-
 
 }
