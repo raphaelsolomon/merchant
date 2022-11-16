@@ -2,8 +2,8 @@ import 'package:merchant/constant/strings.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class BookTest extends StatelessWidget {
-  const BookTest({super.key});
+class TrackOrder extends StatelessWidget {
+  const TrackOrder({super.key});
 
   @override
   Widget build(BuildContext context) {

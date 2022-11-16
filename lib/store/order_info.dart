@@ -1,9 +1,10 @@
 import 'package:merchant/constant/strings.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:merchant/store/track_order.dart';
 
-class TrackOrder extends StatelessWidget {
-  const TrackOrder({Key? key}) : super(key: key);
+class OrderInformation extends StatelessWidget {
+  const OrderInformation({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -227,7 +228,7 @@ class TrackOrder extends StatelessWidget {
               height: 10.0,
             ),
             GestureDetector(
-              onTap: () => Get.to(() => null),
+              onTap: () => Get.to(() => TrackOrder()),
               child: Container(
                 width: MediaQuery.of(context).size.width,
                 height: 45.0,

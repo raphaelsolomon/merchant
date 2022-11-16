@@ -2,6 +2,7 @@ import 'package:merchant/constant/strings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
+import 'package:merchant/store/order_info.dart';
 
 class RecentOrder extends StatefulWidget {
   const RecentOrder({super.key});
@@ -157,6 +158,7 @@ class _RecentOrderState extends State<RecentOrder> {
   }
 
   Widget thirdScroll(context) => GestureDetector(
+    onTap: () => Get.to(() => OrderInformation()),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.center,
@@ -274,6 +276,7 @@ class _RecentOrderState extends State<RecentOrder> {
       );
 
   Widget pastOrder(context) => GestureDetector(
+    onTap: () => Get.to(() => OrderInformation()),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.center,
