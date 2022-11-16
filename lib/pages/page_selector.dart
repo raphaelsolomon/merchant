@@ -5,6 +5,7 @@ import 'package:merchant/dialog/edit_add_product.dart';
 import 'package:merchant/dialog/subscribe.dart';
 import 'package:merchant/model/person/user.dart';
 import 'package:merchant/pages/dashboard.dart';
+import 'package:merchant/pages/homepage.dart';
 import 'package:merchant/pages/mystore.dart';
 import 'package:merchant/providers/msg_log.dart';
 import 'package:merchant/providers/page_controller.dart';
@@ -102,7 +103,7 @@ class _PageSelectionState extends State<PageSelection> {
     if (page == 1) {
       return MyDashBoard(scaffold);
     }
-    return AddEditProduct(false);
+    return HomePage(scaffold);
   }
 }
 //

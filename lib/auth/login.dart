@@ -12,6 +12,7 @@ import 'package:merchant/auth/register.dart';
 import 'package:merchant/constant/strings.dart';
 import 'package:merchant/model/person/user.dart';
 import 'package:merchant/model/referral/referral.dart';
+import 'package:merchant/pages/page_selector.dart';
 import 'package:merchant/resources/firebase_method.dart';
 import 'package:merchant/resuable/form_widgets.dart';
 import 'package:merchant/services/request.dart';
@@ -143,7 +144,8 @@ class _AuthLoginState extends State<AuthLogin> {
                         child: CircularProgressIndicator(color: BLUECOLOR),
                       ),
                     )
-                  : getButton(context, () => validDate()),
+                    :getButton(context, () => Get.to(() => PageSelection())),
+                  //: getButton(context, () => validDate()),
               const SizedBox(
                 height: 26.0,
               ),

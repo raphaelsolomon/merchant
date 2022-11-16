@@ -461,6 +461,7 @@ setClickListener(e, BuildContext context) {
       break;
     case 4:
       context.read<HomeController>().isEstore(true);
+      context.read<HomeController>().setStoreIndex(0);
       Get.to(() => StorePage(0));
       break;
     case 5:
