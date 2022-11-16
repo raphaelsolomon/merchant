@@ -36,7 +36,7 @@ class BookTest extends StatelessWidget {
                                   color: Colors.white,
                                   size: 19.0,
                                 )),
-                            Text('Shop By Category',
+                            Text('Test Category',
                                 style: getCustomFont(
                                     size: 17.0, color: Colors.white)),
                             Icon(
