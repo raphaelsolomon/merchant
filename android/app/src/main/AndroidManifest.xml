@@ -1,4 +1,5 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.gettheskydoctors.merchant">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.gettheskydoctors.merchant"
+        xmlns:tools="http://schemas.android.com/tools">
 <queries>
         <provider android:authorities="com.facebook.katana.provider.PlatformProvider" />
     </queries>
