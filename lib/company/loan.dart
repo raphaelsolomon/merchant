@@ -1,3 +1,4 @@
+import 'package:flutter_xlider/flutter_xlider.dart';
 import 'package:merchant/constant/strings.dart';
 import 'package:merchant/providers/page_controller.dart';
 import 'package:flutter/material.dart';
@@ -141,7 +142,153 @@ class _GetLoanState extends State<GetLoan> {
           const SizedBox(
             height: 5.0,
           ),
-          Expanded(child: Column(children: []))
+          Expanded(
+              child: Column(children: [
+            const SizedBox(
+              height: 20.0,
+            ),
+            ...List.generate(3, (index) => loanItem(size))
+          ]))
         ]));
   }
+
+  Widget loanItem(size) => Container(
+        padding: const EdgeInsets.only(right: 20.0),
+        margin: const EdgeInsets.symmetric(vertical: 4.0, horizontal: 10.0),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(50.0),
+          boxShadow: SHADOW,
+        ),
+        child: Row(children: [
+          Container(
+            width: 10.0,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(50.0),
+                    bottomLeft: Radius.circular(50.0))),
+          ),
+          const SizedBox(width: 10.0),
+          Flexible(
+            child: Column(children: [
+              SizedBox(
+                  width: size.width,
+                  child: Align(
+                      alignment: Alignment.topRight,
+                      child: Text(
+                        'Approve',
+                        style: getCustomFont(
+                          size: 11.0,
+                          color: Colors.greenAccent,
+                        ),
+                      ))),
+              const SizedBox(
+                height: 6.0,
+              ),
+              Text(
+                '\$51,000.00',
+                style: getCustomFont(
+                    size: 17.0, color: Colors.black87, weight: FontWeight.w600),
+              ),
+              const SizedBox(
+                height: 6.0,
+              ),
+              Text(
+                'To be payed back in 15 days, with an interest of \$10,000.00',
+                style: getCustomFont(
+                    size: 12.0, color: Colors.black54, weight: FontWeight.w400),
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(
+                height: 15.0,
+              ),
+              Row(
+                children: [
+                  Flexible(
+                    child: Text(
+                      'Application Date: 28th July 2020',
+                      style: getCustomFont(
+                          size: 11.0,
+                          color: Colors.black45,
+                          weight: FontWeight.normal),
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                  const SizedBox(
+                    width: 15.0,
+                  ),
+                  Flexible(
+                    child: Text(
+                      'Due Date: 28th December 2020',
+                      style: getCustomFont(
+                          size: 11.0,
+                          color: Colors.black45,
+                          weight: FontWeight.normal),
+                      textAlign: TextAlign.center,
+                    ),
+                  )
+                ],
+              )
+            ]),
+          )
+        ]),
+      );
+
+  Widget applyItem(size) => Container(
+        padding: const EdgeInsets.only(right: 20.0),
+        margin: const EdgeInsets.symmetric(vertical: 4.0, horizontal: 10.0),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(50.0),
+          boxShadow: SHADOW,
+        ),
+        child: Row(children: [
+          Container(
+            width: 10.0,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(50.0),
+                    bottomLeft: Radius.circular(50.0))),
+          ),
+          const SizedBox(width: 10.0),
+          Flexible(
+            child: Column(children: [
+              Text(
+                'Select Loan Amount',
+                style: getCustomFont(
+                    size: 11.0, color: Colors.black87, weight: FontWeight.w600),
+              ),
+              const SizedBox(
+                height: 6.0,
+              ),
+              Text(
+                'Move the slider to select your loan amount',
+                style: getCustomFont(
+                    size: 12.0, color: Colors.black54, weight: FontWeight.w400),
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(
+                height: 6.0,
+              ),
+              Text(
+                '\$51,000.00',
+                style: getCustomFont(
+                    size: 17.0, color: Colors.black87, weight: FontWeight.w600),
+              ),
+              const SizedBox(
+                height: 8.0,
+              ),
+              Row(
+                children: [
+                  FlutterSlider(
+                      values: [300],
+                      max: 500,
+                      min: 0,
+                      onDragging: (handlerIndex, lowerValue, upperValue) {})
+                ],
+              )
+            ]),
+          )
+        ]),
+      );
 }
