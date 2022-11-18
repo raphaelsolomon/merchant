@@ -31,9 +31,8 @@ class SupportPage extends StatelessWidget {
                       onTap: () => context.read<HomeController>().onBackPress(),
                       child: Icon(Icons.arrow_back_ios,
                           size: 18.0, color: Colors.white)),
-                 
                   Text('Contact Us',
-                      style: getCustomFont(size: 16.0, color: Colors.white)),
+                      style: getCustomFont(size: 15.0, color: Colors.white)),
                   Icon(
                     null,
                     color: Colors.white,
@@ -87,24 +86,23 @@ class SupportPage extends StatelessWidget {
                   ),
                   getFormBox('Subject', 'Complaint'),
                   const SizedBox(
-                    height: 10.0,
+                    height: 15.0,
                   ),
-                  getFormBox('Your NAme', 'John Doe'),
+                  getFormBox('Your Name', 'John Doe'),
                   const SizedBox(
-                    height: 10.0,
+                    height: 15.0,
                   ),
                   getFormBox('Your Email', 'username@examplae.com'),
                   const SizedBox(
-                    height: 10.0,
+                    height: 15.0,
                   ),
                   getPhoneNumberForm(),
                   const SizedBox(
-                    height: 10.0,
+                    height: 15.0,
                   ),
-                  getFormBox('Message', 'Your Message',
-                      h: null, type: TextInputType.multiline),
+                  getFormBox('Message', 'Your Message', max: null, type: TextInputType.multiline, h: 100),
                   const SizedBox(
-                    height: 20.0,
+                    height: 40.0,
                   ),
                   getButton(context, () {}, 'Submit'),
                   const SizedBox(
@@ -125,7 +123,7 @@ class SupportPage extends StatelessWidget {
             Text(
               'Mobile',
               style: getCustomFont(
-                  size: 15.0, color: Colors.black, weight: FontWeight.w500),
+                  size: 14.0, color: Colors.black45, weight: FontWeight.w500),
             ),
             const SizedBox(
               height: 4.0,
@@ -135,8 +133,8 @@ class SupportPage extends StatelessWidget {
               padding: const EdgeInsets.only(left: 10.0, right: 10.0),
               decoration: BoxDecoration(
                 border: Border.all(width: 1.0, color: Colors.transparent),
-                color: Colors.grey.shade300,
-                borderRadius: BorderRadius.circular(8.0)
+                color: BLUECOLOR.withOpacity(.05),
+                borderRadius: BorderRadius.circular(5.0)
               ),
               child: Padding(
                 padding: const EdgeInsets.only(top: 2.0),
@@ -181,7 +179,7 @@ class SupportPage extends StatelessWidget {
           Text(
             '$text',
             style: getCustomFont(
-                size: 15.0, color: Colors.black, weight: FontWeight.w500),
+                size: 14.0, color: Colors.black45, weight: FontWeight.w500),
           ),
           const SizedBox(
             height: 4.0,
@@ -190,8 +188,8 @@ class SupportPage extends StatelessWidget {
             height: h,
             decoration: BoxDecoration(
                 border: Border.all(width: 1.0, color: Colors.transparent),
-                color: Colors.grey.shade300,
-                borderRadius: BorderRadius.circular(8.0)
+                color: BLUECOLOR.withOpacity(.05),
+                borderRadius: BorderRadius.circular(5.0)
               ),
             child: Row(
               children: [

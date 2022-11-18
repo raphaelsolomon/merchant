@@ -1,5 +1,7 @@
 import 'package:intl/intl.dart';
 import 'package:merchant/constant/strings.dart';
+import 'package:merchant/dialog/add_purchase.dart';
+import 'package:merchant/dialog/subscribe.dart';
 import 'package:merchant/providers/page_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -58,12 +60,12 @@ class MyOffer extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(
                     horizontal: 20.0, vertical: 20.0),
                 child: FloatingActionButton.extended(
-                  label: Text('Add Product'),
+                  label: Text('Add Purchase'),
                   icon: Icon(
                     Icons.add,
                     color: Colors.white,
                   ),
-                  onPressed: () {},
+                  onPressed: () => showRequestSheet(context, AddPurchase(false)),
                   backgroundColor: BLUECOLOR,
                 ),
               ),
@@ -102,7 +104,7 @@ class MyOffer extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.symmetric(
                             horizontal: 10.0, vertical: 10.0),
-                        child: Text('Name',
+                        child: Text('Medicine Name',
                             maxLines: 1,
                             style: getCustomFont(
                                 size: 15.0,
@@ -114,7 +116,7 @@ class MyOffer extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.symmetric(
                             horizontal: 10.0, vertical: 10.0),
-                        child: Text('BMI',
+                        child: Text('Medicine Category',
                             maxLines: 1,
                             style: getCustomFont(
                                 size: 15.0,
@@ -126,7 +128,7 @@ class MyOffer extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.symmetric(
                             horizontal: 10.0, vertical: 10.0),
-                        child: Text('Heart Rate',
+                        child: Text('Purchase Price',
                             maxLines: 1,
                             style: getCustomFont(
                                 size: 15.0,
@@ -138,7 +140,7 @@ class MyOffer extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.symmetric(
                             horizontal: 10.0, vertical: 10.0),
-                        child: Text('FBC Status',
+                        child: Text('Quantity',
                             maxLines: 1,
                             style: getCustomFont(
                                 size: 15.0,
@@ -150,7 +152,7 @@ class MyOffer extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.symmetric(
                             horizontal: 10.0, vertical: 10.0),
-                        child: Text('Weight',
+                        child: Text('Supplier',
                             maxLines: 1,
                             style: getCustomFont(
                                 size: 15.0,
@@ -162,7 +164,43 @@ class MyOffer extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.symmetric(
                             horizontal: 10.0, vertical: 10.0),
-                        child: Text('Order Date',
+                        child: Text('Date',
+                            maxLines: 1,
+                            style: getCustomFont(
+                                size: 15.0,
+                                weight: FontWeight.bold,
+                                color: Colors.black)),
+                      )
+                    ]),
+                    Column(children: [
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 10.0, vertical: 10.0),
+                        child: Text('Expiry Date',
+                            maxLines: 1,
+                            style: getCustomFont(
+                                size: 15.0,
+                                weight: FontWeight.bold,
+                                color: Colors.black)),
+                      )
+                    ]),
+                    Column(children: [
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 10.0, vertical: 10.0),
+                        child: Text('Invoice No.',
+                            maxLines: 1,
+                            style: getCustomFont(
+                                size: 15.0,
+                                weight: FontWeight.bold,
+                                color: Colors.black)),
+                      )
+                    ]),
+                    Column(children: [
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 10.0, vertical: 10.0),
+                        child: Text('Purchase ID',
                             maxLines: 1,
                             style: getCustomFont(
                                 size: 15.0,
@@ -196,7 +234,7 @@ class MyOffer extends StatelessWidget {
           Padding(
             padding:
                 const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
-            child: Text('${e['id']}',
+            child: Text('1',
                 style: getCustomFont(
                     size: 15.0,
                     weight: FontWeight.normal,
@@ -207,7 +245,7 @@ class MyOffer extends StatelessWidget {
           Padding(
             padding:
                 const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
-            child: Text('${e['name']}',
+            child: Text('Ibuprofin',
                 style: getCustomFont(
                     size: 15.0,
                     weight: FontWeight.normal,
@@ -218,7 +256,7 @@ class MyOffer extends StatelessWidget {
           Padding(
             padding:
                 const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
-            child: Text('${e['bmi']}',
+            child: Text('Aripiprazole',
                 maxLines: 1,
                 style: getCustomFont(
                     size: 15.0,
@@ -230,7 +268,7 @@ class MyOffer extends StatelessWidget {
           Padding(
             padding:
                 const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
-            child: Text('${e['heart_rate']}',
+            child: Text('\$200.00',
                 maxLines: 1,
                 style: getCustomFont(
                     size: 15.0,
@@ -242,7 +280,7 @@ class MyOffer extends StatelessWidget {
           Padding(
             padding:
                 const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
-            child: Text('${e['fbc_status']}',
+            child: Text('50',
                 maxLines: 1,
                 style: getCustomFont(
                     size: 15.0,
@@ -254,7 +292,7 @@ class MyOffer extends StatelessWidget {
           Padding(
             padding:
                 const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
-            child: Text('${e['weight']}Kg',
+            child: Text('Uchiha John',
                 maxLines: 1,
                 style: getCustomFont(
                     size: 15.0,
@@ -267,7 +305,46 @@ class MyOffer extends StatelessWidget {
             padding:
                 const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
             child: Text(
-                '${DateFormat('yyyy-MM-dd HH:mm').format(DateTime.parse('${e['order_date']}'))}',
+                '${DateFormat('yyyy-MM-dd HH:mm').format(DateTime.parse('2000-02-02'))}',
+                maxLines: 1,
+                style: getCustomFont(
+                    size: 15.0,
+                    weight: FontWeight.normal,
+                    color: Colors.black45)),
+          )
+        ]),
+         Column(children: [
+          Padding(
+            padding:
+                const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
+            child: Text(
+                '${DateFormat('yyyy-MM-dd HH:mm').format(DateTime.parse('2020-02-02'))}',
+                maxLines: 1,
+                style: getCustomFont(
+                    size: 15.0,
+                    weight: FontWeight.normal,
+                    color: Colors.black45)),
+          )
+        ]),
+         Column(children: [
+          Padding(
+            padding:
+                const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
+            child: Text(
+                '324214123',
+                maxLines: 1,
+                style: getCustomFont(
+                    size: 15.0,
+                    weight: FontWeight.normal,
+                    color: Colors.black45)),
+          )
+        ]),
+         Column(children: [
+          Padding(
+            padding:
+                const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
+            child: Text(
+                '45234635656565',
                 maxLines: 1,
                 style: getCustomFont(
                     size: 15.0,
@@ -286,19 +363,29 @@ class MyOffer extends StatelessWidget {
                     onTap: () => null,
                     child: Container(
                       padding: const EdgeInsets.symmetric(
+                          horizontal: 5.0, vertical: 5.0),
+                      decoration: BoxDecoration(
+                          color: Colors.green.withOpacity(.9),
+                          borderRadius: BorderRadius.circular(4.0)),
+                      child: Icon(Icons.remove_red_eye, color: Colors.green, size: 18.0,)),
+                    ),
+                  ),
+                const SizedBox(
+                  width: 10.0,
+                ),
+                Flexible(
+                  child: GestureDetector(
+                    onTap: () => null,
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(
                           horizontal: 10.0, vertical: 5.0),
                       decoration: BoxDecoration(
                           color: BLUECOLOR.withOpacity(.9),
                           borderRadius: BorderRadius.circular(4.0)),
-                      child: Text('Edit',
-                          maxLines: 1,
-                          style: getCustomFont(
-                              size: 15.0,
-                              weight: FontWeight.normal,
-                              color: Colors.white)),
+                      child:  Icon(Icons.edit, color: BLUECOLOR, size: 18.0,)),
                     ),
                   ),
-                ),
+                
                 const SizedBox(
                   width: 10.0,
                 ),
@@ -311,15 +398,9 @@ class MyOffer extends StatelessWidget {
                       decoration: BoxDecoration(
                           color: Colors.red.withOpacity(.9),
                           borderRadius: BorderRadius.circular(4.0)),
-                      child: Text('Del',
-                          maxLines: 1,
-                          style: getCustomFont(
-                              size: 15.0,
-                              weight: FontWeight.normal,
-                              color: Colors.white)),
+                      child:  Icon(Icons.delete, color: Colors.redAccent, size: 18.0,)),
                     ),
                   ),
-                ),
               ],
             ),
           )
