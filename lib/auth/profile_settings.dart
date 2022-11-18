@@ -71,15 +71,15 @@ class _ProfileSettingsState extends State<ProfileSettings> {
               ),
             ]),
           ),
-          Padding(
-            padding: const EdgeInsets.only(left: 8.0, right: 8.0, top: 8.0),
-            child: SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                children: [...headers.map((e) => _dashList(e)).toList()],
-              ),
-            ),
-          ),
+          // Padding(
+          //   padding: const EdgeInsets.only(left: 8.0, right: 8.0, top: 8.0),
+          //   child: SingleChildScrollView(
+          //     scrollDirection: Axis.horizontal,
+          //     child: Row(
+          //       children: [...headers.map((e) => _dashList(e)).toList()],
+          //     ),
+          //   ),
+          // ),
           Expanded(
               child: index == 'Basic Info'
                   ? basicInfo()

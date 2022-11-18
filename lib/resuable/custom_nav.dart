@@ -3,7 +3,6 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:merchant/constant/strings.dart';
 import 'package:merchant/dialog/subscribe.dart';
-import 'package:merchant/pages/mystore.dart';
 import 'package:merchant/pages/scan.dart';
 import 'package:merchant/providers/page_controller.dart';
 import 'package:merchant/store/index.dart';
@@ -43,7 +42,7 @@ class _CustomNavBarState extends State<CustomNavBar> {
               readExec.jumpToHome();
             }, counter.last == 0 && !readExec.isEstoreClicked),
 
-            getNavItems(Icons.qr_code, 'My Store', () {
+            getNavItems(Icons.storefront, 'My Store', () {
               readExec.setPage(2);
             }, counter.last == 2 && !readExec.isEstoreClicked),
 
@@ -52,13 +51,8 @@ class _CustomNavBarState extends State<CustomNavBar> {
             }, false),
 
             getNavItems(Icons.people, 'Customers', () {
-              if (readExec.isEstoreClicked) {
-                readExec.setStoreIndex(2);
-                return;
-              }
-              readExec.isEstore(true);
-              Get.to(() => StorePage(2));
-            }, readExec.isEstoreClicked && readExec.storeIndex == 2),
+               readExec.setPage(5);
+            }, counter.last == 5 && !readExec.isEstoreClicked),
             getNavItems(Icons.more_horiz, 'More', () {
               dialogMessage(
                   context,
@@ -79,43 +73,13 @@ class _CustomNavBarState extends State<CustomNavBar> {
                             child: Column(
                               mainAxisSize: MainAxisSize.min,
                               children: [
-                                getNavItems(Icons.support_outlined, 'Suppliers',
-                                    () {
-                                  if (readExec.isEstoreClicked) {
-                                    readExec.setStoreIndex(3);
-                                    Navigator.pop(context);
-                                    return;
-                                  }
-                                  readExec.isEstore(true);
-                                  Navigator.pop(context);
-                                  Get.to(() => StorePage(3));
-                                },
-                                    readExec.isEstoreClicked &&
-                                        readExec.storeIndex == 3),
-                                Divider(),
-                                getNavItems(
-                                    Icons.local_pharmacy_outlined, 'Profile',
-                                    () {
-                                  if (readExec.isEstoreClicked) {
-                                    readExec.setStoreIndex(3);
-                                    Navigator.pop(context);
-                                    return;
-                                  }
-                                  readExec.isEstore(true);
-                                  Navigator.pop(context);
-                                  Get.to(() => ScanPage());
-                                },readExec.isEstoreClicked && readExec.storeIndex == 3),
+                                getNavItems(Icons.local_pharmacy_outlined, 'Profile', () {
+                                  readExec.setPage(6);
+                                }, counter.last == 6 && !readExec.isEstoreClicked),
                                 Divider(),
                                 getNavItems(Icons.person, 'Account', () {
-                                  readExec.setPage(-19);
-                                  Navigator.pop(context);
-                                  if (readExec.isEstoreClicked) {
-                                    readExec.isEstore(false);
-                                    Get.back();
-                                  }
-                                },
-                                    counter.last == -19 &&
-                                        !readExec.isEstoreClicked),
+                                    readExec.setPage(8);
+                                }, counter.last == 8 && !readExec.isEstoreClicked),
                                 Divider(),
                                 getNavItems(Icons.receipt_rounded, 'My Loan',
                                     () {
@@ -129,7 +93,7 @@ class _CustomNavBarState extends State<CustomNavBar> {
                       ),
                     ),
                   ));
-            }, counter.last == -0),
+            }, counter.last == 6 || counter.last == 8),
           ],
         ),
       ),

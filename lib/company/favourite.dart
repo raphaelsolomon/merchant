@@ -7,8 +7,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 class MyFavourite extends StatelessWidget {
-  final GlobalKey<ScaffoldState> scaffold;
-  const MyFavourite(this.scaffold, {Key? key}) : super(key: key);
+  const MyFavourite({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +29,7 @@ class MyFavourite extends StatelessWidget {
                 children: [
                   GestureDetector(
                       onTap: () => context.read<HomeController>().onBackPress(),
-                      child: Icon(Icons.menu,
+                      child: Icon(Icons.arrow_back_ios,
                           size: 18.0, color: Colors.white)),
                   const SizedBox(
                     width: 10.0,

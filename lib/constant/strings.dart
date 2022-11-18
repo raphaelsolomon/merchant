@@ -381,7 +381,7 @@ List<NavDrawerItem> getNavdraweritem_(BuildContext context) {
         icon: Icons.folder,
         children: [],
         isOpen: false,
-        index: -10),
+        index: 3),
 
     // NavDrawerItem(
     //     title: 'My Appointment',
@@ -426,8 +426,8 @@ List<NavDrawerItem> getNavdraweritem_(BuildContext context) {
         title: 'Customer Mgt.',
         icon: FontAwesome5.file_invoice,
         children: [
-          {'index': -12, 'title': 'All Customera'},
-          {'index': 6, 'title': 'Add Customers'},
+          {'index': 5, 'title': 'All Customers'},
+          {'index': -5, 'title': 'Add Customer'},
         ],
         isOpen: false,
         index: -0),
@@ -435,9 +435,9 @@ List<NavDrawerItem> getNavdraweritem_(BuildContext context) {
         title: 'Vendor Mgt.',
         icon: FontAwesome5.file_invoice,
         children: [
-          {'index': -12, 'title': 'All Suppliers'},
-          {'index': 6, 'title': 'Add Suppliers'},
-          {'index': 6, 'title': 'Purchases'},
+          {'index': 7, 'title': 'All Suppliers'},
+          {'index': -7, 'title': 'Add Suppliers'},
+          {'index': 000, 'title': 'Purchases'},
         ],
         isOpen: false,
         index: -0),
@@ -445,9 +445,9 @@ List<NavDrawerItem> getNavdraweritem_(BuildContext context) {
         title: 'My Transaction',
         icon: FontAwesome5.file_invoice,
         children: [
-          {'index': -12, 'title': 'My Offer'},
-          {'index': 6, 'title': 'My Invoices'},
-          {'index': -17, 'title': 'Favourite'},
+          {'index': 9, 'title': 'My Offer'},
+          {'index': 10, 'title': 'My Invoices'},
+          {'index': 11, 'title': 'Favourite'},
           //{'index': -0, 'title': 'Reviews'}
         ],
         isOpen: false,
@@ -457,10 +457,10 @@ List<NavDrawerItem> getNavdraweritem_(BuildContext context) {
         icon: FontAwesome5.industry,
         children: [
           //{'index': -0, 'title': 'My Invites'},
-          {'index': 9, 'title': 'My Referrals'},
-          {'index': -9, 'title': 'Contact Us'},
-          {'index': -6, 'title': 'Rate Us'},
-          {'index': -7, 'title': 'Share App'},
+          {'index': 12, 'title': 'My Referrals'},
+          {'index': 13, 'title': 'Contact Us'},
+          {'index': 14, 'title': 'Rate Us'},
+          {'index': 15, 'title': 'Share App'},
         ],
         isOpen: false,
         index: -0),
@@ -469,14 +469,14 @@ List<NavDrawerItem> getNavdraweritem_(BuildContext context) {
         icon: FontAwesome5.user,
         children: [],
         isOpen: false,
-        index: -2),
+        index: 6),
     NavDrawerItem(
         title: 'Settings',
         icon: Icons.settings,
         children: [
           {'index': -14, 'title': 'Currency'},
-          {'index': -8, 'title': 'Change Password'},
-          {'index': -5, 'title': 'Notification'}
+          {'index': 16, 'title': 'Change Password'},
+          {'index': 17, 'title': 'Notification'}
         ],
         isOpen: false,
         index: -0),

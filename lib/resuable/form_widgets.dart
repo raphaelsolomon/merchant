@@ -407,41 +407,38 @@ navDrawer(BuildContext context, scaffold, box) => Container(
 
 setChildrenClickListener(e, BuildContext context) {
   switch (e['index'] as int) {
-    case 6:
-      context.read<HomeController>().setPage(6);
-      break;
-    case 8:
-      context.read<HomeController>().setPage(8);
-      break;
-    case 9:
-      context.read<HomeController>().setPage(9);
+    case 5:
+      context.read<HomeController>().setPage(5);
       break;
     case -5:
       context.read<HomeController>().setPage(-5);
       break;
-    case -6:
-      context.read<HomeController>().setPage(-6);
+    case 7:
+      context.read<HomeController>().setPage(7);
       break;
     case -7:
       context.read<HomeController>().setPage(-7);
       break;
-    case -8:
-      context.read<HomeController>().setPage(-8);
+    case 9:
+      context.read<HomeController>().setPage(9);
       break;
-    case -9:
-      context.read<HomeController>().setPage(-9);
+    case 10:
+      context.read<HomeController>().setPage(10);
       break;
-    case -12:
-      context.read<HomeController>().setPage(-12);
+    case 11:
+      context.read<HomeController>().setPage(11);
       break;
-    case -13:
-      context.read<HomeController>().setPage(-13);
+    case 12:
+      context.read<HomeController>().setPage(12);
       break;
-    case -14:
-      // dialogMessage(context, CurrencyDialog());
+    case 13:
+      context.read<HomeController>().setPage(13);
       break;
-    case -17:
-      context.read<HomeController>().setPage(-17);
+    case 14:
+      context.read<HomeController>().setPage(14);
+      break;
+    case 15:
+      context.read<HomeController>().setPage(15);
       break;
   }
 }
@@ -458,34 +455,14 @@ setClickListener(e, BuildContext context) {
       context.read<HomeController>().setPage(2);
       break;
     case 3:
-      context.read<HomeController>().setPage(-3);
+      context.read<HomeController>().setPage(3);
       break;
     case 4:
       context.read<HomeController>().isEstore(true);
       context.read<HomeController>().setStoreIndex(0);
       Get.to(() => StorePage(0));
       break;
-    case 5:
-      context.read<HomeController>().setPage(5);
-      break;
-    case 7:
-      context.read<HomeController>().setPage(7);
-      break;
-    case 8:
-      context.read<HomeController>().setPage(8);
-      break;
-    case 10:
-      context.read<HomeController>().setPage(10);
-      break;
-    case -10:
-      context.read<HomeController>().setPage(-10);
-      break;
-    case -11:
-      context.read<HomeController>().setPage(-11);
-      break;
-    case -2:
-      context.read<HomeController>().setPage(-2);
-      break;
+
     case 11:
       dialogMessage(context, logoutPop(context));
       break;

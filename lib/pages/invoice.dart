@@ -12,6 +12,8 @@ class MyInvoicePage extends StatefulWidget {
 
 class _MyInvoicePageState extends State<MyInvoicePage> {
 
+  String past = "Service";
+
   @override
   void initState() {
     super.initState();
@@ -61,6 +63,75 @@ class _MyInvoicePageState extends State<MyInvoicePage> {
               ),
             ]),
           ),
+
+        const SizedBox(
+            height: 10.0,
+          ),
+          Container(
+            padding: const EdgeInsets.all(6.0),
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(40.0),
+                color: Colors.white,
+                boxShadow: SHADOW),
+            child: Row(mainAxisSize: MainAxisSize.min, children: [
+              GestureDetector(
+                onTap: () {
+                  setState(() {
+                    past = 'Service';
+                  });
+                },
+                child: Container(
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 20.0, vertical: 8.0),
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(50.0),
+                      color:
+                          past == 'Service' ? BLUECOLOR : Colors.transparent,
+                      boxShadow: past == 'Service' ? SHADOW : null),
+                  child: FittedBox(
+                    child: Text(
+                      'Service',
+                      style: getCustomFont(
+                          size: 13.0,
+                          color: past == 'Service'
+                              ? Colors.white
+                              : Colors.black),
+                    ),
+                  ),
+                ),
+              ),
+              GestureDetector(
+                onTap: () {
+                  setState(() {
+                    past = 'Product';
+                  });
+                },
+                child: Container(
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 20.0, vertical: 8.0),
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(50.0),
+                      color:
+                          past == 'Product' ? BLUECOLOR : Colors.transparent,
+                      boxShadow: past == 'Product' ? SHADOW : null),
+                  child: FittedBox(
+                    child: Text(
+                      'Product',
+                      style: getCustomFont(
+                          size: 13.0,
+                          color: past == 'Product'
+                              ? Colors.white
+                              : Colors.black),
+                    ),
+                  ),
+                ),
+              )
+            ]),
+          ),
+          const SizedBox(
+            height: 10.0,
+          ),
+
           Expanded(
               child: Padding(
             padding: const EdgeInsets.all(10.0),
@@ -174,10 +245,10 @@ class _MyInvoicePageState extends State<MyInvoicePage> {
                           ),
                           Flexible(
                             child: getButton(context, () {
-                              context.read<HomeController>().setPage(-21);
+                              context.read<HomeController>().setPage(16);
                             },
                                 icon: Icons.delete_outline,
-                                text: 'Delete',
+                                text: 'View',
                                 color: Colors.redAccent),
                           ),
                         ],

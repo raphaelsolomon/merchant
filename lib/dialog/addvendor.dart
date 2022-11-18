@@ -6,15 +6,15 @@ import 'package:merchant/dialog/subscribe.dart';
 import 'package:flutter/material.dart';
 import 'package:phone_form_field/phone_form_field.dart';
 
-class AddCustomers extends StatefulWidget {
+class Addvendors extends StatefulWidget {
   final bool isEdit;
-  const AddCustomers(this.isEdit, {Key? key}) : super(key: key);
+  const Addvendors(this.isEdit, {Key? key}) : super(key: key);
 
   @override
-  State<AddCustomers> createState() => _AddCustomersState();
+  State<Addvendors> createState() => _AddvendorsState();
 }
 
-class _AddCustomersState extends State<AddCustomers> {
+class _AddvendorsState extends State<Addvendors> {
   bool addButtonLoading = false;
   String country = 'Nigeria';
   bool isSwitch = false;
