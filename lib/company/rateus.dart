@@ -30,7 +30,6 @@ class RateUS extends StatelessWidget {
                       onTap: () => context.read<HomeController>().onBackPress(),
                       child: Icon(Icons.arrow_back_ios,
                           size: 18.0, color: Colors.white)),
-                 
                   Text('Rate Us',
                       style: getCustomFont(size: 16.0, color: Colors.white)),
                   Icon(
@@ -40,16 +39,16 @@ class RateUS extends StatelessWidget {
                 ],
               ),
               const SizedBox(
-            height: 15.0,
-          ),
+                height: 15.0,
+              ),
             ]),
           ),
           Expanded(
               child: SingleChildScrollView(
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                  child: Column(
-                            children: [
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20.0),
+              child: Column(
+                children: [
                   const SizedBox(
                     height: 20.0,
                   ),
@@ -66,7 +65,9 @@ class RateUS extends StatelessWidget {
                     'How was your experience',
                     textAlign: TextAlign.center,
                     style: getCustomFont(
-                        size: 23.0, color: Colors.black, weight: FontWeight.w700),
+                        size: 23.0,
+                        color: Colors.black,
+                        weight: FontWeight.w700),
                   ),
                   const SizedBox(
                     height: 20.0,
@@ -99,10 +100,10 @@ class RateUS extends StatelessWidget {
                   const SizedBox(
                     height: 20.0,
                   ),
-                            ],
-                          ),
-                ),
-              ))
+                ],
+              ),
+            ),
+          ))
         ]));
   }
 
@@ -137,7 +138,8 @@ class RateUS extends StatelessWidget {
           keyboardType: TextInputType.multiline,
           style: getCustomFont(size: 16.0, color: Colors.black54),
           decoration: InputDecoration(
-              contentPadding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 5.0),
+              contentPadding:
+                  const EdgeInsets.symmetric(horizontal: 20.0, vertical: 5.0),
               hintText: 'write your experience here',
               hintStyle: getCustomFont(size: 16.0, color: Colors.black54),
               border: OutlineInputBorder(borderSide: BorderSide.none)),

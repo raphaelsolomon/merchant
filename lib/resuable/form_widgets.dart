@@ -8,6 +8,7 @@ import 'package:merchant/constant/strings.dart';
 import 'package:merchant/dialog/subscribe.dart';
 import 'package:merchant/providers/page_controller.dart';
 import 'package:merchant/store/index.dart';
+import 'package:merchant/store/product_details.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:phone_form_field/phone_form_field.dart';
 import 'package:provider/provider.dart';
@@ -1158,4 +1159,68 @@ Widget dashHeader(context) => Positioned(
               )
             ],
           )),
+    );
+
+Widget productItem(BuildContext context) => GestureDetector(
+      onTap: () => Get.to(() => ProductDetails()),
+      child: Container(
+        width: MediaQuery.of(context).size.width,
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(15.0),
+            boxShadow: SHADOW,
+            color: Colors.white),
+        child: Stack(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(15.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Expanded(
+                      child: Center(
+                    child: Image.asset('assets/imgs/pills.png'),
+                  )),
+                  const SizedBox(
+                    height: 2.0,
+                  ),
+                  Text(
+                    'Salospir 200mg Tablet',
+                    textAlign: TextAlign.start,
+                    style: getCustomFont(size: 14.0, color: Colors.black45),
+                  ),
+                  const SizedBox(
+                    height: 3.0,
+                  ),
+                  Text(
+                    '\$5.50',
+                    style: getCustomFont(
+                        size: 15.0,
+                        color: Colors.black,
+                        weight: FontWeight.bold),
+                  )
+                ],
+              ),
+            ),
+            Align(
+              alignment: Alignment.bottomRight,
+              child: Container(
+                width: 30.0,
+                height: 35.0,
+                decoration: BoxDecoration(
+                    color: BLUECOLOR,
+                    borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(15.0),
+                        bottomRight: Radius.circular(15.0))),
+                child: Center(
+                  child: Icon(
+                    Icons.add,
+                    color: Colors.white,
+                    size: 19.0,
+                  ),
+                ),
+              ),
+            )
+          ],
+        ),
+      ),
     );

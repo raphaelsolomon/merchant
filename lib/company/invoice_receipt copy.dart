@@ -26,11 +26,14 @@ class InvoiceReceipt extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   GestureDetector(
-                      onTap: () =>context.read<HomeController>().onBackPress(),
-                      child: Icon(Icons.arrow_back_ios, color: Colors.white, size: 18.0,)),
+                      onTap: () => context.read<HomeController>().onBackPress(),
+                      child: Icon(
+                        Icons.arrow_back_ios,
+                        color: Colors.white,
+                        size: 18.0,
+                      )),
                   Text('Invoice Receipt',
-                      style:
-                          getCustomFont(size: 15.0, color: Colors.white)),
+                      style: getCustomFont(size: 15.0, color: Colors.white)),
                   InkWell(
                     onTap: () {
                       context.read<HomeController>().setPage(-22);
@@ -42,9 +45,9 @@ class InvoiceReceipt extends StatelessWidget {
                   )
                 ],
               ),
-               const SizedBox(
-            height: 15.0,
-          ),
+              const SizedBox(
+                height: 15.0,
+              ),
             ]),
           ),
           Expanded(
@@ -173,7 +176,7 @@ class InvoiceReceipt extends StatelessWidget {
                     const SizedBox(
                       height: 35.0,
                     ),
-                    Text('Payment Method',
+                    Text('Purchase Details',
                         style: getCustomFont(
                             color: Colors.black87,
                             size: 14.0,
@@ -181,20 +184,20 @@ class InvoiceReceipt extends StatelessWidget {
                     const SizedBox(
                       height: 8.0,
                     ),
-                    Text('Debit Card',
+                    Text('Purchase ID',
                         style: getCustomFont(
                             color: Colors.black45,
                             size: 13.0,
-                            weight: FontWeight.w500)),
+                            weight: FontWeight.w400)),
                     const SizedBox(
                       height: 4.0,
                     ),
-                    Text('XXXXXXXXXXXXXXXX-2541\nHDFC Bank',
+                    Text('6568678678685969',
                         textAlign: TextAlign.start,
                         style: getCustomFont(
                             color: Colors.black45,
                             size: 13.0,
-                            weight: FontWeight.w500)),
+                            weight: FontWeight.w400)),
                     const SizedBox(
                       height: 35.0,
                     ),
@@ -204,7 +207,6 @@ class InvoiceReceipt extends StatelessWidget {
                     ),
                     Row(
                       children: [
-                        Flexible(child: Container()),
                         Flexible(
                             child: Column(
                           children: [
@@ -212,9 +214,9 @@ class InvoiceReceipt extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Flexible(
-                                    child: Text('Order:',
+                                    child: Text('Sub Total',
                                         style: getCustomFont(
-                                            color: Colors.black87,
+                                            color: Colors.black,
                                             size: 12.0,
                                             weight: FontWeight.w500))),
                                 Text('\$350',
@@ -229,12 +231,12 @@ class InvoiceReceipt extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Flexible(
-                                    child: Text('Discount:',
+                                    child: Text('Grand Total',
                                         style: getCustomFont(
-                                            color: Colors.black87,
+                                            color: Colors.black,
                                             size: 12.0,
                                             weight: FontWeight.w500))),
-                                Text('-\$10',
+                                Text('\$350',
                                     style: getCustomFont(
                                         color: Colors.black45,
                                         size: 12.0,
@@ -246,7 +248,7 @@ class InvoiceReceipt extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Flexible(
-                                    child: Text('Total Amount:',
+                                    child: Text('Due Amount',
                                         style: getCustomFont(
                                             color: Colors.black87,
                                             size: 12.0,
@@ -268,8 +270,8 @@ class InvoiceReceipt extends StatelessWidget {
                     ),
                     Text('Other information',
                         style: getCustomFont(
-                            color: Colors.black87,
-                            size: 14.0,
+                            color: Colors.black,
+                            size: 13.5,
                             weight: FontWeight.w500)),
                     const SizedBox(
                       height: 8.0,
@@ -278,13 +280,13 @@ class InvoiceReceipt extends StatelessWidget {
                         textAlign: TextAlign.start,
                         style: getCustomFont(
                             color: Colors.black45,
-                            size: 13.0,
+                            size: 12.0,
                             weight: FontWeight.w400)),
                     Text('Thank You for your business.',
                         textAlign: TextAlign.start,
                         style: getCustomFont(
                             color: Colors.black45,
-                            size: 13.0,
+                            size: 12.0,
                             weight: FontWeight.w400)),
                     const SizedBox(
                       height: 80.0,
@@ -312,10 +314,22 @@ class InvoiceReceipt extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.symmetric(
                         horizontal: 10.0, vertical: 10.0),
-                    child: Text('Description',
+                    child: Text('S/N',
                         maxLines: 1,
                         style: getCustomFont(
-                            size: 14.0,
+                            size: 13.0,
+                            weight: FontWeight.w500,
+                            color: Colors.black87)),
+                  )
+                ]),
+                Column(children: [
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 10.0, vertical: 10.0),
+                    child: Text('Medicine Name',
+                        maxLines: 1,
+                        style: getCustomFont(
+                            size: 13.0,
                             weight: FontWeight.w500,
                             color: Colors.black87)),
                   )
@@ -325,9 +339,9 @@ class InvoiceReceipt extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(
                         horizontal: 10.0, vertical: 10.0),
                     child: Text('Quantity',
-                       maxLines: 1,
+                        maxLines: 1,
                         style: getCustomFont(
-                            size: 14.0,
+                            size: 13.0,
                             weight: FontWeight.w500,
                             color: Colors.black87)),
                   )
@@ -336,10 +350,10 @@ class InvoiceReceipt extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.symmetric(
                         horizontal: 10.0, vertical: 10.0),
-                    child: Text('VAT',
+                    child: Text('Supplier Price',
                         maxLines: 1,
                         style: getCustomFont(
-                            size: 14.0,
+                            size: 13.0,
                             weight: FontWeight.w500,
                             color: Colors.black87)),
                   )
@@ -348,27 +362,52 @@ class InvoiceReceipt extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.symmetric(
                         horizontal: 10.0, vertical: 10.0),
-                    child: Text('Total',
+                    child: Text('Discount',
                         maxLines: 1,
                         style: getCustomFont(
-                            size: 14.0,
+                            size: 13.0,
+                            weight: FontWeight.w500,
+                            color: Colors.black87)),
+                  )
+                ]),
+                Column(children: [
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 10.0, vertical: 10.0),
+                    child: Text('Purchase Price',
+                        maxLines: 1,
+                        style: getCustomFont(
+                            size: 13.0,
+                            weight: FontWeight.w500,
+                            color: Colors.black87)),
+                  )
+                ]),
+                Column(children: [
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 10.0, vertical: 10.0),
+                    child: Text('Per Pcs Price',
+                        maxLines: 1,
+                        style: getCustomFont(
+                            size: 13.0,
+                            weight: FontWeight.w500,
+                            color: Colors.black87)),
+                  )
+                ]),
+                Column(children: [
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 10.0, vertical: 10.0),
+                    child: Text('Total Amount',
+                        maxLines: 1,
+                        style: getCustomFont(
+                            size: 13.0,
                             weight: FontWeight.w500,
                             color: Colors.black87)),
                   )
                 ]),
               ]),
               TableRow(children: [
-                Column(children: [
-                  Padding(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 10.0, vertical: 10.0),
-                    child: Text('General Consultation',
-                        style: getCustomFont(
-                            size: 13.0,
-                            weight: FontWeight.normal,
-                            color: Colors.black45)),
-                  )
-                ]),
                 Column(children: [
                   Padding(
                     padding: const EdgeInsets.symmetric(
@@ -385,7 +424,19 @@ class InvoiceReceipt extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.symmetric(
                         horizontal: 10.0, vertical: 10.0),
-                    child: Text('\$0',
+                    child: Text('Ibuprofene',
+                        maxLines: 1,
+                        style: getCustomFont(
+                            size: 13.0,
+                            weight: FontWeight.normal,
+                            color: Colors.black45)),
+                  )
+                ]),
+                Column(children: [
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 10.0, vertical: 10.0),
+                    child: Text('100',
                         maxLines: 1,
                         style: getCustomFont(
                             size: 13.0,
@@ -398,6 +449,54 @@ class InvoiceReceipt extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(
                         horizontal: 10.0, vertical: 10.0),
                     child: Text('\$100',
+                        maxLines: 1,
+                        style: getCustomFont(
+                            size: 13.0,
+                            weight: FontWeight.normal,
+                            color: Colors.black45)),
+                  )
+                ]),
+                Column(children: [
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 10.0, vertical: 10.0),
+                    child: Text('\$0.00',
+                        maxLines: 1,
+                        style: getCustomFont(
+                            size: 15.0,
+                            weight: FontWeight.normal,
+                            color: Colors.black45)),
+                  )
+                ]),
+                Column(children: [
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 10.0, vertical: 10.0),
+                    child: Text('\$1.01',
+                        maxLines: 1,
+                        style: getCustomFont(
+                            size: 13.0,
+                            weight: FontWeight.normal,
+                            color: Colors.black45)),
+                  )
+                ]),
+                Column(children: [
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 10.0, vertical: 10.0),
+                    child: Text('0.00',
+                        maxLines: 1,
+                        style: getCustomFont(
+                            size: 13.0,
+                            weight: FontWeight.normal,
+                            color: Colors.black45)),
+                  )
+                ]),
+                Column(children: [
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 10.0, vertical: 10.0),
+                    child: Text('\$200.00',
                         maxLines: 1,
                         style: getCustomFont(
                             size: 13.0,

@@ -108,8 +108,8 @@ class _AccountPageState extends State<AccountPage> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                          Container(
-                          width: 10.0,
-                          height: 65.0,
+                          width: 6.0,
+                          height: 70.0,
                         decoration: BoxDecoration(
                           color: Colors.green,
                           borderRadius: BorderRadius.only(topLeft: Radius.circular(15.0), bottomLeft: Radius.circular(15.0))
@@ -121,15 +121,17 @@ class _AccountPageState extends State<AccountPage> {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text('Credit card deposit(payment ID: 94943978743)', style: getCustomFont(color: BLUECOLOR, size: 12.0),)
-                                ,Text('20 Monday June, 08.48.00 GMT',style: getCustomFont(size: 11.0, color: Colors.black45),)
+                                const SizedBox(height: 5.0,),
+                                Text('Credit card deposit(payment ID: 94943978743)', style: getCustomFont(color: BLUECOLOR, size: 12.0),),
+                                const SizedBox(height: 2.0,),
+                                Text('20 Monday June, 08.48.00 GMT',style: getCustomFont(size: 10.0, color: Colors.black45),)
                               ],
                             ),
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                          child: Text('\$200.00',style: getCustomFont(size: 12.0, color: Colors.black, weight: FontWeight.w500),),
+                          padding: const EdgeInsets.symmetric(horizontal: 10.0,),
+                          child: Text('\$200.00',style: getCustomFont(size: 11.0, color: Colors.black, weight: FontWeight.w500),),
                         )
                       ],
                     ),
@@ -226,7 +228,7 @@ class _AccountPageState extends State<AccountPage> {
                 );
 
   Widget balance(context) => Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 5.0),
+        padding: const EdgeInsets.symmetric(horizontal: 15.0),
         child: DottedBorder(
           borderType: BorderType.RRect,
           radius: Radius.circular(12),

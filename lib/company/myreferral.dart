@@ -145,7 +145,7 @@ class MyReferrals extends StatelessWidget {
       decoration: BoxDecoration(
           color: Colors.white,
           border: Border.all(width: 1.0, color: Colors.grey.shade400),
-          borderRadius: BorderRadius.circular(2.0)),
+          borderRadius: BorderRadius.circular(100.0)),
       child: Icon(
         icon,
         color: color,

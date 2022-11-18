@@ -4,21 +4,30 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:fluttericon/font_awesome5_icons.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:merchant/resuable/form_widgets.dart';
 import 'package:provider/provider.dart';
 
-class MyFavourite extends StatelessWidget {
-  final GlobalKey<ScaffoldState> scaffold;
-  const MyFavourite(this.scaffold, {Key? key}) : super(key: key);
+class MyFavourite extends StatefulWidget {
+  const MyFavourite({Key? key}) : super(key: key);
+
+  @override
+  State<MyFavourite> createState() => _MyFavouriteState();
+}
+
+class _MyFavouriteState extends State<MyFavourite> {
+  String past = 'Medicines';
 
   @override
   Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
     return Container(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
         color: Color(0xFFf6f6f6),
         child: Column(children: [
           Container(
-            padding:const EdgeInsets.symmetric(horizontal: 15.0, vertical: 0.0),
+            padding:
+                const EdgeInsets.symmetric(horizontal: 15.0, vertical: 0.0),
             width: MediaQuery.of(context).size.width,
             color: BLUECOLOR,
             child: Column(children: [
@@ -30,40 +39,140 @@ class MyFavourite extends StatelessWidget {
                 children: [
                   GestureDetector(
                       onTap: () => context.read<HomeController>().onBackPress(),
-                      child: Icon(Icons.menu,
+                      child: Icon(Icons.arrow_back_ios,
                           size: 18.0, color: Colors.white)),
-                  const SizedBox(
-                    width: 10.0,
+                  Flexible(
+                    fit: FlexFit.tight,
+                    child: Text('Favourites',
+                        style: getCustomFont(size: 16.0, color: Colors.white)),
                   ),
-                  Text('Favourites',
-                      style:
-                          getCustomFont(size: 16.0, color: Colors.white)),
-                  InkWell(
-                    onTap: () {
-                      context.read<HomeController>().setPage(-22);
-                    },
-                    child: Icon(
-                      Icons.notifications_active,
-                      color: Colors.white,
-                    ),
+                  Icon(
+                    null,
+                    color: Colors.white,
                   )
                 ],
               ),
-               const SizedBox(
-            height: 15.0,
-          ),
+              const SizedBox(
+                height: 15.0,
+              ),
             ]),
           ),
           const SizedBox(
             height: 15.0,
           ),
-          Expanded(
-              child: ListView.builder(
+          Container(
+            padding: const EdgeInsets.all(6.0),
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(40.0),
+                color: Colors.white,
+                boxShadow: SHADOW),
+            child: Row(mainAxisSize: MainAxisSize.min, children: [
+              GestureDetector(
+                onTap: () {
+                  setState(() {
+                    past = 'Medicines';
+                  });
+                },
+                child: Container(
                   padding: const EdgeInsets.symmetric(
-                      horizontal: 0.0, vertical: 0.0),
-                  itemCount: 5,
-                  shrinkWrap: true,
-                  itemBuilder: (ctx, i) => findDoctors(context)))
+                      horizontal: 20.0, vertical: 8.0),
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(50.0),
+                      color:
+                          past == 'Medicines' ? BLUECOLOR : Colors.transparent,
+                      boxShadow: past == 'Medicines' ? SHADOW : null),
+                  child: FittedBox(
+                    child: Text(
+                      'Medicines',
+                      style: getCustomFont(
+                          size: 13.0,
+                          color: past == 'Medicines'
+                              ? Colors.white
+                              : Colors.black),
+                    ),
+                  ),
+                ),
+              ),
+              GestureDetector(
+                onTap: () {
+                  setState(() {
+                    past = 'Doctors';
+                  });
+                },
+                child: Container(
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 20.0, vertical: 8.0),
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(50.0),
+                      color: past == 'Doctors' ? BLUECOLOR : Colors.transparent,
+                      boxShadow: past == 'Doctors' ? SHADOW : null),
+                  child: FittedBox(
+                    child: Text(
+                      'Doctors',
+                      style: getCustomFont(
+                          size: 13.0,
+                          color:
+                              past == 'Doctors' ? Colors.white : Colors.black),
+                    ),
+                  ),
+                ),
+              ),
+              GestureDetector(
+                onTap: () {
+                  setState(() {
+                    past = 'Hospitals';
+                  });
+                },
+                child: Container(
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 20.0, vertical: 8.0),
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(50.0),
+                      color:
+                          past == 'Hospitals' ? BLUECOLOR : Colors.transparent,
+                      boxShadow: past == 'Hospitals' ? SHADOW : null),
+                  child: FittedBox(
+                    child: Text(
+                      'Hospitals',
+                      style: getCustomFont(
+                          size: 13.0,
+                          color: past == 'Hospitals'
+                              ? Colors.white
+                              : Colors.black),
+                    ),
+                  ),
+                ),
+              )
+            ]),
+          ),
+          const SizedBox(
+            height: 5.0,
+          ),
+          past == 'Doctors'
+              ? Expanded(
+                  child: ListView.builder(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 0.0, vertical: 0.0),
+                      itemCount: 5,
+                      shrinkWrap: true,
+                      itemBuilder: (ctx, i) => findDoctors(context)))
+              : past == 'Medicines'
+                  ? Expanded(
+                      child: GridView.builder(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 15.0, vertical: 10.0),
+                          shrinkWrap: true,
+                          physics: NeverScrollableScrollPhysics(),
+                          gridDelegate:
+                              SliverGridDelegateWithFixedCrossAxisCount(
+                                  crossAxisCount: returnCrossAxis(size.width),
+                                  mainAxisSpacing: 10.0,
+                                  mainAxisExtent: 210.0,
+                                  crossAxisSpacing: 10.0),
+                          itemCount: 10,
+                          itemBuilder: (ctx, i) => productItem(context)),
+                    )
+                  : const SizedBox()
         ]));
   }
 
@@ -306,10 +415,9 @@ class MyFavourite extends StatelessWidget {
                   width: 15.0,
                 ),
                 Flexible(
-                  child:
-                      getAppointment(context, () {
-                         context.read<HomeController>().setPage(-1);
-                      }, text: 'Book Appointment'),
+                  child: getAppointment(context, () {
+                    context.read<HomeController>().setPage(-1);
+                  }, text: 'Book Appointment'),
                 )
               ],
             )
@@ -368,4 +476,12 @@ class MyFavourite extends StatelessWidget {
           ),
         ),
       );
+}
+
+int returnCrossAxis(width) {
+  return width < 500
+      ? 2
+      : width > 500 && width < 100
+          ? 2
+          : 3;
 }
