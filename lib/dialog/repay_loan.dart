@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:merchant/company/loan_confirmation.dart';
 import 'package:merchant/constant/strings.dart';
+import 'package:merchant/dialog/subscribe.dart';
 
 class RepayLoan extends StatelessWidget {
   const RepayLoan({Key? key}) : super(key: key);
@@ -13,7 +15,9 @@ class RepayLoan extends StatelessWidget {
           const SizedBox(height: 16.0),
           applyItem3(MediaQuery.of(context).size.width),
           const SizedBox(height: 20.0),
-          getPayButton(context, (){},  'Request Loan'),
+          getPayButton(context, (){
+            showRequestSheet(context, LoanConfirmation());
+          },  'Pay Now'),
           const SizedBox(height: 20.0),
         ],
       ),

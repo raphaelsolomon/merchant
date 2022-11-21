@@ -1,4 +1,6 @@
 import 'package:merchant/constant/strings.dart';
+import 'package:merchant/dialog/subscribe.dart';
+import 'package:merchant/pages/book_doctor/time_and_date.dart';
 import 'package:merchant/providers/page_controller.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
@@ -110,7 +112,7 @@ class _DoctorProfileState extends State<DoctorProfile> {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20.0),
             child: getButton(context, () {
-               context.read<HomeController>().setPage(-1);
+               showRequestSheet(context, TimeAndDate());
             }, text: 'Book Appointment'),
           ),
           const SizedBox(

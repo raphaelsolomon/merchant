@@ -373,12 +373,10 @@ class _PurchaseListState extends State<PurchaseList> {
                         decoration: BoxDecoration(
                             color: Colors.green.withOpacity(.9),
                             borderRadius: BorderRadius.circular(4.0)),
-                        child: Center(
-                          child: Icon(
-                            Icons.remove_red_eye,
-                            color: Colors.white,
-                            size: 18.0,
-                          ),
+                        child: Icon(
+                          Icons.remove_red_eye,
+                          color: Colors.white,
+                          size: 15.0,
                         )),
                   ),
                 ),
@@ -390,16 +388,14 @@ class _PurchaseListState extends State<PurchaseList> {
                     onTap: () => null,
                     child: Container(
                         padding: const EdgeInsets.symmetric(
-                            horizontal: 10.0, vertical: 5.0),
+                            horizontal: 5.0, vertical: 5.0),
                         decoration: BoxDecoration(
                             color: BLUECOLOR.withOpacity(.9),
                             borderRadius: BorderRadius.circular(4.0)),
-                        child: Center(
-                          child: Icon(
-                            Icons.edit,
-                            color: Colors.white,
-                            size: 18.0,
-                          ),
+                        child: Icon(
+                          Icons.edit,
+                          color: Colors.white,
+                          size: 15.0,
                         )),
                   ),
                 ),
@@ -411,16 +407,14 @@ class _PurchaseListState extends State<PurchaseList> {
                     onTap: () => null,
                     child: Container(
                         padding: const EdgeInsets.symmetric(
-                            horizontal: 10.0, vertical: 5.0),
+                            horizontal: 5.0, vertical: 5.0),
                         decoration: BoxDecoration(
                             color: Colors.red.withOpacity(.9),
                             borderRadius: BorderRadius.circular(4.0)),
-                        child: Center(
-                          child: Icon(
-                            Icons.delete,
-                            color: Colors.white,
-                            size: 18.0,
-                          ),
+                        child: Icon(
+                          Icons.delete,
+                          color: Colors.white,
+                          size: 15.0,
                         )),
                   ),
                 ),

@@ -1,89 +1,58 @@
 import 'package:another_xlider/another_xlider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:merchant/constant/strings.dart';
 
-class Applyloan extends StatelessWidget {
-  const Applyloan({Key? key}) : super(key: key);
+class ExtendLoan extends StatefulWidget {
+  const ExtendLoan({Key? key}) : super(key: key);
 
+  @override
+  State<ExtendLoan> createState() => _ExtendLoanState();
+}
+
+class _ExtendLoanState extends State<ExtendLoan> {
+  String value = 'true';
   @override
   Widget build(BuildContext context) {
     return Expanded(
         child: SingleChildScrollView(
-          child: Column(
-            children: [
-              const SizedBox(height: 15.0,),
-              Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 5.0, vertical: 0.0),
-                child: getDropDownAssurance(['Partial Product Loan', 'Full Product Loan'], (s) {}, context),
-              ),
-              const SizedBox(height: 15.0,),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 5.0, vertical: 0.0),
-                child: Row(
-                  children: [
-                    Flexible(
-                      flex: 3,
-                        child: getDropDownAssurance(['s', 'a'], (s) {}, context)),
-                    const SizedBox(width: 10.0),
-                    Flexible(child: getPayButton(context, (){}, 'Apply')),
-                    const SizedBox(width: 10.0),
-                  ],
-                ),
-              ),
-              const SizedBox(height: 16.0),
-               applyItem(MediaQuery.of(context).size.width),
-              const SizedBox(height: 7.0),
-              applyItem2(MediaQuery.of(context).size.width),
-              const SizedBox(height: 7.0),
-              applyItem3(MediaQuery.of(context).size.width),
-              const SizedBox(height: 20.0),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                child: getPayButton(context, (){},  'Request Loan'),
-              ),
-              const SizedBox(height: 100.0),
-            ],
+      child: Column(
+        children: [
+          const SizedBox(
+            height: 15.0,
           ),
-        ));
-  }
-
-  Widget getDropDownAssurance(
-      List<String> list, callBack, BuildContext context) {
-    return Container(
-      width: MediaQuery.of(context).size.width,
-      margin: const EdgeInsets.symmetric(horizontal: 10.0),
-      height: 45.0,
-      decoration: BoxDecoration(
-          color: BLUECOLOR.withOpacity(.05),
-          borderRadius: BorderRadius.circular(5.0)),
-      child: FormBuilderDropdown(
-        name: 'skill',
-        icon: const Icon(
-          Icons.keyboard_arrow_down,
-          color: Colors.black,
-        ),
-        decoration: InputDecoration(
-          contentPadding:
-              const EdgeInsets.symmetric(horizontal: 9.9, vertical: 5.0),
-          border: OutlineInputBorder(
-              borderRadius: const BorderRadius.all(Radius.circular(5.0)),
-              borderSide: BorderSide.none),
-        ),
-        initialValue: list[0],
-        onChanged: (value) => callBack(value),
-        items: list
-            .map((gender) => DropdownMenuItem(
-                  value: gender,
-                  child: Text(
-                    gender,
-                    style: getCustomFont(size: 14.0, color: Colors.black45),
-                  ),
-                ))
-            .toList(),
+          applyItem2(MediaQuery.of(context).size.width),
+          const SizedBox(height: 7.0),
+          applyItem3(MediaQuery.of(context).size.width),
+          const SizedBox(height: 10.0),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10.0),
+            child: Row(
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                Checkbox(
+                    value: value == 'true',
+                    activeColor: BLUECOLOR,
+                    onChanged: (b) {
+                      if (value == 'true') {
+                        value = 'false';
+                      } else {
+                        value = 'true';
+                      }
+                      setState((){});
+                    }), Text('Apply to Others', style: getCustomFont(size: 12.0, color: Colors.black54)),
+              ],
+              mainAxisAlignment: MainAxisAlignment.end,
+            ),
+          ),
+          const SizedBox(height: 20.0),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10.0),
+            child: getPayButton(context, () {}, 'Submit Extension'),
+          ),
+          const SizedBox(height: 20.0),
+        ],
       ),
-    );
+    ));
   }
 
   Widget getPayButton(context, callBack, text) => GestureDetector(
@@ -116,7 +85,7 @@ class Applyloan extends StatelessWidget {
         ),
         child: Column(children: [
           Text(
-            'Select Loan Amount',
+            'Extend Loan Amount',
             style: getCustomFont(
                 size: 13.0, color: Colors.black87, weight: FontWeight.w600),
           ),
@@ -203,7 +172,7 @@ class Applyloan extends StatelessWidget {
         ]),
       );
 
-   Widget applyItem3(size) => Container(
+  Widget applyItem3(size) => Container(
         padding: const EdgeInsets.only(
             right: 20.0, top: 10.0, bottom: 10.0, left: 20.0),
         margin: const EdgeInsets.symmetric(vertical: 4.0, horizontal: 10.0),

@@ -2,6 +2,7 @@ import 'package:merchant/constant/strings.dart';
 import 'package:merchant/dialog/filterPage.dart';
 import 'package:merchant/dialog/subscribe.dart';
 import 'package:merchant/pages/book_doctor/doctor_profile.dart';
+import 'package:merchant/pages/book_doctor/time_and_date.dart';
 import 'package:merchant/providers/page_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
@@ -420,7 +421,7 @@ class _SearchDoctorState extends State<SearchDoctor> {
                 ),
                 Flexible(
                   child: getButton(context, () {
-                    context.read<HomeController>().setPage(-1);
+                    showRequestSheet(context, TimeAndDate());
                   }, text: 'Book Appointment'),
                 )
               ],

@@ -1,5 +1,6 @@
 import 'package:merchant/constant/strings.dart';
 import 'package:merchant/dialog/apply_loan.dart';
+import 'package:merchant/dialog/extend_loan.dart';
 import 'package:merchant/dialog/repay_loan.dart';
 import 'package:merchant/providers/page_controller.dart';
 import 'package:flutter/material.dart';
@@ -13,7 +14,7 @@ class GetLoan extends StatefulWidget {
 }
 
 class _GetLoanState extends State<GetLoan> {
-  String past = 'Apply';
+  String past = 'My Loan';
 
   @override
   Widget build(BuildContext context) {
@@ -24,8 +25,7 @@ class _GetLoanState extends State<GetLoan> {
         color: Color(0xFFf6f6f6),
         child: Column(children: [
           Container(
-            padding:
-                const EdgeInsets.symmetric(horizontal: 15.0, vertical: 0.0),
+            padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 0.0),
             width: MediaQuery.of(context).size.width,
             color: BLUECOLOR,
             child: Column(children: [
@@ -59,98 +59,145 @@ class _GetLoanState extends State<GetLoan> {
           ),
           Container(
             padding: const EdgeInsets.all(6.0),
+            margin: const EdgeInsets.symmetric(horizontal: 20.0),
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(40.0),
                 color: Colors.white,
                 boxShadow: SHADOW),
             child: Row(mainAxisSize: MainAxisSize.min, children: [
-              GestureDetector(
-                onTap: () {
-                  setState(() {
-                    past = 'My Loan';
-                  });
-                },
-                child: Container(
-                  padding: const EdgeInsets.symmetric(
-                      horizontal: 20.0, vertical: 8.0),
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(50.0),
-                      color: past == 'My Loan' ? BLUECOLOR : Colors.transparent,
-                      boxShadow: past == 'My Loan' ? SHADOW : null),
-                  child: FittedBox(
-                    child: Text(
-                      'My Loan',
-                      style: getCustomFont(
-                          size: 13.0,
-                          color:
-                              past == 'My Loan' ? Colors.white : Colors.black),
+              Flexible(
+                child: GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      past = 'My Loan';
+                    });
+                  },
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 20.0, vertical: 8.0),
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(50.0),
+                        color:
+                            past == 'My Loan' ? BLUECOLOR : Colors.transparent,
+                        boxShadow: past == 'My Loan' ? SHADOW : null),
+                    child: FittedBox(
+                      child: Text(
+                        'Loans',
+                        style: getCustomFont(
+                            size: 13.0,
+                            color: past == 'My Loan'
+                                ? Colors.white
+                                : Colors.black),
+                      ),
                     ),
                   ),
                 ),
               ),
-              GestureDetector(
-                onTap: () {
-                  setState(() {
-                    past = 'Apply';
-                  });
-                },
-                child: Container(
-                  padding: const EdgeInsets.symmetric(
-                      horizontal: 20.0, vertical: 8.0),
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(50.0),
-                      color: past == 'Apply' ? BLUECOLOR : Colors.transparent,
-                      boxShadow: past == 'Apply' ? SHADOW : null),
-                  child: FittedBox(
-                    child: Text(
-                      'Apply',
-                      style: getCustomFont(
-                          size: 13.0,
-                          color: past == 'Apply' ? Colors.white : Colors.black),
+              Flexible(
+                child: GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      past = 'Apply';
+                    });
+                  },
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 20.0, vertical: 8.0),
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(50.0),
+                        color: past == 'Apply' ? BLUECOLOR : Colors.transparent,
+                        boxShadow: past == 'Apply' ? SHADOW : null),
+                    child: FittedBox(
+                      child: Text(
+                        'Apply',
+                        style: getCustomFont(
+                            size: 13.0,
+                            color:
+                                past == 'Apply' ? Colors.white : Colors.black),
+                      ),
                     ),
                   ),
                 ),
               ),
-              GestureDetector(
-                onTap: () {
-                  setState(() {
-                    past = 'Repay Loan';
-                  });
-                },
-                child: Container(
-                  padding: const EdgeInsets.symmetric(
-                      horizontal: 20.0, vertical: 8.0),
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(50.0),
-                      color:
-                          past == 'Repay Loan' ? BLUECOLOR : Colors.transparent,
-                      boxShadow: past == 'Repay Loan' ? SHADOW : null),
-                  child: FittedBox(
-                    child: Text(
-                      'Repay Loan',
-                      style: getCustomFont(
-                          size: 13.0,
-                          color: past == 'Repay Loan'
-                              ? Colors.white
-                              : Colors.black),
+              Flexible(
+                child: GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      past = 'Repay Loan';
+                    });
+                  },
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 20.0, vertical: 8.0),
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(50.0),
+                        color: past == 'Repay Loan'
+                            ? BLUECOLOR
+                            : Colors.transparent,
+                        boxShadow: past == 'Repay Loan' ? SHADOW : null),
+                    child: FittedBox(
+                      child: Text(
+                        'Repay',
+                        style: getCustomFont(
+                            size: 13.0,
+                            color: past == 'Repay Loan'
+                                ? Colors.white
+                                : Colors.black),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              Flexible(
+                child: GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      past = 'Extend Loan';
+                    });
+                  },
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 20.0, vertical: 8.0),
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(50.0),
+                        color: past == 'Extend Loan'
+                            ? BLUECOLOR
+                            : Colors.transparent,
+                        boxShadow: past == 'Extend Loan' ? SHADOW : null),
+                    child: FittedBox(
+                      child: Text(
+                        'Extend',
+                        style: getCustomFont(
+                            size: 13.0,
+                            color: past == 'Extend Loan'
+                                ? Colors.white
+                                : Colors.black),
+                      ),
                     ),
                   ),
                 ),
               )
             ]),
           ),
-          past == 'Repay Loan' ? RepayLoan() : past == 'Apply'? Applyloan() : Expanded(
-                      child: Column(children: [
-                      const SizedBox(
-                        height: 10.0,
-                      ),
-                      ...List.generate(3, (index) => loanItem(size))
-                    ]))
+          past == 'Repay Loan'
+              ? RepayLoan()
+              : past == 'Apply'
+                  ? Applyloan()
+                  : past == 'Extend Loan'
+                      ? ExtendLoan()
+                      : Expanded(
+                          child: SingleChildScrollView(
+                          child: Column(children: [
+                            const SizedBox(
+                              height: 10.0,
+                            ),
+                            ...List.generate(3, (index) => loanItem(size))
+                          ]),
+                        ))
         ]));
   }
 
   Widget loanItem(size) => Container(
-        
         margin: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 10.0),
         decoration: BoxDecoration(
           color: Colors.white,
@@ -162,7 +209,7 @@ class _GetLoanState extends State<GetLoan> {
             Container(
               width: 10.0,
               decoration: BoxDecoration(
-                color: Colors.green,
+                  color: Colors.green,
                   borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(50.0),
                       bottomLeft: Radius.circular(50.0))),
@@ -170,7 +217,8 @@ class _GetLoanState extends State<GetLoan> {
             const SizedBox(width: 10.0),
             Flexible(
               child: Padding(
-                padding: const EdgeInsets.only(right: 20.0, top: 10.0, bottom: 10.0, left: 10.0),
+                padding: const EdgeInsets.only(
+                    right: 20.0, top: 10.0, bottom: 10.0, left: 10.0),
                 child: Column(children: [
                   SizedBox(
                       width: size.width,
@@ -179,10 +227,9 @@ class _GetLoanState extends State<GetLoan> {
                           child: Text(
                             'Approve',
                             style: getCustomFont(
-                              size: 11.0,
-                              color: Colors.greenAccent,
-                              weight: FontWeight.w500
-                            ),
+                                size: 11.0,
+                                color: Colors.greenAccent,
+                                weight: FontWeight.w500),
                           ))),
                   const SizedBox(
                     height: 6.0,
@@ -190,7 +237,9 @@ class _GetLoanState extends State<GetLoan> {
                   Text(
                     '\$51,000.00',
                     style: getCustomFont(
-                        size: 19.0, color: Colors.black87, weight: FontWeight.bold),
+                        size: 19.0,
+                        color: Colors.black87,
+                        weight: FontWeight.bold),
                   ),
                   const SizedBox(
                     height: 6.0,
@@ -198,7 +247,9 @@ class _GetLoanState extends State<GetLoan> {
                   Text(
                     'To be payed back in 15 days, with an interest of \$10,000.00',
                     style: getCustomFont(
-                        size: 12.0, color: Colors.black54, weight: FontWeight.w400),
+                        size: 12.0,
+                        color: Colors.black54,
+                        weight: FontWeight.w400),
                     textAlign: TextAlign.center,
                   ),
                   const SizedBox(

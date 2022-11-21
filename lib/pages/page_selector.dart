@@ -84,9 +84,7 @@ class _PageSelectionState extends State<PageSelection> {
                     backgroundColor: Colors.white,
                     body: Stack(children: [
                       _pages(page, scaffold),
-                      !isVisible &&
-                              (!removeBottom.contains(page) &&
-                                  !removeBottom1.contains(page))
+                      !isVisible && (!removeBottom.contains(page) && !removeBottom1.contains(page))
                           ? Align(
                               alignment: Alignment.bottomCenter,
                               child: CustomNavBar(

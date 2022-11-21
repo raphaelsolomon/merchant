@@ -114,7 +114,7 @@ class _AccountPageState extends State<AccountPage> {
                           color: Colors.green,
                           borderRadius: BorderRadius.only(topLeft: Radius.circular(15.0), bottomLeft: Radius.circular(15.0))
                         ),
-                      ),
+                      ),const SizedBox(width: 15.0,),
                         Flexible(
                           child: Padding(
                             padding: const EdgeInsets.only(right: 10.0),

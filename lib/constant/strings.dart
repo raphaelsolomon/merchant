@@ -289,8 +289,8 @@ getNavdraweritem(BuildContext context) {
   ];
 }
 
-List removeBottom = [2];
-List removeBottom1 = [2];
+List removeBottom = [];
+List removeBottom1 = [];
 
 List shop_by_categgory = [
   {

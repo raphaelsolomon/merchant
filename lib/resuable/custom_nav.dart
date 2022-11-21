@@ -5,7 +5,6 @@ import 'package:merchant/constant/strings.dart';
 import 'package:merchant/dialog/subscribe.dart';
 import 'package:merchant/pages/scan.dart';
 import 'package:merchant/providers/page_controller.dart';
-import 'package:merchant/store/index.dart';
 import 'package:provider/provider.dart';
 
 class CustomNavBar extends StatefulWidget {
@@ -53,10 +52,9 @@ class _CustomNavBarState extends State<CustomNavBar> {
             getNavItems(Icons.people, 'Customers', () {
                readExec.setPage(5);
             }, counter.last == 5 && !readExec.isEstoreClicked),
+
             getNavItems(Icons.more_horiz, 'More', () {
-              dialogMessage(
-                  context,
-                  Align(
+              dialogMessage(context, Align(
                     alignment: Alignment.bottomRight,
                     child: Padding(
                       padding: EdgeInsets.only(
@@ -75,14 +73,17 @@ class _CustomNavBarState extends State<CustomNavBar> {
                               children: [
                                 getNavItems(Icons.local_pharmacy_outlined, 'Profile', () {
                                   readExec.setPage(6);
+                                  Navigator.pop(context);
                                 }, counter.last == 6 && !readExec.isEstoreClicked),
                                 Divider(),
                                 getNavItems(Icons.person, 'Account', () {
                                     readExec.setPage(8);
+                                    Navigator.pop(context);
                                 }, counter.last == 8 && !readExec.isEstoreClicked),
                                 Divider(),
                                 getNavItems(Icons.receipt_rounded, 'My Loan', () {
                                    readExec.setPage(18);
+                                   Navigator.pop(context);
                                 }, counter.last == 18 && !readExec.isEstoreClicked),
                               ],
                             ),
