@@ -81,11 +81,9 @@ class _CustomNavBarState extends State<CustomNavBar> {
                                     readExec.setPage(8);
                                 }, counter.last == 8 && !readExec.isEstoreClicked),
                                 Divider(),
-                                getNavItems(Icons.receipt_rounded, 'My Loan',
-                                    () {
-                                  Navigator.pop(context);
-                                  // Get.to(() => RecentOrder());
-                                }, false),
+                                getNavItems(Icons.receipt_rounded, 'My Loan', () {
+                                   readExec.setPage(18);
+                                }, counter.last == 18 && !readExec.isEstoreClicked),
                               ],
                             ),
                           ),
@@ -93,7 +91,7 @@ class _CustomNavBarState extends State<CustomNavBar> {
                       ),
                     ),
                   ));
-            }, counter.last == 6 || counter.last == 8),
+            }, counter.last == 6 || counter.last == 8 || counter.last == 18),
           ],
         ),
       ),

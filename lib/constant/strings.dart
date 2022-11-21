@@ -403,25 +403,25 @@ List<NavDrawerItem> getNavdraweritem_(BuildContext context) {
         icon: FontAwesome5.user_nurse,
         children: [],
         isOpen: false,
-        index: 3),
+        index: 23),
     NavDrawerItem(
         title: 'Man./Dist.',
         icon: Icons.alarm,
         children: [],
         isOpen: false,
-        index: 8),
+        index: 21),
     NavDrawerItem(
         title: 'Services',
         icon: Icons.family_restroom,
         children: [],
         isOpen: false,
-        index: 7),
+        index: 20),
     NavDrawerItem(
         title: 'Medicine',
         icon: Icons.family_restroom,
         children: [],
         isOpen: false,
-        index: -11),
+        index: 22),
     NavDrawerItem(
         title: 'Customer Mgt.',
         icon: FontAwesome5.file_invoice,
@@ -437,7 +437,7 @@ List<NavDrawerItem> getNavdraweritem_(BuildContext context) {
         children: [
           {'index': 7, 'title': 'All Suppliers'},
           {'index': -7, 'title': 'Add Suppliers'},
-          {'index': 000, 'title': 'Purchases'},
+          {'index': 19, 'title': 'Purchases'},
         ],
         isOpen: false,
         index: -0),
@@ -474,7 +474,7 @@ List<NavDrawerItem> getNavdraweritem_(BuildContext context) {
         title: 'Settings',
         icon: Icons.settings,
         children: [
-          {'index': -14, 'title': 'Currency'},
+          {'index': 23, 'title': 'Currency'},
           {'index': 16, 'title': 'Change Password'},
           {'index': 17, 'title': 'Notification'}
         ],

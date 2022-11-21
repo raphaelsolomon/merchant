@@ -1,181 +1,179 @@
 import 'package:merchant/constant/strings.dart';
+import 'package:merchant/dialog/filterPage.dart';
+import 'package:merchant/dialog/subscribe.dart';
+import 'package:merchant/pages/book_doctor/doctor_profile.dart';
 import 'package:merchant/providers/page_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:fluttericon/font_awesome5_icons.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:merchant/resuable/form_widgets.dart';
 import 'package:provider/provider.dart';
 
-class MyFavourite extends StatefulWidget {
-  const MyFavourite({Key? key}) : super(key: key);
+class SearchDoctor extends StatefulWidget {
+  const SearchDoctor({Key? key}) : super(key: key);
 
   @override
-  State<MyFavourite> createState() => _MyFavouriteState();
+  State<SearchDoctor> createState() => _SearchDoctorState();
 }
 
-class _MyFavouriteState extends State<MyFavourite> {
-  String past = 'Medicines';
+class _SearchDoctorState extends State<SearchDoctor> {
+  List<String> catergories = [
+    'Specialization',
+    'Services',
+    'Treatment',
+    'Hospital/Clinic',
+    'Diagnosis Test',
+    'Surgery/transplant'
+  ];
+
+  String selected = '';
 
   @override
   Widget build(BuildContext context) {
-    var size = MediaQuery.of(context).size;
     return Container(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
         color: Color(0xFFf6f6f6),
         child: Column(children: [
           Container(
-            padding:
-                const EdgeInsets.symmetric(horizontal: 15.0, vertical: 0.0),
             width: MediaQuery.of(context).size.width,
             color: BLUECOLOR,
-            child: Column(children: [
-              const SizedBox(
-                height: 45.0,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            child: Column(
+                mainAxisSize: MainAxisSize.max,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  GestureDetector(
-                      onTap: () => context.read<HomeController>().onBackPress(),
-                      child: Icon(Icons.arrow_back_ios,
-                          size: 18.0, color: Colors.white)),
-                  Flexible(
-                    child: Text('Favourites',
-                        style: getCustomFont(size: 16.0, color: Colors.white)),
+                  const SizedBox(
+                    height: 25.0,
                   ),
-                  Icon(
-                    null,
+                  Padding(
+                    padding: const EdgeInsets.only(
+                        left: 15.0, right: 15.0, top: 20.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        GestureDetector(
+                            onTap: () => context.read<HomeController>().onBackPress(),
+                            child: Icon(Icons.arrow_back_ios,
+                                color: Colors.white, size: 18.0)),
+                        Flexible(
+                          child: Text('Search by Doctor',
+                              style: getCustomFont(
+                                  size: 16.0, color: Colors.white)),
+                        ),
+                        Icon(
+                          null,
+                          color: Colors.white,
+                        )
+                      ],
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 10.0,
+                  ),
+                  // getRegisterForm(
+                  //     ctl: null,
+                  //     hint: 'Search for categories',
+                  //     icon: Icons.search,
+                  //     height: 49.0),
+                  // const SizedBox(
+                  //   height: 13.0,
+                  // ),
+                  Container(
+                    padding: const EdgeInsets.only(left: 15.0, right: 15.0),
                     color: Colors.white,
-                  )
-                ],
-              ),
-              const SizedBox(
-                height: 15.0,
-              ),
-            ]),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const SizedBox(
+                          height: 10.0,
+                        ),
+                        SingleChildScrollView(
+                          scrollDirection: Axis.horizontal,
+                          child: Row(
+                            children: [
+                              ...List.generate(
+                                  catergories.length,
+                                  (index) => GestureDetector(
+                                      onTap: () {
+                                        setState(() {
+                                          selected = '${catergories[index]}';
+                                        });
+                                        showRequestSheet(
+                                            context,
+                                            FilterPage(
+                                                '${catergories[index]}'));
+                                      },
+                                      child: Container(
+                                          padding: const EdgeInsets.symmetric(
+                                              horizontal: 20.0, vertical: 9.0),
+                                          margin:
+                                              const EdgeInsets.only(right: 8.0),
+                                          decoration: BoxDecoration(
+                                              borderRadius:
+                                                  BorderRadius.circular(20.0),
+                                              border: Border.all(
+                                                  width: 1.0,
+                                                  color: selected ==
+                                                          catergories[index]
+                                                      ? Colors.white
+                                                      : Colors.black45),
+                                              color:
+                                                  selected == catergories[index]
+                                                      ? BLUECOLOR
+                                                      : Colors.white),
+                                          child: Text(
+                                            catergories[index],
+                                            maxLines: 1,
+                                            style: getCustomFont(
+                                              color:
+                                                  selected == catergories[index]
+                                                      ? Colors.white
+                                                      : Colors.black,
+                                              size: 12.0,
+                                            ),
+                                          ))))
+                            ],
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 12.0,
+                        ),
+                        Text('16525 matches found for :',
+                            style: getCustomFont(
+                              size: 12.5,
+                              color: Colors.black45,
+                            )),
+                        Text('Dental specialist In Bangalore',
+                            style: getCustomFont(
+                              size: 17.0,
+                              color: Colors.black,
+                            )),
+                        const SizedBox(
+                          height: 10.0,
+                        ),
+                      ],
+                    ),
+                  ),
+                ]),
           ),
           const SizedBox(
-            height: 15.0,
+            height: 10.0,
           ),
-          Container(
-            padding: const EdgeInsets.all(6.0),
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(40.0),
-                color: Colors.white,
-                boxShadow: SHADOW),
-            child: Row(mainAxisSize: MainAxisSize.min, children: [
-              GestureDetector(
-                onTap: () {
-                  setState(() {
-                    past = 'Medicines';
-                  });
-                },
-                child: Container(
-                  padding: const EdgeInsets.symmetric(
-                      horizontal: 20.0, vertical: 8.0),
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(50.0),
-                      color:
-                          past == 'Medicines' ? BLUECOLOR : Colors.transparent,
-                      boxShadow: past == 'Medicines' ? SHADOW : null),
-                  child: FittedBox(
-                    child: Text(
-                      'Medicines',
-                      style: getCustomFont(
-                          size: 13.0,
-                          color: past == 'Medicines'
-                              ? Colors.white
-                              : Colors.black),
-                    ),
-                  ),
+          Expanded(
+              child: SingleChildScrollView(
+            child: Column(
+              children: [
+                ...List.generate(10, (index) => findDoctors()),
+                const SizedBox(
+                  height: 75.0,
                 ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  setState(() {
-                    past = 'Doctors';
-                  });
-                },
-                child: Container(
-                  padding: const EdgeInsets.symmetric(
-                      horizontal: 20.0, vertical: 8.0),
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(50.0),
-                      color: past == 'Doctors' ? BLUECOLOR : Colors.transparent,
-                      boxShadow: past == 'Doctors' ? SHADOW : null),
-                  child: FittedBox(
-                    child: Text(
-                      'Doctors',
-                      style: getCustomFont(
-                          size: 13.0,
-                          color:
-                              past == 'Doctors' ? Colors.white : Colors.black),
-                    ),
-                  ),
-                ),
-              ),
-              GestureDetector(
-                onTap: () {
-                  setState(() {
-                    past = 'Hospitals';
-                  });
-                },
-                child: Container(
-                  padding: const EdgeInsets.symmetric(
-                      horizontal: 20.0, vertical: 8.0),
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(50.0),
-                      color:
-                          past == 'Hospitals' ? BLUECOLOR : Colors.transparent,
-                      boxShadow: past == 'Hospitals' ? SHADOW : null),
-                  child: FittedBox(
-                    child: Text(
-                      'Hospitals',
-                      style: getCustomFont(
-                          size: 13.0,
-                          color: past == 'Hospitals'
-                              ? Colors.white
-                              : Colors.black),
-                    ),
-                  ),
-                ),
-              )
-            ]),
-          ),
-          const SizedBox(
-            height: 5.0,
-          ),
-          past == 'Doctors'
-              ? Expanded(
-                  child: ListView.builder(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 0.0, vertical: 0.0),
-                      itemCount: 5,
-                      shrinkWrap: true,
-                      itemBuilder: (ctx, i) => findDoctors(context)))
-              : past == 'Medicines'
-                  ? Expanded(
-                      child: GridView.builder(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 15.0, vertical: 10.0),
-                          shrinkWrap: true,
-                          physics: NeverScrollableScrollPhysics(),
-                          gridDelegate:
-                              SliverGridDelegateWithFixedCrossAxisCount(
-                                  crossAxisCount: returnCrossAxis(size.width),
-                                  mainAxisSpacing: 10.0,
-                                  mainAxisExtent: 210.0,
-                                  crossAxisSpacing: 10.0),
-                          itemCount: 10,
-                          itemBuilder: (ctx, i) => productItem(context)),
-                    )
-                  : const SizedBox()
+              ],
+            ),
+          )),
         ]));
   }
 
-  Widget findDoctors(context) => Container(
+  Widget findDoctors() => Container(
         width: MediaQuery.of(context).size.width,
         padding: const EdgeInsets.all(15.0),
         margin: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 12.0),
@@ -283,7 +281,9 @@ class _MyFavouriteState extends State<MyFavourite> {
                                 direction: Axis.horizontal,
                                 allowHalfRating: true,
                                 itemCount: 5,
-                                itemSize: 14.0,
+                                itemSize: 15.0,
+                                itemPadding:
+                                    EdgeInsets.symmetric(horizontal: 0.0),
                                 itemBuilder: (context, _) => Icon(
                                   Icons.star,
                                   color: Colors.amber,
@@ -317,7 +317,7 @@ class _MyFavouriteState extends State<MyFavourite> {
                               'Florida, USA',
                               style: GoogleFonts.poppins(
                                   color: Colors.black,
-                                  fontSize: 13.0,
+                                  fontSize: 14.0,
                                   fontWeight: FontWeight.w400),
                             ),
                           ],
@@ -325,7 +325,12 @@ class _MyFavouriteState extends State<MyFavourite> {
                       ],
                     )
                   ],
-                ))
+                )),
+                Icon(
+                  Icons.bookmark_outline,
+                  size: 18.0,
+                  color: BLUECOLOR,
+                )
               ],
             ),
             const SizedBox(
@@ -363,7 +368,7 @@ class _MyFavouriteState extends State<MyFavourite> {
                         '98%',
                         style: GoogleFonts.poppins(
                             color: Colors.black,
-                            fontSize: 14.5,
+                            fontSize: 16.0,
                             fontWeight: FontWeight.w400),
                       ),
                     ],
@@ -393,7 +398,7 @@ class _MyFavouriteState extends State<MyFavourite> {
                       '\$300 - \$1000',
                       style: GoogleFonts.poppins(
                           color: Colors.black,
-                          fontSize: 14.5,
+                          fontSize: 15.0,
                           fontWeight: FontWeight.w400),
                     ),
                   ],
@@ -407,14 +412,14 @@ class _MyFavouriteState extends State<MyFavourite> {
               children: [
                 Flexible(
                   child: getProfileButton(context, () {
-                    context.read<HomeController>().setPage(-4);
+                  showRequestSheet(context, DoctorProfile());
                   }),
                 ),
                 const SizedBox(
                   width: 15.0,
                 ),
                 Flexible(
-                  child: getAppointment(context, () {
+                  child: getButton(context, () {
                     context.read<HomeController>().setPage(-1);
                   }, text: 'Book Appointment'),
                 )
@@ -449,7 +454,7 @@ class _MyFavouriteState extends State<MyFavourite> {
         ),
       );
 
-  Widget getAppointment(context, callBack,
+  Widget getButton(context, callBack,
           {color = BLUECOLOR, text = 'Search Now'}) =>
       GestureDetector(
         onTap: () => callBack(),
@@ -459,7 +464,8 @@ class _MyFavouriteState extends State<MyFavourite> {
           decoration: BoxDecoration(
               color: color, borderRadius: BorderRadius.circular(7.0)),
           child: Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding:
+                const EdgeInsets.symmetric(horizontal: 8.0, vertical: 11.0),
             child: Center(
               child: FittedBox(
                 child: Text(
@@ -475,12 +481,4 @@ class _MyFavouriteState extends State<MyFavourite> {
           ),
         ),
       );
-}
-
-int returnCrossAxis(width) {
-  return width < 500
-      ? 2
-      : width > 500 && width < 100
-          ? 2
-          : 3;
 }

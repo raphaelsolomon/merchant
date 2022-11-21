@@ -98,7 +98,7 @@ class _AccountPageState extends State<AccountPage> {
                   child: Column(children: [
                     ...List.generate(5, (index) => Container(
                     width: MediaQuery.of(context).size.width,
-                    margin: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 20.0),
+                    margin: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 10.0),
                     decoration: BoxDecoration(
                       color: Colors.white,
                       boxShadow: SHADOW,
@@ -117,14 +117,14 @@ class _AccountPageState extends State<AccountPage> {
                       ),
                         Flexible(
                           child: Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                            padding: const EdgeInsets.only(right: 10.0),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 const SizedBox(height: 5.0,),
-                                Text('Credit card deposit(payment ID: 94943978743)', style: getCustomFont(color: BLUECOLOR, size: 12.0),),
+                                Text('Credit card deposit(payment ID: 94943978743)', style: getCustomFont(color: BLUECOLOR, size: 13.0),),
                                 const SizedBox(height: 2.0,),
-                                Text('20 Monday June, 08.48.00 GMT',style: getCustomFont(size: 10.0, color: Colors.black45),)
+                                Text('20 Monday June, 08.48.00 GMT',style: getCustomFont(size: 11.0, color: Colors.black45),)
                               ],
                             ),
                           ),
@@ -150,7 +150,7 @@ class _AccountPageState extends State<AccountPage> {
                   child: Container(
                     padding: const EdgeInsets.all(2.0),
                     decoration: BoxDecoration(
-                      color: Colors.grey.shade300,
+                      color: Colors.grey.shade200,
                       borderRadius: BorderRadius.circular(10.0)
                     ),
                     child: Row(children: [
@@ -228,7 +228,7 @@ class _AccountPageState extends State<AccountPage> {
                 );
 
   Widget balance(context) => Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 15.0),
+        padding: const EdgeInsets.symmetric(horizontal: 10.0),
         child: DottedBorder(
           borderType: BorderType.RRect,
           radius: Radius.circular(12),
@@ -292,11 +292,13 @@ class _AccountPageState extends State<AccountPage> {
                   decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(8.0)),
-                  child: Text('Top Up ',
-                      style: getCustomFont(
-                          color: Colors.black,
-                          size: 15.0,
-                          weight: FontWeight.w500)),
+                  child: Center(
+                    child: Text('Top Up ',
+                        style: getCustomFont(
+                            color: Colors.black,
+                            size: 15.0,
+                            weight: FontWeight.w500)),
+                  ),
                 ),
               ),
             ),
@@ -403,7 +405,7 @@ class _AccountPageState extends State<AccountPage> {
                           weight: FontWeight.w500),
                     ),
                     Text(
-                      'BDS, MDS - Oral & Maxillofacial Surgery',
+                      'Will Group Medical Store',
                       style: getCustomFont(
                           color: Colors.black54,
                           size: 13.0,

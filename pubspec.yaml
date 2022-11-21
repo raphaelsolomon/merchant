@@ -84,7 +84,7 @@ dependencies:
   pull_to_refresh: ^2.0.0
   url_launcher: ^6.1.6
   table_calendar: ^3.0.8
-  flutter_xlider: ^3.4.0
+  another_xlider: ^1.1.2
 
 dev_dependencies:
   build_runner:

@@ -4,7 +4,9 @@ import 'package:fluttericon/font_awesome5_icons.dart';
 import 'package:merchant/constant/strings.dart';
 import 'package:merchant/dialog/subscribe.dart';
 import 'package:flutter/material.dart';
+import 'package:merchant/providers/page_controller.dart';
 import 'package:phone_form_field/phone_form_field.dart';
+import 'package:provider/provider.dart';
 
 class Addvendors extends StatefulWidget {
   final bool isEdit;
@@ -33,34 +35,36 @@ class _AddvendorsState extends State<Addvendors> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const SizedBox(
-            height: 10.0,
-          ),
-          Padding(
+         Container(
             padding:
-                const EdgeInsets.symmetric(horizontal: 15.0, vertical: 9.0),
-            child: Row(
+                const EdgeInsets.symmetric(horizontal: 15.0, vertical: 0.0),
+            width: MediaQuery.of(context).size.width,
+            color: BLUECOLOR,
+            child: Column(children: [
+              const SizedBox(
+                height: 45.0,
+              ),
+              Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   GestureDetector(
-                      onTap: () => Navigator.pop(context),
-                      child: Icon(
-                        Icons.arrow_back_ios,
-                        size: 20.0,
-                        color: Colors.black,
-                      )),
+                      onTap: () => context.read<HomeController>().onBackPress(),
+                      child: Icon(Icons.arrow_back_ios,
+                          size: 18.0, color: Colors.white)),
                   Flexible(
-                    child: Text(
-                      !widget.isEdit ? 'Add Vendor' : 'Edit Vendor',
-                      style: getCustomFont(size: 16.0, color: Colors.black54),
-                    ),
+                    child: Text(widget.isEdit ? 'Edit Vendor' : 'Add Vendor',
+                        style: getCustomFont(size: 16.0, color: Colors.white)),
                   ),
                   Icon(
                     null,
-                    size: 20.0,
-                    color: Colors.black,
+                    color: Colors.white,
                   )
-                ]),
+                ],
+              ),
+              const SizedBox(
+                height: 15.0,
+              ),
+            ]),
           ),
           Divider(),
           Expanded(
@@ -68,7 +72,7 @@ class _AddvendorsState extends State<Addvendors> {
             child:
                 Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
               const SizedBox(
-                height: 35.0,
+                height: 15.0,
               ),
               Padding(
                 padding:
@@ -76,7 +80,7 @@ class _AddvendorsState extends State<Addvendors> {
                 child: getDropDownAssurance(VENDORTYPE, (s) {}),
               ),
               const SizedBox(
-                height: 10.0,
+                height: 15.0,
               ),
               Padding(
                 padding:
@@ -94,7 +98,7 @@ class _AddvendorsState extends State<Addvendors> {
                     ctl: null),
               ),
               const SizedBox(
-                height: 10.0,
+                height: 15.0,
               ),
               Padding(
                 padding:
@@ -102,7 +106,7 @@ class _AddvendorsState extends State<Addvendors> {
                 child: getPhoneNumberForm('Phone', ctl: null),
               ),
               const SizedBox(
-                height: 10.0,
+                height: 15.0,
               ),
               Padding(
                 padding:
@@ -110,7 +114,7 @@ class _AddvendorsState extends State<Addvendors> {
                 child: getCardRichForm('Address 1', 'Address 1', ctl: null),
               ),
               const SizedBox(
-                height: 10.0,
+                height: 15.0,
               ),
               Padding(
                 padding:
@@ -118,7 +122,7 @@ class _AddvendorsState extends State<Addvendors> {
                 child: getCardForm('Fax', 'Fax', ctl: null),
               ),
               const SizedBox(
-                height: 10.0,
+                height: 15.0,
               ),
               Padding(
                   padding: const EdgeInsets.symmetric(
@@ -128,7 +132,7 @@ class _AddvendorsState extends State<Addvendors> {
                     child: getCountryForm(text: country),
                   )),
               const SizedBox(
-                height: 10.0,
+                height: 15.0,
               ),
               Padding(
                 padding:
@@ -148,7 +152,7 @@ class _AddvendorsState extends State<Addvendors> {
                 child: getPhoneNumberForm('Mobile Number', ctl: null),
               ),
               const SizedBox(
-                height: 10.0,
+                height: 15.0,
               ),
               Padding(
                 padding:
@@ -157,7 +161,7 @@ class _AddvendorsState extends State<Addvendors> {
                     ctl: null),
               ),
               const SizedBox(
-                height: 10.0,
+                height: 15.0,
               ),
               Padding(
                 padding:
@@ -165,7 +169,7 @@ class _AddvendorsState extends State<Addvendors> {
                 child: getCardForm('Contact ', 'Contact', ctl: null),
               ),
               const SizedBox(
-                height: 10.0,
+                height: 15.0,
               ),
               Padding(
                 padding:
@@ -173,7 +177,7 @@ class _AddvendorsState extends State<Addvendors> {
                 child: getCardRichForm('Address 2', 'Address 2', ctl: null),
               ),
               const SizedBox(
-                height: 10.0,
+                height: 15.0,
               ),
               Padding(
                 padding:
@@ -230,7 +234,7 @@ class _AddvendorsState extends State<Addvendors> {
           ),
           const SizedBox(height: 7.0),
           Container(
-            height: 48.0,
+            height: 45.0,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(5.0),
                 color: BLUECOLOR.withOpacity(.05)),
@@ -289,6 +293,7 @@ class _AddvendorsState extends State<Addvendors> {
           horizontal: 10.0,
         ),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
               '$label',
@@ -297,7 +302,7 @@ class _AddvendorsState extends State<Addvendors> {
             ),
             const SizedBox(height: 7.0),
             Container(
-              height: 54.0,
+              height: 45.0,
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(5.0),
                   color: BLUECOLOR.withOpacity(.05)),
@@ -342,10 +347,10 @@ class _AddvendorsState extends State<Addvendors> {
                     shadowColor: Colors.grey,
                     child: Padding(
                       padding: const EdgeInsets.symmetric(
-                          horizontal: 10.0, vertical: 10.0),
+                          horizontal: 7.0, vertical: 7.0),
                       child: Icon(
                         Icons.smartphone,
-                        size: 18.0,
+                        size: 15.0,
                         color: Color(0xFF838383),
                       ),
                     ),
@@ -361,7 +366,7 @@ class _AddvendorsState extends State<Addvendors> {
     return Container(
       width: MediaQuery.of(context).size.width,
       margin: const EdgeInsets.symmetric(horizontal: 10.0),
-      height: 49.0,
+      height: 45.0,
       decoration: BoxDecoration(
           color: BLUECOLOR.withOpacity(.05),
           borderRadius: BorderRadius.circular(5.0)),
@@ -458,6 +463,7 @@ class _AddvendorsState extends State<Addvendors> {
   getCountryForm({text = 'Nigeria'}) => Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
               'Country',
@@ -469,7 +475,7 @@ class _AddvendorsState extends State<Addvendors> {
               height: 5.0,
             ),
             Container(
-              height: 54.0,
+              height: 45.0,
               decoration: BoxDecoration(
                   color: BLUECOLOR.withOpacity(.05),
                   borderRadius: BorderRadius.circular(5.0)),
@@ -492,10 +498,10 @@ class _AddvendorsState extends State<Addvendors> {
                     shadowColor: Colors.grey,
                     child: Padding(
                       padding: const EdgeInsets.symmetric(
-                          horizontal: 10.0, vertical: 10.0),
+                          horizontal: 7.0, vertical: 7.0),
                       child: Icon(
                         FontAwesome5.globe,
-                        size: 18.0,
+                        size: 15.0,
                         color: Color(0xFF838383),
                       ),
                     ),

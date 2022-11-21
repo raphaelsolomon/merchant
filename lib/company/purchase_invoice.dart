@@ -3,15 +3,15 @@ import 'package:merchant/providers/page_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class InvoiceReceipt extends StatelessWidget {
-  const InvoiceReceipt({Key? key}) : super(key: key);
+class PurchaseInvoiceReceipt extends StatelessWidget {
+  const PurchaseInvoiceReceipt({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
-        color: Color(0xFFf6f6f6).withOpacity(.8),
+        color: Color(0xFFf6f6f6),
         child: Column(children: [
           Container(
             padding:

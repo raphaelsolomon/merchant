@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:merchant/constant/strings.dart';
 
-class Applyloan extends StatelessWidget {
-  const Applyloan({Key? key}) : super(key: key);
+class RepayLoan extends StatelessWidget {
+  const RepayLoan({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -23,6 +23,7 @@ class Applyloan extends StatelessWidget {
   Widget getPayButton(context, callBack, text) => GestureDetector(
         onTap: () => callBack(),
         child: Container(
+          margin: const EdgeInsets.symmetric(horizontal: 20.0),
           width: MediaQuery.of(context).size.width,
           decoration: BoxDecoration(
               color: BLUECOLOR, borderRadius: BorderRadius.circular(6.0)),
@@ -42,20 +43,21 @@ class Applyloan extends StatelessWidget {
   Widget applyItem3(size) => Container(
         padding: const EdgeInsets.only(
             right: 20.0, top: 10.0, bottom: 10.0, left: 20.0),
-        margin: const EdgeInsets.symmetric(vertical: 4.0, horizontal: 10.0),
+        margin: const EdgeInsets.symmetric(vertical: 4.0, horizontal: 20.0),
         decoration: BoxDecoration(
           color: Colors.white,
-          borderRadius: BorderRadius.circular(50.0),
+          borderRadius: BorderRadius.circular(10.0),
           boxShadow: SHADOW,
         ),
         child: Column(children: [
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Flexible(
                 child: Text(
                   'Loan Amount',
                   style: getCustomFont(
-                      size: 11.0,
+                      size: 12.0,
                       color: Colors.black45,
                       weight: FontWeight.w600),
                 ),
@@ -63,20 +65,21 @@ class Applyloan extends StatelessWidget {
               Text(
                 '\$50,000.00',
                 style: getCustomFont(
-                    size: 11.0, color: Colors.black87, weight: FontWeight.w600),
+                    size: 12.0, color: Colors.black87, weight: FontWeight.w600),
               ),
             ],
           ),
           const SizedBox(
-            height: 6.0,
+            height: 9.0,
           ),
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Flexible(
                 child: Text(
                   'Loan Interest',
                   style: getCustomFont(
-                      size: 11.0,
+                      size: 12.0,
                       color: Colors.black45,
                       weight: FontWeight.w600),
                 ),
@@ -84,20 +87,21 @@ class Applyloan extends StatelessWidget {
               Text(
                 '\$10,000.00',
                 style: getCustomFont(
-                    size: 11.0, color: Colors.black87, weight: FontWeight.w600),
+                    size: 12.0, color: Colors.black87, weight: FontWeight.w600),
               ),
             ],
           ),
           const SizedBox(
-            height: 6.0,
+            height: 9.0,
           ),
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Flexible(
                 child: Text(
                   'Total Loan Repayment',
                   style: getCustomFont(
-                      size: 11.0,
+                      size: 12.0,
                       color: Colors.black45,
                       weight: FontWeight.w600),
                 ),

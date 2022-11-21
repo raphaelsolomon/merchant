@@ -3,25 +3,30 @@ import 'package:merchant/auth/change_password.dart';
 import 'package:merchant/auth/profile_settings.dart';
 import 'package:merchant/callscreens/pickup/pick_layout.dart';
 import 'package:merchant/company/favourite.dart';
-import 'package:merchant/company/invoice_receipt.dart';
+import 'package:merchant/company/loan.dart';
 import 'package:merchant/company/myoffer.dart';
 import 'package:merchant/company/myreferral.dart';
 import 'package:merchant/company/notification.dart';
 import 'package:merchant/company/notificationsetting.dart';
+import 'package:merchant/company/purchase_list.dart';
 import 'package:merchant/company/rateus.dart';
 import 'package:merchant/company/shareapp.dart';
 import 'package:merchant/company/support.dart';
 import 'package:merchant/constant/strings.dart';
 import 'package:merchant/dialog/addcustomer.dart';
 import 'package:merchant/dialog/addvendor.dart';
+import 'package:merchant/dialog/edit_add_product.dart';
 import 'package:merchant/dialog/subscribe.dart';
 import 'package:merchant/model/person/user.dart';
+import 'package:merchant/pages/account.dart';
+import 'package:merchant/pages/book_doctor/search_doctors.dart';
 import 'package:merchant/pages/customer_supplier.dart';
 import 'package:merchant/pages/dashboard.dart';
 import 'package:merchant/pages/homepage.dart';
 import 'package:merchant/pages/invoice.dart';
 import 'package:merchant/pages/my_calendar.dart';
 import 'package:merchant/pages/mystore.dart';
+import 'package:merchant/pages/services.dart';
 import 'package:merchant/providers/msg_log.dart';
 import 'package:merchant/providers/page_controller.dart';
 import 'package:merchant/resuable/custom_nav.dart';
@@ -112,8 +117,23 @@ class _PageSelectionState extends State<PageSelection> {
   }
 
   Widget _pages(page, scaffold) {
-    if (page == 16) {
-      return InvoiceReceipt();
+    if (page == 23) {
+      return SearchDoctor();
+    }
+    if (page == 22) {
+      return AddEditProduct(false);
+    }
+    if (page == 21) {
+      return Services();
+    }
+    if (page == 20) {
+      return Services();
+    }
+    if (page == 19) {
+      return PurchaseList();
+    }
+    if (page == 18) {
+      return GetLoan();
     }
     if (page == 16) {
       return AuthChangePass();
@@ -142,6 +162,9 @@ class _PageSelectionState extends State<PageSelection> {
     if (page == 11) {
       return MyFavourite();
     }
+    if (page == 8) {
+      return AccountPage();
+    }
     if (page == 7) {
       return CustomerAndSupplier('Suppliers');
     }
@@ -165,6 +188,9 @@ class _PageSelectionState extends State<PageSelection> {
     }
     if (page == 1) {
       return MyDashBoard(scaffold);
+    }
+    if (page == -1) {
+      return const SizedBox();
     }
     if (page == 0) {
       return HomePage(scaffold);

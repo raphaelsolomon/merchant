@@ -5,6 +5,7 @@ import 'package:fluttericon/font_awesome5_icons.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:merchant/constant/strings.dart';
+import 'package:merchant/dialog/curreency.dart';
 import 'package:merchant/dialog/subscribe.dart';
 import 'package:merchant/providers/page_controller.dart';
 import 'package:merchant/store/index.dart';
@@ -441,6 +442,18 @@ setChildrenClickListener(e, BuildContext context) {
     case 15:
       context.read<HomeController>().setPage(15);
       break;
+    case 16:
+      context.read<HomeController>().setPage(16);
+      break;
+    case 17:
+      context.read<HomeController>().setPage(17);
+      break;
+    case 19:
+      context.read<HomeController>().setPage(19);
+      break;
+    case 23:
+     dialogMessage(context, CurrencyDialog());
+      break;
   }
 }
 
@@ -466,6 +479,18 @@ setClickListener(e, BuildContext context) {
 
     case 11:
       dialogMessage(context, logoutPop(context));
+      break;
+    case 20:
+      context.read<HomeController>().setPage(20);
+      break;
+    case 21:
+      context.read<HomeController>().setPage(21);
+      break;
+    case 22:
+      context.read<HomeController>().setPage(22);
+      break;
+    case 23:
+      context.read<HomeController>().setPage(23);
       break;
     default:
       context.read<HomeController>().jumpToHome();

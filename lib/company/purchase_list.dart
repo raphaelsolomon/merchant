@@ -1,4 +1,5 @@
 import 'package:intl/intl.dart';
+import 'package:merchant/company/purchase_invoice.dart';
 import 'package:merchant/constant/strings.dart';
 import 'package:merchant/dialog/add_purchase.dart';
 import 'package:merchant/dialog/subscribe.dart';
@@ -6,9 +7,14 @@ import 'package:merchant/providers/page_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class MyOffer extends StatelessWidget {
-  const MyOffer({Key? key}) : super(key: key);
+class PurchaseList extends StatefulWidget {
+  const PurchaseList({Key? key}) : super(key: key);
 
+  @override
+  State<PurchaseList> createState() => _PurchaseListState();
+}
+
+class _PurchaseListState extends State<PurchaseList> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -35,7 +41,7 @@ class MyOffer extends StatelessWidget {
                               context.read<HomeController>().onBackPress(),
                           child: Icon(Icons.arrow_back_ios,
                               size: 18.0, color: Colors.white)),
-                      Text('product List',
+                      Text('Purchase List',
                           style:
                               getCustomFont(size: 16.0, color: Colors.white)),
                       Icon(
@@ -52,7 +58,7 @@ class MyOffer extends StatelessWidget {
               const SizedBox(
                 height: 15.0,
               ),
-              Expanded(child: tableHeader([]))
+              Expanded(child: tableHeader([1, 2, 3, 4, 5]))
             ]),
             Align(
               alignment: Alignment.bottomRight,
@@ -65,7 +71,8 @@ class MyOffer extends StatelessWidget {
                     Icons.add,
                     color: Colors.white,
                   ),
-                  onPressed: () => showRequestSheet(context, AddPurchase(false)),
+                  onPressed: () =>
+                      showRequestSheet(context, AddPurchase(false)),
                   backgroundColor: BLUECOLOR,
                 ),
               ),
@@ -92,7 +99,7 @@ class MyOffer extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.symmetric(
                             horizontal: 10.0, vertical: 10.0),
-                        child: Text('#',
+                        child: Text('ID',
                             maxLines: 1,
                             style: getCustomFont(
                                 size: 15.0,
@@ -313,7 +320,7 @@ class MyOffer extends StatelessWidget {
                     color: Colors.black45)),
           )
         ]),
-         Column(children: [
+        Column(children: [
           Padding(
             padding:
                 const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
@@ -326,12 +333,11 @@ class MyOffer extends StatelessWidget {
                     color: Colors.black45)),
           )
         ]),
-         Column(children: [
+        Column(children: [
           Padding(
             padding:
                 const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
-            child: Text(
-                '324214123',
+            child: Text('324214123',
                 maxLines: 1,
                 style: getCustomFont(
                     size: 15.0,
@@ -339,12 +345,11 @@ class MyOffer extends StatelessWidget {
                     color: Colors.black45)),
           )
         ]),
-         Column(children: [
+        Column(children: [
           Padding(
             padding:
                 const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
-            child: Text(
-                '45234635656565',
+            child: Text('45234635656565',
                 maxLines: 1,
                 style: getCustomFont(
                     size: 15.0,
@@ -360,16 +365,23 @@ class MyOffer extends StatelessWidget {
               children: [
                 Flexible(
                   child: GestureDetector(
-                    onTap: () => null,
+                    onTap: () =>
+                        showRequestSheet(context, PurchaseInvoiceReceipt()),
                     child: Container(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 5.0, vertical: 5.0),
-                      decoration: BoxDecoration(
-                          color: Colors.green.withOpacity(.9),
-                          borderRadius: BorderRadius.circular(4.0)),
-                      child: Icon(Icons.remove_red_eye, color: Colors.green, size: 18.0,)),
-                    ),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 5.0, vertical: 5.0),
+                        decoration: BoxDecoration(
+                            color: Colors.green.withOpacity(.9),
+                            borderRadius: BorderRadius.circular(4.0)),
+                        child: Center(
+                          child: Icon(
+                            Icons.remove_red_eye,
+                            color: Colors.white,
+                            size: 18.0,
+                          ),
+                        )),
                   ),
+                ),
                 const SizedBox(
                   width: 10.0,
                 ),
@@ -377,15 +389,20 @@ class MyOffer extends StatelessWidget {
                   child: GestureDetector(
                     onTap: () => null,
                     child: Container(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 10.0, vertical: 5.0),
-                      decoration: BoxDecoration(
-                          color: BLUECOLOR.withOpacity(.9),
-                          borderRadius: BorderRadius.circular(4.0)),
-                      child:  Icon(Icons.edit, color: BLUECOLOR, size: 18.0,)),
-                    ),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 10.0, vertical: 5.0),
+                        decoration: BoxDecoration(
+                            color: BLUECOLOR.withOpacity(.9),
+                            borderRadius: BorderRadius.circular(4.0)),
+                        child: Center(
+                          child: Icon(
+                            Icons.edit,
+                            color: Colors.white,
+                            size: 18.0,
+                          ),
+                        )),
                   ),
-                
+                ),
                 const SizedBox(
                   width: 10.0,
                 ),
@@ -393,14 +410,20 @@ class MyOffer extends StatelessWidget {
                   child: GestureDetector(
                     onTap: () => null,
                     child: Container(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 10.0, vertical: 5.0),
-                      decoration: BoxDecoration(
-                          color: Colors.red.withOpacity(.9),
-                          borderRadius: BorderRadius.circular(4.0)),
-                      child:  Icon(Icons.delete, color: Colors.redAccent, size: 18.0,)),
-                    ),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 10.0, vertical: 5.0),
+                        decoration: BoxDecoration(
+                            color: Colors.red.withOpacity(.9),
+                            borderRadius: BorderRadius.circular(4.0)),
+                        child: Center(
+                          child: Icon(
+                            Icons.delete,
+                            color: Colors.white,
+                            size: 18.0,
+                          ),
+                        )),
                   ),
+                ),
               ],
             ),
           )

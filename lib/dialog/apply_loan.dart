@@ -1,6 +1,6 @@
+import 'package:another_xlider/another_xlider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
-import 'package:flutter_xlider/flutter_xlider.dart';
 import 'package:merchant/constant/strings.dart';
 
 class Applyloan extends StatelessWidget {
@@ -9,38 +9,42 @@ class Applyloan extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(
-        child: SingleChildScrollView(
-      child: Column(
-        children: [
-          Padding(
-            padding:
-                const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
-            child: getDropDownAssurance(['Partial Product Loan', 'Full Product Loan'], (s) {}, context),
-          ),
-          Padding(
-            padding:
-                const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
-            child: Row(
-              children: [
-                Flexible(
-                    child: getDropDownAssurance(['s', 'a'], (s) {}, context)),
-                const SizedBox(width: 10.0),
-                //getPayButton(context, (){}, 'Apply')
-              ],
+        child: Column(
+          children: [
+            const SizedBox(height: 15.0,),
+            Padding(
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 5.0, vertical: 0.0),
+              child: getDropDownAssurance(['Partial Product Loan', 'Full Product Loan'], (s) {}, context),
             ),
-          ),
-          const SizedBox(height: 16.0),
-          applyItem(MediaQuery.of(context).size.width),
-          const SizedBox(height: 16.0),
-          applyItem2(MediaQuery.of(context).size.width),
-          const SizedBox(height: 16.0),
-          applyItem3(MediaQuery.of(context).size.width),
-          const SizedBox(height: 20.0),
-          getPayButton(context, (){},  'Request Loan'),
-          const SizedBox(height: 20.0),
-        ],
-      ),
-    ));
+            const SizedBox(height: 15.0,),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 5.0, vertical: 0.0),
+              child: Row(
+                children: [
+                  Flexible(
+                    flex: 3,
+                      child: getDropDownAssurance(['s', 'a'], (s) {}, context)),
+                  const SizedBox(width: 10.0),
+                  Flexible(child: getPayButton(context, (){}, 'Apply')),
+                  const SizedBox(width: 10.0),
+                ],
+              ),
+            ),
+            const SizedBox(height: 16.0),
+             applyItem(MediaQuery.of(context).size.width),
+            const SizedBox(height: 7.0),
+            applyItem2(MediaQuery.of(context).size.width),
+            const SizedBox(height: 7.0),
+            applyItem3(MediaQuery.of(context).size.width),
+            const SizedBox(height: 20.0),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10.0),
+              child: getPayButton(context, (){},  'Request Loan'),
+            ),
+            const SizedBox(height: 20.0),
+          ],
+        ));
   }
 
   Widget getDropDownAssurance(
@@ -48,7 +52,7 @@ class Applyloan extends StatelessWidget {
     return Container(
       width: MediaQuery.of(context).size.width,
       margin: const EdgeInsets.symmetric(horizontal: 10.0),
-      height: 49.0,
+      height: 45.0,
       decoration: BoxDecoration(
           color: BLUECOLOR.withOpacity(.05),
           borderRadius: BorderRadius.circular(5.0)),
@@ -101,123 +105,120 @@ class Applyloan extends StatelessWidget {
 
   Widget applyItem(size) => Container(
         padding: const EdgeInsets.only(
-            right: 20.0, top: 10.0, bottom: 10.0, left: 20.0),
+            right: 20.0, top: 10.0, bottom: 0.0, left: 20.0),
         margin: const EdgeInsets.symmetric(vertical: 4.0, horizontal: 10.0),
         decoration: BoxDecoration(
           color: Colors.white,
-          borderRadius: BorderRadius.circular(50.0),
+          borderRadius: BorderRadius.circular(10.0),
           boxShadow: SHADOW,
         ),
-        child: Row(children: [
-          Flexible(
-            child: Column(children: [
-              Text(
-                'Select Loan Amount',
-                style: getCustomFont(
-                    size: 11.0, color: Colors.black87, weight: FontWeight.w600),
-              ),
-              const SizedBox(
-                height: 6.0,
-              ),
-              Text(
-                'Move the slider to select your loan amount',
-                style: getCustomFont(
-                    size: 12.0, color: Colors.black54, weight: FontWeight.w400),
-                textAlign: TextAlign.center,
-              ),
-              const SizedBox(
-                height: 6.0,
-              ),
-              Text(
-                '\$51,000.00',
-                style: getCustomFont(
-                    size: 17.0, color: Colors.black87, weight: FontWeight.w600),
-              ),
-              const SizedBox(
-                height: 8.0,
-              ),
-              Row(
-                children: [
-                  FlutterSlider(
-                      values: [300],
-                      max: 500,
-                      min: 0,
-                      onDragging: (handlerIndex, lowerValue, upperValue) {})
-                ],
+        child: Column(children: [
+          Text(
+            'Select Loan Amount',
+            style: getCustomFont(
+                size: 13.0, color: Colors.black87, weight: FontWeight.w600),
+          ),
+          const SizedBox(
+            height: 6.0,
+          ),
+          Text(
+            'Move the slider to select your loan amount',
+            style: getCustomFont(
+                size: 12.0, color: Colors.black54, weight: FontWeight.w400),
+            textAlign: TextAlign.center,
+          ),
+          const SizedBox(
+            height: 6.0,
+          ),
+          Text(
+            '\$51,000.00',
+            style: getCustomFont(
+                size: 19.0, color: Colors.black87, weight: FontWeight.bold),
+          ),
+          const SizedBox(
+            height: 5.0,
+          ),
+          Row(
+            children: [
+              Flexible(
+                child: FlutterSlider(
+                    values: [300],
+                    max: 500,
+                    min: 0,
+                    onDragging: (handlerIndex, lowerValue, upperValue) {}),
               )
-            ]),
+            ],
           )
         ]),
       );
 
   Widget applyItem2(size) => Container(
         padding: const EdgeInsets.only(
-            right: 20.0, top: 10.0, bottom: 10.0, left: 20.0),
+            right: 20.0, top: 10.0, bottom: 0.0, left: 20.0),
         margin: const EdgeInsets.symmetric(vertical: 4.0, horizontal: 10.0),
         decoration: BoxDecoration(
           color: Colors.white,
-          borderRadius: BorderRadius.circular(50.0),
+          borderRadius: BorderRadius.circular(10.0),
           boxShadow: SHADOW,
         ),
-        child: Row(children: [
-          Flexible(
-            child: Column(children: [
-              Text(
-                'Select Loan Interval',
-                style: getCustomFont(
-                    size: 11.0, color: Colors.black87, weight: FontWeight.w600),
-              ),
-              const SizedBox(
-                height: 6.0,
-              ),
-              Text(
-                'Move the slider to select your loan interval',
-                style: getCustomFont(
-                    size: 12.0, color: Colors.black54, weight: FontWeight.w400),
-                textAlign: TextAlign.center,
-              ),
-              const SizedBox(
-                height: 6.0,
-              ),
-              Text(
-                '\$51,000.00',
-                style: getCustomFont(
-                    size: 17.0, color: Colors.black87, weight: FontWeight.w600),
-              ),
-              const SizedBox(
-                height: 8.0,
-              ),
-              Row(
-                children: [
-                  FlutterSlider(
-                      values: [3],
-                      max: 30,
-                      min: 3,
-                      onDragging: (handlerIndex, lowerValue, upperValue) {})
-                ],
+        child: Column(children: [
+          Text(
+            'Select Loan Interval',
+            style: getCustomFont(
+                size: 13.0, color: Colors.black87, weight: FontWeight.w600),
+          ),
+          const SizedBox(
+            height: 6.0,
+          ),
+          Text(
+            'Move the slider to select your loan interval',
+            style: getCustomFont(
+                size: 12.0, color: Colors.black54, weight: FontWeight.w400),
+            textAlign: TextAlign.center,
+          ),
+          const SizedBox(
+            height: 6.0,
+          ),
+          Text(
+            '\$51,000.00',
+            style: getCustomFont(
+                size: 19.0, color: Colors.black87, weight: FontWeight.bold),
+          ),
+          const SizedBox(
+            height: 2.0,
+          ),
+          Row(
+            children: [
+              Flexible(
+                child: FlutterSlider(
+                    values: [3],
+                    max: 30,
+                    min: 3,
+                    onDragging: (handlerIndex, lowerValue, upperValue) {}),
               )
-            ]),
+            ],
           )
         ]),
       );
 
-  Widget applyItem3(size) => Container(
+   Widget applyItem3(size) => Container(
         padding: const EdgeInsets.only(
             right: 20.0, top: 10.0, bottom: 10.0, left: 20.0),
         margin: const EdgeInsets.symmetric(vertical: 4.0, horizontal: 10.0),
         decoration: BoxDecoration(
           color: Colors.white,
-          borderRadius: BorderRadius.circular(50.0),
+          borderRadius: BorderRadius.circular(10.0),
           boxShadow: SHADOW,
         ),
         child: Column(children: [
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Flexible(
                 child: Text(
                   'Loan Amount',
                   style: getCustomFont(
-                      size: 11.0,
+                      size: 12.0,
                       color: Colors.black45,
                       weight: FontWeight.w600),
                 ),
@@ -225,20 +226,21 @@ class Applyloan extends StatelessWidget {
               Text(
                 '\$50,000.00',
                 style: getCustomFont(
-                    size: 11.0, color: Colors.black87, weight: FontWeight.w600),
+                    size: 12.0, color: Colors.black87, weight: FontWeight.w600),
               ),
             ],
           ),
           const SizedBox(
-            height: 6.0,
+            height: 9.0,
           ),
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Flexible(
                 child: Text(
                   'Loan Interest',
                   style: getCustomFont(
-                      size: 11.0,
+                      size: 12.0,
                       color: Colors.black45,
                       weight: FontWeight.w600),
                 ),
@@ -246,20 +248,21 @@ class Applyloan extends StatelessWidget {
               Text(
                 '\$10,000.00',
                 style: getCustomFont(
-                    size: 11.0, color: Colors.black87, weight: FontWeight.w600),
+                    size: 12.0, color: Colors.black87, weight: FontWeight.w600),
               ),
             ],
           ),
           const SizedBox(
-            height: 6.0,
+            height: 9.0,
           ),
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Flexible(
                 child: Text(
                   'Total Loan Repayment',
                   style: getCustomFont(
-                      size: 11.0,
+                      size: 12.0,
                       color: Colors.black45,
                       weight: FontWeight.w600),
                 ),

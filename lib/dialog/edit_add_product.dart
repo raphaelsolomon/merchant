@@ -4,6 +4,8 @@ import 'package:intl/intl.dart';
 import 'package:merchant/constant/strings.dart';
 import 'package:merchant/dialog/subscribe.dart';
 import 'package:flutter/material.dart';
+import 'package:merchant/providers/page_controller.dart';
+import 'package:provider/provider.dart';
 
 class AddEditProduct extends StatefulWidget {
   final bool isEdit;
@@ -33,30 +35,35 @@ class _AddEditProductState extends State<AddEditProduct> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const SizedBox(
-            height: 10.0,
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 9.0),
-            child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-              GestureDetector(
-                  onTap: () => Navigator.pop(context),
-                  child: Icon(
-                    Icons.arrow_back_ios,
-                    size: 20.0,
-                    color: Colors.black,
-                  )),
-              Flexible(
-                child: Text(
-                  !widget.isEdit ? 'Add Product' : 'Edit Product',
-                  style: getCustomFont(size: 16.0, color: Colors.black54),
-                ),
+          Container(
+            padding:
+                const EdgeInsets.symmetric(horizontal: 15.0, vertical: 0.0),
+            width: MediaQuery.of(context).size.width,
+            color: BLUECOLOR,
+            child: Column(children: [
+              const SizedBox(
+                height: 45.0,
               ),
-              Icon(
-                null,
-                size: 20.0,
-                color: Colors.black,
-              )
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  GestureDetector(
+                      onTap: () => context.read<HomeController>().onBackPress(),
+                      child: Icon(Icons.arrow_back_ios,
+                          size: 18.0, color: Colors.white)),
+                  Flexible(
+                    child: Text(widget.isEdit ? 'Edit Product' : 'Add product',
+                        style: getCustomFont(size: 16.0, color: Colors.white)),
+                  ),
+                  Icon(
+                    null,
+                    color: Colors.white,
+                  )
+                ],
+              ),
+              const SizedBox(
+                height: 15.0,
+              ),
             ]),
           ),
           Divider(),
@@ -65,7 +72,7 @@ class _AddEditProductState extends State<AddEditProduct> {
             child:
                 Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
               const SizedBox(
-                height: 15.0,
+                height: 5.0,
               ),
               Padding(
                padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 0.0),
