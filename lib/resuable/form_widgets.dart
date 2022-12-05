@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:merchant/constant/strings.dart';
 import 'package:merchant/dialog/curreency.dart';
+import 'package:merchant/dialog/edit_add_product.dart';
 import 'package:merchant/dialog/subscribe.dart';
 import 'package:merchant/providers/page_controller.dart';
 import 'package:merchant/store/index.dart';
@@ -284,7 +285,7 @@ navDrawer(BuildContext context, scaffold, box) => Container(
             padding: const EdgeInsets.all(20.0),
             height: 150.0,
             width: MediaQuery.of(context).size.width,
-            color: BLUECOLOR.withOpacity(.5),
+            color: BLUECOLOR,
             child:
                 Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
               const SizedBox(
@@ -341,7 +342,7 @@ navDrawer(BuildContext context, scaffold, box) => Container(
                           margin: const EdgeInsets.only(bottom: 15.0),
                           child: Row(children: [
                             CircleAvatar(
-                              backgroundColor: BLUECOLOR.withOpacity(.5),
+                              backgroundColor: BLUECOLOR,
                               radius: 18.0,
                               child: Icon(
                                 e.icon,
@@ -367,7 +368,7 @@ navDrawer(BuildContext context, scaffold, box) => Container(
                             left: 15.0, right: 15.0, bottom: 5.0),
                         leading: CircleAvatar(
                           radius: 18.0,
-                          backgroundColor: BLUECOLOR.withOpacity(.5),
+                          backgroundColor: BLUECOLOR,
                           child: Icon(
                             e.icon,
                             color: Colors.white,
@@ -451,8 +452,17 @@ setChildrenClickListener(e, BuildContext context) {
     case 19:
       context.read<HomeController>().setPage(19);
       break;
+    case 20:
+      context.read<HomeController>().setPage(20);
+      break;
+    case 21:
+      context.read<HomeController>().setPage(21);
+      break;
     case 23:
-     dialogMessage(context, CurrencyDialog());
+      dialogMessage(context, CurrencyDialog());
+      break;
+    case 22:
+      context.read<HomeController>().setPage(22);
       break;
   }
 }
@@ -476,18 +486,8 @@ setClickListener(e, BuildContext context) {
       context.read<HomeController>().setStoreIndex(0);
       Get.to(() => StorePage(0));
       break;
-
     case 11:
       dialogMessage(context, logoutPop(context));
-      break;
-    case 20:
-      context.read<HomeController>().setPage(20);
-      break;
-    case 21:
-      context.read<HomeController>().setPage(21);
-      break;
-    case 22:
-      context.read<HomeController>().setPage(22);
       break;
     case 23:
       context.read<HomeController>().setPage(23);
@@ -908,7 +908,7 @@ appointmentButton(context, text) => Container(
           child: Text(
         text,
         textAlign: TextAlign.center,
-        style: getCustomFont(size: 14.0, color: Colors.white),
+        style: getCustomFont(size: 11.0, color: Colors.white),
       )),
     );
 

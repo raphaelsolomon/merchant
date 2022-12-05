@@ -37,7 +37,7 @@ class RepayLoan extends StatelessWidget {
               child: Text(
                 '$text',
                 style: getCustomFont(
-                    size: 15.0, color: Colors.white, weight: FontWeight.normal),
+                    size: 12.0, color: Colors.white, weight: FontWeight.normal),
               ),
             ),
           ),

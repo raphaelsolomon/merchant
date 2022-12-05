@@ -11,6 +11,7 @@ class ExtendLoan extends StatefulWidget {
 
 class _ExtendLoanState extends State<ExtendLoan> {
   String value = 'true';
+  String interval = '3';
   @override
   Widget build(BuildContext context) {
     return Expanded(
@@ -20,8 +21,8 @@ class _ExtendLoanState extends State<ExtendLoan> {
           const SizedBox(
             height: 15.0,
           ),
-          applyItem2(MediaQuery.of(context).size.width),
-          const SizedBox(height: 7.0),
+          applyItem(MediaQuery.of(context).size.width),
+          const SizedBox(height: 5.0),
           applyItem3(MediaQuery.of(context).size.width),
           const SizedBox(height: 10.0),
           Padding(
@@ -62,12 +63,12 @@ class _ExtendLoanState extends State<ExtendLoan> {
           decoration: BoxDecoration(
               color: BLUECOLOR, borderRadius: BorderRadius.circular(6.0)),
           child: Padding(
-            padding: const EdgeInsets.all(13.0),
+            padding: const EdgeInsets.all(10.0),
             child: Center(
               child: Text(
                 '$text',
                 style: getCustomFont(
-                    size: 15.0, color: Colors.white, weight: FontWeight.normal),
+                    size: 12.0, color: Colors.white, weight: FontWeight.normal),
               ),
             ),
           ),
@@ -85,7 +86,7 @@ class _ExtendLoanState extends State<ExtendLoan> {
         ),
         child: Column(children: [
           Text(
-            'Extend Loan Amount',
+            'Extend Loan Interval',
             style: getCustomFont(
                 size: 13.0, color: Colors.black87, weight: FontWeight.w600),
           ),
@@ -93,7 +94,7 @@ class _ExtendLoanState extends State<ExtendLoan> {
             height: 6.0,
           ),
           Text(
-            'Move the slider to select your loan amount',
+            'Move the slider to select your loan interval',
             style: getCustomFont(
                 size: 12.0, color: Colors.black54, weight: FontWeight.w400),
             textAlign: TextAlign.center,
@@ -102,7 +103,7 @@ class _ExtendLoanState extends State<ExtendLoan> {
             height: 6.0,
           ),
           Text(
-            '\$51,000.00',
+           '$interval Days Interval',
             style: getCustomFont(
                 size: 19.0, color: Colors.black87, weight: FontWeight.bold),
           ),
@@ -112,11 +113,15 @@ class _ExtendLoanState extends State<ExtendLoan> {
           Row(
             children: [
               Flexible(
-                child: FlutterSlider(
-                    values: [300],
-                    max: 500,
-                    min: 0,
-                    onDragging: (handlerIndex, lowerValue, upperValue) {}),
+                child:FlutterSlider(
+                    values: [double.parse(interval)],
+                    max: 30,
+                    min: 3,
+                    onDragging: (handlerIndex, lowerValue, upperValue) {
+                     setState(() {
+                       interval = '${double.parse('${lowerValue}').toInt()}';
+                     });
+                    }),
               )
             ],
           )

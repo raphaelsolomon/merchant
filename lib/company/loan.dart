@@ -40,7 +40,7 @@ class _GetLoanState extends State<GetLoan> {
                       child: Icon(Icons.arrow_back_ios,
                           size: 18.0, color: Colors.white)),
                   Flexible(
-                    child: Text('Get Loan',
+                    child: Text('Product Purchase Loan',
                         style: getCustomFont(size: 16.0, color: Colors.white)),
                   ),
                   Icon(
@@ -218,7 +218,7 @@ class _GetLoanState extends State<GetLoan> {
             Flexible(
               child: Padding(
                 padding: const EdgeInsets.only(
-                    right: 20.0, top: 10.0, bottom: 10.0, left: 10.0),
+                    right: 20.0, top: 10.0, bottom: 0.0, left: 10.0),
                 child: Column(children: [
                   SizedBox(
                       width: size.width,
@@ -245,7 +245,7 @@ class _GetLoanState extends State<GetLoan> {
                     height: 6.0,
                   ),
                   Text(
-                    'To be payed back in 15 days, with an interest of \$10,000.00',
+                    'To be payed back in 15 days, with an interest rate of 5%',
                     style: getCustomFont(
                         size: 12.0,
                         color: Colors.black54,
@@ -259,13 +259,15 @@ class _GetLoanState extends State<GetLoan> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Flexible(
-                        child: Text(
-                          'Application Date: 28th July 2020',
-                          style: getCustomFont(
-                              size: 11.0,
-                              color: Colors.black45,
-                              weight: FontWeight.normal),
-                          textAlign: TextAlign.start,
+                        child: FittedBox(
+                          child: Text(
+                            'Application Date: 28-11-2020',
+                            style: getCustomFont(
+                                size: 11.0,
+                                color: Colors.black45,
+                                weight: FontWeight.normal),
+                            textAlign: TextAlign.start,
+                          ),
                         ),
                       ),
                       const SizedBox(
@@ -274,13 +276,15 @@ class _GetLoanState extends State<GetLoan> {
                       Flexible(
                         child: Align(
                           alignment: Alignment.centerRight,
-                          child: Text(
-                            'Due Date: 28th December 2020',
-                            style: getCustomFont(
-                                size: 11.0,
-                                color: Colors.black45,
-                                weight: FontWeight.normal),
-                            textAlign: TextAlign.center,
+                          child: FittedBox(
+                            child: Text(
+                              'Due Date: 28-12-2020',
+                              style: getCustomFont(
+                                  size: 11.0,
+                                  color: Colors.black45,
+                                  weight: FontWeight.normal),
+                              textAlign: TextAlign.center,
+                            ),
                           ),
                         ),
                       )

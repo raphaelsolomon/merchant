@@ -8,9 +8,9 @@ import 'package:fluttericon/font_awesome_icons.dart';
 import 'package:get/get.dart';
 import 'package:linkedin_login/linkedin_login.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:merchant/auth/login.dart';
 import 'package:merchant/auth/otp.dart';
 import 'package:merchant/constant/strings.dart';
+import 'package:merchant/pages/page_selector.dart';
 import 'package:merchant/resources/firebase_method.dart';
 import 'package:merchant/resuable/form_widgets.dart';
 import 'package:merchant/services/request.dart';
@@ -266,7 +266,7 @@ class _AuthRegisterState extends State<AuthRegister> {
                           width: 3.0,
                         ),
                         InkWell(
-                          onTap: () => Get.to(() => AuthLogin()),
+                          onTap: () => Get.to(() => PageSelection()),
                           child: Text('Sign In',
                               style: GoogleFonts.poppins(
                                   fontSize: 16.0,
@@ -422,7 +422,7 @@ class _AuthRegisterState extends State<AuthRegister> {
                                       Navigator.pop(context);
                                     },
                                     child: Padding(
-                                      padding: const EdgeInsets.all(5.0),
+                                      padding: const EdgeInsets.all(8.0),
                                       child: Text(
                                         '${countryList[index]['name']}',
                                         style: getCustomFont(
@@ -481,7 +481,7 @@ class _AuthRegisterState extends State<AuthRegister> {
                                       Navigator.pop(context);
                                     },
                                     child: Padding(
-                                      padding: const EdgeInsets.all(5.0),
+                                      padding: const EdgeInsets.all(8.0),
                                       child: Text(
                                         '${['Customer', 'Vendor'][index]}',
                                         style: getCustomFont(
@@ -543,7 +543,7 @@ class _AuthRegisterState extends State<AuthRegister> {
                                       Navigator.pop(context);
                                     },
                                     child: Padding(
-                                      padding: const EdgeInsets.all(5.0),
+                                      padding: const EdgeInsets.all(8.0),
                                       child: Text(
                                         merchantCategory == 'Customer'
                                             ? '${MERCHANTTYPE[index]}'

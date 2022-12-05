@@ -52,7 +52,7 @@ class _AddEditProductState extends State<AddEditProduct> {
                       child: Icon(Icons.arrow_back_ios,
                           size: 18.0, color: Colors.white)),
                   Flexible(
-                    child: Text(widget.isEdit ? 'Edit Product' : 'Add product',
+                    child: Text(widget.isEdit ? 'Edit Product' : 'Add Product',
                         style: getCustomFont(size: 16.0, color: Colors.white)),
                   ),
                   Icon(
