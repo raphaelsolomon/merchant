@@ -122,10 +122,10 @@ class _PageSelectionState extends State<PageSelection> {
       return AddEditProduct(false);
     }
     if (page == 21) {
-      return Services();
+      return Services(); //specialization
     }
     if (page == 20) {
-      return Services();
+      return Services(); //services
     }
     if (page == 19) {
       return PurchaseList();

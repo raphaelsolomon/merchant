@@ -33,9 +33,11 @@ const MERCHANTTYPE = [
   'Other Health Provider'
 ];
 
-
 const VENDORTYPE = [
-  'Manufacturer', 'Distributor', 'Importer', 'Other Health Provider'
+  'Manufacturer',
+  'Distributor',
+  'Importer',
+  'Other Health Provider'
 ];
 
 List<User> users = [
@@ -289,8 +291,58 @@ getNavdraweritem(BuildContext context) {
   ];
 }
 
-List removeBottom = [];
-List removeBottom1 = [];
+List removeBottom = [
+  3,
+  11,
+  -7,
+  14,
+  15,
+  9,
+  10,
+  17,
+  12,
+  13,
+  16,
+  19,
+  21,
+  20,
+  22,
+  23,
+  8,
+  6,
+  -5,
+  18,
+  -7,
+  2,
+  7,
+  5
+];
+List removeBottom1 = [
+  3,
+  11,
+  -7,
+  14,
+  15,
+  9,
+  10,
+  17,
+  12,
+  13,
+  16,
+  19,
+  21,
+  20,
+  22,
+  23,
+  8,
+  6,
+  -5,
+  -7,
+  18,
+  2,
+  7,
+  5
+];
 
 List shop_by_categgory = [
   {
@@ -365,7 +417,7 @@ List<NavDrawerItem> getNavdraweritem_(BuildContext context) {
         isOpen: false,
         index: 1),
     NavDrawerItem(
-        title: 'E-store',
+        title: 'E-stores',
         icon: FontAwesome5.store,
         children: [],
         isOpen: false,
@@ -405,21 +457,13 @@ List<NavDrawerItem> getNavdraweritem_(BuildContext context) {
         isOpen: false,
         index: 23),
     NavDrawerItem(
-        title: 'Man./Dist.',
-        icon: Icons.alarm,
-        children: [],
-        isOpen: false,
-        index: 21),
-    NavDrawerItem(
-        title: 'Services',
+        title: 'Product Mgt.',
         icon: Icons.family_restroom,
-        children: [],
-        isOpen: false,
-        index: 20),
-    NavDrawerItem(
-        title: 'Medicine',
-        icon: Icons.family_restroom,
-        children: [],
+        children: [
+          {'index': -222, 'title': 'All Product'},
+          {'index': 22, 'title': 'Add Medicine'},
+          {'index': 22, 'title': 'Add Product'},
+        ],
         isOpen: false,
         index: 22),
     NavDrawerItem(
@@ -428,6 +472,11 @@ List<NavDrawerItem> getNavdraweritem_(BuildContext context) {
         children: [
           {'index': 5, 'title': 'All Customers'},
           {'index': -5, 'title': 'Add Customer'},
+          {'index': 20, 'title': 'All Services'},
+
+          {'index': -5, 'title': 'All Sales Invoices'},
+          {'index': 5, 'title': 'Add Sales Invoice'},
+          {'index': -5, 'title': 'Customer Receipt'},
         ],
         isOpen: false,
         index: -0),
@@ -435,9 +484,15 @@ List<NavDrawerItem> getNavdraweritem_(BuildContext context) {
         title: 'Vendor Mgt.',
         icon: FontAwesome5.file_invoice,
         children: [
-          {'index': 7, 'title': 'All Suppliers'},
-          {'index': -7, 'title': 'Add Suppliers'},
-          {'index': 19, 'title': 'Purchases'},
+          {'index': 7, 'title': 'All Vendor'},
+          {'index': -7, 'title': 'Add Vendor'},
+          {'index': 21, 'title': 'All Specializations'},
+          {'index': 19, 'title': 'All Purchases'},
+
+          {'index': -7, 'title': 'Add Purchase Invoices'},
+          {'index': 19, 'title': 'Purchase Return'},
+          {'index': 19, 'title': 'Vendor Payment'},
+          {'index': 19, 'title': 'All Brands'},
         ],
         isOpen: false,
         index: -0),
