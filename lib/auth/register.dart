@@ -481,7 +481,7 @@ class _AuthRegisterState extends State<AuthRegister> {
                                       Navigator.pop(context);
                                     },
                                     child: Padding(
-                                      padding: const EdgeInsets.all(5.0),
+                                      padding: const EdgeInsets.all(9.0),
                                       child: Text(
                                         '${['Customer', 'Vendor'][index]}',
                                         style: getCustomFont(

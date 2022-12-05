@@ -791,11 +791,11 @@ class _HospitalDetailsState extends State<HospitalDetails> {
                 boxShadow: SHADOW),
             child: Column(children: [
               ...List.generate(
-                  7,
-                  (index) => Row(
+                  constDays.length,
+                  (i) => Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Row(
+                          Row( 
                             children: [
                               Icon(
                                 Icons.check_circle_outline,
@@ -806,7 +806,7 @@ class _HospitalDetailsState extends State<HospitalDetails> {
                                 width: 3.0,
                               ),
                               Text(
-                                'Monday',
+                                '${constDays[i]}',
                                 style: getCustomFont(
                                     size: 13.5, color: Colors.black),
                               )
