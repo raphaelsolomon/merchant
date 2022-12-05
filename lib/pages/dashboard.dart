@@ -386,8 +386,8 @@ class _MyDashBoardState extends State<MyDashBoard> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                  Text('Abacavoir', style: getCustomFont(size: 16.0, color: Colors.black, weight: FontWeight.bold)),
-                  Text('#8995447', style: getCustomFont(size: 13.0, color: Colors.red, weight: FontWeight.normal)),
+                  Text('Abacavoir', style: getCustomFont(size: 14.0, color: Colors.black, weight: FontWeight.bold)),
+                  Text('#8995447', style: getCustomFont(size: 12.0, color: Colors.red, weight: FontWeight.normal)),
                 ],),
               ),
               Text('Type: Onetime', style: getCustomFont(size: 12.0, color: Colors.black54, weight: FontWeight.normal)),

@@ -492,7 +492,7 @@ List<NavDrawerItem> getNavdraweritem_(BuildContext context) {
           {'index': -7, 'title': 'Add Purchase Invoices'},
           {'index': 19, 'title': 'Purchase Return'},
           {'index': 19, 'title': 'Vendor Payment'},
-          {'index': 19, 'title': 'All Brands'},
+          {'index': 4, 'title': 'All Brands'},
         ],
         isOpen: false,
         index: -0),

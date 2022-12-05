@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
@@ -24,7 +23,7 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     user = box.get(USERPATH);
-   // isImage = user!.profilePhoto == null ? false : true;
+    // isImage = user!.profilePhoto == null ? false : true;
     super.initState();
   }
 
@@ -36,6 +35,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
+    print(width);
     var height = MediaQuery.of(context).size.height;
     return Container(
       width: width,
@@ -60,8 +60,7 @@ class _HomePageState extends State<HomePage> {
                           onTap: () =>
                               widget.scaffold.currentState!.openDrawer(),
                           child: Icon(Icons.menu, color: Colors.black)),
-                          const SizedBox(width: 10.0),
-                          
+                      const SizedBox(width: 10.0),
                       Flexible(
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.end,
@@ -69,14 +68,20 @@ class _HomePageState extends State<HomePage> {
                             CircleAvatar(
                               backgroundColor: BLUECOLOR.withOpacity(.3),
                               backgroundImage: NetworkImage(
-                                      'https://img.freepik.com/free-vector/flat-hand-drawn-patient-taking-medical-examination-illustration_23-2148859982.jpg?w=2000'),
+                                  'https://img.freepik.com/free-vector/flat-hand-drawn-patient-taking-medical-examination-illustration_23-2148859982.jpg?w=2000'),
                               radius: 15.0,
                             ),
-                            const SizedBox(width: 10.0,),
+                            const SizedBox(
+                              width: 10.0,
+                            ),
                             CircleAvatar(
                               backgroundColor: BLUECOLOR.withOpacity(.3),
                               radius: 15.0,
-                              child: Icon(Icons.shopping_cart, color: Colors.black45, size: 18.0,),
+                              child: Icon(
+                                Icons.shopping_cart,
+                                color: Colors.black45,
+                                size: 18.0,
+                              ),
                             ),
                           ],
                         ),
@@ -134,106 +139,86 @@ class _HomePageState extends State<HomePage> {
           Expanded(
             child: SingleChildScrollView(
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                    child: Row(
-                      children: [
-                        ...List.generate(
-                            4, (index) => horizontalSecondItem(context))
-                      ],
-                    ),
-                  ),
-                ),
-                const SizedBox(
-                  height: 12.0,
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                  child: Text('Top Services', style: getCustomFont(size: 16.0, color: Colors.redAccent, weight: FontWeight.w500),),
-                ),
-                const SizedBox(
-                  height: 10.0,
-                ),
-                SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                    child: Row(
-                      children: [
-                        ...List.generate(homeItem1.length,
-                            (i) => horizontalItem(homeItem1[i]))
-                      ],
-                    ),
-                  ),
-                ),
-                const SizedBox(
-                  height: 20.0,
-                ),
-                SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                    child: Row(
-                      children: [
-                        ...List.generate(homeItem2.length,
-                            (i) => horizontalItem(homeItem2[i]))
-                      ],
-                    ),
-                  ),
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                
-                SizedBox(
-                  width: MediaQuery.of(context).size.width,
-                  child: GestureDetector(
-                    onTap: () => context.read<HomeController>().setPage(-23),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                      child: Text(
-                        'View All Specialization',
-                        style: getCustomFont(
-                            size: 14.0, color: BLUECOLOR, weight: FontWeight.w500),
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                        child: Row(
+                          children: [
+                            ...List.generate(
+                                4, (index) => horizontalSecondItem(context))
+                          ],
+                        ),
                       ),
                     ),
-                  ),
-                ),
-                const SizedBox(
-                  height: 15.0,
-                ),
-                viewAllSpecial(),
-                viewAllSpecial(),
-                viewAllSpecial(),
-                const SizedBox(
-                  height: 20.0,
-                ),
-                SizedBox(
-                  width: MediaQuery.of(context).size.width,
-                  child: GestureDetector(
-                    onTap: () => context.read<HomeController>().setPage(-0),
-                    child: Padding(
+                    const SizedBox(
+                      height: 12.0,
+                    ),
+                    Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 20.0),
                       child: Text(
-                        'View All Services',
+                        'Top Services',
                         style: getCustomFont(
-                            size: 14.0, color: BLUECOLOR, weight: FontWeight.w500),
+                            size: 16.0,
+                            color: Colors.redAccent,
+                            weight: FontWeight.w500),
                       ),
                     ),
-                  ),
-                ),
-                const SizedBox(
-                  height: 15.0,
-                ),
-                viewAllSpecial(),
-                viewAllSpecial(),
-                viewAllSpecial(),
-                const SizedBox(height: 90.0,)
-              ]),
+                    const SizedBox(
+                      height: 10.0,
+                    ),
+                    SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                        child: Row(
+                          children: [
+                            ...List.generate(homeItem1.length,
+                                (i) => horizontalItem(homeItem1[i]))
+                          ],
+                        ),
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 20.0,
+                    ),
+                    SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                        child: Row(
+                          children: [
+                            ...List.generate(homeItem2.length,
+                                (i) => horizontalItem(homeItem2[i]))
+                          ],
+                        ),
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    width > 389
+                        ? Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Flexible(child: getSpecialization()),
+                            const SizedBox(
+                              width: 5.0,
+                            ),
+                            Flexible(child: getServices())
+                          ])
+                        : Column(children: [
+                            getSpecialization(),
+                            const SizedBox(height: 15.0),
+                            getServices()
+                          ]),
+                    const SizedBox(
+                      height: 90.0,
+                    )
+                  ]),
             ),
           )
         ],
@@ -241,21 +226,71 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
+  Widget getSpecialization() =>
+      Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+        SizedBox(
+          width: MediaQuery.of(context).size.width,
+          child: GestureDetector(
+            onTap: () => context.read<HomeController>().setPage(-23),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20.0),
+              child: Text(
+                'View All Specialization',
+                textAlign: TextAlign.center,
+                style: getCustomFont(
+                    size: 13.0, color: Colors.black87, weight: FontWeight.bold),
+              ),
+            ),
+          ),
+        ),
+        const SizedBox(
+          height: 15.0,
+        ),
+        viewAllSpecial(),
+        viewAllSpecial(),
+        viewAllSpecial(),
+      ]);
+
+  Widget getServices() =>
+      Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+        SizedBox(
+          width: MediaQuery.of(context).size.width,
+          child: GestureDetector(
+            onTap: () => context.read<HomeController>().setPage(-0),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20.0),
+              child: Text(
+                'View All Services',
+                textAlign: TextAlign.center,
+                style: getCustomFont(
+                    size: 13.0, color: Colors.black87, weight: FontWeight.bold),
+              ),
+            ),
+          ),
+        ),
+        const SizedBox(
+          height: 15.0,
+        ),
+        viewAllSpecial(),
+        viewAllSpecial(),
+        viewAllSpecial(),
+      ]);
+
   Widget viewAllSpecial() => Container(
         width: MediaQuery.of(context).size.width,
-        margin: const EdgeInsets.symmetric(horizontal: 20.0),
-        padding: const EdgeInsets.symmetric(vertical: 5.0),
+        margin: const EdgeInsets.only(left: 20.0),
+        padding: const EdgeInsets.symmetric(vertical: 8.0),
         child: Row(children: [
           Flexible(
               fit: FlexFit.tight,
               child: Text(
                 'Addiction psychiatrists',
-                style: getCustomFont(size: 14.0, color: Colors.black54),
+                style: getCustomFont(size: 12.0, color: Colors.black45),
               )),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10.0),
             child: Icon(Icons.arrow_forward_ios,
-                size: 18.0, color: Colors.black87),
+                size: 14.0, color: Colors.black87),
           )
         ]),
       );

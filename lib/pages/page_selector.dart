@@ -8,7 +8,7 @@ import 'package:merchant/company/myoffer.dart';
 import 'package:merchant/company/myreferral.dart';
 import 'package:merchant/company/notification.dart';
 import 'package:merchant/company/notificationsetting.dart';
-import 'package:merchant/company/purchase_list.dart';
+import 'package:merchant/company/medicine_list.dart';
 import 'package:merchant/company/rateus.dart';
 import 'package:merchant/company/shareapp.dart';
 import 'package:merchant/company/support.dart';

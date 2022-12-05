@@ -1,20 +1,20 @@
 import 'package:intl/intl.dart';
 import 'package:merchant/company/purchase_invoice.dart';
 import 'package:merchant/constant/strings.dart';
-import 'package:merchant/dialog/add_purchase.dart';
+import 'package:merchant/dialog/edit_add_product.dart';
 import 'package:merchant/dialog/subscribe.dart';
 import 'package:merchant/providers/page_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class PurchaseList extends StatefulWidget {
-  const PurchaseList({Key? key}) : super(key: key);
+class MedicineList extends StatefulWidget {
+  const MedicineList({Key? key}) : super(key: key);
 
   @override
-  State<PurchaseList> createState() => _PurchaseListState();
+  State<MedicineList> createState() => _MedicineListState();
 }
 
-class _PurchaseListState extends State<PurchaseList> {
+class _MedicineListState extends State<MedicineList> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -72,7 +72,7 @@ class _PurchaseListState extends State<PurchaseList> {
                     color: Colors.white,
                   ),
                   onPressed: () =>
-                      showRequestSheet(context, AddPurchase(false)),
+                      showRequestSheet(context, AddEditProduct(false)),
                   backgroundColor: BLUECOLOR,
                 ),
               ),

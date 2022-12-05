@@ -410,6 +410,11 @@ navDrawer(BuildContext context, scaffold, box) => Container(
 
 setChildrenClickListener(e, BuildContext context) {
   switch (e['index'] as int) {
+    case 4:
+      context.read<HomeController>().isEstore(true);
+      context.read<HomeController>().setStoreIndex(0);
+      Get.to(() => StorePage(4));
+      break;
     case 5:
       context.read<HomeController>().setPage(5);
       break;
