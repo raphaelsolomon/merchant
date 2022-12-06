@@ -9,6 +9,7 @@ import 'package:merchant/company/myreferral.dart';
 import 'package:merchant/company/notification.dart';
 import 'package:merchant/company/notificationsetting.dart';
 import 'package:merchant/company/medicine_list.dart';
+import 'package:merchant/company/purchase_list.dart';
 import 'package:merchant/company/rateus.dart';
 import 'package:merchant/company/shareapp.dart';
 import 'package:merchant/company/support.dart';
@@ -27,6 +28,7 @@ import 'package:merchant/pages/invoice.dart';
 import 'package:merchant/pages/my_calendar.dart';
 import 'package:merchant/pages/mystore.dart';
 import 'package:merchant/pages/services.dart';
+import 'package:merchant/pages/specialization.dart';
 import 'package:merchant/providers/msg_log.dart';
 import 'package:merchant/providers/page_controller.dart';
 import 'package:merchant/resuable/custom_nav.dart';
@@ -122,7 +124,7 @@ class _PageSelectionState extends State<PageSelection> {
       return AddEditProduct(false);
     }
     if (page == 21) {
-      return Services(); //specialization
+      return Specialization(); //specialization
     }
     if (page == 20) {
       return Services(); //services

@@ -195,6 +195,20 @@ class _CustomerAndSupplierState extends State<CustomerAndSupplier> {
                                   ],
                                 ),
                               ),
+                              InkWell(
+                                onTap: () {
+                                  if (past == 'Customers') {}
+                                },
+                                child: CircleAvatar(
+                                  backgroundColor: Colors.grey.shade100,
+                                  child: Icon(
+                                    Icons.add,
+                                    color: BLUECOLOR,
+                                    size: 16.0,
+                                  ),
+                                  radius: 19.0,
+                                ),
+                              )
                             ],
                           ),
                         ),
@@ -275,26 +289,28 @@ class _CustomerAndSupplierState extends State<CustomerAndSupplier> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      'Michelle Fairfax',
-                      style: getCustomFont(
-                          color: Colors.black,
-                          size: 17.0,
-                          weight: FontWeight.w400),
-                    ),
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Flexible(
                           child: Text(
-                            '25 Years, Female',
+                            'Michelle Fairfax',
                             style: getCustomFont(
-                                color: Colors.black54,
-                                size: 13.0,
+                                color: Colors.black,
+                                size: 15.0,
                                 weight: FontWeight.w400),
                           ),
                         ),
+                        Text('\$300.00 CR',
+                            style:
+                                getCustomFont(size: 14.0, color: Colors.black))
                       ],
+                    ),
+                    Text(
+                      'Phoenixk54@gmail.com',
+                      style: getCustomFont(
+                          color: Colors.black54,
+                          size: 13.0,
+                          weight: FontWeight.w400),
                     ),
                     const SizedBox(
                       height: 5.0,
@@ -403,37 +419,28 @@ class _CustomerAndSupplierState extends State<CustomerAndSupplier> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      'Michelle Fairfax',
-                      style: getCustomFont(
-                          color: Colors.black,
-                          size: 17.0,
-                          weight: FontWeight.w400),
-                    ),
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Flexible(
                           child: Text(
-                            '25 Years, Female',
+                            'Michelle Fairfax',
                             style: getCustomFont(
-                                color: Colors.black54,
-                                size: 13.0,
+                                color: Colors.black,
+                                size: 15.0,
                                 weight: FontWeight.w400),
                           ),
                         ),
-                        Flexible(
-                          child: FittedBox(
-                            child: Text(
-                              'Blood Group - O+',
-                              style: getCustomFont(
-                                  color: Colors.black54,
-                                  size: 12.0,
-                                  weight: FontWeight.w400),
-                            ),
-                          ),
-                        ),
+                        Text('\$300.00 CR',
+                            style:
+                                getCustomFont(size: 14.0, color: Colors.black))
                       ],
+                    ),
+                    Text(
+                      'Phoenixk54@gmail.com',
+                      style: getCustomFont(
+                          color: Colors.black54,
+                          size: 13.0,
+                          weight: FontWeight.w400),
                     ),
                     const SizedBox(
                       height: 5.0,

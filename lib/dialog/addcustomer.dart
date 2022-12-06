@@ -77,9 +77,17 @@ class _AddCustomersState extends State<AddCustomers> {
               Padding(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
-                child: getDropDownAssurance(MERCHANTTYPE, (s) {}),
+                child: getDropDownAssurance(CUSTOMERTYPE, (s) {}),
               ),
               const SizedBox(
+                height: 15.0,
+              ),
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
+                child: getCardForm('Customer ID', 'Customer ID', ctl: null),
+              ),
+               const SizedBox(
                 height: 15.0,
               ),
               Padding(
@@ -111,7 +119,7 @@ class _AddCustomersState extends State<AddCustomers> {
               Padding(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
-                child: getCardRichForm('Address 1', 'Address 1', ctl: null),
+                child: getCardRichForm('Customer Address', 'Customer Address', ctl: null),
               ),
               const SizedBox(
                 height: 15.0,
@@ -139,6 +147,22 @@ class _AddCustomersState extends State<AddCustomers> {
                     const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
                 child: getCardForm('State', 'State', ctl: null),
               ),
+              const SizedBox(
+                height: 15.0,
+              ),
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
+                child: getCardForm('City', 'City', ctl: null),
+              ),
+              const SizedBox(
+                height: 15.0,
+              ),
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
+                child: getCardForm('Zip', '0000001', ctl: null),
+              ),
               Divider(
                 color: Colors.grey.shade300,
                 thickness: 3.0,
@@ -157,7 +181,7 @@ class _AddCustomersState extends State<AddCustomers> {
               Padding(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
-                child: getCardForm('E-mail Address 2', 'E-mail Address 2',
+                child: getCardForm('Contact E-mail Address', 'Contact E-mail Address',
                     ctl: null),
               ),
               const SizedBox(
@@ -166,7 +190,7 @@ class _AddCustomersState extends State<AddCustomers> {
               Padding(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
-                child: getCardForm('Contact ', 'Contact', ctl: null),
+                child: getCardForm('Contact Name', 'Contact', ctl: null),
               ),
               const SizedBox(
                 height: 15.0,
@@ -174,23 +198,7 @@ class _AddCustomersState extends State<AddCustomers> {
               Padding(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
-                child: getCardRichForm('Address 2', 'Address 2', ctl: null),
-              ),
-              const SizedBox(
-                height: 15.0,
-              ),
-              Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
-                child: getCardForm('City', 'City', ctl: null),
-              ),
-              const SizedBox(
-                height: 15.0,
-              ),
-              Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
-                child: getCardForm('Zip', '0000001', ctl: null),
+                child: getCardRichForm('Customer Address', 'Enter Customer Address', ctl: null),
               ),
               const SizedBox(
                 height: 15.0,
@@ -240,12 +248,12 @@ class _AddCustomersState extends State<AddCustomers> {
                 color: BLUECOLOR.withOpacity(.05)),
             child: TextField(
               controller: ctl,
-              style: getCustomFont(size: 14.0, color: Colors.black45),
+              style: getCustomFont(size: 13.0, color: Colors.black45),
               maxLines: 1,
               decoration: InputDecoration(
                   hintText: hint,
                   contentPadding: const EdgeInsets.symmetric(horizontal: 10.0),
-                  hintStyle: getCustomFont(size: 14.0, color: Colors.black45),
+                  hintStyle: getCustomFont(size: 13.0, color: Colors.black45),
                   border: OutlineInputBorder(borderSide: BorderSide.none)),
             ),
           )
@@ -273,13 +281,13 @@ class _AddCustomersState extends State<AddCustomers> {
                 color: BLUECOLOR.withOpacity(.05)),
             child: TextField(
               controller: ctl,
-              style: getCustomFont(size: 14.0, color: Colors.black45),
+              style: getCustomFont(size: 13.0, color: Colors.black45),
               maxLines: null,
               keyboardType: TextInputType.multiline,
               decoration: InputDecoration(
                   hintText: hint,
                   contentPadding: const EdgeInsets.symmetric(horizontal: 10.0),
-                  hintStyle: getCustomFont(size: 14.0, color: Colors.black45),
+                  hintStyle: getCustomFont(size: 13.0, color: Colors.black45),
                   border: OutlineInputBorder(borderSide: BorderSide.none)),
             ),
           )
@@ -316,7 +324,7 @@ class _AddCustomersState extends State<AddCustomers> {
                       controller: ctl, // controller & initialValue value
                       shouldFormat: true, // default
                       defaultCountry: IsoCode.NG, // default
-                      style: getCustomFont(size: 14.0, color: Colors.black45),
+                      style: getCustomFont(size: 13.0, color: Colors.black45),
                       autovalidateMode: AutovalidateMode.disabled,
                       decoration: InputDecoration(
                           contentPadding: const EdgeInsets.all(0.0),
@@ -390,7 +398,7 @@ class _AddCustomersState extends State<AddCustomers> {
                   value: gender,
                   child: Text(
                     gender,
-                    style: getCustomFont(size: 14.0, color: Colors.black45),
+                    style: getCustomFont(size: 13.0, color: Colors.black45),
                   ),
                 ))
             .toList(),
@@ -424,7 +432,7 @@ class _AddCustomersState extends State<AddCustomers> {
                     child: Padding(
                   padding: const EdgeInsets.only(left: 10.0),
                   child: Text('$text',
-                      style: getCustomFont(size: 14.0, color: Colors.black45)),
+                      style: getCustomFont(size: 13.0, color: Colors.black45)),
                 )),
                 GestureDetector(
                   onTap: () async {
@@ -488,7 +496,7 @@ class _AddCustomersState extends State<AddCustomers> {
                         horizontal: 10.0, vertical: 8.0),
                     child: Text(
                       '$text',
-                      style: getCustomFont(size: 15.0, color: Colors.black45),
+                      style: getCustomFont(size: 13.0, color: Colors.black45),
                     ),
                   )),
                   PhysicalModel(

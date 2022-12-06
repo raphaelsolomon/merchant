@@ -3,8 +3,8 @@ import 'package:merchant/providers/page_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class Services extends StatelessWidget {
-  const Services({Key? key}) : super(key: key);
+class Specialization extends StatelessWidget {
+  const Specialization({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +36,7 @@ class Services extends StatelessWidget {
                               color: Colors.white,
                               size: 18.0,
                             )),
-                        Text('Search Services',
+                        Text('Search Specialization',
                             style:
                                 getCustomFont(color: Colors.white, size: 16.0)),
                         InkWell(
@@ -74,7 +74,7 @@ class Services extends StatelessWidget {
                               bottomRight: Radius.circular(20.0)),
                           color: BLUECOLOR),
                       child: Text(
-                        'Select your Services',
+                        'Select your Speciality',
                         style: getCustomFont(size: 14.0, color: Colors.white),
                       ),
                     ),

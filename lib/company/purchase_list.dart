@@ -111,7 +111,7 @@ class _PurchaseListState extends State<PurchaseList> {
                       Padding(
                         padding: const EdgeInsets.symmetric(
                             horizontal: 10.0, vertical: 10.0),
-                        child: Text('ID',
+                        child: Text('Pur.Date',
                             maxLines: 1,
                             style: getCustomFont(
                                 size: 15.0,
@@ -120,6 +120,66 @@ class _PurchaseListState extends State<PurchaseList> {
                       )
                     ]),
                     Column(children: [
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 10.0, vertical: 10.0),
+                        child: Text('Exp. Date',
+                            maxLines: 1,
+                            style: getCustomFont(
+                                size: 15.0,
+                                weight: FontWeight.bold,
+                                color: Colors.black)),
+                      )
+                    ]),
+                    Column(children: [
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 10.0, vertical: 10.0),
+                        child: Text('Pur. ID',
+                            maxLines: 1,
+                            style: getCustomFont(
+                                size: 15.0,
+                                weight: FontWeight.bold,
+                                color: Colors.black)),
+                      )
+                    ]),
+                    Column(children: [
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 10.0, vertical: 10.0),
+                        child: Text('Batch ID',
+                            maxLines: 1,
+                            style: getCustomFont(
+                                size: 15.0,
+                                weight: FontWeight.bold,
+                                color: Colors.black)),
+                      )
+                    ]),
+                    Column(children: [
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 10.0, vertical: 10.0),
+                        child: Text('Invoice No.',
+                            maxLines: 1,
+                            style: getCustomFont(
+                                size: 15.0,
+                                weight: FontWeight.bold,
+                                color: Colors.black)),
+                      )
+                    ]),
+                     Column(children: [
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 10.0, vertical: 10.0),
+                        child: Text('Med. Codes',
+                            maxLines: 1,
+                            style: getCustomFont(
+                                size: 15.0,
+                                weight: FontWeight.bold,
+                                color: Colors.black)),
+                      )
+                    ]),
+                     Column(children: [
                       Padding(
                         padding: const EdgeInsets.symmetric(
                             horizontal: 10.0, vertical: 10.0),
@@ -131,19 +191,7 @@ class _PurchaseListState extends State<PurchaseList> {
                                 color: Colors.black)),
                       )
                     ]),
-                    Column(children: [
-                      Padding(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 10.0, vertical: 10.0),
-                        child: Text('Name',
-                            maxLines: 1,
-                            style: getCustomFont(
-                                size: 15.0,
-                                weight: FontWeight.bold,
-                                color: Colors.black)),
-                      )
-                    ]),
-                    Column(children: [
+                     Column(children: [
                       Padding(
                         padding: const EdgeInsets.symmetric(
                             horizontal: 10.0, vertical: 10.0),
@@ -155,7 +203,19 @@ class _PurchaseListState extends State<PurchaseList> {
                                 color: Colors.black)),
                       )
                     ]),
-                    Column(children: [
+                     Column(children: [
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 10.0, vertical: 10.0),
+                        child: Text('Supplier',
+                            maxLines: 1,
+                            style: getCustomFont(
+                                size: 15.0,
+                                weight: FontWeight.bold,
+                                color: Colors.black)),
+                      )
+                    ]),
+                     Column(children: [
                       Padding(
                         padding: const EdgeInsets.symmetric(
                             horizontal: 10.0, vertical: 10.0),
@@ -171,7 +231,7 @@ class _PurchaseListState extends State<PurchaseList> {
                       Padding(
                         padding: const EdgeInsets.symmetric(
                             horizontal: 10.0, vertical: 10.0),
-                        child: Text('Sub Cat.',
+                        child: Text('Sub. Category',
                             maxLines: 1,
                             style: getCustomFont(
                                 size: 15.0,
@@ -179,11 +239,11 @@ class _PurchaseListState extends State<PurchaseList> {
                                 color: Colors.black)),
                       )
                     ]),
-                     Column(children: [
+                    Column(children: [
                       Padding(
                         padding: const EdgeInsets.symmetric(
                             horizontal: 10.0, vertical: 10.0),
-                        child: Text('Prescription',
+                        child: Text('Med. Qty',
                             maxLines: 1,
                             style: getCustomFont(
                                 size: 15.0,
@@ -191,7 +251,43 @@ class _PurchaseListState extends State<PurchaseList> {
                                 color: Colors.black)),
                       )
                     ]),
-                     Column(children: [
+                    Column(children: [
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 10.0, vertical: 10.0),
+                        child: Text('Box Pattern',
+                            maxLines: 1,
+                            style: getCustomFont(
+                                size: 15.0,
+                                weight: FontWeight.bold,
+                                color: Colors.black)),
+                      )
+                    ]),
+                    Column(children: [
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 10.0, vertical: 10.0),
+                        child: Text('Box Qty',
+                            maxLines: 1,
+                            style: getCustomFont(
+                                size: 15.0,
+                                weight: FontWeight.bold,
+                                color: Colors.black)),
+                      )
+                    ]),
+                    Column(children: [
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 10.0, vertical: 10.0),
+                        child: Text('Purchase Price',
+                            maxLines: 1,
+                            style: getCustomFont(
+                                size: 15.0,
+                                weight: FontWeight.bold,
+                                color: Colors.black)),
+                      )
+                    ]),
+                    Column(children: [
                       Padding(
                         padding: const EdgeInsets.symmetric(
                             horizontal: 10.0, vertical: 10.0),
@@ -207,7 +303,7 @@ class _PurchaseListState extends State<PurchaseList> {
                       Padding(
                         padding: const EdgeInsets.symmetric(
                             horizontal: 10.0, vertical: 10.0),
-                        child: Text('Cost Price',
+                        child: Text('Discount',
                             maxLines: 1,
                             style: getCustomFont(
                                 size: 15.0,
@@ -215,11 +311,11 @@ class _PurchaseListState extends State<PurchaseList> {
                                 color: Colors.black)),
                       )
                     ]),
-                     Column(children: [
+                    Column(children: [
                       Padding(
                         padding: const EdgeInsets.symmetric(
                             horizontal: 10.0, vertical: 10.0),
-                        child: Text('Quantity',
+                        child: Text('Tax',
                             maxLines: 1,
                             style: getCustomFont(
                                 size: 15.0,
@@ -227,71 +323,11 @@ class _PurchaseListState extends State<PurchaseList> {
                                 color: Colors.black)),
                       )
                     ]),
-                     Column(children: [
+                    Column(children: [
                       Padding(
                         padding: const EdgeInsets.symmetric(
                             horizontal: 10.0, vertical: 10.0),
                         child: Text('Amount',
-                            maxLines: 1,
-                            style: getCustomFont(
-                                size: 15.0,
-                                weight: FontWeight.bold,
-                                color: Colors.black)),
-                      )
-                    ]),
-                    Column(children: [
-                      Padding(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 10.0, vertical: 10.0),
-                        child: Text('Date',
-                            maxLines: 1,
-                            style: getCustomFont(
-                                size: 15.0,
-                                weight: FontWeight.bold,
-                                color: Colors.black)),
-                      )
-                    ]),
-                    Column(children: [
-                      Padding(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 10.0, vertical: 10.0),
-                        child: Text('Expiry Date',
-                            maxLines: 1,
-                            style: getCustomFont(
-                                size: 15.0,
-                                weight: FontWeight.bold,
-                                color: Colors.black)),
-                      )
-                    ]),
-                    Column(children: [
-                      Padding(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 10.0, vertical: 10.0),
-                        child: Text('MRP',
-                            maxLines: 1,
-                            style: getCustomFont(
-                                size: 15.0,
-                                weight: FontWeight.bold,
-                                color: Colors.black)),
-                      )
-                    ]),
-                    Column(children: [
-                      Padding(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 10.0, vertical: 10.0),
-                        child: Text('Shef',
-                            maxLines: 1,
-                            style: getCustomFont(
-                                size: 15.0,
-                                weight: FontWeight.bold,
-                                color: Colors.black)),
-                      )
-                    ]),
-                    Column(children: [
-                      Padding(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 10.0, vertical: 10.0),
-                        child: Text('Strength',
                             maxLines: 1,
                             style: getCustomFont(
                                 size: 15.0,
@@ -327,7 +363,7 @@ class _PurchaseListState extends State<PurchaseList> {
                 const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
             child: Text('1',
                 style: getCustomFont(
-                    size: 15.0,
+                    size: 13.0,
                     weight: FontWeight.normal,
                     color: Colors.black45)),
           )
@@ -336,9 +372,9 @@ class _PurchaseListState extends State<PurchaseList> {
           Padding(
             padding:
                 const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
-            child: Text('1342233',
+            child: Text('${DateFormat('yyyy-MM-dd HH:mm').format(DateTime.parse('2020-02-02'))}',
                 style: getCustomFont(
-                    size: 15.0,
+                    size: 13.0,
                     weight: FontWeight.normal,
                     color: Colors.black45)),
           )
@@ -347,9 +383,9 @@ class _PurchaseListState extends State<PurchaseList> {
           Padding(
             padding:
                 const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
-            child: Text('',
+            child: Text('4554DJ#',
                 style: getCustomFont(
-                    size: 15.0,
+                    size: 13.0,
                     weight: FontWeight.normal,
                     color: Colors.black45)),
           )
@@ -358,9 +394,32 @@ class _PurchaseListState extends State<PurchaseList> {
           Padding(
             padding:
                 const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
-            child: Text('Paracetamol',
+            child: Text('3423754254',
                 style: getCustomFont(
-                    size: 15.0,
+                    size: 13.0,
+                    weight: FontWeight.normal,
+                    color: Colors.black45)),
+          )
+        ]),
+        Column(children: [
+          Padding(
+            padding:
+                const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
+            child: Text('8966868',
+                style: getCustomFont(
+                    size: 13.0,
+                    weight: FontWeight.normal,
+                    color: Colors.black45)),
+          )
+        ]),
+        Column(children: [
+          Padding(
+            padding:
+                const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
+            child: Text('PL234',
+                maxLines: 1,
+                style: getCustomFont(
+                    size: 13.0,
                     weight: FontWeight.normal,
                     color: Colors.black45)),
           )
@@ -370,8 +429,9 @@ class _PurchaseListState extends State<PurchaseList> {
             padding:
                 const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
             child: Text('Emzor',
+                maxLines: 1,
                 style: getCustomFont(
-                    size: 15.0,
+                    size: 13.0,
                     weight: FontWeight.normal,
                     color: Colors.black45)),
           )
@@ -380,7 +440,55 @@ class _PurchaseListState extends State<PurchaseList> {
           Padding(
             padding:
                 const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
-            child: Text('Aripiprazole',
+            child: Text('May & Bakers Ltd',
+                maxLines: 1,
+                style: getCustomFont(
+                    size: 13.0,
+                    weight: FontWeight.normal,
+                    color: Colors.black45)),
+          )
+        ]),
+        Column(children: [
+          Padding(
+            padding:
+                const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
+            child: Text('Pills',
+                maxLines: 1,
+                style: getCustomFont(
+                    size: 13.0,
+                    weight: FontWeight.normal,
+                    color: Colors.black45)),
+          )
+        ]),
+        Column(children: [
+          Padding(
+            padding:
+                const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
+            child: Text('Medication',
+                maxLines: 1,
+                style: getCustomFont(
+                    size: 13.0,
+                    weight: FontWeight.normal,
+                    color: Colors.black45)),
+          )
+        ]),
+        Column(children: [
+          Padding(
+            padding:
+                const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
+            child: Text('4',
+                maxLines: 1,
+                style: getCustomFont(
+                    size: 13.0,
+                    weight: FontWeight.normal,
+                    color: Colors.black45)),
+          )
+        ]),
+        Column(children: [
+          Padding(
+            padding:
+                const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
+            child: Text('Blue & Silver',
                 maxLines: 1,
                 style: getCustomFont(
                     size: 15.0,
@@ -392,31 +500,7 @@ class _PurchaseListState extends State<PurchaseList> {
           Padding(
             padding:
                 const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
-            child: Text('Aripiprazole',
-                maxLines: 1,
-                style: getCustomFont(
-                    size: 15.0,
-                    weight: FontWeight.normal,
-                    color: Colors.black45)),
-          )
-        ]),
-        Column(children: [
-          Padding(
-            padding:
-                const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
-            child: Text('2-2-2',
-                maxLines: 1,
-                style: getCustomFont(
-                    size: 15.0,
-                    weight: FontWeight.normal,
-                    color: Colors.black45)),
-          )
-        ]),
-        Column(children: [
-          Padding(
-            padding:
-                const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
-            child: Text('\$200.00',
+            child: Text('20 Packs',
                 maxLines: 1,
                 style: getCustomFont(
                     size: 15.0,
@@ -440,7 +524,7 @@ class _PurchaseListState extends State<PurchaseList> {
           Padding(
             padding:
                 const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
-            child: Text('3',
+            child: Text('\$200.0',
                 maxLines: 1,
                 style: getCustomFont(
                     size: 15.0,
@@ -452,20 +536,7 @@ class _PurchaseListState extends State<PurchaseList> {
           Padding(
             padding:
                 const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
-            child: Text('3',
-                maxLines: 1,
-                style: getCustomFont(
-                    size: 15.0,
-                    weight: FontWeight.normal,
-                    color: Colors.black45)),
-          )
-        ]),
-        Column(children: [
-          Padding(
-            padding:
-                const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
-            child: Text(
-                '${DateFormat('yyyy-MM-dd HH:mm').format(DateTime.parse('2000-02-02'))}',
+            child: Text('30%',
                 maxLines: 1,
                 style: getCustomFont(
                     size: 15.0,
@@ -478,7 +549,7 @@ class _PurchaseListState extends State<PurchaseList> {
             padding:
                 const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
             child: Text(
-                '${DateFormat('yyyy-MM-dd HH:mm').format(DateTime.parse('2020-02-02'))}',
+                '\$0.0',
                 maxLines: 1,
                 style: getCustomFont(
                     size: 15.0,
@@ -490,31 +561,8 @@ class _PurchaseListState extends State<PurchaseList> {
           Padding(
             padding:
                 const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
-            child: Text('324214123',
-                maxLines: 1,
-                style: getCustomFont(
-                    size: 15.0,
-                    weight: FontWeight.normal,
-                    color: Colors.black45)),
-          )
-        ]),
-        Column(children: [
-          Padding(
-            padding:
-                const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
-            child: Text('45234635656565',
-                maxLines: 1,
-                style: getCustomFont(
-                    size: 15.0,
-                    weight: FontWeight.normal,
-                    color: Colors.black45)),
-          )
-        ]),
-        Column(children: [
-          Padding(
-            padding:
-                const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
-            child: Text('effective',
+            child: Text(
+                '\$170.0',
                 maxLines: 1,
                 style: getCustomFont(
                     size: 15.0,

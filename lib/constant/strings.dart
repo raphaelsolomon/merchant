@@ -33,6 +33,14 @@ const MERCHANTTYPE = [
   'Other Health Provider'
 ];
 
+const CUSTOMERTYPE = [
+  'Walk-In Customer',
+  'Online Customer',
+  'Caash Customer',
+  'Credit Customer',
+  'Other Customer'
+];
+
 const VENDORTYPE = [
   'Manufacturer',
   'Distributor',
