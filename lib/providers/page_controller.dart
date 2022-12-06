@@ -21,6 +21,11 @@ class HomeController with ChangeNotifier {
     notifyListeners();
   }
 
+  setReplaceLast(value) {
+    index[index.last] = value;
+    notifyListeners();
+  }
+
   Future<bool> onBackPress() async {
     if (index.last == 0) {
       return true;

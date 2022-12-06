@@ -5,8 +5,8 @@ import 'package:fluttericon/font_awesome5_icons.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:merchant/constant/strings.dart';
+import 'package:merchant/dialog/add_purchase.dart';
 import 'package:merchant/dialog/curreency.dart';
-import 'package:merchant/dialog/edit_add_product.dart';
 import 'package:merchant/dialog/subscribe.dart';
 import 'package:merchant/providers/page_controller.dart';
 import 'package:merchant/store/index.dart';
@@ -466,9 +466,15 @@ setChildrenClickListener(e, BuildContext context) {
     case 23:
       dialogMessage(context, CurrencyDialog());
       break;
+    case 24:
+      showRequestSheet(context, AddPurchase(false));
+      break;  
     case 22:
       context.read<HomeController>().setPage(22);
       break;
+     case 25:
+      context.read<HomeController>().setPage(25);
+      break;  
   }
 }
 

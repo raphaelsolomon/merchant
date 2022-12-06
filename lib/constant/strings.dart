@@ -470,7 +470,7 @@ List<NavDrawerItem> getNavdraweritem_(BuildContext context) {
         children: [
           {'index': -222, 'title': 'All Product'},
           {'index': 22, 'title': 'Add Medicine'},
-          {'index': 22, 'title': 'Add Product'},
+          {'index': 24, 'title': 'Add Product'},
         ],
         isOpen: false,
         index: 22),
@@ -483,7 +483,7 @@ List<NavDrawerItem> getNavdraweritem_(BuildContext context) {
           {'index': 20, 'title': 'All Services'},
 
           {'index': -5, 'title': 'All Sales Invoices'},
-          {'index': 5, 'title': 'Add Sales Invoice'},
+          {'index': 25, 'title': 'Add Sales Invoice'}, //done
           {'index': -5, 'title': 'Customer Receipt'},
         ],
         isOpen: false,

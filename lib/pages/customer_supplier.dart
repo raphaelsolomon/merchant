@@ -197,7 +197,18 @@ class _CustomerAndSupplierState extends State<CustomerAndSupplier> {
                               ),
                               InkWell(
                                 onTap: () {
-                                  if (past == 'Customers') {}
+                                  var execute = context.read<HomeController>();
+                                  if (past == 'Customers') {
+                                    if (execute.index.last == -7 || execute.index.last == -5)
+                                      execute.setReplaceLast(-5);
+                                    else
+                                      execute.setPage(-5);
+                                  } else {
+                                    if (execute.index.last == -7 || execute.index.last == -5)
+                                      execute.setReplaceLast(-7);
+                                    else
+                                      execute.setPage(-7);
+                                  }
                                 },
                                 child: CircleAvatar(
                                   backgroundColor: Colors.grey.shade100,
@@ -290,8 +301,11 @@ class _CustomerAndSupplierState extends State<CustomerAndSupplier> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      mainAxisSize: MainAxisSize.max,
                       children: [
                         Flexible(
+                          fit: FlexFit.tight,
                           child: Text(
                             'Michelle Fairfax',
                             style: getCustomFont(
@@ -302,7 +316,7 @@ class _CustomerAndSupplierState extends State<CustomerAndSupplier> {
                         ),
                         Text('\$300.00 CR',
                             style:
-                                getCustomFont(size: 14.0, color: Colors.black))
+                                getCustomFont(size: 12.0, weight: FontWeight.w600, color: Colors.black))
                       ],
                     ),
                     Text(
@@ -420,8 +434,11 @@ class _CustomerAndSupplierState extends State<CustomerAndSupplier> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      mainAxisSize: MainAxisSize.max,
                       children: [
                         Flexible(
+                          fit: FlexFit.tight,
                           child: Text(
                             'Michelle Fairfax',
                             style: getCustomFont(
@@ -432,7 +449,7 @@ class _CustomerAndSupplierState extends State<CustomerAndSupplier> {
                         ),
                         Text('\$300.00 CR',
                             style:
-                                getCustomFont(size: 14.0, color: Colors.black))
+                                getCustomFont(size: 12.0, color: Colors.black, weight: FontWeight.w600),)
                       ],
                     ),
                     Text(
@@ -457,7 +474,7 @@ class _CustomerAndSupplierState extends State<CustomerAndSupplier> {
                                 horizontal: 5.0, vertical: 5.0),
                             child: Icon(
                               Icons.phone,
-                              size: 19.0,
+                              size: 15.0,
                               color: Color(0xFF838383),
                             ),
                           ),

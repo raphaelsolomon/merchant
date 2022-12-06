@@ -58,7 +58,7 @@ class _PurchaseListState extends State<PurchaseList> {
               const SizedBox(
                 height: 0.0,
               ),
-              Expanded(child: tableHeader([1, 2, 3, 4, 5]))
+              Expanded(child: tableHeader([1, 2]))
             ]),
             Align(
               alignment: Alignment.bottomRight,
@@ -373,51 +373,76 @@ class _PurchaseListState extends State<PurchaseList> {
             padding:
                 const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
             child: Text('${DateFormat('yyyy-MM-dd HH:mm').format(DateTime.parse('2020-02-02'))}',
-                style: getCustomFont(
-                    size: 13.0,
-                    weight: FontWeight.normal,
-                    color: Colors.black45)),
-          )
-        ]),
-        Column(children: [
-          Padding(
-            padding:
-                const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
-            child: Text('4554DJ#',
-                style: getCustomFont(
-                    size: 13.0,
-                    weight: FontWeight.normal,
-                    color: Colors.black45)),
-          )
-        ]),
-        Column(children: [
-          Padding(
-            padding:
-                const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
-            child: Text('3423754254',
-                style: getCustomFont(
-                    size: 13.0,
-                    weight: FontWeight.normal,
-                    color: Colors.black45)),
-          )
-        ]),
-        Column(children: [
-          Padding(
-            padding:
-                const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
-            child: Text('8966868',
-                style: getCustomFont(
-                    size: 13.0,
-                    weight: FontWeight.normal,
-                    color: Colors.black45)),
-          )
-        ]),
-        Column(children: [
-          Padding(
-            padding:
-                const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
-            child: Text('PL234',
                 maxLines: 1,
+                style: getCustomFont(
+                    size: 13.0,
+                    weight: FontWeight.normal,
+                    color: Colors.black45)),
+          )
+        ]),
+        Column(children: [
+          Padding(
+            padding:
+                const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
+            child: Text('${DateFormat('yyyy-MM-dd HH:mm').format(DateTime.parse('2020-02-02'))}',
+                maxLines: 1,
+                style: getCustomFont(
+                    size: 13.0,
+                    weight: FontWeight.normal,
+                    color: Colors.black45)),
+          )
+        ]),
+        Column(children: [
+          Padding(
+            padding:
+                const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
+            child: Text('345454',
+                style: getCustomFont(
+                    size: 13.0,
+                    weight: FontWeight.normal,
+                    color: Colors.black45)),
+          )
+        ]),
+        Column(children: [
+          Padding(
+            padding:
+                const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
+            child: Text('B12131',
+                style: getCustomFont(
+                    size: 13.0,
+                    weight: FontWeight.normal,
+                    color: Colors.black45)),
+          )
+        ]),
+        Column(children: [
+          Padding(
+            padding:
+                const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
+            child: Text('INV342777234',
+                maxLines: 1,
+                style: getCustomFont(
+                    size: 13.0,
+                    weight: FontWeight.normal,
+                    color: Colors.black45)),
+          )
+        ]),
+        Column(children: [
+          Padding(
+            padding:
+                const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
+            child: Text('MED3562',
+                maxLines: 1,
+                style: getCustomFont(
+                    size: 13.0,
+                    weight: FontWeight.normal,
+                    color: Colors.black45)),
+          )
+        ]),
+        Column(children: [
+          Padding(
+            padding:
+                const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
+            child: Text('',
                 style: getCustomFont(
                     size: 13.0,
                     weight: FontWeight.normal,
@@ -429,7 +454,6 @@ class _PurchaseListState extends State<PurchaseList> {
             padding:
                 const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
             child: Text('Emzor',
-                maxLines: 1,
                 style: getCustomFont(
                     size: 13.0,
                     weight: FontWeight.normal,
@@ -452,7 +476,7 @@ class _PurchaseListState extends State<PurchaseList> {
           Padding(
             padding:
                 const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
-            child: Text('Pills',
+            child: Text('profine',
                 maxLines: 1,
                 style: getCustomFont(
                     size: 13.0,
@@ -464,7 +488,7 @@ class _PurchaseListState extends State<PurchaseList> {
           Padding(
             padding:
                 const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
-            child: Text('Medication',
+            child: Text('profine',
                 maxLines: 1,
                 style: getCustomFont(
                     size: 13.0,
@@ -476,7 +500,7 @@ class _PurchaseListState extends State<PurchaseList> {
           Padding(
             padding:
                 const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
-            child: Text('4',
+            child: Text('500mg',
                 maxLines: 1,
                 style: getCustomFont(
                     size: 13.0,
@@ -488,10 +512,10 @@ class _PurchaseListState extends State<PurchaseList> {
           Padding(
             padding:
                 const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
-            child: Text('Blue & Silver',
+            child: Text('Silver Leaf',
                 maxLines: 1,
                 style: getCustomFont(
-                    size: 15.0,
+                    size: 13.0,
                     weight: FontWeight.normal,
                     color: Colors.black45)),
           )
@@ -500,10 +524,10 @@ class _PurchaseListState extends State<PurchaseList> {
           Padding(
             padding:
                 const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
-            child: Text('20 Packs',
+            child: Text('28 packs',
                 maxLines: 1,
                 style: getCustomFont(
-                    size: 15.0,
+                    size: 13.0,
                     weight: FontWeight.normal,
                     color: Colors.black45)),
           )
@@ -515,7 +539,7 @@ class _PurchaseListState extends State<PurchaseList> {
             child: Text('\$199.0',
                 maxLines: 1,
                 style: getCustomFont(
-                    size: 15.0,
+                    size: 13.0,
                     weight: FontWeight.normal,
                     color: Colors.black45)),
           )
@@ -524,10 +548,10 @@ class _PurchaseListState extends State<PurchaseList> {
           Padding(
             padding:
                 const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
-            child: Text('\$200.0',
+            child: Text('\$299.0',
                 maxLines: 1,
                 style: getCustomFont(
-                    size: 15.0,
+                    size: 13.0,
                     weight: FontWeight.normal,
                     color: Colors.black45)),
           )
@@ -536,10 +560,22 @@ class _PurchaseListState extends State<PurchaseList> {
           Padding(
             padding:
                 const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
-            child: Text('30%',
+            child: Text('10%',
                 maxLines: 1,
                 style: getCustomFont(
-                    size: 15.0,
+                    size: 13.0,
+                    weight: FontWeight.normal,
+                    color: Colors.black45)),
+          )
+        ]),
+        Column(children: [
+          Padding(
+            padding:
+                const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
+            child: Text('0.00',
+                maxLines: 1,
+                style: getCustomFont(
+                    size: 13.0,
                     weight: FontWeight.normal,
                     color: Colors.black45)),
           )
@@ -549,27 +585,15 @@ class _PurchaseListState extends State<PurchaseList> {
             padding:
                 const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
             child: Text(
-                '\$0.0',
+                '\$299.0',
                 maxLines: 1,
                 style: getCustomFont(
-                    size: 15.0,
+                    size: 13.0,
                     weight: FontWeight.normal,
                     color: Colors.black45)),
           )
         ]),
-        Column(children: [
-          Padding(
-            padding:
-                const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
-            child: Text(
-                '\$170.0',
-                maxLines: 1,
-                style: getCustomFont(
-                    size: 15.0,
-                    weight: FontWeight.normal,
-                    color: Colors.black45)),
-          )
-        ]),
+        
         Column(children: [
           Padding(
             padding:
@@ -578,8 +602,7 @@ class _PurchaseListState extends State<PurchaseList> {
               children: [
                 Flexible(
                   child: GestureDetector(
-                    onTap: () =>
-                        showRequestSheet(context, PurchaseInvoiceReceipt()),
+                    onTap: () => showRequestSheet(context, PurchaseInvoiceReceipt()),
                     child: Container(
                         padding: const EdgeInsets.symmetric(
                             horizontal: 5.0, vertical: 5.0),

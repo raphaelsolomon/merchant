@@ -117,6 +117,9 @@ class _PageSelectionState extends State<PageSelection> {
   }
 
   Widget _pages(page, scaffold) {
+    if (page == 25) {
+      return SearchDoctor();
+    }
     if (page == 23) {
       return SearchDoctor();
     }

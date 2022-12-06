@@ -244,10 +244,28 @@ class _AddEditProductState extends State<AddEditProduct> {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 0.0),
                 child: Row(children: [
-                  Flexible(child: getCardForm('Pricing', '\$0.00', ctl: null),),
+                  Flexible(child: getCardForm('Selling Price', '\$0.00', ctl: null),),
                   const SizedBox(width: 10.0),
                   Flexible(child: getCardForm('Quantity', '4', ctl: null),),
                 ],),
+              ),
+              const SizedBox(
+                height: 15.0,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 0.0),
+                child: Row(children: [
+                  Flexible(child: getCardForm('Cost Price', '\$0.00', ctl: null),),
+                  const SizedBox(width: 10.0),
+                  Flexible(child: getCardForm('Amount', '\$40.00', ctl: null),),
+                ],),
+              ),
+              const SizedBox(
+                height: 15.0,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 0.0),
+                child: getDateForm('Medicine Date', DateFormat('dd EEEE, MMM, yyyy').format(expiringDate), (date) {}),
               ),
               const SizedBox(
                 height: 15.0,

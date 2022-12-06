@@ -1,4 +1,6 @@
+import 'package:merchant/company/invoice_receipt.dart';
 import 'package:merchant/constant/strings.dart';
+import 'package:merchant/dialog/subscribe.dart';
 import 'package:merchant/providers/page_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -11,7 +13,6 @@ class MyInvoicePage extends StatefulWidget {
 }
 
 class _MyInvoicePageState extends State<MyInvoicePage> {
-
   String past = "Service";
 
   @override
@@ -33,7 +34,7 @@ class _MyInvoicePageState extends State<MyInvoicePage> {
             color: BLUECOLOR,
             child: Column(children: [
               const SizedBox(
-                height: 45.0,
+                height: 43.0,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -47,14 +48,9 @@ class _MyInvoicePageState extends State<MyInvoicePage> {
                       )),
                   Text('Invoices',
                       style: getCustomFont(color: Colors.white, size: 16.0)),
-                  InkWell(
-                    onTap: () {
-                      context.read<HomeController>().setPage(-22);
-                    },
-                    child: Icon(
-                      Icons.notifications_active,
-                      color: Colors.white,
-                    ),
+                  Icon(
+                    null,
+                    color: Colors.white,
                   )
                 ],
               ),
@@ -63,8 +59,7 @@ class _MyInvoicePageState extends State<MyInvoicePage> {
               ),
             ]),
           ),
-
-        const SizedBox(
+          const SizedBox(
             height: 10.0,
           ),
           Container(
@@ -85,17 +80,15 @@ class _MyInvoicePageState extends State<MyInvoicePage> {
                       horizontal: 20.0, vertical: 8.0),
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(50.0),
-                      color:
-                          past == 'Service' ? BLUECOLOR : Colors.transparent,
+                      color: past == 'Service' ? BLUECOLOR : Colors.transparent,
                       boxShadow: past == 'Service' ? SHADOW : null),
                   child: FittedBox(
                     child: Text(
                       'Service',
                       style: getCustomFont(
                           size: 13.0,
-                          color: past == 'Service'
-                              ? Colors.white
-                              : Colors.black),
+                          color:
+                              past == 'Service' ? Colors.white : Colors.black),
                     ),
                   ),
                 ),
@@ -111,30 +104,24 @@ class _MyInvoicePageState extends State<MyInvoicePage> {
                       horizontal: 20.0, vertical: 8.0),
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(50.0),
-                      color:
-                          past == 'Product' ? BLUECOLOR : Colors.transparent,
+                      color: past == 'Product' ? BLUECOLOR : Colors.transparent,
                       boxShadow: past == 'Product' ? SHADOW : null),
                   child: FittedBox(
                     child: Text(
                       'Product',
                       style: getCustomFont(
                           size: 13.0,
-                          color: past == 'Product'
-                              ? Colors.white
-                              : Colors.black),
+                          color:
+                              past == 'Product' ? Colors.white : Colors.black),
                     ),
                   ),
                 ),
               )
             ]),
           ),
-          const SizedBox(
-            height: 10.0,
-          ),
-
           Expanded(
               child: Padding(
-            padding: const EdgeInsets.all(10.0),
+            padding: const EdgeInsets.all(6.0),
             child: SingleChildScrollView(
               child: Column(
                 children: [
@@ -152,7 +139,7 @@ class _MyInvoicePageState extends State<MyInvoicePage> {
   Widget invoiceItem() {
     return Container(
         padding: const EdgeInsets.all(15.0),
-        margin: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 5.0),
+        margin: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 5.0),
         width: MediaQuery.of(context).size.width,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(12.0),
@@ -200,7 +187,7 @@ class _MyInvoicePageState extends State<MyInvoicePage> {
                             'Michelle Fairfax',
                             style: getCustomFont(
                                 color: Colors.black,
-                                size: 17.0,
+                                size: 15.0,
                                 weight: FontWeight.w400),
                           ),
                           Flexible(
@@ -209,7 +196,7 @@ class _MyInvoicePageState extends State<MyInvoicePage> {
                               style: getCustomFont(
                                   color: Colors.black,
                                   size: 13.0,
-                                  weight: FontWeight.w400),
+                                  weight: FontWeight.bold),
                             ),
                           ),
                         ],
@@ -223,45 +210,15 @@ class _MyInvoicePageState extends State<MyInvoicePage> {
                             weight: FontWeight.w400),
                       ),
                       const SizedBox(height: 3.0),
-                      Row(
-                        children: [
-                          Flexible(
-                            child: getButton(context, () => null,
-                                icon: Icons.download,
-                                text: 'Download',
-                                color: Colors.amberAccent),
-                          ),
-                          const SizedBox(
-                            width: 10.0,
-                          ),
-                          Flexible(
-                            child: getButton(context, () => null,
-                                icon: Icons.share,
-                                text: 'Share',
-                                color: Colors.lightBlue),
-                          ),
-                          const SizedBox(
-                            width: 10.0,
-                          ),
-                          Flexible(
-                            child: getButton(context, () {
-                              context.read<HomeController>().setPage(16);
-                            },
-                                icon: Icons.delete_outline,
-                                text: 'View',
-                                color: Colors.redAccent),
-                          ),
-                        ],
+                      SizedBox(
+                        width: MediaQuery.of(context).size.width,
+                        child: Align(
+                          alignment: Alignment.centerRight,
+                          child: getButton(context, () {
+                           showRequestSheet(context, InvoiceReceipt());
+                          }),
+                        ),
                       )
-                      // SizedBox(
-                      //   width: MediaQuery.of(context).size.width,
-                      //   child: Align(
-                      //     alignment: Alignment.centerRight,
-                      //     child: getButton(context, () {
-                      //       context.read<HomeController>().setPage(-21);
-                      //     }),
-                      //   ),
-                      // )
                     ],
                   ),
                 )
@@ -285,6 +242,7 @@ class _MyInvoicePageState extends State<MyInvoicePage> {
                 const EdgeInsets.symmetric(horizontal: 12.0, vertical: 5.0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisSize: MainAxisSize.min,
               children: [
                 Icon(
                   icon,
@@ -292,7 +250,7 @@ class _MyInvoicePageState extends State<MyInvoicePage> {
                   color: Colors.white,
                 ),
                 const SizedBox(
-                  width: 2.0,
+                  width: 6.0,
                 ),
                 Flexible(
                   child: Text(

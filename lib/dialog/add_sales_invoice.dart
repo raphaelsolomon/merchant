@@ -6,15 +6,15 @@ import 'package:merchant/dialog/subscribe.dart';
 import 'package:flutter/material.dart';
 import 'package:phone_form_field/phone_form_field.dart';
 
-class AddPurchase extends StatefulWidget {
+class AddSalesInvoice extends StatefulWidget {
   final bool isEdit;
-  const AddPurchase(this.isEdit, {Key? key}) : super(key: key);
+  const AddSalesInvoice(this.isEdit, {Key? key}) : super(key: key);
 
   @override
-  State<AddPurchase> createState() => _AddPurchaseState();
+  State<AddSalesInvoice> createState() => _AddSalesInvoiceState();
 }
 
-class _AddPurchaseState extends State<AddPurchase> {
+class _AddSalesInvoiceState extends State<AddSalesInvoice> {
   bool addButtonLoading = false;
   String country = 'Nigeria';
   bool isSwitch = false;
@@ -74,7 +74,7 @@ class _AddPurchaseState extends State<AddPurchase> {
                 padding:
                     const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
                 child:
-                    getDropDownAssurance('Supplier Type', MERCHANTTYPE, (s) {}),
+                    getDropDownAssurance('Customer Type', MERCHANTTYPE, (s) {}),
               ),
               const SizedBox(
                 height: 15.0,
@@ -82,7 +82,7 @@ class _AddPurchaseState extends State<AddPurchase> {
               Padding(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
-                child: getCardForm('Supplier Name', 'Supplier Name', ctl: null),
+                child: getCardForm('Customer Name', 'Customer Name', ctl: null),
               ),
               const SizedBox(
                 height: 15.0,
@@ -108,9 +108,7 @@ class _AddPurchaseState extends State<AddPurchase> {
                 padding:
                     const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
                 child: getDateForm(
-                    'Purchase Date',
-                    DateFormat('dd EEEE, MMM, yyyy').format(expiringDate),
-                    (d) {}),
+                    'Date', DateFormat('dd EEEE, MMM, yyyy').format(expiringDate), (d) {}),
               ),
               const SizedBox(
                 height: 15.0,
@@ -133,7 +131,7 @@ class _AddPurchaseState extends State<AddPurchase> {
               Padding(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
-                child: getCardForm('Product Name', 'Product Name', ctl: null),
+                child: getCardForm('Medicine Name', 'Medicine Name', ctl: null),
               ),
               const SizedBox(
                 height: 15.0,
@@ -149,10 +147,16 @@ class _AddPurchaseState extends State<AddPurchase> {
               Padding(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
+                child: getCardForm('Avail. Qty', '0', ctl: null),
+              ),
+              const SizedBox(
+                height: 15.0,
+              ),
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
                 child: getDateForm(
-                    'Expiring Date',
-                    DateFormat('dd EEEE, MMM, yyyy').format(currentDate),
-                    (d) {}),
+                    'Expiring Date', DateFormat('dd EEEE, MMM, yyyy').format(currentDate), (d) {}),
               ),
               const SizedBox(
                 height: 15.0,
@@ -160,7 +164,7 @@ class _AddPurchaseState extends State<AddPurchase> {
               Padding(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
-                child: getCardForm('Stock Quantity', '0.00', ctl: null),
+                child: getCardForm('Unit', 'None', ctl: null),
               ),
               const SizedBox(
                 height: 15.0,
@@ -168,8 +172,7 @@ class _AddPurchaseState extends State<AddPurchase> {
               Padding(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
-                child: getDropDownAssurance(
-                    'Box Pattern', ['Leaf', 'Brown', 'Blue'], (s) {}),
+                child: getCardForm('Quantity', '0', ctl: null),
               ),
               const SizedBox(
                 height: 15.0,
@@ -177,7 +180,7 @@ class _AddPurchaseState extends State<AddPurchase> {
               Padding(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
-                child: getCardForm('Box Quantity', '0.00', ctl: null),
+                child: getCardForm('Box. Qty', '0', ctl: null),
               ),
               const SizedBox(
                 height: 15.0,
@@ -185,23 +188,7 @@ class _AddPurchaseState extends State<AddPurchase> {
               Padding(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
-                child: getCardForm('Quantity', '0.00', ctl: null),
-              ),
-              const SizedBox(
-                height: 15.0,
-              ),
-              Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
-                child: getCardForm('Supplier price', '0.00', ctl: null),
-              ),
-              const SizedBox(
-                height: 15.0,
-              ),
-              Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
-                child: getCardForm('Box MPR', '', ctl: null),
+                child: getCardForm('Price', '0.00', ctl: null),
               ),
               const SizedBox(
                 height: 15.0,
@@ -218,6 +205,14 @@ class _AddPurchaseState extends State<AddPurchase> {
                 padding:
                     const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
                 child: getCardForm('Discount', '0.00', ctl: null),
+              ),
+              const SizedBox(
+                height: 15.0,
+              ),
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
+                child: getCardForm('Paid Amount', '0.00', ctl: null),
               ),
               const SizedBox(
                 height: 40.0,

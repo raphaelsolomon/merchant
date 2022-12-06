@@ -327,7 +327,7 @@ class _MedicineListState extends State<MedicineList> {
                 const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
             child: Text('1',
                 style: getCustomFont(
-                    size: 15.0,
+                    size: 13.0,
                     weight: FontWeight.normal,
                     color: Colors.black45)),
           )
@@ -338,7 +338,7 @@ class _MedicineListState extends State<MedicineList> {
                 const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
             child: Text('1342233',
                 style: getCustomFont(
-                    size: 15.0,
+                    size: 13.0,
                     weight: FontWeight.normal,
                     color: Colors.black45)),
           )
@@ -349,7 +349,7 @@ class _MedicineListState extends State<MedicineList> {
                 const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
             child: Text('',
                 style: getCustomFont(
-                    size: 15.0,
+                    size: 13.0,
                     weight: FontWeight.normal,
                     color: Colors.black45)),
           )
@@ -360,7 +360,7 @@ class _MedicineListState extends State<MedicineList> {
                 const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
             child: Text('Paracetamol',
                 style: getCustomFont(
-                    size: 15.0,
+                    size: 13.0,
                     weight: FontWeight.normal,
                     color: Colors.black45)),
           )
@@ -371,7 +371,7 @@ class _MedicineListState extends State<MedicineList> {
                 const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
             child: Text('Emzor',
                 style: getCustomFont(
-                    size: 15.0,
+                    size: 13.0,
                     weight: FontWeight.normal,
                     color: Colors.black45)),
           )
@@ -383,7 +383,7 @@ class _MedicineListState extends State<MedicineList> {
             child: Text('Aripiprazole',
                 maxLines: 1,
                 style: getCustomFont(
-                    size: 15.0,
+                    size: 13.0,
                     weight: FontWeight.normal,
                     color: Colors.black45)),
           )
@@ -395,7 +395,7 @@ class _MedicineListState extends State<MedicineList> {
             child: Text('Aripiprazole',
                 maxLines: 1,
                 style: getCustomFont(
-                    size: 15.0,
+                    size: 13.0,
                     weight: FontWeight.normal,
                     color: Colors.black45)),
           )
@@ -407,7 +407,7 @@ class _MedicineListState extends State<MedicineList> {
             child: Text('2-2-2',
                 maxLines: 1,
                 style: getCustomFont(
-                    size: 15.0,
+                    size: 13.0,
                     weight: FontWeight.normal,
                     color: Colors.black45)),
           )
@@ -419,7 +419,7 @@ class _MedicineListState extends State<MedicineList> {
             child: Text('\$200.00',
                 maxLines: 1,
                 style: getCustomFont(
-                    size: 15.0,
+                    size: 13.0,
                     weight: FontWeight.normal,
                     color: Colors.black45)),
           )
@@ -431,7 +431,7 @@ class _MedicineListState extends State<MedicineList> {
             child: Text('\$199.0',
                 maxLines: 1,
                 style: getCustomFont(
-                    size: 15.0,
+                    size: 13.0,
                     weight: FontWeight.normal,
                     color: Colors.black45)),
           )
@@ -443,7 +443,7 @@ class _MedicineListState extends State<MedicineList> {
             child: Text('3',
                 maxLines: 1,
                 style: getCustomFont(
-                    size: 15.0,
+                    size: 13.0,
                     weight: FontWeight.normal,
                     color: Colors.black45)),
           )
@@ -455,7 +455,7 @@ class _MedicineListState extends State<MedicineList> {
             child: Text('3',
                 maxLines: 1,
                 style: getCustomFont(
-                    size: 15.0,
+                    size: 13.0,
                     weight: FontWeight.normal,
                     color: Colors.black45)),
           )
@@ -468,7 +468,7 @@ class _MedicineListState extends State<MedicineList> {
                 '${DateFormat('yyyy-MM-dd HH:mm').format(DateTime.parse('2000-02-02'))}',
                 maxLines: 1,
                 style: getCustomFont(
-                    size: 15.0,
+                    size: 13.0,
                     weight: FontWeight.normal,
                     color: Colors.black45)),
           )
@@ -481,7 +481,7 @@ class _MedicineListState extends State<MedicineList> {
                 '${DateFormat('yyyy-MM-dd HH:mm').format(DateTime.parse('2020-02-02'))}',
                 maxLines: 1,
                 style: getCustomFont(
-                    size: 15.0,
+                    size: 13.0,
                     weight: FontWeight.normal,
                     color: Colors.black45)),
           )
@@ -493,7 +493,7 @@ class _MedicineListState extends State<MedicineList> {
             child: Text('324214123',
                 maxLines: 1,
                 style: getCustomFont(
-                    size: 15.0,
+                    size: 13.0,
                     weight: FontWeight.normal,
                     color: Colors.black45)),
           )
@@ -505,7 +505,7 @@ class _MedicineListState extends State<MedicineList> {
             child: Text('45234635656565',
                 maxLines: 1,
                 style: getCustomFont(
-                    size: 15.0,
+                    size: 13.0,
                     weight: FontWeight.normal,
                     color: Colors.black45)),
           )
@@ -514,10 +514,10 @@ class _MedicineListState extends State<MedicineList> {
           Padding(
             padding:
                 const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
-            child: Text('effective',
+            child: Text('Effective',
                 maxLines: 1,
                 style: getCustomFont(
-                    size: 15.0,
+                    size: 13.0,
                     weight: FontWeight.normal,
                     color: Colors.black45)),
           )

@@ -10,6 +10,9 @@ class Withdraw extends StatefulWidget {
 }
 
 class _WithdrawState extends State<Withdraw> {
+
+  var currentDate = DateTime.now();
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -84,6 +87,8 @@ const SizedBox(
               const SizedBox(
                 height: 10.0,
               ),
+              getDateForm('Date', '', (date) {}),
+              const SizedBox(height: 10.0,),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 18.0),
                 child: Text('Password', style: getCustomFont(size: 13.0, color: Colors.black45),),
@@ -108,7 +113,7 @@ const SizedBox(
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 15.0),
       child: Container(
-        height: 48.0,
+        height: 45.0,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(5.0),
             color: BLUECOLOR.withOpacity(.1)),
@@ -129,7 +134,7 @@ const SizedBox(
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 15.0),
       child: Container(
-        height: 48.0,
+        height: 45.0,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(5.0),
             color: BLUECOLOR.withOpacity(.1)),
@@ -172,7 +177,7 @@ const SizedBox(
     return Container(
       width: MediaQuery.of(context).size.width,
       margin: const EdgeInsets.symmetric(horizontal: 15.0),
-      height: 49.0,
+      height: 45.0,
       decoration: BoxDecoration(
           color: BLUECOLOR.withOpacity(.1),
           borderRadius: BorderRadius.circular(5.0)),
@@ -204,6 +209,71 @@ const SizedBox(
       ),
     );
   }
+
+  Widget getDateForm(label, text, callBack) => Padding(
+    padding: const EdgeInsets.symmetric(horizontal: 15.0),
+    child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              '$label',
+              style: getCustomFont(
+                  size: 14.0, color: Colors.black54, weight: FontWeight.normal),
+            ),
+            //abr to undo
+            const SizedBox(
+              height: 5.0,
+            ),
+            Container(
+              height: 45.0,
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 0.0, vertical: 5.0),
+              decoration: BoxDecoration(
+                  color: BLUECOLOR.withOpacity(.1),
+            borderRadius: BorderRadius.circular(5.0)),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Flexible(
+                      child: Padding(
+                    padding: const EdgeInsets.only(left: 10.0),
+                    child: Text('$text',
+                        style: getCustomFont(size: 14.0, color: Colors.black45)),
+                  )),
+                  GestureDetector(
+                    onTap: () async {
+                      final DateTime? picked = await showDatePicker(
+                          context: context,
+                          initialDate: currentDate,
+                          firstDate: DateTime(2015, 8),
+                          lastDate: DateTime(2101));
+                      if (picked != null && picked != currentDate) {
+                          callBack(picked);
+                      }
+                    },
+                    //done
+                    child: PhysicalModel(
+                      elevation: 10.0,
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(100.0),
+                      shadowColor: Colors.grey,
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 7.0, vertical: 7.0),
+                        child: Icon(
+                          Icons.calendar_month,
+                          size: 15.0,
+                          color: Color(0xFF838383),
+                        ),
+                      ),
+                    ),
+                  )
+                ],
+              ), 
+            ),
+          ],
+        ),
+  );
 
   Widget getButton(context, callBack) => GestureDetector(
         onTap: () => callBack(),
