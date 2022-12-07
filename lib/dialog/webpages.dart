@@ -1,15 +1,24 @@
+import 'dart:io';
+
 import 'package:merchant/constant/strings.dart';
 import 'package:flutter/material.dart';
+import 'package:webview_flutter/webview_flutter.dart';
 
-class MyFavourite extends StatefulWidget {
-  const MyFavourite({Key? key}) : super(key: key);
+class OtherWebPages extends StatefulWidget {
+  final String title;
+  const OtherWebPages(this.title, {Key? key}) : super(key: key);
 
   @override
-  State<MyFavourite> createState() => _MyFavouriteState();
+  State<OtherWebPages> createState() => _OtherWebPagesState();
 }
 
-class _MyFavouriteState extends State<MyFavourite> {
-  String past = 'Medicines';
+class _OtherWebPagesState extends State<OtherWebPages> {
+
+  @override
+  void initState() {
+    super.initState();
+    if (Platform.isAndroid) WebView.platform = AndroidWebView();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +45,7 @@ class _MyFavouriteState extends State<MyFavourite> {
                       child: Icon(Icons.arrow_back_ios,
                           size: 18.0, color: Colors.white)),
                   Flexible(
-                    child: Text('Deals And Offers',
+                    child: Text('${widget.title}',
                         style: getCustomFont(size: 16.0, color: Colors.white)),
                   ),
                   Icon(
@@ -51,9 +60,12 @@ class _MyFavouriteState extends State<MyFavourite> {
             ]),
           ),
           const SizedBox(
-            height: 15.0,
+            height: 5.0,
           ),
-          Expanded(child: SizedBox())
+          Expanded(
+              child: WebView(
+            initialUrl: 'https://flutter.dev',
+          ))
         ]));
   }
 }
