@@ -7,7 +7,7 @@ class CouponItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Color primaryColor = BLUECOLOR.withOpacity(.12);
+    Color primaryColor = BLUECOLOR.withOpacity(.1);
     const Color secondaryColor = BLUECOLOR;
 
     return CouponCard(

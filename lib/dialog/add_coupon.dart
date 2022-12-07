@@ -4,7 +4,8 @@ import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:intl/intl.dart';
 
 class AddCoupon extends StatefulWidget {
-  const AddCoupon({Key? key}) : super(key: key);
+  final bool isEdit;
+  const AddCoupon(this.isEdit, {Key? key}) : super(key: key);
 
   @override
   State<AddCoupon> createState() => _AddCouponState();
@@ -12,6 +13,11 @@ class AddCoupon extends StatefulWidget {
 
 class _AddCouponState extends State<AddCoupon> {
   var selectedDate = DateTime.now();
+
+  @override
+  void initState() {
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +38,7 @@ class _AddCouponState extends State<AddCoupon> {
           Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
             Flexible(
               child: Text(
-                'Add Coupon',
+                widget.isEdit ? 'Edit Coupon' : 'Add Coupon',
                 style: getCustomFont(size: 16.0, color: Colors.black54),
               ),
             ),
@@ -91,7 +97,7 @@ class _AddCouponState extends State<AddCoupon> {
               const SizedBox(
                 height: 10.0,
               ),
-               Padding(
+              Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 18.0),
                 child: Text(
                   'Expire Date',
@@ -118,6 +124,8 @@ class _AddCouponState extends State<AddCoupon> {
                 height: 10.0,
               ),
               getButton(context, () {}),
+              SizedBox(height: widget.isEdit ? 10.0 : 0.0),
+              widget.isEdit ? getDelButton(context, () {}) : const SizedBox(),
               const SizedBox(
                 height: 30.0,
               ),
@@ -255,7 +263,26 @@ class _AddCouponState extends State<AddCoupon> {
               color: BLUECOLOR, borderRadius: BorderRadius.circular(50.0)),
           child: Center(
             child: Text(
-              'Request',
+              widget.isEdit ? 'Update' : 'Publish',
+              style: getCustomFont(
+                  size: 14.0, color: Colors.white, weight: FontWeight.normal),
+            ),
+          ),
+        ),
+      );
+
+  Widget getDelButton(context, callBack) => GestureDetector(
+        onTap: () => callBack(),
+        child: Container(
+          width: MediaQuery.of(context).size.width,
+          height: 45.0,
+          margin: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 0.0),
+          decoration: BoxDecoration(
+              color: Colors.redAccent,
+              borderRadius: BorderRadius.circular(50.0)),
+          child: Center(
+            child: Text(
+              'Delete',
               style: getCustomFont(
                   size: 14.0, color: Colors.white, weight: FontWeight.normal),
             ),

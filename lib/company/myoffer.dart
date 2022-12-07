@@ -58,7 +58,9 @@ class MyOffer extends StatelessWidget {
                           horizontal: 0.0, vertical: 0.0),
                       itemCount: 5,
                       shrinkWrap: true,
-                      itemBuilder: (ctx, i) => myOffers(context)))
+                      itemBuilder: (ctx, i) => GestureDetector(
+                        onTap: () => showRequestSheet(context, AddCoupon(false)),
+                        child: myOffers(context))))
             ]),
             Align(
               alignment: Alignment.bottomRight,
@@ -72,7 +74,7 @@ class MyOffer extends StatelessWidget {
                     color: Colors.white,
                   ),
                   onPressed: () {
-                    showRequestSheet(context, AddCoupon());
+                    showRequestSheet(context, AddCoupon(true));
                   },
                   backgroundColor: BLUECOLOR,
                 ),

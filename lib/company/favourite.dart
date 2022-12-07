@@ -1,4 +1,5 @@
 import 'package:merchant/constant/strings.dart';
+import 'package:merchant/dialog/subscribe.dart';
 import 'package:merchant/items/clinic_items.dart';
 import 'package:merchant/providers/page_controller.dart';
 import 'package:flutter/material.dart';
@@ -120,7 +121,7 @@ class _MyFavouriteState extends State<MyFavourite> {
               GestureDetector(
                 onTap: () {
                   setState(() {
-                    past = 'Hospitals';
+                    past = 'Hospitals/Clinics';
                   });
                 },
                 child: Container(
@@ -129,14 +130,14 @@ class _MyFavouriteState extends State<MyFavourite> {
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(50.0),
                       color:
-                          past == 'Hospitals' ? BLUECOLOR : Colors.transparent,
-                      boxShadow: past == 'Hospitals' ? SHADOW : null),
+                          past == 'Hospitals/Clinics' ? BLUECOLOR : Colors.transparent,
+                      boxShadow: past == 'Hospitals/Clinics' ? SHADOW : null),
                   child: FittedBox(
                     child: Text(
-                      'Hospitals',
+                      'Hospitals/Clinics',
                       style: getCustomFont(
                           size: 13.0,
-                          color: past == 'Hospitals'
+                          color: past == 'Hospitals/Clinics'
                               ? Colors.white
                               : Colors.black),
                     ),
