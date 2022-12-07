@@ -7,11 +7,11 @@ class CouponItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const Color primaryColor = Color(0xffcbf3f0);
-    const Color secondaryColor = Color(0xff368f8b);
+    Color primaryColor = BLUECOLOR.withOpacity(.12);
+    const Color secondaryColor = BLUECOLOR;
 
     return CouponCard(
-      height: 150,
+      height: 120.0,
       backgroundColor: primaryColor,
       curveAxis: Axis.vertical,
       firstChild: Container(
@@ -30,7 +30,7 @@ class CouponItem extends StatelessWidget {
                       '23%',
                       style: getCustomFont(
                         color: Colors.white,
-                        size: 24,
+                        size: 20.0,
                         weight: FontWeight.bold,
                       ),
                     ),
@@ -38,7 +38,7 @@ class CouponItem extends StatelessWidget {
                       'OFF',
                       style: getCustomFont(
                         color: Colors.white,
-                        size: 16,
+                        size: 14.0,
                         weight: FontWeight.bold,
                       ),
                     ),
@@ -54,7 +54,7 @@ class CouponItem extends StatelessWidget {
                   textAlign: TextAlign.center,
                   style: getCustomFont(
                     color: Colors.white,
-                    size: 12,
+                    size: 11.0,
                     weight: FontWeight.bold,
                   ),
                 ),
@@ -74,7 +74,7 @@ class CouponItem extends StatelessWidget {
               'Coupon Code',
               textAlign: TextAlign.center,
               style: getCustomFont(
-                size: 13,
+                size: 13.0,
                 weight: FontWeight.bold,
                 color: Colors.black54,
               ),
@@ -84,7 +84,7 @@ class CouponItem extends StatelessWidget {
               'FREESALES',
               textAlign: TextAlign.center,
               style: getCustomFont(
-                size: 24,
+                size: 24.0,
                 color: secondaryColor,
                 weight: FontWeight.bold,
               ),

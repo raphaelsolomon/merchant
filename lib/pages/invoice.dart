@@ -13,7 +13,7 @@ class MyInvoicePage extends StatefulWidget {
 }
 
 class _MyInvoicePageState extends State<MyInvoicePage> {
-  String past = "Service";
+  String past = "Sales";
 
   @override
   void initState() {
@@ -72,7 +72,7 @@ class _MyInvoicePageState extends State<MyInvoicePage> {
               GestureDetector(
                 onTap: () {
                   setState(() {
-                    past = 'Service';
+                    past = 'Sales';
                   });
                 },
                 child: Container(
@@ -80,15 +80,14 @@ class _MyInvoicePageState extends State<MyInvoicePage> {
                       horizontal: 20.0, vertical: 8.0),
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(50.0),
-                      color: past == 'Service' ? BLUECOLOR : Colors.transparent,
-                      boxShadow: past == 'Service' ? SHADOW : null),
+                      color: past == 'Sales' ? BLUECOLOR : Colors.transparent,
+                      boxShadow: past == 'Sales' ? SHADOW : null),
                   child: FittedBox(
                     child: Text(
-                      'Service',
+                      'Sales',
                       style: getCustomFont(
                           size: 13.0,
-                          color:
-                              past == 'Service' ? Colors.white : Colors.black),
+                          color: past == 'Sales' ? Colors.white : Colors.black),
                     ),
                   ),
                 ),
@@ -215,7 +214,7 @@ class _MyInvoicePageState extends State<MyInvoicePage> {
                         child: Align(
                           alignment: Alignment.centerRight,
                           child: getButton(context, () {
-                           showRequestSheet(context, InvoiceReceipt());
+                            showRequestSheet(context, InvoiceReceipt());
                           }),
                         ),
                       )
@@ -229,42 +228,42 @@ class _MyInvoicePageState extends State<MyInvoicePage> {
   }
 
   Widget getButton(context, callBack,
-          {text = 'View',
-          icon = Icons.remove_red_eye,
-          color = Colors.lightBlueAccent}) =>
-      GestureDetector(
-        onTap: () => callBack(),
-        child: Container(
-          decoration: BoxDecoration(
-              color: color, borderRadius: BorderRadius.circular(50.0)),
-          child: Padding(
-            padding:
-                const EdgeInsets.symmetric(horizontal: 12.0, vertical: 5.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Icon(
-                  icon,
-                  size: 14.0,
-                  color: Colors.white,
+      {text = 'View',
+      icon = Icons.remove_red_eye,
+      color = Colors.lightBlueAccent}) {
+    return GestureDetector(
+      onTap: () => callBack(),
+      child: Container(
+        decoration: BoxDecoration(
+            color: color, borderRadius: BorderRadius.circular(50.0)),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 5.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Icon(
+                icon,
+                size: 14.0,
+                color: Colors.white,
+              ),
+              const SizedBox(
+                width: 6.0,
+              ),
+              Flexible(
+                child: Text(
+                  '$text',
+                  maxLines: 1,
+                  style: getCustomFont(
+                      size: 12.0,
+                      color: Colors.white,
+                      weight: FontWeight.normal),
                 ),
-                const SizedBox(
-                  width: 6.0,
-                ),
-                Flexible(
-                  child: Text(
-                    '$text',
-                    maxLines: 1,
-                    style: getCustomFont(
-                        size: 12.0,
-                        color: Colors.white,
-                        weight: FontWeight.normal),
-                  ),
-                ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
-      );
+      ),
+    );
+  }
 }

@@ -35,7 +35,7 @@ class _AddvendorsState extends State<Addvendors> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-         Container(
+          Container(
             padding:
                 const EdgeInsets.symmetric(horizontal: 15.0, vertical: 0.0),
             width: MediaQuery.of(context).size.width,
@@ -77,7 +77,7 @@ class _AddvendorsState extends State<Addvendors> {
               Padding(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
-                child: getDropDownAssurance(VENDORTYPE, (s) {}),
+                child: getDropDownAssurance('Vendor Type', VENDORTYPE, (s) {}),
               ),
               const SizedBox(
                 height: 15.0,
@@ -85,7 +85,7 @@ class _AddvendorsState extends State<Addvendors> {
               Padding(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
-                child: getCardForm('Customer Name', 'Customer Name', ctl: null),
+                child: getCardForm('Vendor Name', 'Vendor Name', ctl: null),
               ),
               const SizedBox(
                 height: 15.0,
@@ -94,7 +94,7 @@ class _AddvendorsState extends State<Addvendors> {
                 padding:
                     const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
                 child: getCardForm(
-                    'Customer E-mail Address', 'johndow@example.com',
+                    'Vendor E-mail Address', 'johndow@example.com',
                     ctl: null),
               ),
               const SizedBox(
@@ -103,7 +103,7 @@ class _AddvendorsState extends State<Addvendors> {
               Padding(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
-                child: getPhoneNumberForm('Phone', ctl: null),
+                child: getPhoneNumberForm('Mobile Number', ctl: null),
               ),
               const SizedBox(
                 height: 15.0,
@@ -157,7 +157,7 @@ class _AddvendorsState extends State<Addvendors> {
               Padding(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
-                child: getCardForm('E-mail Address 2', 'E-mail Address 2',
+                child: getCardForm('Vendor E-mail Address 2', 'Vendor E-mail Address 2',
                     ctl: null),
               ),
               const SizedBox(
@@ -166,7 +166,7 @@ class _AddvendorsState extends State<Addvendors> {
               Padding(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
-                child: getCardForm('Contact ', 'Contact', ctl: null),
+                child: getCardForm('Vendor Contact ', 'Vendor Contact', ctl: null),
               ),
               const SizedBox(
                 height: 15.0,
@@ -174,7 +174,7 @@ class _AddvendorsState extends State<Addvendors> {
               Padding(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
-                child: getCardRichForm('Address 2', 'Address 2', ctl: null),
+                child: getCardRichForm('Vendor Address 2', 'Enter Vendor Address 2', ctl: null),
               ),
               const SizedBox(
                 height: 15.0,
@@ -198,8 +198,23 @@ class _AddvendorsState extends State<Addvendors> {
               Padding(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
-                child: getCardForm('Previous Balance', 'Previous Balance',
-                    ctl: null),
+                child: getDropDownAssurance('Vendor Since', ['Dec 4 2021', 'Dec 5 2022', 'Dec 10 2020'], (s) {}),
+              ),
+              const SizedBox(
+                height: 15.0,
+              ),
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
+                child: getDropDownAssurance('Previous Account', ['Credit', 'Debit'], (s) {}),
+              ),
+              const SizedBox(
+                height: 15.0,
+              ),
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
+                child: getDropDownAssurance('Terms and Credit', ['Default Terms', 'SkyDoctors Terms'], (s) {}),
               ),
               const SizedBox(
                 height: 40.0,
@@ -245,7 +260,7 @@ class _AddvendorsState extends State<Addvendors> {
               decoration: InputDecoration(
                   hintText: hint,
                   contentPadding: const EdgeInsets.symmetric(horizontal: 10.0),
-                  hintStyle: getCustomFont(size: 14.0, color: Colors.black45),
+                  hintStyle: getCustomFont(size: 13.0, color: Colors.black45),
                   border: OutlineInputBorder(borderSide: BorderSide.none)),
             ),
           )
@@ -279,7 +294,7 @@ class _AddvendorsState extends State<Addvendors> {
               decoration: InputDecoration(
                   hintText: hint,
                   contentPadding: const EdgeInsets.symmetric(horizontal: 10.0),
-                  hintStyle: getCustomFont(size: 14.0, color: Colors.black45),
+                  hintStyle: getCustomFont(size: 13.0, color: Colors.black45),
                   border: OutlineInputBorder(borderSide: BorderSide.none)),
             ),
           )
@@ -316,13 +331,13 @@ class _AddvendorsState extends State<Addvendors> {
                       controller: ctl, // controller & initialValue value
                       shouldFormat: true, // default
                       defaultCountry: IsoCode.NG, // default
-                      style: getCustomFont(size: 14.0, color: Colors.black45),
+                      style: getCustomFont(size: 13.0, color: Colors.black45),
                       autovalidateMode: AutovalidateMode.disabled,
                       decoration: InputDecoration(
                           contentPadding: const EdgeInsets.all(0.0),
                           hintText: 'Mobile Number', // default to null
                           hintStyle:
-                              getCustomFont(size: 15.0, color: Colors.black45),
+                              getCustomFont(size: 13.0, color: Colors.black45),
                           border: OutlineInputBorder(
                               borderSide: BorderSide
                                   .none) // default to UnderlineInputBorder(),
@@ -362,38 +377,51 @@ class _AddvendorsState extends State<Addvendors> {
         ),
       );
 
-  Widget getDropDownAssurance(List<String> list, callBack) {
-    return Container(
-      width: MediaQuery.of(context).size.width,
-      margin: const EdgeInsets.symmetric(horizontal: 10.0),
-      height: 45.0,
-      decoration: BoxDecoration(
-          color: BLUECOLOR.withOpacity(.05),
-          borderRadius: BorderRadius.circular(5.0)),
-      child: FormBuilderDropdown(
-        name: 'skill',
-        icon: const Icon(
-          Icons.keyboard_arrow_down,
-          color: Colors.black,
-        ),
-        decoration: InputDecoration(
-          contentPadding:
-              const EdgeInsets.symmetric(horizontal: 9.9, vertical: 5.0),
-          border: OutlineInputBorder(
-              borderRadius: const BorderRadius.all(Radius.circular(5.0)),
-              borderSide: BorderSide.none),
-        ),
-        initialValue: list[0],
-        onChanged: (value) => callBack(value),
-        items: list
-            .map((gender) => DropdownMenuItem(
-                  value: gender,
-                  child: Text(
-                    gender,
-                    style: getCustomFont(size: 14.0, color: Colors.black45),
-                  ),
-                ))
-            .toList(),
+  Widget getDropDownAssurance(label, List<String> list, callBack) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 10.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            '$label',
+            style: getCustomFont(
+                size: 14.0, color: Colors.black45, weight: FontWeight.w500),
+          ),
+          const SizedBox(height: 7.0),
+          Container(
+            width: MediaQuery.of(context).size.width,
+            height: 45.0,
+            decoration: BoxDecoration(
+                color: BLUECOLOR.withOpacity(.05),
+                borderRadius: BorderRadius.circular(5.0)),
+            child: FormBuilderDropdown(
+              name: 'skill',
+              icon: const Icon(
+                Icons.keyboard_arrow_down,
+                color: Colors.black,
+              ),
+              decoration: InputDecoration(
+                contentPadding: const EdgeInsets.symmetric(horizontal: 9.9, vertical: 5.0),
+                border: OutlineInputBorder(
+                    borderRadius: const BorderRadius.all(Radius.circular(5.0)),
+                    borderSide: BorderSide.none),
+              ),
+              initialValue: list[0],
+              onChanged: (value) => callBack(value),
+              items: list
+                  .map((gender) => DropdownMenuItem(
+                        value: gender,
+                        child: Text(
+                          gender,
+                          style:
+                              getCustomFont(size: 13.0, color: Colors.black45),
+                        ),
+                      ))
+                  .toList(),
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -424,7 +452,7 @@ class _AddvendorsState extends State<Addvendors> {
                     child: Padding(
                   padding: const EdgeInsets.only(left: 10.0),
                   child: Text('$text',
-                      style: getCustomFont(size: 14.0, color: Colors.black45)),
+                      style: getCustomFont(size: 13.0, color: Colors.black45)),
                 )),
                 GestureDetector(
                   onTap: () async {
@@ -488,7 +516,7 @@ class _AddvendorsState extends State<Addvendors> {
                         horizontal: 10.0, vertical: 8.0),
                     child: Text(
                       '$text',
-                      style: getCustomFont(size: 15.0, color: Colors.black45),
+                      style: getCustomFont(size: 13.0, color: Colors.black45),
                     ),
                   )),
                   PhysicalModel(

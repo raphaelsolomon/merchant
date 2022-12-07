@@ -148,13 +148,13 @@ class _HomePageState extends State<HomePage> {
                         child: Row(
                           children: [
                             ...List.generate(
-                                4, (index) => horizontalSecondItem(context))
+                                3, (i) => horizontalSecondItem(context, i))
                           ],
                         ),
                       ),
                     ),
                     const SizedBox(
-                      height: 12.0,
+                      height: 10.0,
                     ),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 20.0),
@@ -338,17 +338,15 @@ class _HomePageState extends State<HomePage> {
         ),
       );
 
-  Widget horizontalSecondItem(context) => Container(
+  Widget horizontalSecondItem(context, index) => Container(
         width: MediaQuery.of(context).size.width / 1.4,
         height: 100.0,
         padding: const EdgeInsets.all(15.0),
         margin: const EdgeInsets.only(right: 20.0),
         decoration: BoxDecoration(
-            color: BLUECOLOR.withOpacity(.5),
+          image: DecorationImage(image: AssetImage('assets/ads/black${index}.jpg'), fit: BoxFit.cover),
+            color: Colors.white,
             borderRadius: BorderRadius.circular(10.0)),
-        child: Column(
-          children: [],
-        ),
       );
 
   Widget mailAlert(context) => Container(

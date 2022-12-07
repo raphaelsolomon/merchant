@@ -1,4 +1,5 @@
 import 'package:merchant/constant/strings.dart';
+import 'package:merchant/items/clinic_items.dart';
 import 'package:merchant/providers/page_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
@@ -171,7 +172,13 @@ class _MyFavouriteState extends State<MyFavourite> {
                           itemCount: 10,
                           itemBuilder: (ctx, i) => productItem(context)),
                     )
-                  : const SizedBox()
+                  : Expanded(
+                  child: ListView.builder(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 0.0, vertical: 0.0),
+                      itemCount: 5,
+                      shrinkWrap: true,
+                      itemBuilder: (ctx, i) => ClinicItems()))
         ]));
   }
 

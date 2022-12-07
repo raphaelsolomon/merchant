@@ -1,6 +1,6 @@
 import 'package:merchant/constant/strings.dart';
 import 'package:merchant/dialog/add_coupon.dart';
-import 'package:merchant/dialog/coupon_item.dart';
+import 'package:merchant/items/coupon_item.dart';
 import 'package:merchant/dialog/subscribe.dart';
 import 'package:merchant/providers/page_controller.dart';
 import 'package:flutter/material.dart';

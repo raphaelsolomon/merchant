@@ -35,7 +35,7 @@ class _AddCustomersState extends State<AddCustomers> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-         Container(
+          Container(
             padding:
                 const EdgeInsets.symmetric(horizontal: 15.0, vertical: 0.0),
             width: MediaQuery.of(context).size.width,
@@ -52,7 +52,8 @@ class _AddCustomersState extends State<AddCustomers> {
                       child: Icon(Icons.arrow_back_ios,
                           size: 18.0, color: Colors.white)),
                   Flexible(
-                    child: Text(widget.isEdit ? 'Edit Customer' : 'Add Customer',
+                    child: Text(
+                        widget.isEdit ? 'Edit Customer' : 'Add Customer',
                         style: getCustomFont(size: 16.0, color: Colors.white)),
                   ),
                   Icon(
@@ -75,66 +76,56 @@ class _AddCustomersState extends State<AddCustomers> {
                 height: 15.0,
               ),
               Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
-                child: getDropDownAssurance(CUSTOMERTYPE, (s) {}),
+                padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
+                child: getDropDownAssurance('Customer Type', CUSTOMERTYPE, (s) {}),
               ),
               const SizedBox(
                 height: 15.0,
               ),
               Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
+                padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
                 child: getCardForm('Customer ID', 'Customer ID', ctl: null),
               ),
-               const SizedBox(
+              const SizedBox(
                 height: 15.0,
               ),
               Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
+                padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
                 child: getCardForm('Customer Name', 'Customer Name', ctl: null),
               ),
               const SizedBox(
                 height: 15.0,
               ),
               Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
-                child: getCardForm(
-                    'Customer E-mail Address', 'johndow@example.com',
-                    ctl: null),
+                padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
+                child: getCardForm('Customer E-mail Address', 'johndow@example.com', ctl: null),
               ),
               const SizedBox(
                 height: 15.0,
               ),
               Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
-                child: getPhoneNumberForm('Phone', ctl: null),
+                padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
+                child: getPhoneNumberForm('Mobile Number', ctl: null),
               ),
               const SizedBox(
                 height: 15.0,
               ),
               Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
+                padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
                 child: getCardRichForm('Customer Address', 'Customer Address', ctl: null),
               ),
               const SizedBox(
                 height: 15.0,
               ),
               Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
+                padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
                 child: getCardForm('Fax', 'Fax', ctl: null),
               ),
               const SizedBox(
                 height: 15.0,
               ),
               Padding(
-                  padding: const EdgeInsets.symmetric(
-                      horizontal: 10.0, vertical: 0.0),
+                  padding: const EdgeInsets.symmetric( horizontal: 10.0, vertical: 0.0),
                   child: GestureDetector(
                     onTap: () {},
                     child: getCountryForm(text: country),
@@ -143,24 +134,21 @@ class _AddCustomersState extends State<AddCustomers> {
                 height: 15.0,
               ),
               Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
+                padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
                 child: getCardForm('State', 'State', ctl: null),
               ),
               const SizedBox(
                 height: 15.0,
               ),
               Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
+                padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
                 child: getCardForm('City', 'City', ctl: null),
               ),
               const SizedBox(
                 height: 15.0,
               ),
               Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
+                padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
                 child: getCardForm('Zip', '0000001', ctl: null),
               ),
               Divider(
@@ -171,8 +159,7 @@ class _AddCustomersState extends State<AddCustomers> {
                 height: 15.0,
               ),
               Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
+                padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
                 child: getPhoneNumberForm('Mobile Number', ctl: null),
               ),
               const SizedBox(
@@ -181,15 +168,13 @@ class _AddCustomersState extends State<AddCustomers> {
               Padding(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
-                child: getCardForm('Contact E-mail Address', 'Contact E-mail Address',
-                    ctl: null),
+                child: getCardForm('Contact E-mail Address', 'Contact E-mail Address', ctl: null),
               ),
               const SizedBox(
                 height: 15.0,
               ),
               Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
+                padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
                 child: getCardForm('Contact Name', 'Contact', ctl: null),
               ),
               const SizedBox(
@@ -206,8 +191,23 @@ class _AddCustomersState extends State<AddCustomers> {
               Padding(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
-                child: getCardForm('Previous Balance', 'Previous Balance',
-                    ctl: null),
+                child: getDropDownAssurance('Customer Since', ['Dec 4 2021', 'Dec 5 2022', 'Dec 10 2020'], (s) {}),
+              ),
+              const SizedBox(
+                height: 15.0,
+              ),
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
+                child: getDropDownAssurance('Previous Account', ['Credit', 'Debit'], (s) {}),
+              ),
+              const SizedBox(
+                height: 15.0,
+              ),
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
+                child: getDropDownAssurance('Terms and Credit', ['Default Terms', 'SkyDoctors Terms'], (s) {}),
               ),
               const SizedBox(
                 height: 40.0,
@@ -370,38 +370,52 @@ class _AddCustomersState extends State<AddCustomers> {
         ),
       );
 
-  Widget getDropDownAssurance(List<String> list, callBack) {
-    return Container(
-      width: MediaQuery.of(context).size.width,
-      margin: const EdgeInsets.symmetric(horizontal: 10.0),
-      height: 45.0,
-      decoration: BoxDecoration(
-          color: BLUECOLOR.withOpacity(.05),
-          borderRadius: BorderRadius.circular(5.0)),
-      child: FormBuilderDropdown(
-        name: 'skill',
-        icon: const Icon(
-          Icons.keyboard_arrow_down,
-          color: Colors.black,
-        ),
-        decoration: InputDecoration(
-          contentPadding:
-              const EdgeInsets.symmetric(horizontal: 9.9, vertical: 5.0),
-          border: OutlineInputBorder(
-              borderRadius: const BorderRadius.all(Radius.circular(5.0)),
-              borderSide: BorderSide.none),
-        ),
-        initialValue: list[0],
-        onChanged: (value) => callBack(value),
-        items: list
-            .map((gender) => DropdownMenuItem(
-                  value: gender,
-                  child: Text(
-                    gender,
-                    style: getCustomFont(size: 13.0, color: Colors.black45),
-                  ),
-                ))
-            .toList(),
+  Widget getDropDownAssurance(label, List<String> list, callBack) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 10.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            '$label',
+            style: getCustomFont(
+                size: 14.0, color: Colors.black45, weight: FontWeight.w500),
+          ),
+          const SizedBox(height: 7.0),
+          Container(
+            width: MediaQuery.of(context).size.width,
+            height: 45.0,
+            decoration: BoxDecoration(
+                color: BLUECOLOR.withOpacity(.05),
+                borderRadius: BorderRadius.circular(5.0)),
+            child: FormBuilderDropdown(
+              name: 'skill',
+              icon: const Icon(
+                Icons.keyboard_arrow_down,
+                color: Colors.black,
+              ),
+              decoration: InputDecoration(
+                contentPadding:
+                    const EdgeInsets.symmetric(horizontal: 9.9, vertical: 5.0),
+                border: OutlineInputBorder(
+                    borderRadius: const BorderRadius.all(Radius.circular(5.0)),
+                    borderSide: BorderSide.none),
+              ),
+              initialValue: list[0],
+              onChanged: (value) => callBack(value),
+              items: list
+                  .map((gender) => DropdownMenuItem(
+                        value: gender,
+                        child: Text(
+                          gender,
+                          style:
+                              getCustomFont(size: 13.0, color: Colors.black45),
+                        ),
+                      ))
+                  .toList(),
+            ),
+          ),
+        ],
       ),
     );
   }
