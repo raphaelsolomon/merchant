@@ -1,5 +1,6 @@
 import 'package:merchant/constant/strings.dart';
 import 'package:merchant/dialog/add_coupon.dart';
+import 'package:merchant/dialog/coupon_item.dart';
 import 'package:merchant/dialog/subscribe.dart';
 import 'package:merchant/providers/page_controller.dart';
 import 'package:flutter/material.dart';
@@ -83,35 +84,7 @@ class MyOffer extends StatelessWidget {
 
   Widget myOffers(context) => Container(
         width: MediaQuery.of(context).size.width,
-        padding: const EdgeInsets.all(15.0),
-        margin: const EdgeInsets.symmetric(vertical: 7.0, horizontal: 12.0),
-        decoration: BoxDecoration(boxShadow: [
-          BoxShadow(
-              color: Colors.black12,
-              spreadRadius: 1.0,
-              blurRadius: 10.0,
-              offset: Offset(0.0, 1.0))
-        ], color: Colors.white, borderRadius: BorderRadius.circular(10.0)),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Flexible(child: Text('Flat 50% Off\non first medicine order')),
-            const SizedBox(
-              width: 20.0,
-            ),
-            Container(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 15.0, vertical: 8.0),
-              decoration: BoxDecoration(color: Colors.green.withOpacity(.1)),
-              child: Text(
-                'Get50',
-                style: getCustomFont(
-                    size: 20.0,
-                    color: Colors.greenAccent,
-                    weight: FontWeight.bold),
-              ),
-            )
-          ],
-        ),
+        margin: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 12.0),
+        child: CouponItem()
       );
 }
