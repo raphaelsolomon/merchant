@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:io';
 
 import 'package:merchant/constant/strings.dart';
@@ -13,6 +14,8 @@ class OtherWebPages extends StatefulWidget {
 }
 
 class _OtherWebPagesState extends State<OtherWebPages> {
+  final Completer<WebViewController> _completer =
+      Completer<WebViewController>();
 
   @override
   void initState() {
@@ -22,6 +25,11 @@ class _OtherWebPagesState extends State<OtherWebPages> {
 
   @override
   Widget build(BuildContext context) {
+    // _completer.future.then((controller) {
+    //   _webViewController = controller;
+    //   Map<String, String> header =  {'cookie': 'token=$token'};
+    //   _webViewController.loadUrl(URL, headers: header);
+    // });
     var size = MediaQuery.of(context).size;
     return Container(
         width: MediaQuery.of(context).size.width,
@@ -64,8 +72,17 @@ class _OtherWebPagesState extends State<OtherWebPages> {
           ),
           Expanded(
               child: WebView(
-            initialUrl: 'https://flutter.dev',
+            debuggingEnabled: true,
+            javascriptMode: JavascriptMode.unrestricted,
+            onWebViewCreated: ((WebViewController controller) {
+              controller.loadUrl("", headers: {"Authorization": "Bearer "});
+              _completer.complete(controller);
+            }),
           ))
         ]));
   }
 }
+
+// onWebViewCreated: (controller) async {
+//               _completer.complete(controller);
+//             })),
