@@ -6,15 +6,15 @@ import 'package:merchant/dialog/subscribe.dart';
 import 'package:flutter/material.dart';
 import 'package:phone_form_field/phone_form_field.dart';
 
-class AddSalesInvoice extends StatefulWidget {
+class AddPurchaseInvoice extends StatefulWidget {
   final bool isEdit;
-  const AddSalesInvoice(this.isEdit, {Key? key}) : super(key: key);
+  const AddPurchaseInvoice(this.isEdit, {Key? key}) : super(key: key);
 
   @override
-  State<AddSalesInvoice> createState() => _AddSalesInvoiceState();
+  State<AddPurchaseInvoice> createState() => _AddPurchaseInvoiceState();
 }
 
-class _AddSalesInvoiceState extends State<AddSalesInvoice> {
+class _AddPurchaseInvoiceState extends State<AddPurchaseInvoice> {
   bool addButtonLoading = false;
   String country = 'Nigeria';
   bool isSwitch = false;
@@ -51,7 +51,7 @@ class _AddSalesInvoiceState extends State<AddSalesInvoice> {
                       )),
                   Flexible(
                     child: Text(
-                      !widget.isEdit ? 'Add Sales Invoice' : 'Edit Sales Invoice',
+                      !widget.isEdit ? 'Add Purchase Invoice' : 'Edit Purchase Invoice',
                       style: getCustomFont(size: 16.0, color: Colors.black54),
                     ),
                   ),

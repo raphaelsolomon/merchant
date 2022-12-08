@@ -32,8 +32,8 @@ class _OtherWebPagesState extends State<OtherWebPages> {
     // });
     var size = MediaQuery.of(context).size;
     return Container(
-        width: MediaQuery.of(context).size.width,
-        height: MediaQuery.of(context).size.height,
+        width: size.width,
+        height: size.height,
         color: Color(0xFFf6f6f6),
         child: Column(children: [
           Container(

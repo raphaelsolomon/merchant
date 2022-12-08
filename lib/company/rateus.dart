@@ -129,19 +129,20 @@ class RateUS extends StatelessWidget {
       );
 
   getFormSubscribe({ctl}) => Container(
+    height: 300,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(6.0),
             color: Colors.grey.shade200),
         child: TextField(
-          maxLines: 10,
+          maxLines: null,
           controller: ctl,
           keyboardType: TextInputType.multiline,
-          style: getCustomFont(size: 16.0, color: Colors.black54),
+          style: getCustomFont(size: 13.0, color: Colors.black54),
           decoration: InputDecoration(
               contentPadding:
                   const EdgeInsets.symmetric(horizontal: 20.0, vertical: 5.0),
               hintText: 'write your experience here',
-              hintStyle: getCustomFont(size: 16.0, color: Colors.black54),
+              hintStyle: getCustomFont(size: 13.0, color: Colors.black54),
               border: OutlineInputBorder(borderSide: BorderSide.none)),
         ),
       );

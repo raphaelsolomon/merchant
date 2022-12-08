@@ -483,8 +483,9 @@ List<NavDrawerItem> getNavdraweritem_(BuildContext context) {
           {'index': 20, 'title': 'All Services'},
 
           {'index': -5, 'title': 'All Sales Invoices'},
-          {'index': 25, 'title': 'Add Sales Invoice'}, //done
-          {'index': -5, 'title': 'Customer Receipt'},
+          {'index': 29, 'title': 'Add Sales Invoice'}, // done
+          {'index': 26, 'title': 'Sales Return'}, // done
+          {'index': 28, 'title': 'Customer Report'}, // done
         ],
         isOpen: false,
         index: -0),
@@ -497,10 +498,10 @@ List<NavDrawerItem> getNavdraweritem_(BuildContext context) {
           {'index': 21, 'title': 'All Specializations'},
           {'index': 19, 'title': 'All Purchases'},
 
-          {'index': -7, 'title': 'Add Purchase Invoices'},
-          {'index': 19, 'title': 'Purchase Return'},
-          {'index': 19, 'title': 'Vendor Payment'},
-          {'index': 4, 'title': 'All Brands'},
+          {'index': 30, 'title': 'Add Purchase Invoices'}, //done
+          {'index': 27, 'title': 'Purchase Return'}, // done
+          {'index': 31, 'title': 'Vendor Payment'},
+          {'index': 4, 'title': 'All Brands'}, //done
         ],
         isOpen: false,
         index: -0),

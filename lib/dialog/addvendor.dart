@@ -204,6 +204,13 @@ class _AddvendorsState extends State<Addvendors> {
                 height: 15.0,
               ),
               Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
+                child: getCardForm('A/R Account', '110000', ctl: null),
+              ),
+              const SizedBox(
+                height: 15.0,
+              ),
+              Padding(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
                 child: getDropDownAssurance('Previous Account', ['Credit', 'Debit'], (s) {}),

@@ -111,11 +111,17 @@ class _ScanPageState extends State<ScanPage> {
                  Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Image.asset('assets/pay/visa.png', width: 30.0, height: 30.0, fit: BoxFit.contain),
+                    Image.asset('assets/pay/america.png', width: 50.0, height: 30.0, fit: BoxFit.contain),
                     const SizedBox(width: 15.0),
-                    Image.asset('assets/pay/razor.png', width: 30.0, height: 30.0, fit: BoxFit.contain),
+                    Image.asset('assets/pay/discover.png', width: 50.0, height: 30.0, fit: BoxFit.contain),
                     const SizedBox(width: 15.0),
-                    Image.asset('assets/pay/zenith.png', width: 30.0, height: 30.0, fit: BoxFit.contain),
+                    Image.asset('assets/pay/paystack.png', width: 50.0, height: 30.0, fit: BoxFit.contain),
+                    const SizedBox(width: 15.0),
+                    Image.asset('assets/pay/master.png', width: 50.0, height: 30.0, fit: BoxFit.contain),
+                    const SizedBox(width: 15.0),
+                    Image.asset('assets/pay/visa.png', width: 50.0, height: 30.0, fit: BoxFit.contain),
+                    const SizedBox(width: 15.0),
+                    Image.asset('assets/pay/paypal.png', width: 50.0, height: 30.0, fit: BoxFit.contain),
                   ],
                  )
               ],

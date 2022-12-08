@@ -205,6 +205,13 @@ class _AddCustomersState extends State<AddCustomers> {
                 height: 15.0,
               ),
               Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
+                child: getCardForm('A/R Account', '110000', ctl: null),
+              ),
+              const SizedBox(
+                height: 15.0,
+              ),
+              Padding(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
                 child: getDropDownAssurance('Terms and Credit', ['Default Terms', 'SkyDoctors Terms'], (s) {}),

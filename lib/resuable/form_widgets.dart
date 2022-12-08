@@ -6,8 +6,11 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:merchant/constant/strings.dart';
 import 'package:merchant/dialog/add_purchase.dart';
+import 'package:merchant/dialog/add_purchase_invoice.dart';
+import 'package:merchant/dialog/add_sales_invoice.dart';
 import 'package:merchant/dialog/curreency.dart';
 import 'package:merchant/dialog/subscribe.dart';
+import 'package:merchant/dialog/webpages.dart';
 import 'package:merchant/providers/page_controller.dart';
 import 'package:merchant/store/index.dart';
 import 'package:merchant/store/product_details.dart';
@@ -468,13 +471,28 @@ setChildrenClickListener(e, BuildContext context) {
       break;
     case 24:
       showRequestSheet(context, AddPurchase(false));
-      break;  
+      break;
     case 22:
       context.read<HomeController>().setPage(22);
       break;
-     case 25:
-      context.read<HomeController>().setPage(25);
-      break;  
+    case 29:
+      showRequestSheet(context, AddSalesInvoice(false));
+      break;
+    case 26:
+      showRequestSheet(context, OtherWebPages('Sales Return'));
+      break;
+    case 27:
+      showRequestSheet(context, OtherWebPages('Purchase Return'));
+      break;
+    case 28:
+      showRequestSheet(context, OtherWebPages('Customer Report'));
+      break;
+    case 30:
+      showRequestSheet(context, AddPurchaseInvoice(false));
+      break;
+    case 31:
+      showRequestSheet(context, OtherWebPages('Vendor Payment'));
+      break;
   }
 }
 

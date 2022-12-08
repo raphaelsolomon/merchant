@@ -1,4 +1,6 @@
 import 'package:merchant/constant/strings.dart';
+import 'package:merchant/dialog/subscribe.dart';
+import 'package:merchant/dialog/webpages.dart';
 import 'package:merchant/resuable/form_widgets.dart';
 import 'package:merchant/store/categories_and_sub.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -151,10 +153,13 @@ Widget getDashboard(context, width) => Padding(
                           ),
                           Padding(
                             padding: const EdgeInsets.only(right: 20.0),
-                            child: Text(
-                              'view all',
-                              style: getCustomFont(
-                                  size: 14.0, color: Colors.greenAccent),
+                            child: GestureDetector(
+                              onTap: () => showRequestSheet(context, OtherWebPages('Deals and Offers')),
+                              child: Text(
+                                'view all',
+                                style: getCustomFont(
+                                    size: 14.0, color: Colors.greenAccent),
+                              ),
                             ),
                           ),
                         ]),

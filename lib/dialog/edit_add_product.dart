@@ -21,7 +21,7 @@ class _AddEditProductState extends State<AddEditProduct> {
   String serviceType = '';
   bool isSwitch = false;
   File path = File('');
-  var expiringDate  = DateTime.now();
+  var expiringDate = DateTime.now();
 
   @override
   Widget build(BuildContext context) {
@@ -75,7 +75,8 @@ class _AddEditProductState extends State<AddEditProduct> {
                 height: 5.0,
               ),
               Padding(
-               padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 0.0),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 15.0, vertical: 0.0),
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
@@ -87,7 +88,9 @@ class _AddEditProductState extends State<AddEditProduct> {
                         borderRadius: BorderRadius.circular(100.0),
                       ),
                     ),
-                    const SizedBox(width: 15.0,),
+                    const SizedBox(
+                      width: 15.0,
+                    ),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.end,
@@ -97,7 +100,9 @@ class _AddEditProductState extends State<AddEditProduct> {
                           backgroundColor: BLUECOLOR,
                           child: Icon(Icons.camera),
                         ),
-                        const SizedBox(height: 10.0,),
+                        const SizedBox(
+                          height: 10.0,
+                        ),
                         Text(
                           'Change Image',
                           style: getCustomFont(
@@ -112,15 +117,18 @@ class _AddEditProductState extends State<AddEditProduct> {
                 height: 35.0,
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
                 child: getCardForm('Product ID', 'Enter Product ID', ctl: null),
               ),
               const SizedBox(
                 height: 15.0,
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
-                child: getCardForm('Product Name', 'Enter Product Name', ctl: null),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
+                child: getCardForm('Product Name', 'Enter Product Name',
+                    ctl: null),
               ),
               const SizedBox(
                 height: 10.0,
@@ -146,8 +154,18 @@ class _AddEditProductState extends State<AddEditProduct> {
                 height: 7.0,
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
-                child: getDropDownAssurance(),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
+                child: getDropDownAssurance([
+                  'Daily',
+                  'Bi-Weekly',
+                  'Weekly',
+                  'Bi-Monthly',
+                  'Monthly',
+                  'Quarterly',
+                  'Bi-Yearly',
+                  'Yearly'
+                ]),
               ),
               const SizedBox(
                 height: 15.0,
@@ -166,8 +184,18 @@ class _AddEditProductState extends State<AddEditProduct> {
                 height: 7.0,
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
-                child: getDropDownAssurance(),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
+                child: getDropDownAssurance([
+                  'Daily',
+                  'Bi-Weekly',
+                  'Weekly',
+                  'Bi-Monthly',
+                  'Monthly',
+                  'Quarterly',
+                  'Bi-Yearly',
+                  'Yearly'
+                ]),
               ),
               const SizedBox(
                 height: 10.0,
@@ -180,7 +208,8 @@ class _AddEditProductState extends State<AddEditProduct> {
                 height: 10.0,
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
                 child: getCardRichForm('Description', 'description', ctl: null),
               ),
               const SizedBox(
@@ -194,10 +223,13 @@ class _AddEditProductState extends State<AddEditProduct> {
                 height: 1.0,
               ),
               Container(
-                padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 0.0),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 15.0, vertical: 0.0),
                 child: Row(
                   children: [
-                    const SizedBox(width: 10.0,),
+                    const SizedBox(
+                      width: 10.0,
+                    ),
                     Flexible(
                       child: Row(
                         children: [
@@ -209,8 +241,10 @@ class _AddEditProductState extends State<AddEditProduct> {
                           Flexible(
                             child: Text(
                               'Prescription Required',
-                              style:
-                                  getCustomFont(size: 13.0, color: Colors.black, weight: FontWeight.bold),
+                              style: getCustomFont(
+                                  size: 13.0,
+                                  color: Colors.black,
+                                  weight: FontWeight.bold),
                             ),
                           )
                         ],
@@ -242,57 +276,149 @@ class _AddEditProductState extends State<AddEditProduct> {
                 height: 10.0,
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 0.0),
-                child: Row(children: [
-                  Flexible(child: getCardForm('Selling Price', '\$0.00', ctl: null),),
-                  const SizedBox(width: 10.0),
-                  Flexible(child: getCardForm('Quantity', '4', ctl: null),),
-                ],),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 10, vertical: 0.0),
+                child: Row(
+                  children: [
+                    Flexible(
+                      child: getCardForm('Selling Price', '\$0.00', ctl: null),
+                    ),
+                    const SizedBox(width: 10.0),
+                    Flexible(
+                      child: getCardForm('Quantity', '4', ctl: null),
+                    ),
+                  ],
+                ),
               ),
               const SizedBox(
                 height: 15.0,
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 0.0),
-                child: Row(children: [
-                  Flexible(child: getCardForm('Cost Price', '\$0.00', ctl: null),),
-                  const SizedBox(width: 10.0),
-                  Flexible(child: getCardForm('Amount', '\$40.00', ctl: null),),
-                ],),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 10, vertical: 0.0),
+                child: Row(
+                  children: [
+                    Flexible(
+                      child: getCardForm('Cost Price', '\$0.00', ctl: null),
+                    ),
+                    const SizedBox(width: 10.0),
+                    Flexible(
+                      child: getCardForm('Amount', '\$40.00', ctl: null),
+                    ),
+                  ],
+                ),
               ),
               const SizedBox(
                 height: 15.0,
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 0.0),
-                child: getDateForm('Medicine Date', DateFormat('dd EEEE, MMM, yyyy').format(expiringDate), (date) {}),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 20.0, vertical: 0.0),
+                child: getDateForm(
+                    'Medicine Date',
+                    DateFormat('dd EEEE, MMM, yyyy').format(expiringDate),
+                    (date) {}),
               ),
               const SizedBox(
                 height: 15.0,
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 0.0),
-                child: getDateForm('Expiring Date', DateFormat('dd EEEE, MMM, yyyy').format(expiringDate), (date) {}),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 20.0, vertical: 0.0),
+                child: getDateForm(
+                    'Expiring Date',
+                    DateFormat('dd EEEE, MMM, yyyy').format(expiringDate),
+                    (date) {}),
+              ),
+              const SizedBox(
+                height: 10.0,
+              ),
+              Divider(),
+              const SizedBox(
+                height: 10.0,
+              ),
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
+                child: getCardForm('GL Sales Account', '40000', ctl: null),
               ),
               const SizedBox(
                 height: 15.0,
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
+                child: getCardForm('GL Inventory Account', '12000', ctl: null),
+              ),
+              const SizedBox(
+                height: 15.0,
+              ),
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
+                child:
+                    getCardForm('GL Cost Of Sales Account', '50000', ctl: null),
+              ),
+              const SizedBox(
+                height: 15.0,
+              ),
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
+                child: getCardForm('Item Tax Type', '1', ctl: null),
+              ),
+              const SizedBox(
+                height: 15.0,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                child: Text(
+                  'Cost Method',
+                  style: getCustomFont(
+                      size: 14.0,
+                      color: Colors.black45,
+                      weight: FontWeight.w500),
+                ),
+              ),
+              const SizedBox(
+                height: 7.0,
+              ),
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
+                child: getDropDownAssurance([
+                  'Average',
+                  'FIFO',
+                  'LIFO',
+                  'Specific Unit',
+                ]),
+              ),
+              const SizedBox(
+                height: 10.0,
+              ),
+              Divider(),
+              const SizedBox(
+                height: 10.0,
+              ),
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
                 child: getCardForm('MRP', '1', ctl: null),
               ),
               const SizedBox(
                 height: 15.0,
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
                 child: getCardForm('Shelf', '', ctl: null),
               ),
               const SizedBox(
                 height: 15.0,
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
                 child: getCardForm('Strength', '', ctl: null),
               ),
               const SizedBox(
@@ -324,22 +450,22 @@ class _AddEditProductState extends State<AddEditProduct> {
           Text(
             '$label',
             style: getCustomFont(
-                size: 14.0, color: Colors.black45, weight: FontWeight.w500),
+                size: 13.0, color: Colors.black45, weight: FontWeight.w500),
           ),
           const SizedBox(height: 7.0),
           Container(
-            height: 48.0,
+            height: 45.0,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(5.0),
                 color: BLUECOLOR.withOpacity(.05)),
             child: TextField(
               controller: ctl,
-              style: getCustomFont(size: 14.0, color: Colors.black45),
+              style: getCustomFont(size: 13.0, color: Colors.black45),
               maxLines: 1,
               decoration: InputDecoration(
                   hintText: hint,
                   contentPadding: const EdgeInsets.symmetric(horizontal: 10.0),
-                  hintStyle: getCustomFont(size: 14.0, color: Colors.black45),
+                  hintStyle: getCustomFont(size: 13.0, color: Colors.black45),
                   border: OutlineInputBorder(borderSide: BorderSide.none)),
             ),
           )
@@ -357,7 +483,7 @@ class _AddEditProductState extends State<AddEditProduct> {
           Text(
             '$label',
             style: getCustomFont(
-                size: 14.0, color: Colors.black45, weight: FontWeight.w500),
+                size: 13.0, color: Colors.black45, weight: FontWeight.w500),
           ),
           const SizedBox(height: 7.0),
           Container(
@@ -367,13 +493,13 @@ class _AddEditProductState extends State<AddEditProduct> {
                 color: BLUECOLOR.withOpacity(.05)),
             child: TextField(
               controller: ctl,
-              style: getCustomFont(size: 14.0, color: Colors.black45),
+              style: getCustomFont(size: 13.0, color: Colors.black45),
               maxLines: null,
               keyboardType: TextInputType.multiline,
               decoration: InputDecoration(
                   hintText: hint,
                   contentPadding: const EdgeInsets.symmetric(horizontal: 10.0),
-                  hintStyle: getCustomFont(size: 14.0, color: Colors.black45),
+                  hintStyle: getCustomFont(size: 13.0, color: Colors.black45),
                   border: OutlineInputBorder(borderSide: BorderSide.none)),
             ),
           )
@@ -382,11 +508,11 @@ class _AddEditProductState extends State<AddEditProduct> {
     );
   }
 
-  Widget getDropDownAssurance() {
+  Widget getDropDownAssurance(List<String> items) {
     return Container(
       width: MediaQuery.of(context).size.width,
       margin: const EdgeInsets.symmetric(horizontal: 10.0),
-      height: 49.0,
+      height: 45.0,
       decoration: BoxDecoration(
           color: BLUECOLOR.withOpacity(.05),
           borderRadius: BorderRadius.circular(5.0)),
@@ -405,21 +531,12 @@ class _AddEditProductState extends State<AddEditProduct> {
         ),
         initialValue: 'Daily',
         onChanged: (value) => serviceType = '$value',
-        items: [
-          'Daily',
-          'Bi-Weekly',
-          'Weekly',
-          'Bi-Monthly',
-          'Monthly',
-          'Quarterly',
-          'Bi-Yearly',
-          'Yearly'
-        ]
+        items: items
             .map((gender) => DropdownMenuItem(
                   value: gender,
                   child: Text(
                     gender,
-                    style: getCustomFont(size: 14.0, color: Colors.black45),
+                    style: getCustomFont(size: 13.0, color: Colors.black45),
                   ),
                 ))
             .toList(),
@@ -427,13 +544,13 @@ class _AddEditProductState extends State<AddEditProduct> {
     );
   }
 
-   Widget getDateForm(label, text, callBack) => Column(
+  Widget getDateForm(label, text, callBack) => Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
             '$label',
             style: getCustomFont(
-                size: 14.0, color: Colors.black54, weight: FontWeight.normal),
+                size: 13.0, color: Colors.black54, weight: FontWeight.normal),
           ),
           //abr to undo
           const SizedBox(
@@ -445,7 +562,7 @@ class _AddEditProductState extends State<AddEditProduct> {
                 const EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),
             decoration: BoxDecoration(
                 color: BLUECOLOR.withOpacity(.05),
-          borderRadius: BorderRadius.circular(5.0)),
+                borderRadius: BorderRadius.circular(5.0)),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -453,7 +570,7 @@ class _AddEditProductState extends State<AddEditProduct> {
                     child: Padding(
                   padding: const EdgeInsets.only(left: 10.0),
                   child: Text('$text',
-                      style: getCustomFont(size: 14.0, color: Colors.black45)),
+                      style: getCustomFont(size: 13.0, color: Colors.black45)),
                 )),
                 GestureDetector(
                   onTap: () async {
@@ -463,7 +580,7 @@ class _AddEditProductState extends State<AddEditProduct> {
                         firstDate: DateTime(2015, 8),
                         lastDate: DateTime(2101));
                     if (picked != null && picked != expiringDate) {
-                        callBack(picked);
+                      callBack(picked);
                     }
                   },
                   //done
@@ -484,7 +601,7 @@ class _AddEditProductState extends State<AddEditProduct> {
                   ),
                 )
               ],
-            ), 
+            ),
           ),
         ],
       );

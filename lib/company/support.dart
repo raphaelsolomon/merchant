@@ -100,7 +100,7 @@ class SupportPage extends StatelessWidget {
                   const SizedBox(
                     height: 15.0,
                   ),
-                  getFormBox('Message', 'Your Message', max: null, type: TextInputType.multiline, h: 100),
+                  getFormBox('Message', 'Your Message', max: null, type: TextInputType.multiline, h: 100.0),
                   const SizedBox(
                     height: 40.0,
                   ),
@@ -123,7 +123,7 @@ class SupportPage extends StatelessWidget {
             Text(
               'Mobile',
               style: getCustomFont(
-                  size: 14.0, color: Colors.black45, weight: FontWeight.w500),
+                  size: 13.0, color: Colors.black45, weight: FontWeight.w500),
             ),
             const SizedBox(
               height: 4.0,
@@ -143,12 +143,12 @@ class SupportPage extends StatelessWidget {
                   controller: ctl, // controller & initialValue value
                   shouldFormat: true, // default
                   defaultCountry: IsoCode.NG, // default
-                  style: getCustomFont(size: 14.0, color: Colors.black45),
+                  style: getCustomFont(size: 13.0, color: Colors.black45),
                   autovalidateMode: AutovalidateMode.disabled,
                   decoration: InputDecoration(
                       contentPadding: const EdgeInsets.all(0.0),
                       hintText: 'Mobile Number', // default to null
-                      hintStyle: getCustomFont(size: 15.0, color: Colors.black45),
+                      hintStyle: getCustomFont(size: 13.0, color: Colors.black45),
                       border: OutlineInputBorder(
                           borderSide: BorderSide
                               .none) // default to UnderlineInputBorder(),
@@ -179,7 +179,7 @@ class SupportPage extends StatelessWidget {
           Text(
             '$text',
             style: getCustomFont(
-                size: 14.0, color: Colors.black45, weight: FontWeight.w500),
+                size: 13.0, color: Colors.black45, weight: FontWeight.w500),
           ),
           const SizedBox(
             height: 4.0,
@@ -195,7 +195,7 @@ class SupportPage extends StatelessWidget {
               children: [
                 Flexible(
                   child: TextField(
-                    style: getCustomFont(size: 14.0, color: Colors.black87),
+                    style: getCustomFont(size: 13.0, color: Colors.black87),
                     maxLines: max,
                     keyboardType: type,
                     controller: ctl,
@@ -204,7 +204,7 @@ class SupportPage extends StatelessWidget {
                         contentPadding:
                             const EdgeInsets.symmetric(horizontal: 10.0),
                         hintStyle:
-                            getCustomFont(size: 14.0, color: Colors.black87),
+                            getCustomFont(size: 13.0, color: Colors.black87),
                         border: OutlineInputBorder(
                             borderSide: BorderSide.none,
                             borderRadius: BorderRadius.circular(0.0))),
