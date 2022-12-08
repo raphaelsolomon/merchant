@@ -41,7 +41,7 @@ class _MedicineListState extends State<MedicineList> {
                               context.read<HomeController>().onBackPress(),
                           child: Icon(Icons.arrow_back_ios,
                               size: 18.0, color: Colors.white)),
-                      Text('Purchase List',
+                      Text('Product List',
                           style:
                               getCustomFont(size: 16.0, color: Colors.white)),
                       Icon(
@@ -66,13 +66,12 @@ class _MedicineListState extends State<MedicineList> {
                 padding: const EdgeInsets.symmetric(
                     horizontal: 20.0, vertical: 20.0),
                 child: FloatingActionButton.extended(
-                  label: Text('Add Purchase'),
+                  label: Text('Add Product'),
                   icon: Icon(
                     Icons.add,
                     color: Colors.white,
                   ),
-                  onPressed: () =>
-                      showRequestSheet(context, AddEditProduct(false)),
+                  onPressed: () => showRequestSheet(context, AddEditProduct(false)),
                   backgroundColor: BLUECOLOR,
                 ),
               ),

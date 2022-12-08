@@ -4,6 +4,7 @@ import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:fluttericon/font_awesome5_icons.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:merchant/company/medicine_list.dart';
 import 'package:merchant/constant/strings.dart';
 import 'package:merchant/dialog/add_purchase.dart';
 import 'package:merchant/dialog/add_purchase_invoice.dart';
@@ -493,6 +494,9 @@ setChildrenClickListener(e, BuildContext context) {
     case 31:
       showRequestSheet(context, OtherWebPages('Vendor Payment'));
       break;
+    case 32:
+      showRequestSheet(context, MedicineList());
+      break;
   }
 }
 
@@ -509,6 +513,9 @@ setClickListener(e, BuildContext context) {
       break;
     case 3:
       context.read<HomeController>().setPage(3);
+      break;
+    case 6:
+      context.read<HomeController>().setPage(6);
       break;
     case 4:
       context.read<HomeController>().isEstore(true);
