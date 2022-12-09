@@ -468,7 +468,7 @@ List<NavDrawerItem> getNavdraweritem_(BuildContext context) {
         title: 'Product Mgt.',
         icon: Icons.family_restroom,
         children: [
-          {'index': -222, 'title': 'All Product'},
+          {'index': 32, 'title': 'All Product'},
           {'index': 22, 'title': 'Add Medicine'},
           {'index': 24, 'title': 'Add Product'},
         ],
