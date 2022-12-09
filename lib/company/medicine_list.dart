@@ -37,8 +37,7 @@ class _MedicineListState extends State<MedicineList> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       GestureDetector(
-                          onTap: () =>
-                              context.read<HomeController>().onBackPress(),
+                          onTap: () => Navigator.pop(context),
                           child: Icon(Icons.arrow_back_ios,
                               size: 18.0, color: Colors.white)),
                       Text('Product List',
