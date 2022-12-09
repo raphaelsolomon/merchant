@@ -82,7 +82,7 @@ class _MyDashBoardState extends State<MyDashBoard> {
                 child: Column(
                   children: [
                     Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                      padding: const EdgeInsets.symmetric(horizontal: 15.0),
                       child: Row(
                         children: [
                           Flexible(
@@ -114,9 +114,9 @@ class _MyDashBoardState extends State<MyDashBoard> {
                           Flexible(
                               child: appointmentButton(
                                   context, 'Upcoming\nAppointment')),
-                                   Flexible(
+                          Flexible(
                               child: appointmentButton(
-                                  context, 'Upcoming\nAppointment')),
+                                  context, 'Past\nAppointment')),
                         ],
                       ),
                     ),
@@ -125,7 +125,7 @@ class _MyDashBoardState extends State<MyDashBoard> {
                       padding: const EdgeInsets.symmetric(
                           horizontal: 10.0, vertical: 4.0),
                       margin: const EdgeInsets.symmetric(
-                        horizontal: 10.0,
+                        horizontal: 15.0,
                       ),
                       width: MediaQuery.of(context).size.width,
                       decoration: BoxDecoration(
@@ -173,7 +173,7 @@ class _MyDashBoardState extends State<MyDashBoard> {
                         padding: const EdgeInsets.symmetric(
                             horizontal: 10.0, vertical: 10.0),
                         margin: const EdgeInsets.symmetric(
-                          horizontal: 10.0,
+                          horizontal: 15.0,
                         ),
                         width: MediaQuery.of(context).size.width,
                         decoration: BoxDecoration(
@@ -245,7 +245,7 @@ class _MyDashBoardState extends State<MyDashBoard> {
                       padding: const EdgeInsets.symmetric(
                           horizontal: 10.0, vertical: 10.0),
                       margin: const EdgeInsets.symmetric(
-                        horizontal: 10.0,
+                        horizontal: 15.0,
                       ),
                       width: MediaQuery.of(context).size.width,
                       decoration: BoxDecoration(
@@ -319,7 +319,7 @@ class _MyDashBoardState extends State<MyDashBoard> {
                         padding: const EdgeInsets.symmetric(
                             horizontal: 10.0, vertical: 10.0),
                         margin: const EdgeInsets.symmetric(
-                          horizontal: 10.0,
+                          horizontal: 15.0,
                         ),
                         width: MediaQuery.of(context).size.width,
                         decoration: BoxDecoration(
@@ -334,27 +334,81 @@ class _MyDashBoardState extends State<MyDashBoard> {
                                     MainAxisAlignment.spaceBetween,
                                 children: [
                                   Flexible(
-                                      child: Text('Recent Prescription',
+                                      child: Text('Top Customers',
                                           style: getCustomFont(
-                                              size: 13.0,
+                                              size: 12.0,
                                               color: Colors.black,
                                               weight: FontWeight.w500))),
-                                  Row(
-                                    children: [
-                                      Text('View All',
-                                          style: getCustomFont(
-                                              size: 13.0, color: Colors.red)),
-                                      Icon(
-                                        Icons.arrow_forward,
-                                        size: 19.0,
-                                        color: Colors.red,
-                                      )
-                                    ],
-                                  ),
                                 ]),
                             Divider(),
                             const SizedBox(height: 10.0),
                             ...List.generate(2, (i) => prescription())
+                          ],
+                        )),
+                    const SizedBox(
+                      height: 10.0,
+                    ),
+                    Container(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 10.0, vertical: 10.0),
+                        margin: const EdgeInsets.symmetric(
+                          horizontal: 15.0,
+                        ),
+                        width: MediaQuery.of(context).size.width,
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          boxShadow: SHADOW,
+                          borderRadius: BorderRadius.circular(10.0),
+                        ),
+                        child: Column(
+                          children: [
+                            Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Flexible(
+                                      child: Text('Top Selling Items',
+                                          style: getCustomFont(
+                                              size: 12.0,
+                                              color: Colors.black,
+                                              weight: FontWeight.w500))),
+                                ]),
+                            Divider(),
+                            const SizedBox(height: 5.0),
+                            ...List.generate(2, (i) => sellingItem())
+                          ],
+                        )),
+                    const SizedBox(
+                      height: 10.0,
+                    ),
+                    Container(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 10.0, vertical: 10.0),
+                        margin: const EdgeInsets.symmetric(
+                          horizontal: 15.0,
+                        ),
+                        width: MediaQuery.of(context).size.width,
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          boxShadow: SHADOW,
+                          borderRadius: BorderRadius.circular(10.0),
+                        ),
+                        child: Column(
+                          children: [
+                            Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Flexible(
+                                      child: Text('Payouts',
+                                          style: getCustomFont(
+                                              size: 12.0,
+                                              color: Colors.black,
+                                              weight: FontWeight.w500))),
+                                ]),
+                            Divider(),
+                            const SizedBox(height: 10.0),
+                            ...List.generate(2, (i) => payouts())
                           ],
                         )),
                     const SizedBox(height: 80.0),
@@ -368,31 +422,186 @@ class _MyDashBoardState extends State<MyDashBoard> {
   }
 
   Widget prescription() => Padding(
-    padding: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 10.0),
-    child: Row(
+        padding: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 10.0),
+        child: Row(
           children: [
             Container(
               width: 45.0,
               height: 45.0,
               decoration: BoxDecoration(
-                image: DecorationImage(image: AssetImage('assets/imgs/pills.png'), fit: BoxFit.contain, scale: 2.0),
+                  image: DecorationImage(
+                      image: AssetImage('assets/imgs/pills.png'),
+                      fit: BoxFit.contain,
+                      scale: 2.0),
                   borderRadius: BorderRadius.circular(10.0),
                   color: Colors.lightBlueAccent),
-            ), const SizedBox(width: 20.0,),
-            Flexible(child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            ),
+            const SizedBox(
+              width: 20.0,
+            ),
+            Flexible(
+              child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Flexible(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text('Abacavoir',
+                              style: getCustomFont(
+                                  size: 13.0,
+                                  color: Colors.black,
+                                  weight: FontWeight.w500)),
+                          Text('#8995447',
+                              style: getCustomFont(
+                                  size: 12.0,
+                                  color: Colors.red,
+                                  weight: FontWeight.normal)),
+                        ],
+                      ),
+                    ),
+                    Text('Type: Onetime',
+                        style: getCustomFont(
+                            size: 11.0,
+                            color: Colors.black54,
+                            weight: FontWeight.normal)),
+                  ]),
+            )
+          ],
+        ),
+      );
+
+  Widget sellingItem() => Padding(
+        padding: const EdgeInsets.symmetric(vertical: 2.0, horizontal: 10.0),
+        child: Column(
+          children: [
+            Row(
               children: [
+                Container(
+                  width: 45.0,
+                  height: 45.0,
+                  decoration: BoxDecoration(
+                      image: DecorationImage(
+                          image: AssetImage('assets/imgs/pills.png'),
+                          fit: BoxFit.contain,
+                          scale: 2.0),
+                      borderRadius: BorderRadius.circular(10.0),
+                      color: Colors.transparent),
+                ),
+                const SizedBox(
+                  width: 20.0,
+                ),
+                Flexible(
+                  child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Flexible(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text('Salospir 100mg Tablet',
+                                  style: getCustomFont(
+                                      size: 13.0,
+                                      color: Colors.black87,
+                                      weight: FontWeight.w400)),
+                              const SizedBox(
+                                height: 3.0,
+                              ),
+                              Text('Personal Care',
+                                  style: getCustomFont(
+                                      size: 10.0,
+                                      color: Colors.black38,
+                                      weight: FontWeight.normal)),
+                              const SizedBox(
+                                height: 3.0,
+                              ),
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text('124 sold',
+                                      style: getCustomFont(
+                                          size: 11.0,
+                                          color: Colors.black54,
+                                          weight: FontWeight.normal)),
+                                  Flexible(
+                                      child: RichText(
+                                          text: TextSpan(
+                                              text: 'Revenue: ',
+                                              style: getCustomFont(
+                                                  size: 10.0,
+                                                  color: Colors.black38),
+                                              children: [
+                                        TextSpan(
+                                            text: '\$206.50',
+                                            style: getCustomFont(
+                                                size: 10.0,
+                                                color: Colors.black))
+                                      ])))
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+                      ]),
+                )
+              ],
+            ),
+            Divider()
+          ],
+        ),
+      );
+
+  Widget payouts() => Padding(
+        padding: const EdgeInsets.symmetric(vertical: 2.0, horizontal: 10.0),
+        child: Column(
+          children: [
+            Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
               Flexible(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                  Text('Abacavoir', style: getCustomFont(size: 14.0, color: Colors.black, weight: FontWeight.bold)),
-                  Text('#8995447', style: getCustomFont(size: 12.0, color: Colors.red, weight: FontWeight.normal)),
-                ],),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text('Bank Of New York',
+                            style: getCustomFont(
+                                size: 11.0,
+                                color: Colors.black,
+                                weight: FontWeight.w500)),
+                        Text('\$124.30',
+                            style: getCustomFont(
+                                size: 11.0,
+                                color: Colors.black,
+                                weight: FontWeight.w500)),
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 4.0,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text('1244 2443 3646 8468',
+                            style: getCustomFont(
+                                size: 11.0,
+                                color: Colors.black54,
+                                weight: FontWeight.normal)),
+                        Flexible(
+                          child: Text('10 Jun 2022, 11:54AM',
+                              style: getCustomFont(
+                                  size: 11.0,
+                                  color: Colors.black45,
+                                  weight: FontWeight.normal)),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
-              Text('Type: Onetime', style: getCustomFont(size: 12.0, color: Colors.black54, weight: FontWeight.normal)),
-            ]),)
+            ]),
+            Divider()
           ],
         ),
-  );
+      );
 }

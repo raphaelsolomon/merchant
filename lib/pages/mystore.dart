@@ -4,11 +4,11 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:merchant/constant/strings.dart';
 import 'package:flutter/material.dart';
-import 'package:merchant/dialog/edit_services.dart';
 import 'package:merchant/dialog/se_timing.dart';
 import 'package:merchant/dialog/set_award.dart';
 import 'package:merchant/dialog/set_location.dart';
 import 'package:merchant/dialog/subscribe.dart';
+import 'package:merchant/model/specialization.model.dart';
 import 'package:merchant/providers/page_controller.dart';
 import 'package:provider/provider.dart';
 
@@ -29,6 +29,17 @@ class _MyStoreState extends State<MyStore> {
     'Business Hours',
     'Services'
   ];
+
+  List<SpecializationModel> specialization = [
+    SpecializationModel(title: 'Addiction Psychiatrist', isSelected: true),
+    SpecializationModel(title: 'Gynaecologist', isSelected: false),
+    SpecializationModel(title: 'Dentist', isSelected: true),
+    SpecializationModel(title: 'Dermatologist', isSelected: false),
+    SpecializationModel(title: 'Optician', isSelected: false),
+    SpecializationModel(title: 'Neurologist', isSelected: false),
+    SpecializationModel(title: 'Cardiologist', isSelected: true),
+  ];
+
   String selectedTab = 'Overviews';
   int totalFacility = 6;
   Completer<GoogleMapController> _controller = Completer();
@@ -143,7 +154,7 @@ class _MyStoreState extends State<MyStore> {
                               child: Text(
                                 '$e',
                                 style: getCustomFont(
-                                    size: 15.0,
+                                    size: 14.0,
                                     color: selectedTab == e
                                         ? BLUECOLOR
                                         : Colors.black,
@@ -215,7 +226,7 @@ class _MyStoreState extends State<MyStore> {
                         'About Us',
                         style: getCustomFont(
                             color: Colors.black,
-                            size: 16.0,
+                            size: 14.0,
                             weight: FontWeight.w500),
                       ),
                       const SizedBox(
@@ -235,7 +246,7 @@ class _MyStoreState extends State<MyStore> {
                         'Awards',
                         style: getCustomFont(
                             color: Colors.black,
-                            size: 16.0,
+                            size: 14.0,
                             weight: FontWeight.w500),
                       ),
                       const SizedBox(
@@ -312,7 +323,7 @@ class _MyStoreState extends State<MyStore> {
               children: [
                 Text(
                   'July 2019',
-                  style: getCustomFont(size: 16.0, color: BLUECOLOR),
+                  style: getCustomFont(size: 14.0, color: BLUECOLOR),
                 ),
                 const SizedBox(
                   height: 1.0,
@@ -320,7 +331,7 @@ class _MyStoreState extends State<MyStore> {
                 Text(
                   'Humanitarian Award',
                   style: getCustomFont(
-                      color: Colors.black, size: 16.0, weight: FontWeight.w500),
+                      color: Colors.black, size: 14.0, weight: FontWeight.w500),
                 ),
                 const SizedBox(
                   height: 5.0,
@@ -661,7 +672,7 @@ class _MyStoreState extends State<MyStore> {
                             Text(
                               'Today',
                               style: getCustomFont(
-                                  size: 15.0, color: Colors.black),
+                                  size: 14.0, color: Colors.black),
                             ),
                             const SizedBox(
                               height: 5.0,
@@ -669,7 +680,7 @@ class _MyStoreState extends State<MyStore> {
                             Text(
                               '5 Nov 2019',
                               style: getCustomFont(
-                                  size: 13.0, color: Colors.black),
+                                  size: 12.0, color: Colors.black),
                             ),
                           ],
                         ),
@@ -686,7 +697,7 @@ class _MyStoreState extends State<MyStore> {
                                 child: Text(
                                   'Open Now',
                                   style: getCustomFont(
-                                      size: 13.0, color: Colors.green),
+                                      size: 12.0, color: Colors.green),
                                 )),
                             const SizedBox(
                               height: 5.0,
@@ -731,7 +742,7 @@ class _MyStoreState extends State<MyStore> {
                                     Text(
                                       '${constDays[i]}',
                                       style: getCustomFont(
-                                          size: 13.5, color: Colors.black),
+                                          size: 13.0, color: Colors.black),
                                     )
                                   ],
                                 ),
@@ -797,19 +808,66 @@ class _MyStoreState extends State<MyStore> {
                         'Services',
                         style: getCustomFont(
                             color: Colors.black,
-                            size: 16.0,
+                            size: 14.0,
                             weight: FontWeight.w500),
                       ),
                       const SizedBox(
                         height: 10.0,
                       ),
+                      ...List.generate(specialization.length, (i) => viewAllSpecial(context, specialization[i])),
                       const SizedBox(height: 40.0),
                     ]),
               )),
-          floatingButton('Add Services',
-              callBack: () => showRequestSheet(context, AddEditServices(false)))
+          floatingButton('Save Services',
+          callBack: () => null)
+              //callBack: () => showRequestSheet(context, AddEditServices(false)))
         ],
       );
 //=====================================================================================
 
+  Widget viewAllSpecial(BuildContext context, SpecializationModel specialization) => Container(
+        width: MediaQuery.of(context).size.width,
+        padding: const EdgeInsets.symmetric(vertical: 9.0),
+        child: Column(
+          children: [
+            Row(children: [
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                child: InkWell(
+                    onTap: () {
+                      setState(() {
+                        specialization
+                            .setIsSelected(!specialization.isSelected);
+                      });
+                    },
+                    child: Icon(
+                        specialization.isSelected
+                            ? Icons.check_circle
+                            : Icons.circle_outlined,
+                        size: 18.0,
+                        color: specialization.isSelected
+                            ? Colors.green
+                            : Colors.grey)),
+              ),
+              Flexible(
+                  fit: FlexFit.tight,
+                  child: Text(
+                    '${specialization.title}',
+                    style: getCustomFont(size: 13.0, color: Colors.black87),
+                  )),
+                  Text(
+                    '\$10.00',
+                    style: getCustomFont(size: 13.0, color: Colors.black87),
+                  )
+            ]),
+            const SizedBox(
+              height: 1.0,
+            ),
+            Divider(),
+            const SizedBox(
+              height: 1.0,
+            ),
+          ],
+        ),
+      );
 }

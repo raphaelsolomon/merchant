@@ -435,7 +435,7 @@ setChildrenClickListener(e, BuildContext context) {
       context.read<HomeController>().setPage(9);
       break;
     case 10:
-      context.read<HomeController>().setPage(10);
+      showRequestSheet(context, OtherWebPages('Deals & Offers'));
       break;
     case 11:
       context.read<HomeController>().setPage(11);
@@ -941,11 +941,13 @@ appointmentButton(context, text) => Container(
         borderRadius: BorderRadius.circular(9.0),
       ),
       child: Center(
-          child: Text(
-        text,
-        textAlign: TextAlign.center,
-        style: getCustomFont(size: 11.0, color: Colors.white),
-      )),
+          child: FittedBox(
+            child: Text(
+                  text,
+                  textAlign: TextAlign.center,
+                  style: getCustomFont(size: 11.0, color: Colors.white),
+                ),
+          )),
     );
 
 Widget patientItem(context) => Container(

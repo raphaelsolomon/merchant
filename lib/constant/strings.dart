@@ -510,7 +510,7 @@ List<NavDrawerItem> getNavdraweritem_(BuildContext context) {
         icon: FontAwesome5.file_invoice,
         children: [
           {'index': 9, 'title': 'My Offer'},
-          {'index': 10, 'title': 'My Invoices'},
+          {'index': 10, 'title': 'Deals & Offer'},
           {'index': 11, 'title': 'Favourite'},
           //{'index': -0, 'title': 'Reviews'}
         ],
