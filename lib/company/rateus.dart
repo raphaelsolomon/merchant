@@ -15,8 +15,7 @@ class RateUS extends StatelessWidget {
         color: Color(0xFFf6f6f6),
         child: Column(children: [
           Container(
-            padding:
-                const EdgeInsets.symmetric(horizontal: 15.0, vertical: 0.0),
+            padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 0.0),
             width: MediaQuery.of(context).size.width,
             color: BLUECOLOR,
             child: Column(children: [
@@ -26,12 +25,8 @@ class RateUS extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  GestureDetector(
-                      onTap: () => context.read<HomeController>().onBackPress(),
-                      child: Icon(Icons.arrow_back_ios,
-                          size: 18.0, color: Colors.white)),
-                  Text('Rate Us',
-                      style: getCustomFont(size: 16.0, color: Colors.white)),
+                  GestureDetector(onTap: () => context.read<HomeController>().onBackPress(), child: Icon(Icons.arrow_back_ios, size: 18.0, color: Colors.white)),
+                  Text('Rate Us', style: getCustomFont(size: 18.0, color: Colors.white)),
                   Icon(
                     null,
                     color: Colors.white,
@@ -53,7 +48,7 @@ class RateUS extends StatelessWidget {
                     height: 20.0,
                   ),
                   Image.asset(
-                    'assets/auth/1.jpeg',
+                    'assets/auth/rate.png',
                     width: 200,
                     height: 200.0,
                     fit: BoxFit.contain,
@@ -64,10 +59,7 @@ class RateUS extends StatelessWidget {
                   Text(
                     'How was your experience',
                     textAlign: TextAlign.center,
-                    style: getCustomFont(
-                        size: 23.0,
-                        color: Colors.black,
-                        weight: FontWeight.w700),
+                    style: getCustomFont(size: 23.0, color: Colors.black, weight: FontWeight.w700),
                   ),
                   const SizedBox(
                     height: 20.0,
@@ -78,7 +70,7 @@ class RateUS extends StatelessWidget {
                     direction: Axis.horizontal,
                     allowHalfRating: true,
                     itemCount: 5,
-                    itemSize: 40.0,
+                    itemSize: 35.0,
                     itemPadding: EdgeInsets.symmetric(horizontal: 2.0),
                     itemBuilder: (context, _) => Icon(
                       Icons.star,
@@ -107,21 +99,17 @@ class RateUS extends StatelessWidget {
         ]));
   }
 
-  Widget getButton(context, callBack, text,
-          {textColor = Colors.white, bgColor = BLUECOLOR}) =>
-      GestureDetector(
+  Widget getButton(context, callBack, text, {textColor = Colors.white, bgColor = BLUECOLOR}) => GestureDetector(
         onTap: () => callBack(),
         child: Container(
           width: MediaQuery.of(context).size.width,
-          decoration: BoxDecoration(
-              color: bgColor, borderRadius: BorderRadius.circular(100.0)),
+          decoration: BoxDecoration(color: bgColor, borderRadius: BorderRadius.circular(100.0)),
           child: Padding(
             padding: const EdgeInsets.all(10.0),
             child: Center(
               child: Text(
                 '$text',
-                style: getCustomFont(
-                    size: 18.0, color: textColor, weight: FontWeight.normal),
+                style: getCustomFont(size: 18.0, color: textColor, weight: FontWeight.normal),
               ),
             ),
           ),
@@ -129,21 +117,15 @@ class RateUS extends StatelessWidget {
       );
 
   getFormSubscribe({ctl}) => Container(
-    height: 300,
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(6.0),
-            color: Colors.grey.shade200),
+        height: 300,
+        decoration: BoxDecoration(borderRadius: BorderRadius.circular(6.0), color: Colors.grey.shade200),
         child: TextField(
           maxLines: null,
           controller: ctl,
           keyboardType: TextInputType.multiline,
           style: getCustomFont(size: 13.0, color: Colors.black54),
           decoration: InputDecoration(
-              contentPadding:
-                  const EdgeInsets.symmetric(horizontal: 20.0, vertical: 5.0),
-              hintText: 'write your experience here',
-              hintStyle: getCustomFont(size: 13.0, color: Colors.black54),
-              border: OutlineInputBorder(borderSide: BorderSide.none)),
+              contentPadding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 5.0), hintText: 'write your experience here', hintStyle: getCustomFont(size: 13.0, color: Colors.black54), border: OutlineInputBorder(borderSide: BorderSide.none)),
         ),
       );
 }

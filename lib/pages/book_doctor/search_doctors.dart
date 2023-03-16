@@ -18,14 +18,7 @@ class SearchDoctor extends StatefulWidget {
 }
 
 class _SearchDoctorState extends State<SearchDoctor> {
-  List<String> catergories = [
-    'Specialization',
-    'Services',
-    'Treatment',
-    'Hospital/Clinic',
-    'Diagnosis Test',
-    'Surgery/transplant'
-  ];
+  List<String> catergories = ['Specialization', 'Services', 'Treatment', 'Hospital/Clinic', 'Diagnosis Test', 'Surgery/transplant'];
 
   String selected = '';
 
@@ -39,123 +32,97 @@ class _SearchDoctorState extends State<SearchDoctor> {
           Container(
             width: MediaQuery.of(context).size.width,
             color: BLUECOLOR,
-            child: Column(
-                mainAxisSize: MainAxisSize.max,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const SizedBox(
-                    height: 25.0,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(
-                        left: 15.0, right: 15.0, top: 20.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        GestureDetector(
-                            onTap: () => context.read<HomeController>().onBackPress(),
-                            child: Icon(Icons.arrow_back_ios,
-                                color: Colors.white, size: 18.0)),
-                        Flexible(
-                          child: Text('Search by Doctor',
-                              style: getCustomFont(
-                                  size: 16.0, color: Colors.white)),
-                        ),
-                        Icon(
-                          null,
-                          color: Colors.white,
-                        )
-                      ],
+            child: Column(mainAxisSize: MainAxisSize.max, crossAxisAlignment: CrossAxisAlignment.start, children: [
+              const SizedBox(
+                height: 15.0,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 15.0, right: 15.0, top: 20.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    GestureDetector(onTap: () => context.read<HomeController>().onBackPress(), child: Icon(Icons.arrow_back_ios, color: Colors.white, size: 18.0)),
+                    Flexible(
+                      child: Text('Search by Doctor', style: getCustomFont(size: 18.0, color: Colors.white)),
                     ),
-                  ),
-                  const SizedBox(
-                    height: 10.0,
-                  ),
-                  // getRegisterForm(
-                  //     ctl: null,
-                  //     hint: 'Search for categories',
-                  //     icon: Icons.search,
-                  //     height: 49.0),
-                  // const SizedBox(
-                  //   height: 13.0,
-                  // ),
-                  Container(
-                    padding: const EdgeInsets.only(left: 15.0, right: 15.0),
-                    color: Colors.white,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const SizedBox(
-                          height: 10.0,
-                        ),
-                        SingleChildScrollView(
-                          scrollDirection: Axis.horizontal,
-                          child: Row(
-                            children: [
-                              ...List.generate(
-                                  catergories.length,
-                                  (index) => GestureDetector(
-                                      onTap: () {
-                                        setState(() {
-                                          selected = '${catergories[index]}';
-                                        });
-                                        showRequestSheet(
-                                            context,
-                                            FilterPage(
-                                                '${catergories[index]}'));
-                                      },
-                                      child: Container(
-                                          padding: const EdgeInsets.symmetric(
-                                              horizontal: 20.0, vertical: 9.0),
-                                          margin:
-                                              const EdgeInsets.only(right: 8.0),
-                                          decoration: BoxDecoration(
-                                              borderRadius:
-                                                  BorderRadius.circular(20.0),
-                                              border: Border.all(
-                                                  width: 1.0,
-                                                  color: selected ==
-                                                          catergories[index]
-                                                      ? Colors.white
-                                                      : Colors.black45),
-                                              color:
-                                                  selected == catergories[index]
-                                                      ? BLUECOLOR
-                                                      : Colors.white),
-                                          child: Text(
-                                            catergories[index],
-                                            maxLines: 1,
-                                            style: getCustomFont(
-                                              color:
-                                                  selected == catergories[index]
-                                                      ? Colors.white
-                                                      : Colors.black,
-                                              size: 12.0,
-                                            ),
-                                          ))))
-                            ],
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 12.0,
-                        ),
-                        Text('16525 matches found for :',
-                            style: getCustomFont(
-                              size: 12.5,
-                              color: Colors.black45,
-                            )),
-                        Text('Dental specialist In Bangalore',
-                            style: getCustomFont(
-                              size: 17.0,
-                              color: Colors.black,
-                            )),
-                        const SizedBox(
-                          height: 10.0,
-                        ),
-                      ],
+                    Icon(
+                      null,
+                      color: Colors.white,
+                    )
+                  ],
+                ),
+              ),
+              const SizedBox(
+                height: 15.0,
+              ),
+              // getRegisterForm(
+              //     ctl: null,
+              //     hint: 'Search for categories',
+              //     icon: Icons.search,
+              //     height: 49.0),
+              // const SizedBox(
+              //   height: 13.0,
+              // ),
+              Container(
+                padding: const EdgeInsets.only(left: 15.0, right: 15.0),
+                color: Colors.white,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const SizedBox(
+                      height: 10.0,
                     ),
-                  ),
-                ]),
+                    SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: Row(
+                        children: [
+                          ...List.generate(
+                              catergories.length,
+                              (index) => GestureDetector(
+                                  onTap: () {
+                                    setState(() {
+                                      selected = '${catergories[index]}';
+                                    });
+                                    showRequestSheet(context, FilterPage('${catergories[index]}'));
+                                  },
+                                  child: Container(
+                                      padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 9.0),
+                                      margin: const EdgeInsets.only(right: 8.0),
+                                      decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.circular(20.0),
+                                          border: Border.all(width: 1.0, color: selected == catergories[index] ? Colors.white : Colors.black45),
+                                          color: selected == catergories[index] ? BLUECOLOR : Colors.white),
+                                      child: Text(
+                                        catergories[index],
+                                        maxLines: 1,
+                                        style: getCustomFont(
+                                          color: selected == catergories[index] ? Colors.white : Colors.black,
+                                          size: 12.0,
+                                        ),
+                                      ))))
+                        ],
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 12.0,
+                    ),
+                    Text('16525 matches found for :',
+                        style: getCustomFont(
+                          size: 12.5,
+                          color: Colors.black45,
+                        )),
+                    Text('Dental specialist In Bangalore',
+                        style: getCustomFont(
+                          size: 17.0,
+                          color: Colors.black,
+                        )),
+                    const SizedBox(
+                      height: 10.0,
+                    ),
+                  ],
+                ),
+              ),
+            ]),
           ),
           const SizedBox(
             height: 10.0,
@@ -178,13 +145,7 @@ class _SearchDoctorState extends State<SearchDoctor> {
         width: MediaQuery.of(context).size.width,
         padding: const EdgeInsets.all(15.0),
         margin: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 12.0),
-        decoration: BoxDecoration(boxShadow: [
-          BoxShadow(
-              color: Colors.black12,
-              spreadRadius: 1.0,
-              blurRadius: 10.0,
-              offset: Offset(0.0, 1.0))
-        ], color: Colors.white, borderRadius: BorderRadius.circular(13.0)),
+        decoration: BoxDecoration(boxShadow: [BoxShadow(color: Colors.black12, spreadRadius: 1.0, blurRadius: 10.0, offset: Offset(0.0, 1.0))], color: Colors.white, borderRadius: BorderRadius.circular(13.0)),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -209,17 +170,11 @@ class _SearchDoctorState extends State<SearchDoctor> {
                   children: [
                     Text(
                       'Dr. Ruby Perrln',
-                      style: GoogleFonts.poppins(
-                          color: Colors.black,
-                          fontSize: 15.0,
-                          fontWeight: FontWeight.w600),
+                      style: GoogleFonts.poppins(color: Colors.black, fontSize: 15.0, fontWeight: FontWeight.w600),
                     ),
                     Text(
                       'MDS - periodontology, BDS',
-                      style: GoogleFonts.poppins(
-                          color: Colors.black,
-                          fontSize: 14.0,
-                          fontWeight: FontWeight.w400),
+                      style: GoogleFonts.poppins(color: Colors.black, fontSize: 14.0, fontWeight: FontWeight.w400),
                     ),
                     const SizedBox(
                       height: 4.0,
@@ -250,20 +205,14 @@ class _SearchDoctorState extends State<SearchDoctor> {
                               ),
                               Text(
                                 'Dentist',
-                                style: GoogleFonts.poppins(
-                                    color: Colors.lightBlue,
-                                    fontSize: 13.0,
-                                    fontWeight: FontWeight.w400),
+                                style: GoogleFonts.poppins(color: Colors.lightBlue, fontSize: 13.0, fontWeight: FontWeight.w400),
                               ),
                             ],
                           ),
                         ),
                         Text(
                           '9+ Exp',
-                          style: GoogleFonts.poppins(
-                              color: Colors.redAccent,
-                              fontSize: 14.0,
-                              fontWeight: FontWeight.w400),
+                          style: GoogleFonts.poppins(color: Colors.redAccent, fontSize: 14.0, fontWeight: FontWeight.w400),
                         ),
                       ],
                     ),
@@ -283,8 +232,7 @@ class _SearchDoctorState extends State<SearchDoctor> {
                                 allowHalfRating: true,
                                 itemCount: 5,
                                 itemSize: 15.0,
-                                itemPadding:
-                                    EdgeInsets.symmetric(horizontal: 0.0),
+                                itemPadding: EdgeInsets.symmetric(horizontal: 0.0),
                                 itemBuilder: (context, _) => Icon(
                                   Icons.star,
                                   color: Colors.amber,
@@ -299,10 +247,7 @@ class _SearchDoctorState extends State<SearchDoctor> {
                               ),
                               Text(
                                 '(47)',
-                                style: GoogleFonts.poppins(
-                                    color: Colors.black,
-                                    fontSize: 13.0,
-                                    fontWeight: FontWeight.w400),
+                                style: GoogleFonts.poppins(color: Colors.black, fontSize: 13.0, fontWeight: FontWeight.w400),
                               ),
                             ],
                           ),
@@ -316,10 +261,7 @@ class _SearchDoctorState extends State<SearchDoctor> {
                             ),
                             Text(
                               'Florida, USA',
-                              style: GoogleFonts.poppins(
-                                  color: Colors.black,
-                                  fontSize: 14.0,
-                                  fontWeight: FontWeight.w400),
+                              style: GoogleFonts.poppins(color: Colors.black, fontSize: 14.0, fontWeight: FontWeight.w400),
                             ),
                           ],
                         ),
@@ -353,8 +295,7 @@ class _SearchDoctorState extends State<SearchDoctor> {
                         borderRadius: BorderRadius.circular(100.0),
                         shadowColor: Colors.grey,
                         child: Padding(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 5.0, vertical: 5.0),
+                          padding: const EdgeInsets.symmetric(horizontal: 5.0, vertical: 5.0),
                           child: Icon(
                             Icons.thumb_up,
                             size: 12.0,
@@ -367,10 +308,7 @@ class _SearchDoctorState extends State<SearchDoctor> {
                       ),
                       Text(
                         '98%',
-                        style: GoogleFonts.poppins(
-                            color: Colors.black,
-                            fontSize: 16.0,
-                            fontWeight: FontWeight.w400),
+                        style: GoogleFonts.poppins(color: Colors.black, fontSize: 16.0, fontWeight: FontWeight.w400),
                       ),
                     ],
                   ),
@@ -383,8 +321,7 @@ class _SearchDoctorState extends State<SearchDoctor> {
                       borderRadius: BorderRadius.circular(100.0),
                       shadowColor: Colors.grey,
                       child: Padding(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 5.0, vertical: 5.0),
+                        padding: const EdgeInsets.symmetric(horizontal: 5.0, vertical: 5.0),
                         child: Icon(
                           Icons.money,
                           size: 12.0,
@@ -397,10 +334,7 @@ class _SearchDoctorState extends State<SearchDoctor> {
                     ),
                     Text(
                       '\$300 - \$1000',
-                      style: GoogleFonts.poppins(
-                          color: Colors.black,
-                          fontSize: 15.0,
-                          fontWeight: FontWeight.w400),
+                      style: GoogleFonts.poppins(color: Colors.black, fontSize: 15.0, fontWeight: FontWeight.w400),
                     ),
                   ],
                 ),
@@ -413,7 +347,7 @@ class _SearchDoctorState extends State<SearchDoctor> {
               children: [
                 Flexible(
                   child: getProfileButton(context, () {
-                  showRequestSheet(context, DoctorProfile());
+                    showRequestSheet(context, DoctorProfile());
                   }),
                 ),
                 const SizedBox(
@@ -430,52 +364,38 @@ class _SearchDoctorState extends State<SearchDoctor> {
         ),
       );
 
-  Widget getProfileButton(context, callBack, {text = 'View Profile'}) =>
-      GestureDetector(
+  Widget getProfileButton(context, callBack, {text = 'View Profile'}) => GestureDetector(
         onTap: () => callBack(),
         child: Container(
           width: MediaQuery.of(context).size.width,
           height: 40.0,
-          decoration: BoxDecoration(
-              color: Colors.white,
-              border: Border.all(width: 1.0, color: BLUECOLOR),
-              borderRadius: BorderRadius.circular(7.0)),
+          decoration: BoxDecoration(color: Colors.white, border: Border.all(width: 1.0, color: BLUECOLOR), borderRadius: BorderRadius.circular(7.0)),
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: Center(
               child: Text(
                 text,
-                style: GoogleFonts.poppins(
-                    fontSize: 15.0,
-                    color: BLUECOLOR,
-                    fontWeight: FontWeight.normal),
+                style: GoogleFonts.poppins(fontSize: 15.0, color: BLUECOLOR, fontWeight: FontWeight.normal),
               ),
             ),
           ),
         ),
       );
 
-  Widget getButton(context, callBack,
-          {color = BLUECOLOR, text = 'Search Now'}) =>
-      GestureDetector(
+  Widget getButton(context, callBack, {color = BLUECOLOR, text = 'Search Now'}) => GestureDetector(
         onTap: () => callBack(),
         child: Container(
           width: MediaQuery.of(context).size.width,
           height: 40.0,
-          decoration: BoxDecoration(
-              color: color, borderRadius: BorderRadius.circular(7.0)),
+          decoration: BoxDecoration(color: color, borderRadius: BorderRadius.circular(7.0)),
           child: Padding(
-            padding:
-                const EdgeInsets.symmetric(horizontal: 8.0, vertical: 11.0),
+            padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 11.0),
             child: Center(
               child: FittedBox(
                 child: Text(
                   text,
                   maxLines: 1,
-                  style: GoogleFonts.poppins(
-                      fontSize: 13.0,
-                      color: Colors.white,
-                      fontWeight: FontWeight.normal),
+                  style: GoogleFonts.poppins(fontSize: 13.0, color: Colors.white, fontWeight: FontWeight.normal),
                 ),
               ),
             ),

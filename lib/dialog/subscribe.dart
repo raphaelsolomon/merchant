@@ -4,18 +4,13 @@ import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
-import 'package:hive_flutter/hive_flutter.dart';
 import 'package:merchant/auth/login.dart';
 import 'package:merchant/constant/strings.dart';
 import 'package:merchant/main.dart';
-import 'package:merchant/model/person/user.dart';
 import 'package:merchant/resuable/form_widgets.dart';
 
 dialogMessage(BuildContext context, widget, {barrierDismiss = true}) {
-  showDialog(
-      context: context,
-      barrierDismissible: barrierDismiss,
-      builder: (BuildContext context) => widget);
+  showDialog(context: context, barrierDismissible: barrierDismiss, builder: (BuildContext context) => widget);
 }
 
 Widget serviceMessage(BuildContext context, m, {status = false, cB}) {
@@ -24,8 +19,7 @@ Widget serviceMessage(BuildContext context, m, {status = false, cB}) {
     children: <Widget>[
       Container(
         width: 400.0,
-        margin:
-            const EdgeInsets.all(40), // to push the box half way below circle
+        margin: const EdgeInsets.all(40), // to push the box half way below circle
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(15),
@@ -40,8 +34,7 @@ Widget serviceMessage(BuildContext context, m, {status = false, cB}) {
                 height: 10.0,
               ),
               status == true
-                  ? Image.asset('assets/imgs/success.png',
-                      width: 100.0, height: 100.0, fit: BoxFit.contain)
+                  ? Image.asset('assets/imgs/success.png', width: 100.0, height: 100.0, fit: BoxFit.contain)
                   : Icon(
                       Icons.cancel_outlined,
                       size: 100.0,
@@ -80,8 +73,7 @@ Widget moreNavBar(BuildContext context) {
     children: <Widget>[
       Container(
         width: MediaQuery.of(context).size.width,
-        margin:
-            const EdgeInsets.all(40), // to push the box half way below circle
+        margin: const EdgeInsets.all(40), // to push the box half way below circle
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(15),
@@ -94,8 +86,7 @@ Widget moreNavBar(BuildContext context) {
             children: [
               Row(
                 children: [
-                  Icon(Icons.local_pharmacy_outlined,
-                      size: 20.0, color: Colors.black),
+                  Icon(Icons.local_pharmacy_outlined, size: 20.0, color: Colors.black),
                   SizedBox(
                     width: 10.0,
                   ),
@@ -110,8 +101,7 @@ Widget moreNavBar(BuildContext context) {
               ),
               Row(
                 children: [
-                  Icon(Icons.local_pharmacy_outlined,
-                      size: 20.0, color: Colors.black),
+                  Icon(Icons.local_pharmacy_outlined, size: 20.0, color: Colors.black),
                   SizedBox(
                     width: 10.0,
                   ),
@@ -134,14 +124,12 @@ Widget medicalDetails(BuildContext context) {
     children: <Widget>[
       Container(
         width: MediaQuery.of(context).size.width,
-        margin:
-            const EdgeInsets.all(50), // to push the box half way below circle
+        margin: const EdgeInsets.all(50), // to push the box half way below circle
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(15),
         ),
-        padding: const EdgeInsets.only(
-            top: 15, left: 10, right: 10), // spacing inside the box
+        padding: const EdgeInsets.only(top: 15, left: 10, right: 10), // spacing inside the box
         child: Align(
           alignment: Alignment.bottomRight,
           child: Material(
@@ -215,14 +203,12 @@ Widget subscribe(BuildContext context) {
     children: <Widget>[
       Container(
         width: 400.0,
-        margin:
-            const EdgeInsets.all(40), // to push the box half way below circle
+        margin: const EdgeInsets.all(40), // to push the box half way below circle
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(15),
         ),
-        padding: const EdgeInsets.only(
-            top: 15, left: 20, right: 20), // spacing inside the box
+        padding: const EdgeInsets.only(top: 15, left: 20, right: 20), // spacing inside the box
         child: Material(
           color: Colors.transparent,
           child: Column(
@@ -247,7 +233,7 @@ Widget subscribe(BuildContext context) {
                 height: 10.0,
               ),
               Image.asset(
-                'assets/imgs/subscribe.jpeg',
+                'assets/auth/subscribe.png',
                 width: 100.0,
                 height: 100.0,
                 fit: BoxFit.contain,
@@ -255,11 +241,7 @@ Widget subscribe(BuildContext context) {
               const SizedBox(
                 height: 10.0,
               ),
-              Text('Stay In Touch',
-                  style: getCustomFont(
-                      size: 17.0,
-                      color: Colors.black,
-                      weight: FontWeight.bold)),
+              Text('Stay In Touch', style: getCustomFont(size: 17.0, color: Colors.black, weight: FontWeight.bold)),
               const SizedBox(
                 height: 10.0,
               ),
@@ -293,14 +275,12 @@ Widget walletTop(BuildContext context) {
     children: <Widget>[
       Container(
         width: 400.0 / 1.3,
-        margin:
-            const EdgeInsets.all(40), // to push the box half way below circle
+        margin: const EdgeInsets.all(40), // to push the box half way below circle
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(15),
         ),
-        padding: const EdgeInsets.only(
-            top: 15, left: 20, right: 20), // spacing inside the box
+        padding: const EdgeInsets.only(top: 15, left: 20, right: 20), // spacing inside the box
         child: Material(
           color: Colors.transparent,
           child: Column(
@@ -354,17 +334,11 @@ Widget walletTop(BuildContext context) {
               ),
               Row(
                 children: [
-                  Flexible(
-                      child: getButton(context, () {}, 'Cancel',
-                          bgColor: Colors.grey.shade200,
-                          textColor: Colors.black)),
+                  Flexible(child: getButton(context, () {}, 'Cancel', bgColor: Colors.grey.shade200, textColor: Colors.black)),
                   const SizedBox(
                     width: 20.0,
                   ),
-                  Flexible(
-                      child: getButton(context, () {}, 'Continue',
-                          bgColor: Colors.grey.shade200,
-                          textColor: Colors.black)),
+                  Flexible(child: getButton(context, () {}, 'Continue', bgColor: Colors.grey.shade200, textColor: Colors.black)),
                 ],
               ),
               const SizedBox(
@@ -385,14 +359,12 @@ Widget prescriptionRequire(BuildContext context, {callBack}) {
       Container(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height / 1.8,
-        margin:
-            const EdgeInsets.all(45), // to push the box half way below circle
+        margin: const EdgeInsets.all(45), // to push the box half way below circle
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(15),
         ),
-        padding: const EdgeInsets.only(
-            top: 15, left: 20, right: 20), // spacing inside the box
+        padding: const EdgeInsets.only(top: 15, left: 20, right: 20), // spacing inside the box
         child: Material(
           color: Colors.transparent,
           child: Column(
@@ -405,11 +377,7 @@ Widget prescriptionRequire(BuildContext context, {callBack}) {
                 fit: BoxFit.contain,
               ),
               const Spacer(),
-              Text('Prescription Require',
-                  style: getCustomFont(
-                      size: 19.0,
-                      color: BLUECOLOR.withOpacity(.8),
-                      weight: FontWeight.bold)),
+              Text('Prescription Require', style: getCustomFont(size: 19.0, color: BLUECOLOR.withOpacity(.8), weight: FontWeight.bold)),
               const Spacer(),
               Text(
                 'Your Order contains\n${2} items which required\ndoctor\'s prescription',
@@ -430,10 +398,7 @@ Widget prescriptionRequire(BuildContext context, {callBack}) {
                   },
                   child: Text(
                     'Cancel',
-                    style: getCustomFont(
-                        size: 13.0,
-                        color: BLUECOLOR.withOpacity(.8),
-                        weight: FontWeight.bold),
+                    style: getCustomFont(size: 13.0, color: BLUECOLOR.withOpacity(.8), weight: FontWeight.bold),
                   )),
               const SizedBox(
                 height: 25.0,
@@ -452,14 +417,12 @@ Widget referral(BuildContext context) {
     children: <Widget>[
       Container(
         width: MediaQuery.of(context).size.width,
-        margin:
-            const EdgeInsets.all(40), // to push the box half way below circle
+        margin: const EdgeInsets.all(40), // to push the box half way below circle
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(15),
         ),
-        padding: const EdgeInsets.only(
-            top: 15, left: 20, right: 20), // spacing inside the box
+        padding: const EdgeInsets.only(top: 15, left: 20, right: 20), // spacing inside the box
         child: Material(
           color: Colors.transparent,
           child: Column(
@@ -486,11 +449,7 @@ Widget referral(BuildContext context) {
               const SizedBox(
                 height: 10.0,
               ),
-              Text('Do you have Referral Codes?',
-                  style: getCustomFont(
-                      size: 20.0,
-                      color: Colors.black,
-                      weight: FontWeight.bold)),
+              Text('Do you have Referral Codes?', style: getCustomFont(size: 20.0, color: Colors.black, weight: FontWeight.bold)),
               const SizedBox(
                 height: 10.0,
               ),
@@ -538,14 +497,12 @@ Widget familyPop(BuildContext context) {
     children: <Widget>[
       Container(
         width: MediaQuery.of(context).size.width,
-        margin:
-            const EdgeInsets.all(40), // to push the box half way below circle
+        margin: const EdgeInsets.all(40), // to push the box half way below circle
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(15),
         ),
-        padding: const EdgeInsets.only(
-            top: 15, left: 20, right: 20), // spacing inside the box
+        padding: const EdgeInsets.only(top: 15, left: 20, right: 20), // spacing inside the box
         child: Material(
           color: Colors.transparent,
           child: Column(
@@ -575,12 +532,7 @@ Widget familyPop(BuildContext context) {
               const SizedBox(
                 height: 10.0,
               ),
-              Text('Are you sure you want to create a family',
-                  textAlign: TextAlign.center,
-                  style: getCustomFont(
-                      size: 16.0,
-                      color: Colors.black,
-                      weight: FontWeight.w500)),
+              Text('Are you sure you want to create a family', textAlign: TextAlign.center, style: getCustomFont(size: 16.0, color: Colors.black, weight: FontWeight.w500)),
               const SizedBox(
                 height: 10.0,
               ),
@@ -591,11 +543,8 @@ Widget familyPop(BuildContext context) {
                     Navigator.pop(context);
                   },
                   child: Container(
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10.0),
-                        color: Colors.grey.shade200),
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 20.0, vertical: 8.0),
+                    decoration: BoxDecoration(borderRadius: BorderRadius.circular(10.0), color: Colors.grey.shade200),
+                    padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 8.0),
                     child: Text(
                       'Cancel',
                       style: getCustomFont(size: 14.0, color: Colors.black),
@@ -609,11 +558,8 @@ Widget familyPop(BuildContext context) {
                     //showRequestSheet(context, AddFamilyDailog());
                   },
                   child: Container(
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10.0),
-                        color: BLUECOLOR),
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 20.0, vertical: 10.0),
+                    decoration: BoxDecoration(borderRadius: BorderRadius.circular(10.0), color: BLUECOLOR),
+                    padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
                     child: Text(
                       'Continue',
                       style: getCustomFont(size: 14.0, color: Colors.white),
@@ -638,58 +584,81 @@ Widget logoutPop(BuildContext context) {
     children: <Widget>[
       Container(
         width: MediaQuery.of(context).size.width,
-        margin:
-            const EdgeInsets.all(40), // to push the box half way below circle
+        margin: const EdgeInsets.all(40), // to push the box half way below circle
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(15),
         ),
-        padding: const EdgeInsets.only(
-            top: 15, left: 20, right: 20), // spacing inside the box
         child: Material(
           color: Colors.transparent,
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Text('Are you sure you want to logout?',
-                  textAlign: TextAlign.center,
-                  style: getCustomFont(
-                      size: 16.0,
-                      color: Colors.black,
-                      weight: FontWeight.w500)),
+              Container(
+                padding: const EdgeInsets.all(7.0),
+                decoration: BoxDecoration(
+                  color: BLUECOLOR,
+                  borderRadius: BorderRadius.only(topRight: Radius.circular(15.0), topLeft: Radius.circular(15.0)),
+                ),
+                child: Center(
+                    child: Text(
+                  'Sign Out !',
+                  style: getCustomFont(size: 15.0, color: Colors.white),
+                )),
+              ),
               const SizedBox(
                 height: 10.0,
+              ),
+              Text('Are you sure you want to logout?', textAlign: TextAlign.center, style: getCustomFont(size: 14.0, color: Colors.black54, weight: FontWeight.w500)),
+              const SizedBox(
+                height: 15.0,
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 10.0),
                 child: Row(mainAxisAlignment: MainAxisAlignment.end, children: [
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.pop(context);
-                    },
-                    child: Text(
-                      'No',
-                      style: getCustomFont(size: 14.0, color: Colors.black),
+                  Flexible(
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.pop(context);
+                      },
+                      child: Container(
+                        decoration: BoxDecoration(color: BLUECOLOR, borderRadius: BorderRadius.circular(50.0)),
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 18.0, vertical: 5.0),
+                          child: Text(
+                            'No',
+                            maxLines: 1,
+                            style: getCustomFont(size: 12.0, color: Colors.white, weight: FontWeight.normal),
+                          ),
+                        ),
+                      ),
                     ),
                   ),
                   const SizedBox(
                     width: 20.0,
                   ),
-                  GestureDetector(
-                    onTap: () {
-                      Hive.box<User>(BoxName).clear();
-                      Hive.box(ReferralBox).clear();
-                      Get.offAll(() => AuthLogin());
-                    },
-                    child: Text(
-                      'Yes',
-                      style: getCustomFont(size: 14.0, color: Colors.black),
+                  Flexible(
+                    child: GestureDetector(
+                      onTap: () {
+                        Get.offAll(() => AuthLogin());
+                      },
+                      child: Container(
+                        decoration: BoxDecoration(color: Colors.redAccent, borderRadius: BorderRadius.circular(50.0)),
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 18.0, vertical: 5.0),
+                          child: Text(
+                            'Yes',
+                            maxLines: 1,
+                            style: getCustomFont(size: 12.0, color: Colors.white, weight: FontWeight.normal),
+                          ),
+                        ),
+                      ),
                     ),
                   ),
                 ]),
               ),
               const SizedBox(
-                height: 25.0,
+                height: 15.0,
               ),
             ],
           ),
@@ -705,14 +674,12 @@ Widget familyPopStart(BuildContext context) {
     children: <Widget>[
       Container(
         width: MediaQuery.of(context).size.width,
-        margin:
-            const EdgeInsets.all(40), // to push the box half way below circle
+        margin: const EdgeInsets.all(40), // to push the box half way below circle
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(15),
         ),
-        padding: const EdgeInsets.only(
-            top: 15, left: 20, right: 20), // spacing inside the box
+        padding: const EdgeInsets.only(top: 15, left: 20, right: 20), // spacing inside the box
         child: Material(
           color: Colors.transparent,
           child: Column(
@@ -741,11 +708,8 @@ Widget familyPopStart(BuildContext context) {
               Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
                 Flexible(
                     child: Container(
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10.0),
-                      color: Colors.grey.shade200),
-                  padding: const EdgeInsets.symmetric(
-                      horizontal: 20.0, vertical: 8.0),
+                  decoration: BoxDecoration(borderRadius: BorderRadius.circular(10.0), color: Colors.grey.shade200),
+                  padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 8.0),
                   child: Text(
                     'Cancel',
                     style: getCustomFont(size: 14.0, color: Colors.black),
@@ -753,11 +717,8 @@ Widget familyPopStart(BuildContext context) {
                 )),
                 Flexible(
                     child: Container(
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10.0),
-                      color: BLUECOLOR),
-                  padding: const EdgeInsets.symmetric(
-                      horizontal: 20.0, vertical: 10.0),
+                  decoration: BoxDecoration(borderRadius: BorderRadius.circular(10.0), color: BLUECOLOR),
+                  padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
                   child: Text(
                     'Add Member',
                     style: getCustomFont(size: 14.0, color: Colors.white),
@@ -781,14 +742,12 @@ Widget blood_pressure(BuildContext context) {
     children: <Widget>[
       Container(
         width: MediaQuery.of(context).size.width,
-        margin:
-            const EdgeInsets.all(50), // to push the box half way below circle
+        margin: const EdgeInsets.all(50), // to push the box half way below circle
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(15),
         ),
-        padding: const EdgeInsets.only(
-            top: 15, left: 10, right: 10), // spacing inside the box
+        padding: const EdgeInsets.only(top: 15, left: 10, right: 10), // spacing inside the box
         child: Material(
           color: Colors.transparent,
           child: Column(
@@ -857,14 +816,12 @@ Widget cholesterol(BuildContext context) {
     children: <Widget>[
       Container(
         width: MediaQuery.of(context).size.width,
-        margin:
-            const EdgeInsets.all(50), // to push the box half way below circle
+        margin: const EdgeInsets.all(50), // to push the box half way below circle
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(15),
         ),
-        padding: const EdgeInsets.only(
-            top: 15, left: 10, right: 10), // spacing inside the box
+        padding: const EdgeInsets.only(top: 15, left: 10, right: 10), // spacing inside the box
         child: Material(
           color: Colors.transparent,
           child: SingleChildScrollView(
@@ -929,14 +886,12 @@ Widget blood_sugar(BuildContext context) {
     children: <Widget>[
       Container(
         width: MediaQuery.of(context).size.width,
-        margin:
-            const EdgeInsets.all(50), // to push the box half way below circle
+        margin: const EdgeInsets.all(50), // to push the box half way below circle
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(15),
         ),
-        padding: const EdgeInsets.only(
-            top: 15, left: 10, right: 10), // spacing inside the box
+        padding: const EdgeInsets.only(top: 15, left: 10, right: 10), // spacing inside the box
         child: Material(
           color: Colors.transparent,
           child: SingleChildScrollView(
@@ -981,8 +936,7 @@ Widget blood_sugar(BuildContext context) {
                 const SizedBox(
                   height: 20.0,
                 ),
-                getFormBox(
-                    'Blood sugar 1-2 hours after meal', 'Type here', 'Mg/Dl'),
+                getFormBox('Blood sugar 1-2 hours after meal', 'Type here', 'Mg/Dl'),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20.0),
                   child: Text(
@@ -1023,14 +977,12 @@ Widget weight(BuildContext context) {
     children: <Widget>[
       Container(
         width: MediaQuery.of(context).size.width,
-        margin:
-            const EdgeInsets.all(50), // to push the box half way below circle
+        margin: const EdgeInsets.all(50), // to push the box half way below circle
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(15),
         ),
-        padding: const EdgeInsets.only(
-            top: 15, left: 10, right: 10), // spacing inside the box
+        padding: const EdgeInsets.only(top: 15, left: 10, right: 10), // spacing inside the box
         child: Material(
           color: Colors.transparent,
           child: Column(
@@ -1098,14 +1050,9 @@ getFormBox(text, hint, unit, {ctl}) {
                   controller: ctl,
                   decoration: InputDecoration(
                       hintText: hint,
-                      contentPadding:
-                          const EdgeInsets.symmetric(horizontal: 10.0),
-                      hintStyle:
-                          getCustomFont(size: 14.0, color: Colors.black45),
-                      border: OutlineInputBorder(
-                          borderSide:
-                              BorderSide(color: Colors.grey, width: 1.0),
-                          borderRadius: BorderRadius.circular(8.0))),
+                      contentPadding: const EdgeInsets.symmetric(horizontal: 10.0),
+                      hintStyle: getCustomFont(size: 14.0, color: Colors.black45),
+                      border: OutlineInputBorder(borderSide: BorderSide(color: Colors.grey, width: 1.0), borderRadius: BorderRadius.circular(8.0))),
                 ),
               ),
             ),
@@ -1136,9 +1083,7 @@ getWalletFormBox(hint, {ctl}) {
             hintText: hint,
             contentPadding: const EdgeInsets.symmetric(horizontal: 15.0),
             hintStyle: getCustomFont(size: 14.0, color: Colors.black45),
-            border: OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.grey, width: 1.0),
-                borderRadius: BorderRadius.circular(8.0))),
+            border: OutlineInputBorder(borderSide: BorderSide(color: Colors.grey, width: 1.0), borderRadius: BorderRadius.circular(8.0))),
       ),
     ),
   );
@@ -1155,12 +1100,7 @@ getWalletDropDown(List<String> list, text) {
           Icons.keyboard_arrow_down,
           color: Colors.black,
         ),
-        decoration: InputDecoration(
-            contentPadding:
-                const EdgeInsets.symmetric(horizontal: 9.9, vertical: 5.0),
-            border: OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.grey, width: 1.0),
-                borderRadius: BorderRadius.circular(8.0))),
+        decoration: InputDecoration(contentPadding: const EdgeInsets.symmetric(horizontal: 9.9, vertical: 5.0), border: OutlineInputBorder(borderSide: BorderSide(color: Colors.grey, width: 1.0), borderRadius: BorderRadius.circular(8.0))),
         initialValue: '$text',
         items: list
             .map((gender) => DropdownMenuItem(
@@ -1199,9 +1139,7 @@ getMedialDetailsBox(text, hint, {ctl}) {
                 hintText: hint,
                 contentPadding: const EdgeInsets.symmetric(horizontal: 10.0),
                 hintStyle: getCustomFont(size: 14.0, color: Colors.black45),
-                border: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.grey, width: 1.0),
-                    borderRadius: BorderRadius.circular(8.0))),
+                border: OutlineInputBorder(borderSide: BorderSide(color: Colors.grey, width: 1.0), borderRadius: BorderRadius.circular(8.0))),
           ),
         )
       ],
@@ -1224,9 +1162,7 @@ getFamilyFormBox({ctl}) {
         ),
         Container(
           height: 45.0,
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10.0),
-              border: Border.all(width: 1.0, color: Colors.grey.shade400)),
+          decoration: BoxDecoration(borderRadius: BorderRadius.circular(10.0), border: Border.all(width: 1.0, color: Colors.grey.shade400)),
           child: Row(
             children: [
               const SizedBox(
@@ -1244,13 +1180,7 @@ getFamilyFormBox({ctl}) {
                   style: getCustomFont(size: 14.0, color: Colors.black45),
                   maxLines: 1,
                   controller: ctl,
-                  decoration: InputDecoration(
-                      hintText: 'Email',
-                      contentPadding:
-                          const EdgeInsets.symmetric(horizontal: 10.0),
-                      hintStyle:
-                          getCustomFont(size: 14.0, color: Colors.black45),
-                      border: OutlineInputBorder(borderSide: BorderSide.none)),
+                  decoration: InputDecoration(hintText: 'Email', contentPadding: const EdgeInsets.symmetric(horizontal: 10.0), hintStyle: getCustomFont(size: 14.0, color: Colors.black45), border: OutlineInputBorder(borderSide: BorderSide.none)),
                 ),
               ),
             ],
@@ -1263,19 +1193,13 @@ getFamilyFormBox({ctl}) {
 
 getFormSubscribe({ctl, hint = 'Email Address'}) => Container(
       height: 45.0,
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(6.0),
-          color: Colors.grey.shade100),
+      decoration: BoxDecoration(borderRadius: BorderRadius.circular(6.0), color: Colors.grey.shade100),
       child: TextField(
         maxLines: 1,
         controller: ctl,
         keyboardType: TextInputType.emailAddress,
         style: getCustomFont(size: 14.0, color: Colors.black54),
-        decoration: InputDecoration(
-            contentPadding: const EdgeInsets.symmetric(horizontal: 20.0),
-            hintText: hint,
-            hintStyle: getCustomFont(size: 14.0, color: Colors.black54),
-            border: OutlineInputBorder(borderSide: BorderSide.none)),
+        decoration: InputDecoration(contentPadding: const EdgeInsets.symmetric(horizontal: 20.0), hintText: hint, hintStyle: getCustomFont(size: 14.0, color: Colors.black54), border: OutlineInputBorder(borderSide: BorderSide.none)),
       ),
     );
 
@@ -1283,36 +1207,30 @@ Widget getPayButton(context, callBack, text) => GestureDetector(
       onTap: () => callBack(),
       child: Container(
         width: MediaQuery.of(context).size.width,
-        decoration: BoxDecoration(
-            color: BLUECOLOR, borderRadius: BorderRadius.circular(6.0)),
+        decoration: BoxDecoration(color: BLUECOLOR, borderRadius: BorderRadius.circular(6.0)),
         child: Padding(
           padding: const EdgeInsets.all(13.0),
           child: Center(
             child: Text(
               '$text',
-              style: getCustomFont(
-                  size: 15.0, color: Colors.white, weight: FontWeight.normal),
+              style: getCustomFont(size: 15.0, color: Colors.white, weight: FontWeight.normal),
             ),
           ),
         ),
       ),
     );
 
-Widget getButton(context, callBack, text,
-        {textColor = Colors.white, bgColor = BLUECOLOR}) =>
-    GestureDetector(
+Widget getButton(context, callBack, text, {textColor = Colors.white, bgColor = BLUECOLOR}) => GestureDetector(
       onTap: () => callBack(),
       child: Container(
         width: MediaQuery.of(context).size.width,
-        decoration: BoxDecoration(
-            color: bgColor, borderRadius: BorderRadius.circular(100.0)),
+        decoration: BoxDecoration(color: bgColor, borderRadius: BorderRadius.circular(100.0)),
         child: Padding(
           padding: const EdgeInsets.all(10.0),
           child: Center(
             child: Text(
               '$text',
-              style: getCustomFont(
-                  size: 16.0, color: textColor, weight: FontWeight.normal),
+              style: getCustomFont(size: 16.0, color: textColor, weight: FontWeight.normal),
             ),
           ),
         ),
@@ -1325,14 +1243,12 @@ Widget rateUsPop(BuildContext context) {
     children: <Widget>[
       Container(
         width: MediaQuery.of(context).size.width,
-        margin:
-            const EdgeInsets.all(40), // to push the box half way below circle
+        margin: const EdgeInsets.all(40), // to push the box half way below circle
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(15),
         ),
-        padding: const EdgeInsets.only(
-            top: 15, left: 20, right: 20), // spacing inside the box
+        padding: const EdgeInsets.only(top: 15, left: 20, right: 20), // spacing inside the box
         child: Material(
           color: Colors.transparent,
           child: Column(
@@ -1350,11 +1266,7 @@ Widget rateUsPop(BuildContext context) {
               const SizedBox(
                 height: 10.0,
               ),
-              Text('Rate Us',
-                  style: getCustomFont(
-                      size: 20.0,
-                      color: Colors.black,
-                      weight: FontWeight.bold)),
+              Text('Rate Us', style: getCustomFont(size: 20.0, color: Colors.black, weight: FontWeight.bold)),
               const SizedBox(
                 height: 20.0,
               ),
@@ -1423,8 +1335,7 @@ showRequestSheet(BuildContext c, Widget widget, {onClose}) {
       }).whenComplete(() => onClose == null ? null : onClose());
 }
 
-void showFlutterNotification(
-    RemoteMessage message, flutterLocalNotificationsPlugin) {
+void showFlutterNotification(RemoteMessage message, flutterLocalNotificationsPlugin) {
   RemoteNotification? notification = message.notification;
   AndroidNotification? android = message.notification?.android;
   if (notification != null && android != null) {

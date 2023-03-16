@@ -43,91 +43,84 @@ class _HomePageState extends State<HomePage> {
       color: Color(0xFFf6f6f6),
       child: Column(
         children: [
-          const SizedBox(height: 30.0),
           Container(
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SizedBox(
-                  height: 10.0,
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                Container(
+                  color: BLUECOLOR,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      GestureDetector(
-                          onTap: () =>
-                              widget.scaffold.currentState!.openDrawer(),
-                          child: Icon(Icons.menu, color: Colors.black)),
-                      const SizedBox(width: 10.0),
-                      Flexible(
+                      const SizedBox(
+                        height: 40.0,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 20.0),
                         child: Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            CircleAvatar(
-                              backgroundColor: BLUECOLOR.withOpacity(.3),
-                              backgroundImage: NetworkImage(
-                                  'https://img.freepik.com/free-vector/flat-hand-drawn-patient-taking-medical-examination-illustration_23-2148859982.jpg?w=2000'),
-                              radius: 15.0,
-                            ),
-                            const SizedBox(
-                              width: 10.0,
-                            ),
-                            CircleAvatar(
-                              backgroundColor: BLUECOLOR.withOpacity(.3),
-                              radius: 15.0,
-                              child: Icon(
-                                Icons.shopping_cart,
-                                color: Colors.black45,
-                                size: 18.0,
+                            GestureDetector(onTap: () => widget.scaffold.currentState!.openDrawer(), child: Icon(Icons.menu, color: Colors.white)),
+                            const SizedBox(width: 10.0),
+                            Flexible(
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                  CircleAvatar(
+                                    backgroundColor: BLUECOLOR.withOpacity(.3),
+                                    backgroundImage: NetworkImage('https://img.freepik.com/free-vector/flat-hand-drawn-patient-taking-medical-examination-illustration_23-2148859982.jpg?w=2000'),
+                                    radius: 15.0,
+                                  ),
+                                  const SizedBox(
+                                    width: 10.0,
+                                  ),
+                                  CircleAvatar(
+                                    backgroundColor: Colors.white,
+                                    radius: 18.0,
+                                    child: Icon(
+                                      Icons.shopping_cart,
+                                      color: Colors.black,
+                                      size: 18.0,
+                                    ),
+                                  ),
+                                ],
                               ),
                             ),
                           ],
                         ),
                       ),
+                      const SizedBox(
+                        height: 15.0,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 20.0, right: 50.0),
+                        child: FittedBox(
+                          child: Text(
+                            'Welcome, Uchiha Madara',
+                            style: getCustomFont(size: 26.0, color: Colors.white, weight: FontWeight.w500),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 5.0,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                        child: Text(
+                          'What would you like to do today?',
+                          style: getCustomFont(size: 13.0, color: Colors.white, weight: FontWeight.w400),
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 20.0,
+                      ),
                     ],
                   ),
-                ),
-                const SizedBox(
-                  height: 15.0,
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 20.0, right: 50.0),
-                  child: FittedBox(
-                    child: Text(
-                      'Welcome, Uchiha Madara',
-                      style: getCustomFont(
-                          size: 26.0,
-                          color: Colors.black,
-                          weight: FontWeight.w500),
-                    ),
-                  ),
-                ),
-                const SizedBox(
-                  height: 3.0,
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                  child: Text(
-                    'What would you like to do today?',
-                    style: getCustomFont(
-                        size: 13.0,
-                        color: Colors.black,
-                        weight: FontWeight.w400),
-                  ),
-                ),
-                const SizedBox(
-                  height: 20.0,
                 ),
                 isImage
                     ? const SizedBox()
                     : Column(
                         children: [
-                          GestureDetector(
-                              onTap: () =>
-                                  Get.to(() => AuthOtp(user!.email!, true)),
-                              child: mailAlert(context)),
+                          GestureDetector(onTap: () => Get.to(() => AuthOtp(user!.email!, true)), child: mailAlert(context)),
                           const SizedBox(
                             height: 29.0,
                           ),
@@ -136,89 +129,71 @@ class _HomePageState extends State<HomePage> {
               ],
             ),
           ),
+          const SizedBox(
+            height: 15.0,
+          ),
           Expanded(
             child: SingleChildScrollView(
-              child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    SingleChildScrollView(
-                      scrollDirection: Axis.horizontal,
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 15.0),
-                        child: Row(
-                          children: [
-                            ...List.generate(
-                                3, (i) => horizontalSecondItem(context, i))
-                          ],
+              child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                    child: Row(
+                      children: [...List.generate(3, (i) => horizontalSecondItem(context, i))],
+                    ),
+                  ),
+                ),
+                const SizedBox(
+                  height: 10.0,
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                  child: Text(
+                    'Top Services',
+                    style: getCustomFont(size: 16.0, color: Colors.redAccent, weight: FontWeight.w500),
+                  ),
+                ),
+                const SizedBox(
+                  height: 10.0,
+                ),
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                    child: Row(
+                      children: [...List.generate(homeItem1.length, (i) => horizontalItem(homeItem1[i]))],
+                    ),
+                  ),
+                ),
+                const SizedBox(
+                  height: 20.0,
+                ),
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                    child: Row(
+                      children: [...List.generate(homeItem2.length, (i) => horizontalItem(homeItem2[i]))],
+                    ),
+                  ),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                width > 389
+                    ? Row(mainAxisAlignment: MainAxisAlignment.end, mainAxisSize: MainAxisSize.max, children: [
+                        Flexible(child: getSpecialization()),
+                        const SizedBox(
+                          width: 5.0,
                         ),
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 10.0,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                      child: Text(
-                        'Top Services',
-                        style: getCustomFont(
-                            size: 16.0,
-                            color: Colors.redAccent,
-                            weight: FontWeight.w500),
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 10.0,
-                    ),
-                    SingleChildScrollView(
-                      scrollDirection: Axis.horizontal,
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                        child: Row(
-                          children: [
-                            ...List.generate(homeItem1.length,
-                                (i) => horizontalItem(homeItem1[i]))
-                          ],
-                        ),
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 20.0,
-                    ),
-                    SingleChildScrollView(
-                      scrollDirection: Axis.horizontal,
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                        child: Row(
-                          children: [
-                            ...List.generate(homeItem2.length,
-                                (i) => horizontalItem(homeItem2[i]))
-                          ],
-                        ),
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    width > 389
-                        ? Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Flexible(child: getSpecialization()),
-                            const SizedBox(
-                              width: 5.0,
-                            ),
-                            Flexible(child: getServices())
-                          ])
-                        : Column(children: [
-                            getSpecialization(),
-                            const SizedBox(height: 15.0),
-                            getServices()
-                          ]),
-                    const SizedBox(
-                      height: 90.0,
-                    )
-                  ]),
+                        Flexible(child: getServices())
+                      ])
+                    : Column(children: [getSpecialization(), const SizedBox(height: 15.0), getServices()]),
+                const SizedBox(
+                  height: 90.0,
+                )
+              ]),
             ),
           )
         ],
@@ -226,8 +201,7 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Widget getSpecialization() =>
-      Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+  Widget getSpecialization() => Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
         SizedBox(
           width: MediaQuery.of(context).size.width,
           child: GestureDetector(
@@ -237,8 +211,7 @@ class _HomePageState extends State<HomePage> {
               child: Text(
                 'View All Specialization',
                 textAlign: TextAlign.center,
-                style: getCustomFont(
-                    size: 13.0, color: Colors.black87, weight: FontWeight.bold),
+                style: getCustomFont(size: 13.0, color: Colors.black87, weight: FontWeight.bold),
               ),
             ),
           ),
@@ -251,8 +224,7 @@ class _HomePageState extends State<HomePage> {
         viewAllSpecial(),
       ]);
 
-  Widget getServices() =>
-      Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+  Widget getServices() => Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
         SizedBox(
           width: MediaQuery.of(context).size.width,
           child: GestureDetector(
@@ -262,8 +234,7 @@ class _HomePageState extends State<HomePage> {
               child: Text(
                 'View All Services',
                 textAlign: TextAlign.center,
-                style: getCustomFont(
-                    size: 13.0, color: Colors.black87, weight: FontWeight.bold),
+                style: getCustomFont(size: 13.0, color: Colors.black87, weight: FontWeight.bold),
               ),
             ),
           ),
@@ -289,8 +260,7 @@ class _HomePageState extends State<HomePage> {
               )),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10.0),
-            child: Icon(Icons.arrow_forward_ios,
-                size: 14.0, color: Colors.black87),
+            child: Icon(Icons.arrow_forward_ios, size: 14.0, color: Colors.black87),
           )
         ]),
       );
@@ -298,15 +268,14 @@ class _HomePageState extends State<HomePage> {
   Widget horizontalItem(homeItem1) => GestureDetector(
         child: Container(
           width: 160.0,
-          height: 230.0,
+          height: 207.0,
           padding: const EdgeInsets.all(15.0),
           margin: const EdgeInsets.only(right: 10.0),
-          decoration: BoxDecoration(
-              color: Colors.white, borderRadius: BorderRadius.circular(10.0)),
+          decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(10.0)),
           child: Column(
             children: [
               Image.asset(
-                'assets/imgs/1.png',
+                '${homeItem1['icon']}',
                 width: 80.0,
                 height: 80.0,
                 fit: BoxFit.contain,
@@ -317,8 +286,7 @@ class _HomePageState extends State<HomePage> {
               Text(
                 '${homeItem1['title']}',
                 textAlign: TextAlign.center,
-                style: getCustomFont(
-                    size: 15.5, color: Colors.black, weight: FontWeight.w600),
+                style: getCustomFont(size: 15.5, color: Colors.black, weight: FontWeight.w600),
               ),
               const SizedBox(
                 height: 5.0,
@@ -327,8 +295,7 @@ class _HomePageState extends State<HomePage> {
                 '${homeItem1['desc']}',
                 textAlign: TextAlign.center,
                 maxLines: 3,
-                style: getCustomFont(
-                    size: 12.0, color: Colors.black45, weight: FontWeight.w400),
+                style: getCustomFont(size: 12.0, color: Colors.black45, weight: FontWeight.w400),
               ),
               const SizedBox(
                 height: 2.0,
@@ -343,25 +310,19 @@ class _HomePageState extends State<HomePage> {
         height: 100.0,
         padding: const EdgeInsets.all(15.0),
         margin: const EdgeInsets.only(right: 20.0),
-        decoration: BoxDecoration(
-          image: DecorationImage(image: AssetImage('assets/ads/black${index}.jpg'), fit: BoxFit.cover),
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(10.0)),
+        decoration: BoxDecoration(image: DecorationImage(image: AssetImage('assets/ads/black${index}.jpg'), fit: BoxFit.cover), color: Colors.white, borderRadius: BorderRadius.circular(10.0)),
       );
 
   Widget mailAlert(context) => Container(
         width: MediaQuery.of(context).size.width,
         padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 14.0),
         margin: const EdgeInsets.only(right: 20.0, left: 20.0),
-        decoration: BoxDecoration(
-            color: Colors.red.withOpacity(.2),
-            borderRadius: BorderRadius.circular(10.0)),
+        decoration: BoxDecoration(color: Colors.red.withOpacity(.2), borderRadius: BorderRadius.circular(10.0)),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Image.asset('assets/imgs/message.png',
-                width: 50.0, height: 50.0, fit: BoxFit.contain),
+            Image.asset('assets/imgs/message.png', width: 50.0, height: 50.0, fit: BoxFit.contain),
             const SizedBox(
               width: 15.0,
             ),
@@ -372,19 +333,13 @@ class _HomePageState extends State<HomePage> {
                   FittedBox(
                       child: Text(
                     'E-mail Verification Pending',
-                    style: getCustomFont(
-                        size: 18.0,
-                        color: Colors.black,
-                        weight: FontWeight.bold),
+                    style: getCustomFont(size: 18.0, color: Colors.black, weight: FontWeight.bold),
                   )),
                   const SizedBox(height: 1.0),
                   FittedBox(
                       child: Text(
                     'verify your email to link your account',
-                    style: getCustomFont(
-                        size: 14.0,
-                        color: Colors.black54,
-                        weight: FontWeight.w400),
+                    style: getCustomFont(size: 14.0, color: Colors.black54, weight: FontWeight.w400),
                   )),
                 ],
               ),

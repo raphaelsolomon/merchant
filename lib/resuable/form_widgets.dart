@@ -19,14 +19,7 @@ import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:phone_form_field/phone_form_field.dart';
 import 'package:provider/provider.dart';
 
-getRegisterForm(
-        {ctl,
-        obscure = false,
-        hint,
-        icon = Icons.email_outlined,
-        cp,
-        height = 54.0}) =>
-    Container(
+getRegisterForm({ctl, obscure = false, hint, icon = Icons.email_outlined, cp, height = 54.0}) => Container(
       height: height,
       padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),
       decoration: BoxDecoration(
@@ -50,8 +43,7 @@ getRegisterForm(
                     : hint == null
                         ? 'johndoe@example.com'
                         : hint,
-                contentPadding:
-                    const EdgeInsets.symmetric(horizontal: 10.0, vertical: 8.0),
+                contentPadding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 8.0),
                 hintStyle: getCustomFont(size: 15.0, color: Colors.black45),
                 border: const OutlineInputBorder(borderSide: BorderSide.none)),
           )),
@@ -61,8 +53,7 @@ getRegisterForm(
             borderRadius: BorderRadius.circular(100.0),
             shadowColor: Colors.grey,
             child: Padding(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
+              padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
               child: Icon(
                 icon,
                 size: 18.0,
@@ -90,12 +81,8 @@ getRegisterPasswordForm({ctl, hint}) => Container(
             obscureText: true,
             keyboardType: TextInputType.text,
             style: getCustomFont(size: 15.0, color: Colors.black45),
-            decoration: InputDecoration(
-                hintText: hint,
-                contentPadding:
-                    const EdgeInsets.symmetric(horizontal: 10.0, vertical: 8.0),
-                hintStyle: getCustomFont(size: 15.0, color: Colors.black45),
-                border: const OutlineInputBorder(borderSide: BorderSide.none)),
+            decoration:
+                InputDecoration(hintText: hint, contentPadding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 8.0), hintStyle: getCustomFont(size: 15.0, color: Colors.black45), border: const OutlineInputBorder(borderSide: BorderSide.none)),
           )),
           PhysicalModel(
             elevation: 10.0,
@@ -103,8 +90,7 @@ getRegisterPasswordForm({ctl, hint}) => Container(
             borderRadius: BorderRadius.circular(100.0),
             shadowColor: Colors.grey,
             child: Padding(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
+              padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
               child: Icon(
                 Icons.lock_outlined,
                 size: 18.0,
@@ -129,8 +115,7 @@ getCountryForm({ctl, text = 'Nigeria'}) => Container(
         children: [
           Flexible(
               child: Padding(
-            padding:
-                const EdgeInsets.symmetric(horizontal: 10.0, vertical: 8.0),
+            padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 8.0),
             child: Text(
               '$text',
               style: getCustomFont(size: 15.0, color: Colors.black45),
@@ -142,8 +127,7 @@ getCountryForm({ctl, text = 'Nigeria'}) => Container(
             borderRadius: BorderRadius.circular(100.0),
             shadowColor: Colors.grey,
             child: Padding(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
+              padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
               child: Icon(
                 FontAwesome5.globe,
                 size: 18.0,
@@ -179,9 +163,7 @@ getPhoneNumberForm({ctl}) => Container(
                   contentPadding: const EdgeInsets.all(0.0),
                   hintText: 'Mobile Number', // default to null
                   hintStyle: getCustomFont(size: 15.0, color: Colors.black45),
-                  border: OutlineInputBorder(
-                      borderSide:
-                          BorderSide.none) // default to UnderlineInputBorder(),
+                  border: OutlineInputBorder(borderSide: BorderSide.none) // default to UnderlineInputBorder(),
                   ),
               validator: null,
               isCountryChipPersistent: false, // default
@@ -199,8 +181,7 @@ getPhoneNumberForm({ctl}) => Container(
             borderRadius: BorderRadius.circular(100.0),
             shadowColor: Colors.grey,
             child: Padding(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
+              padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
               child: Icon(
                 Icons.smartphone,
                 size: 18.0,
@@ -223,29 +204,22 @@ Widget socialAccount(icon, color, {callBack}) => GestureDetector(
         ),
         width: 45.0,
         height: 45.0,
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(7.0), color: color),
+        decoration: BoxDecoration(borderRadius: BorderRadius.circular(7.0), color: color),
       ),
     );
 
-getButton(context, callBack,
-        {text = 'Sign In', color = BLUECOLOR, textcolor = Colors.white}) =>
-    GestureDetector(
+getButton(context, callBack, {text = 'Sign In', color = BLUECOLOR, textcolor = Colors.white}) => GestureDetector(
       onTap: () => callBack(),
       child: Container(
         width: MediaQuery.of(context).size.width,
         height: 45.0,
-        decoration: BoxDecoration(
-            color: color, borderRadius: BorderRadius.circular(100.0)),
+        decoration: BoxDecoration(color: color, borderRadius: BorderRadius.circular(100.0)),
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 13.0),
           child: Center(
             child: Text(
               text,
-              style: GoogleFonts.poppins(
-                  fontSize: 17.0,
-                  color: textcolor,
-                  fontWeight: FontWeight.normal),
+              style: GoogleFonts.poppins(fontSize: 17.0, color: textcolor, fontWeight: FontWeight.normal),
             ),
           ),
         ),
@@ -255,15 +229,11 @@ getButton(context, callBack,
 getOtpForm({ctl, node, onChange}) => Container(
       width: 55.0,
       height: 45.0,
-      decoration: BoxDecoration(
-          color: Colors.white,
-          border: Border.all(color: Colors.grey, width: 1.0),
-          borderRadius: BorderRadius.circular(4.0)),
+      decoration: BoxDecoration(color: Colors.white, border: Border.all(color: Colors.grey, width: 1.0), borderRadius: BorderRadius.circular(4.0)),
       child: TextFormField(
         controller: ctl,
         focusNode: node,
-        style: getCustomFont(
-            size: 16.0, color: Colors.black, weight: FontWeight.w500),
+        style: getCustomFont(size: 16.0, color: Colors.black, weight: FontWeight.w500),
         inputFormatters: [
           LengthLimitingTextInputFormatter(1),
         ],
@@ -271,11 +241,7 @@ getOtpForm({ctl, node, onChange}) => Container(
         textAlign: TextAlign.center,
         keyboardType: TextInputType.numberWithOptions(decimal: false),
         maxLines: 1,
-        decoration: InputDecoration(
-            contentPadding: const EdgeInsets.all(8.0),
-            border: OutlineInputBorder(
-                borderSide: BorderSide.none,
-                borderRadius: BorderRadius.circular(8.0))),
+        decoration: InputDecoration(contentPadding: const EdgeInsets.all(8.0), border: OutlineInputBorder(borderSide: BorderSide.none, borderRadius: BorderRadius.circular(8.0))),
       ),
     );
 
@@ -290,17 +256,7 @@ navDrawer(BuildContext context, scaffold, box) => Container(
             height: 150.0,
             width: MediaQuery.of(context).size.width,
             color: BLUECOLOR,
-            child:
-                Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-              const SizedBox(
-                height: 10.0,
-              ),
-              GestureDetector(
-                  onTap: () => scaffold.currentState!.closeDrawer(),
-                  child: Icon(Icons.keyboard_backspace, color: Colors.white)),
-              const SizedBox(
-                height: 7.0,
-              ),
+            child: Column(mainAxisAlignment: MainAxisAlignment.center, crossAxisAlignment: CrossAxisAlignment.start, children: [
               Row(
                 children: [
                   InkWell(
@@ -309,7 +265,7 @@ navDrawer(BuildContext context, scaffold, box) => Container(
                     },
                     child: CircleAvatar(
                       backgroundImage: NetworkImage(''),
-                      radius: 30.0,
+                      radius: 40.0,
                       backgroundColor: Colors.white,
                     ),
                   ),
@@ -319,8 +275,7 @@ navDrawer(BuildContext context, scaffold, box) => Container(
                   Flexible(
                       child: Text(
                     'John Deo',
-                    style: GoogleFonts.poppins(
-                        fontSize: 15.0, color: Colors.white),
+                    style: GoogleFonts.poppins(fontSize: 15.0, color: Colors.white),
                   ))
                 ],
               ),
@@ -358,18 +313,14 @@ navDrawer(BuildContext context, scaffold, box) => Container(
                             Flexible(
                                 child: Text(
                               e.title,
-                              style: GoogleFonts.poppins(
-                                  fontSize: 15.0,
-                                  fontWeight: FontWeight.w500,
-                                  color: Colors.black87.withOpacity(.7)),
+                              style: GoogleFonts.poppins(fontSize: 15.0, fontWeight: FontWeight.w500, color: Colors.black87.withOpacity(.7)),
                             ))
                           ]),
                         ),
                       );
                     }
                     return ExpansionTile(
-                        tilePadding: const EdgeInsets.only(
-                            left: 15.0, right: 15.0, bottom: 5.0),
+                        tilePadding: const EdgeInsets.only(left: 15.0, right: 15.0, bottom: 5.0),
                         leading: CircleAvatar(
                           radius: 18.0,
                           backgroundColor: BLUECOLOR,
@@ -381,24 +332,16 @@ navDrawer(BuildContext context, scaffold, box) => Container(
                         ),
                         title: Text(
                           e.title,
-                          style: GoogleFonts.poppins(
-                              fontSize: 15.0,
-                              fontWeight: FontWeight.w500,
-                              color: Colors.black87.withOpacity(.7)),
+                          style: GoogleFonts.poppins(fontSize: 15.0, fontWeight: FontWeight.w500, color: Colors.black87.withOpacity(.7)),
                         ),
                         children: e.children.map((entries) {
                           return GestureDetector(
-                            onTap: () =>
-                                setChildrenClickListener(entries, context),
+                            onTap: () => setChildrenClickListener(entries, context),
                             child: Padding(
-                              padding: const EdgeInsets.symmetric(
-                                  horizontal: 50.0, vertical: 13.0),
+                              padding: const EdgeInsets.symmetric(horizontal: 50.0, vertical: 13.0),
                               child: SizedBox(
                                 width: MediaQuery.of(context).size.width,
-                                child: Text(entries['title'],
-                                    style: getCustomFont(
-                                        size: 14.0,
-                                        color: Colors.black87.withOpacity(.7))),
+                                child: Text(entries['title'], style: getCustomFont(size: 14.0, color: Colors.black87.withOpacity(.7))),
                               ),
                             ),
                           );
@@ -497,9 +440,6 @@ setChildrenClickListener(e, BuildContext context) {
     case 32:
       showRequestSheet(context, MedicineList());
       break;
-      
-      
-
   }
 }
 
@@ -570,13 +510,10 @@ Widget dropDown({list, text, label}) => Padding(
                         '$label',
                         style: getCustomFont(size: 12.0, color: Colors.black),
                       ),
-                      labelStyle:
-                          getCustomFont(size: 12.0, color: Colors.black),
-                      contentPadding: const EdgeInsets.symmetric(
-                          horizontal: 9.9, vertical: 5.0),
+                      labelStyle: getCustomFont(size: 12.0, color: Colors.black),
+                      contentPadding: const EdgeInsets.symmetric(horizontal: 9.9, vertical: 5.0),
                       border: OutlineInputBorder(
-                        borderRadius:
-                            const BorderRadius.all(Radius.circular(5.0)),
+                        borderRadius: const BorderRadius.all(Radius.circular(5.0)),
                         borderSide: BorderSide(width: 1.0, color: Colors.grey),
                       ),
                     ),
@@ -586,8 +523,7 @@ Widget dropDown({list, text, label}) => Padding(
                               value: gender,
                               child: Text(
                                 gender,
-                                style: getCustomFont(
-                                    size: 13.0, color: Colors.black),
+                                style: getCustomFont(size: 13.0, color: Colors.black),
                               ),
                             ))
                         .toList(),
@@ -603,14 +539,11 @@ Widget dropDown({list, text, label}) => Padding(
       ),
     );
 
-Widget createPrescriptionButton(BuildContext context, icon, text, {callBack}) =>
-    Container(
+Widget createPrescriptionButton(BuildContext context, icon, text, {callBack}) => Container(
       width: MediaQuery.of(context).size.width,
       height: 45.0,
       padding: const EdgeInsets.symmetric(horizontal: 20.0),
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(100.0),
-          color: Colors.grey.shade200),
+      decoration: BoxDecoration(borderRadius: BorderRadius.circular(100.0), color: Colors.grey.shade200),
       child: Row(
         children: [
           Icon(
@@ -623,8 +556,7 @@ Widget createPrescriptionButton(BuildContext context, icon, text, {callBack}) =>
           ),
           Text(
             text,
-            style: getCustomFont(
-                size: 15.0, color: Colors.black, weight: FontWeight.w500),
+            style: getCustomFont(size: 15.0, color: Colors.black, weight: FontWeight.w500),
           )
         ],
       ),
@@ -636,9 +568,7 @@ getCouponCode(context, {ctl}) {
     child: Container(
       width: MediaQuery.of(context).size.width,
       height: 40.0,
-      decoration: BoxDecoration(
-          border: Border.all(width: 1.0, color: Colors.grey.shade200),
-          borderRadius: BorderRadius.circular(8.0)),
+      decoration: BoxDecoration(border: Border.all(width: 1.0, color: Colors.grey.shade200), borderRadius: BorderRadius.circular(8.0)),
       child: Row(
         children: [
           Flexible(
@@ -646,20 +576,14 @@ getCouponCode(context, {ctl}) {
               style: getCustomFont(size: 14.0, color: Colors.black45),
               maxLines: 1,
               decoration: InputDecoration(
-                  hintText: 'Coupon Code',
-                  contentPadding:
-                      const EdgeInsets.only(left: 10.0, right: 10.0, top: 3.0),
-                  hintStyle: getCustomFont(size: 14.0, color: Colors.black45),
-                  border: OutlineInputBorder(borderSide: BorderSide.none)),
+                  hintText: 'Coupon Code', contentPadding: const EdgeInsets.only(left: 10.0, right: 10.0, top: 3.0), hintStyle: getCustomFont(size: 14.0, color: Colors.black45), border: OutlineInputBorder(borderSide: BorderSide.none)),
             ),
           ),
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 15.0),
             height: MediaQuery.of(context).size.height,
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.only(
-                  topRight: Radius.circular(8.0),
-                  bottomRight: Radius.circular(8.0)),
+              borderRadius: BorderRadius.only(topRight: Radius.circular(8.0), bottomRight: Radius.circular(8.0)),
               color: BLUECOLOR,
             ),
             child: Center(
@@ -679,9 +603,7 @@ Widget getCardForm(hint, {ctl}) {
     padding: const EdgeInsets.symmetric(horizontal: 0.0),
     child: Container(
       height: 48.0,
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(8.0),
-          color: Colors.grey.shade200),
+      decoration: BoxDecoration(borderRadius: BorderRadius.circular(8.0), color: Colors.grey.shade200),
       child: Row(
         children: [
           const SizedBox(
@@ -698,11 +620,7 @@ Widget getCardForm(hint, {ctl}) {
             child: TextField(
               style: getCustomFont(size: 14.0, color: Colors.black45),
               maxLines: 1,
-              decoration: InputDecoration(
-                  hintText: hint,
-                  contentPadding: const EdgeInsets.symmetric(horizontal: 10.0),
-                  hintStyle: getCustomFont(size: 14.0, color: Colors.black45),
-                  border: OutlineInputBorder(borderSide: BorderSide.none)),
+              decoration: InputDecoration(hintText: hint, contentPadding: const EdgeInsets.symmetric(horizontal: 10.0), hintStyle: getCustomFont(size: 14.0, color: Colors.black45), border: OutlineInputBorder(borderSide: BorderSide.none)),
             ),
           ),
         ],
@@ -716,15 +634,13 @@ Widget firstScroll(e) => Container(
       height: 170,
       padding: const EdgeInsets.all(15.0),
       margin: const EdgeInsets.only(right: 10.0),
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10.0), color: e['color']),
+      decoration: BoxDecoration(borderRadius: BorderRadius.circular(10.0), color: e['color']),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
             '${e['title']}',
-            style: getCustomFont(
-                size: 15.0, color: Colors.white, weight: FontWeight.bold),
+            style: getCustomFont(size: 15.0, color: Colors.white, weight: FontWeight.bold),
           ),
           Expanded(
               child: Align(
@@ -755,8 +671,7 @@ Widget secondScroll(context, e) => Container(
               fit: FlexFit.tight,
               child: Text(
                 e['title'],
-                style: getCustomFont(
-                    size: 17.0, color: Colors.white, weight: FontWeight.w500),
+                style: getCustomFont(size: 17.0, color: Colors.white, weight: FontWeight.w500),
               )),
           Image.asset(
             '${e['icon']}',
@@ -775,8 +690,7 @@ Widget thirdScroll(context, e) => GestureDetector(
           Container(
             height: 50.0,
             width: 50.0,
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10.0), color: e['color']),
+            decoration: BoxDecoration(borderRadius: BorderRadius.circular(10.0), color: e['color']),
             child: Center(
               child: Image.asset(
                 '${e['icon']}',
@@ -796,8 +710,7 @@ Widget thirdScroll(context, e) => GestureDetector(
                 FittedBox(
                     child: Text(
                   '${e['title']}',
-                  style: getCustomFont(
-                      color: Colors.black, size: 14.0, weight: FontWeight.w500),
+                  style: getCustomFont(color: Colors.black, size: 14.0, weight: FontWeight.w500),
                 )),
                 const SizedBox(
                   height: 1.0,
@@ -816,10 +729,7 @@ Widget thirdScroll(context, e) => GestureDetector(
                         child: FittedBox(
                             child: Text(
                       '${e['desc']}',
-                      style: getCustomFont(
-                          color: Colors.black45,
-                          size: 12.0,
-                          weight: FontWeight.normal),
+                      style: getCustomFont(color: Colors.black45, size: 12.0, weight: FontWeight.normal),
                     ))),
                   ],
                 )
@@ -860,25 +770,16 @@ Widget createPrescriptionNote(text) => Row(
             child: FittedBox(
                 child: Text(
           text,
-          style: getCustomFont(
-              size: 14.0, color: Colors.black, weight: FontWeight.w500),
+          style: getCustomFont(size: 14.0, color: Colors.black, weight: FontWeight.w500),
         )))
       ],
     );
 
-dashWidget(context,
-    {icon = FontAwesome5.calendar_day,
-    text = "Total Customers",
-    progress = 0.8,
-    result = '1300+',
-    color = BLUECOLOR}) {
+dashWidget(context, {icon = FontAwesome5.calendar_day, text = "Total Customers", progress = 0.8, result = '1300+', color = BLUECOLOR}) {
   return Container(
     padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 14.0),
     width: MediaQuery.of(context).size.width,
-    decoration: BoxDecoration(
-        boxShadow: SHADOW,
-        borderRadius: BorderRadius.circular(15.0),
-        color: Colors.white),
+    decoration: BoxDecoration(boxShadow: SHADOW, borderRadius: BorderRadius.circular(15.0), color: Colors.white),
     child: Column(children: [
       SizedBox(
         width: 100,
@@ -902,25 +803,21 @@ dashWidget(context,
       ),
       Text(
         '$text',
-        style: getCustomFont(
-            size: 14.0, color: Colors.black, weight: FontWeight.w500),
+        style: getCustomFont(size: 14.0, color: Colors.black, weight: FontWeight.w500),
       ),
       const SizedBox(
         height: 3.0,
       ),
       Text(
         '$result',
-        style: getCustomFont(
-            size: 17.0, color: Colors.black54, weight: FontWeight.bold),
+        style: getCustomFont(size: 17.0, color: Colors.black54, weight: FontWeight.bold),
       ),
       const SizedBox(
         height: 10.0,
       ),
       Container(
         padding: const EdgeInsets.symmetric(horizontal: 30.0, vertical: 9.0),
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(100.0),
-            color: Colors.green.shade300),
+        decoration: BoxDecoration(borderRadius: BorderRadius.circular(100.0), color: Colors.green.shade300),
         child: FittedBox(
           child: Text(
             'March 18, 2022',
@@ -945,22 +842,19 @@ appointmentButton(context, text) => Container(
       ),
       child: Center(
           child: FittedBox(
-            child: Text(
-                  text,
-                  textAlign: TextAlign.center,
-                  style: getCustomFont(size: 11.0, color: Colors.white),
-                ),
-          )),
+        child: Text(
+          text,
+          textAlign: TextAlign.center,
+          style: getCustomFont(size: 11.0, color: Colors.white),
+        ),
+      )),
     );
 
 Widget patientItem(context) => Container(
     padding: const EdgeInsets.all(15.0),
     margin: const EdgeInsets.symmetric(vertical: 4.0, horizontal: 5.0),
     width: MediaQuery.of(context).size.width,
-    decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(12.0),
-        color: Colors.white,
-        boxShadow: SHADOW),
+    decoration: BoxDecoration(borderRadius: BorderRadius.circular(12.0), color: Colors.white, boxShadow: SHADOW),
     child: Column(
       children: [
         Row(
@@ -969,8 +863,7 @@ Widget patientItem(context) => Container(
             Flexible(
               child: Text(
                 'Patient ID - PT0025',
-                style: getCustomFont(
-                    color: Colors.black54, size: 12.0, weight: FontWeight.w400),
+                style: getCustomFont(color: Colors.black54, size: 12.0, weight: FontWeight.w400),
               ),
             ),
             Flexible(
@@ -985,10 +878,7 @@ Widget patientItem(context) => Container(
                     child: Text(
                       'Florida, USA',
                       textAlign: TextAlign.end,
-                      style: getCustomFont(
-                          color: Colors.black54,
-                          size: 12.0,
-                          weight: FontWeight.w400),
+                      style: getCustomFont(color: Colors.black54, size: 12.0, weight: FontWeight.w400),
                     ),
                   ),
                 ],
@@ -1013,10 +903,7 @@ Widget patientItem(context) => Container(
                 children: [
                   Text(
                     'Michelle Fairfax',
-                    style: getCustomFont(
-                        color: Colors.black,
-                        size: 17.0,
-                        weight: FontWeight.w400),
+                    style: getCustomFont(color: Colors.black, size: 17.0, weight: FontWeight.w400),
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -1024,20 +911,14 @@ Widget patientItem(context) => Container(
                       Flexible(
                         child: Text(
                           '25 Years, Female',
-                          style: getCustomFont(
-                              color: Colors.black54,
-                              size: 13.0,
-                              weight: FontWeight.w400),
+                          style: getCustomFont(color: Colors.black54, size: 13.0, weight: FontWeight.w400),
                         ),
                       ),
                       Flexible(
                         child: FittedBox(
                           child: Text(
                             'Blood Group - O+',
-                            style: getCustomFont(
-                                color: Colors.black54,
-                                size: 12.0,
-                                weight: FontWeight.w400),
+                            style: getCustomFont(color: Colors.black54, size: 12.0, weight: FontWeight.w400),
                           ),
                         ),
                       ),
@@ -1054,8 +935,7 @@ Widget patientItem(context) => Container(
                         borderRadius: BorderRadius.circular(100.0),
                         shadowColor: Colors.grey,
                         child: Padding(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 5.0, vertical: 5.0),
+                          padding: const EdgeInsets.symmetric(horizontal: 5.0, vertical: 5.0),
                           child: Icon(
                             Icons.phone,
                             size: 19.0,
@@ -1070,10 +950,7 @@ Widget patientItem(context) => Container(
                         child: FittedBox(
                           child: Text(
                             '+1 504 368 6874',
-                            style: getCustomFont(
-                                color: Colors.black54,
-                                size: 13.0,
-                                weight: FontWeight.w400),
+                            style: getCustomFont(color: Colors.black54, size: 13.0, weight: FontWeight.w400),
                           ),
                         ),
                       ),
@@ -1098,13 +975,7 @@ Widget dashHeader(context) => Positioned(
           width: MediaQuery.of(context).size.width,
           padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 6.0),
           margin: const EdgeInsets.symmetric(horizontal: 20.0),
-          decoration: BoxDecoration(boxShadow: [
-            BoxShadow(
-                color: Colors.black26,
-                spreadRadius: 1.0,
-                blurRadius: 10.0,
-                offset: Offset(0.0, 1.0))
-          ], color: Colors.white, borderRadius: BorderRadius.circular(15.0)),
+          decoration: BoxDecoration(boxShadow: [BoxShadow(color: Colors.black26, spreadRadius: 1.0, blurRadius: 10.0, offset: Offset(0.0, 1.0))], color: Colors.white, borderRadius: BorderRadius.circular(15.0)),
           child: Row(
             children: [
               ClipRRect(
@@ -1125,18 +996,12 @@ Widget dashHeader(context) => Positioned(
                   children: [
                     Text(
                       'Dr. Darren Elder',
-                      style: getCustomFont(
-                          size: 17.0,
-                          color: Colors.black,
-                          weight: FontWeight.w400),
+                      style: getCustomFont(size: 17.0, color: Colors.black, weight: FontWeight.w400),
                     ),
                     FittedBox(
                       child: Text(
                         'BDS, MDS - Oral & Maxillofacial Surgery',
-                        style: getCustomFont(
-                            size: 12.0,
-                            color: Colors.black54,
-                            weight: FontWeight.w400),
+                        style: getCustomFont(size: 12.0, color: Colors.black54, weight: FontWeight.w400),
                       ),
                     ),
                     const SizedBox(
@@ -1150,8 +1015,7 @@ Widget dashHeader(context) => Positioned(
                           borderRadius: BorderRadius.circular(100.0),
                           shadowColor: Colors.grey,
                           child: Padding(
-                              padding: const EdgeInsets.symmetric(
-                                  horizontal: 5.0, vertical: 5.0),
+                              padding: const EdgeInsets.symmetric(horizontal: 5.0, vertical: 5.0),
                               child: Image.asset(
                                 'assets/imgs/tooth.png',
                                 width: 15.0,
@@ -1164,10 +1028,7 @@ Widget dashHeader(context) => Positioned(
                         ),
                         Text(
                           'Dentist',
-                          style: getCustomFont(
-                              color: Colors.black54,
-                              size: 13.0,
-                              weight: FontWeight.w400),
+                          style: getCustomFont(color: Colors.black54, size: 13.0, weight: FontWeight.w400),
                         ),
                       ],
                     ),
@@ -1181,19 +1042,13 @@ Widget dashHeader(context) => Positioned(
                           child: FittedBox(
                             child: Text(
                               '+15 Years Exp.',
-                              style: getCustomFont(
-                                  size: 13.0,
-                                  color: Colors.red,
-                                  weight: FontWeight.w400),
+                              style: getCustomFont(size: 13.0, color: Colors.red, weight: FontWeight.w400),
                             ),
                           ),
                         ),
                         Text(
                           '(Lagos, Nigeria)',
-                          style: getCustomFont(
-                              size: 12.0,
-                              color: Colors.black45,
-                              weight: FontWeight.w400),
+                          style: getCustomFont(size: 12.0, color: Colors.black45, weight: FontWeight.w400),
                         ),
                       ],
                     )
@@ -1208,10 +1063,7 @@ Widget productItem(BuildContext context) => GestureDetector(
       onTap: () => Get.to(() => ProductDetails()),
       child: Container(
         width: MediaQuery.of(context).size.width,
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(15.0),
-            boxShadow: SHADOW,
-            color: Colors.white),
+        decoration: BoxDecoration(borderRadius: BorderRadius.circular(15.0), boxShadow: SHADOW, color: Colors.white),
         child: Stack(
           children: [
             Padding(
@@ -1236,10 +1088,7 @@ Widget productItem(BuildContext context) => GestureDetector(
                   ),
                   Text(
                     '\$5.50',
-                    style: getCustomFont(
-                        size: 15.0,
-                        color: Colors.black,
-                        weight: FontWeight.bold),
+                    style: getCustomFont(size: 15.0, color: Colors.black, weight: FontWeight.bold),
                   )
                 ],
               ),
@@ -1249,11 +1098,7 @@ Widget productItem(BuildContext context) => GestureDetector(
               child: Container(
                 width: 30.0,
                 height: 35.0,
-                decoration: BoxDecoration(
-                    color: BLUECOLOR,
-                    borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(15.0),
-                        bottomRight: Radius.circular(15.0))),
+                decoration: BoxDecoration(color: BLUECOLOR, borderRadius: BorderRadius.only(topLeft: Radius.circular(15.0), bottomRight: Radius.circular(15.0))),
                 child: Center(
                   child: Icon(
                     Icons.add,

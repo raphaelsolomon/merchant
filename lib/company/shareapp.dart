@@ -15,8 +15,7 @@ class ShareApp extends StatelessWidget {
         color: Color(0xFFf6f6f6),
         child: Column(children: [
           Container(
-            padding:
-                const EdgeInsets.symmetric(horizontal: 15.0, vertical: 0.0),
+            padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 0.0),
             width: MediaQuery.of(context).size.width,
             color: BLUECOLOR,
             child: Column(children: [
@@ -26,24 +25,17 @@ class ShareApp extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  GestureDetector(
-                      onTap: () =>
-                          context.read<HomeController>().onBackPress(),
-                      child: Icon(Icons.arrow_back_ios,
-                          size: 18.0, color: Colors.white)),
-                 
-                  Text('Share The Love',
-                      style:
-                          getCustomFont(size: 15.0, color: Colors.white)),
+                  GestureDetector(onTap: () => context.read<HomeController>().onBackPress(), child: Icon(Icons.arrow_back_ios, size: 18.0, color: Colors.white)),
+                  Text('Share The Love', style: getCustomFont(size: 18.0, color: Colors.white)),
                   Icon(
                     null,
                     color: Colors.white,
                   )
                 ],
               ),
-               const SizedBox(
-            height: 15.0,
-          ),
+              const SizedBox(
+                height: 15.0,
+              ),
             ]),
           ),
           Expanded(
@@ -56,7 +48,7 @@ class ShareApp extends StatelessWidget {
                     height: 20.0,
                   ),
                   Image.asset(
-                    'assets/auth/1.jpeg',
+                    'assets/auth/share.png',
                     width: 200,
                     height: 200.0,
                     fit: BoxFit.contain,
@@ -67,10 +59,7 @@ class ShareApp extends StatelessWidget {
                   Text(
                     'Share the app link to friends, colleges, and family members and get a 2% cash on their purchase!',
                     textAlign: TextAlign.center,
-                    style: getCustomFont(
-                        size: 15.0,
-                        color: Colors.black87,
-                        weight: FontWeight.w400),
+                    style: getCustomFont(size: 15.0, color: Colors.black87, weight: FontWeight.w400),
                   ),
                   const SizedBox(
                     height: 20.0,
@@ -78,21 +67,15 @@ class ShareApp extends StatelessWidget {
                   Text(
                     'Share you code:',
                     textAlign: TextAlign.center,
-                    style: getCustomFont(
-                        size: 13.0,
-                        color: Colors.black45,
-                        weight: FontWeight.w400),
+                    style: getCustomFont(size: 13.0, color: Colors.black45, weight: FontWeight.w400),
                   ),
                   const SizedBox(
                     height: 10.0,
                   ),
                   Container(
                     margin: const EdgeInsets.symmetric(horizontal: 60.0),
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 20.0, vertical: 10.0),
-                    decoration: BoxDecoration(
-                        color: BLUECOLOR.withOpacity(.05),
-                        borderRadius: BorderRadius.circular(5.0)),
+                    padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+                    decoration: BoxDecoration(color: BLUECOLOR.withOpacity(.05), borderRadius: BorderRadius.circular(5.0)),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       mainAxisSize: MainAxisSize.min,
@@ -114,10 +97,7 @@ class ShareApp extends StatelessWidget {
                   Text(
                     'Share your friend by using any of the platform',
                     textAlign: TextAlign.center,
-                    style: getCustomFont(
-                        size: 18.0,
-                        color: Colors.black87,
-                        weight: FontWeight.w700),
+                    style: getCustomFont(size: 18.0, color: Colors.black87, weight: FontWeight.w700),
                   ),
                   const SizedBox(
                     height: 25.0,
@@ -127,11 +107,9 @@ class ShareApp extends StatelessWidget {
                     children: [
                       social(Icons.facebook, BLUECOLOR),
                       social(FontAwesome.twitter, Colors.lightBlueAccent),
-                      social(
-                          FontAwesome.google_plus_circle, Colors.red.shade300),
+                      social(FontAwesome.google_plus_circle, Colors.red.shade300),
                     ],
                   ),
-                  
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
@@ -150,10 +128,7 @@ class ShareApp extends StatelessWidget {
   social(icon, color) => Container(
       padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 8.0),
       margin: const EdgeInsets.all(5.0),
-      decoration: BoxDecoration(
-          color: Colors.white,
-          border: Border.all(width: 1.0, color: Colors.grey.shade400),
-          borderRadius: BorderRadius.circular(100.0)),
+      decoration: BoxDecoration(color: Colors.white, border: Border.all(width: 1.0, color: Colors.grey.shade400), borderRadius: BorderRadius.circular(100.0)),
       child: Icon(
         icon,
         color: color,
