@@ -160,7 +160,7 @@ List ONBOARDING = [
   }
 ];
 
-final SHADOW = [BoxShadow(color: Colors.black12, spreadRadius: 1.0, blurRadius: 10.0, offset: Offset(0.0, 1.0))];
+final SHADOW = [BoxShadow(color: Colors.grey.shade300, spreadRadius: 1.0, blurRadius: 5.0, offset: Offset(0.0, 1.0))];
 
 const BLUECOLOR = Color(0xFF00329B);
 const BODYTEXT = Color(0xFF373737);

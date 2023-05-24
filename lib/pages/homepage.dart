@@ -268,10 +268,10 @@ class _HomePageState extends State<HomePage> {
   Widget horizontalItem(homeItem1) => GestureDetector(
         child: Container(
           width: 160.0,
-          height: 207.0,
+          height: 210.0,
           padding: const EdgeInsets.all(15.0),
-          margin: const EdgeInsets.only(right: 10.0),
-          decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(10.0)),
+          margin: const EdgeInsets.only(right: 10.0, top: 4.0, bottom: 4.0, left: 10.0),
+          decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(10.0), boxShadow: SHADOW),
           child: Column(
             children: [
               Image.asset(
@@ -281,12 +281,12 @@ class _HomePageState extends State<HomePage> {
                 fit: BoxFit.contain,
               ),
               const SizedBox(
-                height: 10.0,
+                height: 6.0,
               ),
               Text(
                 '${homeItem1['title']}',
                 textAlign: TextAlign.center,
-                style: getCustomFont(size: 15.5, color: Colors.black, weight: FontWeight.w600),
+                style: getCustomFont(size: 13.5, color: Colors.black, weight: FontWeight.w600),
               ),
               const SizedBox(
                 height: 5.0,
@@ -294,8 +294,8 @@ class _HomePageState extends State<HomePage> {
               Text(
                 '${homeItem1['desc']}',
                 textAlign: TextAlign.center,
-                maxLines: 3,
-                style: getCustomFont(size: 12.0, color: Colors.black45, weight: FontWeight.w400),
+                maxLines: 2,
+                style: getCustomFont(size: 11.0, color: Colors.black45, weight: FontWeight.w400),
               ),
               const SizedBox(
                 height: 2.0,

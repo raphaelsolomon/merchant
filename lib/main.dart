@@ -34,8 +34,7 @@ Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
 // 4M5F6CFH72
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  Platform.isIOS ? await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform)
-      : await Firebase.initializeApp(name: 'merchant', options: DefaultFirebaseOptions.currentPlatform);
+  Platform.isIOS ? await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform) : await Firebase.initializeApp(name: 'merchant', options: DefaultFirebaseOptions.currentPlatform);
   final RemoteMessage? remoteMessage = await FirebaseMessaging.instance.getInitialMessage();
   if (remoteMessage != null) {
     print(remoteMessage);
@@ -66,10 +65,7 @@ Future<void> main() async {
             children: [
               Text(
                 details.exceptionAsString(),
-                style: const TextStyle(
-                    fontSize: 14.0,
-                    fontWeight: FontWeight.w300,
-                    color: Colors.white),
+                style: const TextStyle(fontSize: 14.0, fontWeight: FontWeight.w300, color: Colors.white),
                 textAlign: TextAlign.center,
               )
             ],
@@ -86,6 +82,7 @@ class MyApp extends StatefulWidget {
   @override
   State<MyApp> createState() => _MyAppState();
 }
+
 class _MyAppState extends State<MyApp> {
   // This widget is the root of your application.
   final box = Hive.box('Initialization');
@@ -93,7 +90,7 @@ class _MyAppState extends State<MyApp> {
 
   @override
   void initState() {
-   // context.read<UserProvider>().executeThis();
+    // context.read<UserProvider>().executeThis();
     super.initState();
   }
 
@@ -117,48 +114,39 @@ class _MyAppState extends State<MyApp> {
           return false;
         },
         child: GetMaterialApp(
-          localizationsDelegates: const [
-            RefreshLocalizations.delegate,
-            GlobalMaterialLocalizations.delegate,
-            GlobalWidgetsLocalizations.delegate,
-            GlobalCupertinoLocalizations.delegate,
-            PhoneFieldLocalization.delegate
-          ],
-          locale: Locale('en'),
-          supportedLocales: const [
-            const Locale('en'),
-            const Locale('zh'),
-            const Locale('ja'),
-            const Locale('uk'),
-            const Locale('it'),
-            const Locale('ru'),
-            const Locale('fr'),
-            const Locale('es'),
-            const Locale('nl'),
-            const Locale('sv'),
-            const Locale('pt'),
-            const Locale('ko'),
-          ],
-          localeListResolutionCallback: (locales, supportedLocales) {
-            return locales!.first;
-          },
-          title: 'Merchant',
-          defaultTransition: Transition.zoom,
-          debugShowCheckedModeBanner: true,
-          builder: (context, child) => ScrollConfiguration(
-            child: child!,
-            behavior: ScrollBehavior(),
-          ),
-          theme: ThemeData(
-              visualDensity: VisualDensity.adaptivePlatformDensity,
-              primarySwatch: Colors.blue,
-              primaryColor: Colors.black54),
-          home: box.get('isFirst') == null
-              ? const OnBoardingScreen()
-              : user.get(USERPATH) == null
-                  ? const AuthLogin()
-                  : PageSelection() //DashBoard(),
-        ),
+            localizationsDelegates: const [RefreshLocalizations.delegate, GlobalMaterialLocalizations.delegate, GlobalWidgetsLocalizations.delegate, GlobalCupertinoLocalizations.delegate, PhoneFieldLocalization.delegate],
+            locale: Locale('en'),
+            supportedLocales: const [
+              const Locale('en'),
+              const Locale('zh'),
+              const Locale('ja'),
+              const Locale('uk'),
+              const Locale('it'),
+              const Locale('ru'),
+              const Locale('fr'),
+              const Locale('es'),
+              const Locale('nl'),
+              const Locale('sv'),
+              const Locale('pt'),
+              const Locale('ko'),
+            ],
+            localeListResolutionCallback: (locales, supportedLocales) {
+              return locales!.first;
+            },
+            title: 'Merchant',
+            defaultTransition: Transition.zoom,
+            debugShowCheckedModeBanner: true,
+            builder: (context, child) => ScrollConfiguration(
+                  child: child!,
+                  behavior: ScrollBehavior(),
+                ),
+            theme: ThemeData(visualDensity: VisualDensity.adaptivePlatformDensity, primarySwatch: Colors.blue, primaryColor: Colors.black54),
+            home: box.get('isFirst') == null
+                ? const OnBoardingScreen()
+                : user.get(USERPATH) == null
+                    ? const AuthLogin()
+                    : PageSelection() //DashBoard(),
+            ),
       ),
     );
   }
